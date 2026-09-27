@@ -43,6 +43,7 @@ public class AdSegmentIndexer {
     private static final double TRANSCRIPT_TEMPERATURE_STEP = 0.4;
     private static final double WORDS_PER_SECOND = 2.5;
     private static final long START_SILENCE_MS = 3000;
+    private static final double MAX_TIMING_MISFIT = 0.7;
     private static final long MAX_PART_DURATION_MS = 8 * 60 * 60 * 1000L;
     private static final long TIMESTAMP_TOLERANCE_MS = 5000;
     private static final long MERGE_GAP_MS = 5000;
@@ -157,7 +158,7 @@ public class AdSegmentIndexer {
         String best = null;
         String fallback = "";
         double bestMisfit = Double.MAX_VALUE;
-        for (int attempt = 0; attempt < CLIP_ATTEMPTS && best == null; attempt++) {
+        for (int attempt = 0; attempt < CLIP_ATTEMPTS && bestMisfit > MAX_TIMING_MISFIT; attempt++) {
             JSONObject uploadedFile = upload(file, byteStart, byteEnd, mimeType);
             List<String> transcripts;
             try {
@@ -180,8 +181,8 @@ public class AdSegmentIndexer {
                     best = transcript;
                 }
             }
-            if (best == null) {
-                Log.d(TAG, "Transcripts of clip at " + clipStartMs + " have invalid timestamps, retrying");
+            if (bestMisfit > MAX_TIMING_MISFIT) {
+                Log.d(TAG, "Transcripts of clip at " + clipStartMs + " have wrong timestamps, retrying");
             }
         }
         parseTranscript(best != null ? best : fallback, 0, clipLength, clipStartMs, lines);
