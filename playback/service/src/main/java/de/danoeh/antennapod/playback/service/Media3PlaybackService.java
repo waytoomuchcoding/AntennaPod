@@ -3,6 +3,7 @@ package de.danoeh.antennapod.playback.service;
 import android.content.Intent;
 import android.media.audiofx.LoudnessEnhancer;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.webkit.URLUtil;
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ import de.danoeh.antennapod.event.playback.PlaybackPositionEvent;
 import de.danoeh.antennapod.event.playback.PlaybackServiceEvent;
 import de.danoeh.antennapod.event.playback.SleepTimerUpdatedEvent;
 import de.danoeh.antennapod.event.playback.SpeedChangedEvent;
+import de.danoeh.antennapod.model.feed.AdSegment;
 import de.danoeh.antennapod.model.feed.Chapter;
 import de.danoeh.antennapod.model.feed.FeedItem;
 import de.danoeh.antennapod.model.feed.FeedMedia;
@@ -85,6 +87,8 @@ public class Media3PlaybackService extends MediaLibraryService {
     private static final long POSITION_SAVE_INTERVAL_MS = 5000;
     private ExoPlayer exoPlayer;
     private Player player;
+    private long adSkipAllowedMediaId = -1;
+    private long adSkipAllowedStart = -1;
     private MediaLibrarySession mediaSession;
     private FeedMedia currentPlayable;
     private String pendingStreamMediaId;
@@ -171,13 +175,15 @@ public class Media3PlaybackService extends MediaLibraryService {
 
             @Override
             public void seekBack() {
-                seekTo(Math.max(0, getCurrentPosition() - UserPreferences.getRewindSecs() * 1000L));
+                seekTo(AdSegment.skipBackward(getActiveAdSegments(), getCurrentPosition(),
+                        UserPreferences.getRewindSecs() * 1000L));
             }
 
             @Override
             public void seekForward() {
                 long duration = getDuration();
-                long target = getCurrentPosition() + UserPreferences.getFastForwardSecs() * 1000L;
+                long target = AdSegment.skipForward(getActiveAdSegments(), getCurrentPosition(),
+                        UserPreferences.getFastForwardSecs() * 1000L);
 
                 if (duration > 0 && target >= duration) {
                     handlePlaybackEnded();
@@ -448,7 +454,9 @@ public class Media3PlaybackService extends MediaLibraryService {
                                 }
                                 if (SkipUtils.skipEndingIfNecessary(this, currentPlayable, position, duration, speed)) {
                                     player.seekTo(player.getDuration());
+                                    return;
                                 }
+                                skipAdIfNecessary(position, duration);
                             }
                         }, error -> Log.e(TAG, "Position observer error", error));
     }
@@ -863,6 +871,55 @@ public class Media3PlaybackService extends MediaLibraryService {
             currentPlayable = null;
             PlaybackPreferences.writeNoMediaPlaying();
             EventBus.getDefault().post(new PlayerStatusEvent());
+        } else if (index >= 0) {
+            final FeedMedia media = currentPlayable;
+            Schedulers.io().scheduleDirect(() -> {
+                FeedMedia updatedMedia = DBReader.getFeedMedia(media.getId());
+                if (updatedMedia != null) {
+                    media.setAdSegments(updatedMedia.getAdSegments());
+                }
+            });
+        }
+    }
+
+    @Nullable
+    private List<AdSegment> getActiveAdSegments() {
+        if (currentPlayable == null || !UserPreferences.isAdSkippingEnabled()) {
+            return null;
+        }
+        FeedItem item = currentPlayable.getItem();
+        if (item != null && item.getFeed() != null && item.getFeed().getPreferences() != null
+                && !item.getFeed().getPreferences().isAdSkippingEnabled()) {
+            return null;
+        }
+        return AdSegment.getSkippable(currentPlayable.getAdSegments(), UserPreferences.shouldSkipSelfPromos());
+    }
+
+    @OptIn(markerClass = UnstableApi.class)
+    private void skipAdIfNecessary(long position, long duration) {
+        AdSegment adSegment = AdSegment.getSegmentAt(getActiveAdSegments(), position);
+        if (adSegment == null || position < adSegment.getStart() + UserPreferences.getAdSkipDelaySecs() * 1000L) {
+            return;
+        }
+        final long mediaId = currentPlayable.getId();
+        if (adSkipAllowedMediaId == mediaId && adSkipAllowedStart == adSegment.getStart()) {
+            return;
+        }
+        UserPreferences.addSkippedAdTime(Math.max(0, Math.min(adSegment.getEnd(), duration) - position));
+        String message = getString(adSegment.getType() == AdSegment.TYPE_SELF_PROMO
+                ? R.string.ad_skipped_self_promo : R.string.ad_skipped,
+                DateUtils.formatElapsedTime(adSegment.getDuration() / 1000));
+        EventBus.getDefault().post(new MessageEvent(message, context -> {
+            adSkipAllowedMediaId = mediaId;
+            adSkipAllowedStart = adSegment.getStart();
+            if (player != null && currentPlayable != null && currentPlayable.getId() == mediaId) {
+                player.seekTo(adSegment.getStart());
+            }
+        }, getString(R.string.undo)));
+        if (adSegment.getEnd() >= duration - 1000) {
+            handlePlaybackEnded();
+        } else {
+            player.seekTo(adSegment.getEnd());
         }
     }
 
