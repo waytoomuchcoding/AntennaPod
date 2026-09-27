@@ -93,6 +93,11 @@ public abstract class UserPreferences {
     public static final String PREF_PAUSE_PLAYBACK_FOR_FOCUS_LOSS = "prefPauseForFocusLoss";
     private static final String PREF_TIME_RESPECTS_SPEED = "prefPlaybackTimeRespectsSpeed";
     public static final String PREF_STREAM_OVER_DOWNLOAD = "prefStreamOverDownload";
+    public static final String PREF_AD_SKIPPING = "prefAdSkipping";
+    public static final String PREF_GEMINI_API_KEY = "prefGeminiApiKey";
+    public static final String PREF_AD_SKIP_SELF_PROMOS = "prefAdSkipSelfPromos";
+    public static final String PREF_AD_SKIP_DELAY = "prefAdSkipDelay";
+    private static final String PREF_SKIPPED_AD_TIME = "prefSkippedAdTime";
 
     // Network
     private static final String PREF_ENQUEUE_DOWNLOADED = "prefEnqueueDownloaded";
@@ -577,6 +582,30 @@ public abstract class UserPreferences {
 
     public static boolean isEnableAutodownloadOnBattery() {
         return prefs.getBoolean(PREF_ENABLE_AUTODL_ON_BATTERY, true);
+    }
+
+    public static boolean isAdSkippingEnabled() {
+        return prefs.getBoolean(PREF_AD_SKIPPING, false);
+    }
+
+    public static String getGeminiApiKey() {
+        return prefs.getString(PREF_GEMINI_API_KEY, "").trim();
+    }
+
+    public static boolean shouldSkipSelfPromos() {
+        return prefs.getBoolean(PREF_AD_SKIP_SELF_PROMOS, true);
+    }
+
+    public static int getAdSkipDelaySecs() {
+        return Integer.parseInt(prefs.getString(PREF_AD_SKIP_DELAY, "0"));
+    }
+
+    public static long getSkippedAdTime() {
+        return prefs.getLong(PREF_SKIPPED_AD_TIME, 0);
+    }
+
+    public static void addSkippedAdTime(long millis) {
+        prefs.edit().putLong(PREF_SKIPPED_AD_TIME, getSkippedAdTime() + millis).apply();
     }
 
     public static int getFastForwardSecs() {
