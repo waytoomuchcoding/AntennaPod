@@ -501,8 +501,17 @@
     <string name="pref_feed_ad_skipping_sum">Skip ads detected in episodes of this podcast</string>
     <string name="ad_skipped">Skipped ad (%1$s)</string>
     <string name="ad_skipped_self_promo">Skipped show promo (%1$s)</string>
+    <string name="ad_breaks">Ad breaks</string>
+    <string name="ad_breaks_none">No ads were detected in this episode</string>
+    <string name="ad_breaks_not_indexed">This episode has not been checked for ads yet</string>
+    <string name="ad_break_type_ad">Ad</string>
+    <string name="ad_break_type_self_promo">Show promo</string>
+    <string name="ad_break_label">%1$s: %2$s \u2013 %3$s</string>
+    <string name="ads_detected">Ads detected</string>
+    <string name="ads_detecting">Detecting ads</string>
     <string name="ad_detection_quota_title">Ad detection paused</string>
     <string name="ad_detection_quota_message">The Gemini API quota is used up. Ads will be detected automatically once the quota resets.</string>
+    <string name="statistics_ads_skipped">Ads skipped: %1$s</string>
     <string name="pref_favorite_keeps_episodes_sum">Keep episodes when they are marked favorite</string>
     <string name="pref_favorite_keeps_episodes_title">Keep favorite episodes</string>
     <string name="playback_pref">Playback</string>

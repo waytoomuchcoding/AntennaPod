@@ -37,6 +37,13 @@
     </item>
 
     <item
+        android:id="@+id/ad_breaks_item"
+        android:title="@string/ad_breaks"
+        android:visible="false"
+        custom:showAsAction="never">
+    </item>
+
+    <item
         android:id="@+id/playback_speed"
         android:title="@string/playback_speed"
         android:visible="false"

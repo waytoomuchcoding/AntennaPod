@@ -26,6 +26,7 @@ import de.danoeh.antennapod.model.feed.FeedItem;
 import de.danoeh.antennapod.model.feed.FeedMedia;
 import de.danoeh.antennapod.model.playback.MediaType;
 import de.danoeh.antennapod.net.download.serviceinterface.DownloadServiceInterface;
+import de.danoeh.antennapod.net.download.service.episode.AdSegmentIndexWorker;
 import de.danoeh.antennapod.storage.preferences.UserPreferences;
 import de.danoeh.antennapod.ui.common.Converter;
 import de.danoeh.antennapod.net.common.NetworkUtils;
@@ -51,6 +52,7 @@ public class EpisodeItemViewHolder extends RecyclerView.ViewHolder {
     public final ImageView isInbox;
     public final ImageView isInQueue;
     private final ImageView isVideo;
+    private final ImageView hasAds;
     public final ImageView isFavorite;
     private final ProgressBar progressBar;
     public final View secondaryActionButton;
@@ -78,6 +80,7 @@ public class EpisodeItemViewHolder extends RecyclerView.ViewHolder {
         progressBar = itemView.findViewById(R.id.progressBar);
         isInQueue = itemView.findViewById(R.id.ivInPlaylist);
         isVideo = itemView.findViewById(R.id.ivIsVideo);
+        hasAds = itemView.findViewById(R.id.ivHasAds);
         isInbox = itemView.findViewById(R.id.statusInbox);
         isFavorite = itemView.findViewById(R.id.isFavorite);
         size = itemView.findViewById(R.id.size);
@@ -116,6 +119,7 @@ public class EpisodeItemViewHolder extends RecyclerView.ViewHolder {
             secondaryActionProgress.setPercentage(0, item);
             secondaryActionProgress.setIndeterminate(false);
             isVideo.setVisibility(View.GONE);
+            hasAds.setVisibility(View.GONE);
             progressBar.setVisibility(View.GONE);
             duration.setVisibility(View.GONE);
             position.setVisibility(View.GONE);
@@ -134,6 +138,11 @@ public class EpisodeItemViewHolder extends RecyclerView.ViewHolder {
 
     private void bind(FeedMedia media) {
         isVideo.setVisibility(media.getMediaType() == MediaType.VIDEO ? View.VISIBLE : View.GONE);
+        boolean indexingAds = UserPreferences.isAdSkippingEnabled() && AdSegmentIndexWorker.isIndexing(media.getId());
+        hasAds.setVisibility(indexingAds || (UserPreferences.isAdSkippingEnabled() && media.getAdSegments() != null
+                && !media.getAdSegments().isEmpty()) ? View.VISIBLE : View.GONE);
+        hasAds.setAlpha(indexingAds ? 0.4f : 1f);
+        hasAds.setContentDescription(activity.getString(indexingAds ? R.string.ads_detecting : R.string.ads_detected));
         duration.setVisibility(media.getDuration() > 0 ? View.VISIBLE : View.GONE);
 
         itemView.setActivated(PlaybackStatus.isCurrentlyPlaying(media));
@@ -200,6 +209,7 @@ public class EpisodeItemViewHolder extends RecyclerView.ViewHolder {
         secondaryActionIcon.setImageDrawable(null);
         isInbox.setVisibility(View.VISIBLE);
         isVideo.setVisibility(View.GONE);
+        hasAds.setVisibility(View.GONE);
         isFavorite.setVisibility(View.GONE);
         isInQueue.setVisibility(View.GONE);
         title.setText("███████");
