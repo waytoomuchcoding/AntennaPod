@@ -489,6 +489,8 @@
     <string name="pref_smart_mark_as_played_title">Smart mark as played</string>
     <string name="pref_skip_keeps_episodes_sum">Keep episodes when they are skipped</string>
     <string name="pref_skip_keeps_episodes_title">Keep skipped episodes</string>
+    <string name="ad_skipped">Skipped ad (%1$s)</string>
+    <string name="ad_skipped_self_promo">Skipped show promo (%1$s)</string>
     <string name="ad_detection_quota_title">Ad detection paused</string>
     <string name="ad_detection_quota_message">The Gemini API quota is used up. Ads will be detected automatically once the quota resets.</string>
     <string name="pref_favorite_keeps_episodes_sum">Keep episodes when they are marked favorite</string>
