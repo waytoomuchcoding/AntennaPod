@@ -19,9 +19,13 @@ public class ChapterSeekBar extends androidx.appcompat.widget.AppCompatSeekBar {
     private float progressPrimary;
     private float progressSecondary;
     private float[] dividerPos;
+    private float[] adSegmentPos;
+    private boolean[] adSegmentActive;
     private boolean isHighlighted = false;
     private final Paint paintBackground = new Paint();
     private final Paint paintProgressPrimary = new Paint();
+    private final Paint paintAdSegment = new Paint();
+    private final Paint paintAdSegmentInactive = new Paint();
 
     public ChapterSeekBar(Context context) {
         super(context);
@@ -46,6 +50,15 @@ public class ChapterSeekBar extends androidx.appcompat.widget.AppCompatSeekBar {
         paintBackground.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorSurfaceVariant));
         paintBackground.setAlpha(128);
         paintProgressPrimary.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorPrimary));
+        paintAdSegment.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorTertiary));
+        paintAdSegmentInactive.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorTertiary));
+        paintAdSegmentInactive.setAlpha(64);
+    }
+
+    public void setAdSegmentPos(final float[] adSegmentPos, final boolean[] adSegmentActive) {
+        this.adSegmentPos = adSegmentPos;
+        this.adSegmentActive = adSegmentActive;
+        invalidate();
     }
 
     /**
@@ -89,6 +102,7 @@ public class ChapterSeekBar extends androidx.appcompat.widget.AppCompatSeekBar {
         } else {
             drawProgressChapters(canvas);
         }
+        drawAdSegments(canvas);
         drawThumb(canvas);
     }
 
@@ -135,6 +149,20 @@ public class ChapterSeekBar extends androidx.appcompat.widget.AppCompatSeekBar {
             } else {
                 canvas.drawRect(leftCurr, top, progressPrimary, bottom, paintProgressPrimary);
             }
+        }
+        canvas.restoreToCount(saveCount);
+    }
+
+    private void drawAdSegments(Canvas canvas) {
+        if (adSegmentPos == null) {
+            return;
+        }
+        final int saveCount = canvas.save();
+        canvas.translate(getPaddingLeft(), getPaddingTop());
+        for (int i = 0; i + 1 < adSegmentPos.length; i += 2) {
+            boolean active = adSegmentActive == null || adSegmentActive[i / 2];
+            canvas.drawRect(adSegmentPos[i] * width, top, adSegmentPos[i + 1] * width, bottom,
+                    active ? paintAdSegment : paintAdSegmentInactive);
         }
         canvas.restoreToCount(saveCount);
     }

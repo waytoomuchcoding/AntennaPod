@@ -3,6 +3,7 @@ package de.danoeh.antennapod.ui.statistics.subscriptions;
 import android.text.format.DateFormat;
 import androidx.fragment.app.Fragment;
 import de.danoeh.antennapod.storage.database.StatisticsItem;
+import de.danoeh.antennapod.storage.preferences.UserPreferences;
 import de.danoeh.antennapod.ui.common.Converter;
 import de.danoeh.antennapod.ui.statistics.PieChartView;
 import de.danoeh.antennapod.ui.statistics.R;
@@ -37,6 +38,16 @@ public class PlaybackStatisticsListAdapter extends StatisticsListAdapter {
 
     @Override
     protected String getHeaderCaption() {
+        String caption = getTimeRangeCaption();
+        long skippedAdTime = UserPreferences.getSkippedAdTime();
+        if (skippedAdTime > 0) {
+            caption += "\n" + context.getString(R.string.statistics_ads_skipped,
+                    Converter.getDurationStringLocalized(context, skippedAdTime));
+        }
+        return caption;
+    }
+
+    private String getTimeRangeCaption() {
         if (includeMarkedAsPlayed) {
             return context.getString(R.string.statistics_counting_total);
         }

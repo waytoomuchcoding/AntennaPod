@@ -114,6 +114,14 @@
                     app:srcCompat="@drawable/ic_videocam" />
 
                 <ImageView
+                    android:id="@+id/ivHasAds"
+                    android:layout_width="12sp"
+                    android:layout_height="12sp"
+                    android:contentDescription="@string/ads_detected"
+                    app:tint="?attr/colorOnSurfaceVariant"
+                    app:srcCompat="@drawable/ic_skip_24dp" />
+
+                <ImageView
                     android:id="@+id/isFavorite"
                     android:layout_width="12sp"
                     android:layout_height="12sp"

@@ -64,6 +64,7 @@ import de.danoeh.antennapod.event.playback.PlaybackServiceEvent;
 import de.danoeh.antennapod.event.playback.SleepTimerUpdatedEvent;
 import de.danoeh.antennapod.event.playback.SpeedChangedEvent;
 import de.danoeh.antennapod.ui.episodeslist.FeedItemMenuHandler;
+import de.danoeh.antennapod.model.feed.AdSegment;
 import de.danoeh.antennapod.model.feed.Chapter;
 import de.danoeh.antennapod.model.feed.FeedItem;
 import de.danoeh.antennapod.model.feed.FeedMedia;
@@ -184,6 +185,26 @@ public class AudioPlayerFragment extends Fragment implements
         }
 
         sbPosition.setDividerPos(dividerPos);
+
+        float[] adSegmentPos = null;
+        boolean[] adSegmentActive = null;
+        List<AdSegment> adSegments = currentMedia.getAdSegments();
+        if (UserPreferences.isAdSkippingEnabled() && adSegments != null && currentMedia.getDuration() > 0) {
+            FeedItem item = currentMedia.getItem();
+            boolean feedEnabled = item == null || item.getFeed() == null || item.getFeed().getPreferences() == null
+                    || item.getFeed().getPreferences().isAdSkippingEnabled();
+            List<AdSegment> skippable = feedEnabled
+                    ? AdSegment.getSkippable(adSegments, UserPreferences.shouldSkipSelfPromos())
+                    : Collections.emptyList();
+            adSegmentPos = new float[adSegments.size() * 2];
+            adSegmentActive = new boolean[adSegments.size()];
+            for (int i = 0; i < adSegments.size(); i++) {
+                adSegmentPos[2 * i] = adSegments.get(i).getStart() / (float) currentMedia.getDuration();
+                adSegmentPos[2 * i + 1] = Math.min(1, adSegments.get(i).getEnd() / (float) currentMedia.getDuration());
+                adSegmentActive[i] = skippable.contains(adSegments.get(i));
+            }
+        }
+        sbPosition.setAdSegmentPos(adSegmentPos, adSegmentActive);
     }
 
     private void setupControlButtons() {
@@ -486,6 +507,8 @@ public class AudioPlayerFragment extends Fragment implements
 
     public void setupOptionsMenu() {
         toolbar.getMenu().findItem(R.id.open_feed_item).setVisible(true);
+        toolbar.getMenu().findItem(R.id.ad_breaks_item).setVisible(UserPreferences.isAdSkippingEnabled()
+                && currentMedia.getAdSegments() != null);
         FeedItemMenuHandler.onPrepareMenu(toolbar.getMenu(),
                 Collections.singletonList(currentMedia.getItem()));
         ((CastEnabledActivity) getActivity()).requestCastButton(toolbar.getMenu());
@@ -509,6 +532,9 @@ public class AudioPlayerFragment extends Fragment implements
         } else if (itemId == R.id.transcript_item) {
             new TranscriptDialogFragment().show(
                     getActivity().getSupportFragmentManager(), TranscriptDialogFragment.TAG);
+            return true;
+        } else if (itemId == R.id.ad_breaks_item) {
+            AdBreaksDialog.show(getContext(), currentMedia);
             return true;
         } else if (itemId == R.id.open_feed_item) {
             if (feedItem != null) {
