@@ -49,6 +49,8 @@ public class FeedMedia implements Playable {
     // if null: unknown, will be checked
     private Boolean hasEmbeddedPicture;
 
+    @Nullable private volatile List<AdSegment> adSegments;
+
     /* Used for loading item when restoring from parcel. */
     private long itemID;
 
@@ -523,6 +525,15 @@ public class FeedMedia implements Playable {
             return null;
         }
         return getLocalFileUrl() + ".transcript";
+    }
+
+    @Nullable
+    public List<AdSegment> getAdSegments() {
+        return adSegments;
+    }
+
+    public void setAdSegments(@Nullable List<AdSegment> adSegments) {
+        this.adSegments = adSegments;
     }
 
     public void setTranscript(Transcript t) {

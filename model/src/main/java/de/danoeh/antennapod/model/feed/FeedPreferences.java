@@ -115,6 +115,7 @@ public class FeedPreferences implements Serializable {
     private int feedSkipEnding;
     private SkipSilence feedSkipSilence;
     private boolean showEpisodeNotification;
+    private boolean adSkippingEnabled = true;
     private final Set<String> tags = new HashSet<>();
 
     public FeedPreferences(long feedID, AutoDownloadSetting autoDownload, AutoDeleteAction autoDeleteAction,
@@ -286,6 +287,14 @@ public class FeedPreferences implements Serializable {
 
     public void setFeedSkipSilence(SkipSilence skipSilence) {
         feedSkipSilence = skipSilence;
+    }
+
+    public boolean isAdSkippingEnabled() {
+        return adSkippingEnabled;
+    }
+
+    public void setAdSkippingEnabled(boolean adSkippingEnabled) {
+        this.adSkippingEnabled = adSkippingEnabled;
     }
 
     public SkipSilence getFeedSkipSilence() {
