@@ -31,5 +31,6 @@ gradle.properties
 .cursor
 *.hprof
 .kotlin
-.claude
+.claude/*
+!.claude/skills/
 .cursor
