@@ -101,6 +101,7 @@ public class MediaDownloadedHandler implements Runnable {
                 // to ensure subscribers will get the updated FeedMedia as well
                 DBWriter.setFeedItem(item, broadcastUnreadStateUpdate).get();
             }
+            AdSegmentIndexWorker.enqueue(context, media);
         } catch (InterruptedException e) {
             Log.e(TAG, "MediaHandlerThread was interrupted");
         } catch (ExecutionException e) {
