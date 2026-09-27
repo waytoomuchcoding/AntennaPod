@@ -3,6 +3,7 @@ package de.danoeh.antennapod.storage.database.mapper;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 import androidx.annotation.NonNull;
+import de.danoeh.antennapod.model.feed.AdSegment;
 import de.danoeh.antennapod.model.feed.FeedMedia;
 import de.danoeh.antennapod.storage.database.PodDBAdapter;
 
@@ -24,6 +25,7 @@ public class FeedMediaCursor extends CursorWrapper {
     private final int indexPlayedDuration;
     private final int indexLastPlayedTimeStatistics;
     private final int indexHasEmbeddedPicture;
+    private final int indexAdSegments;
 
     public FeedMediaCursor(Cursor cursor) {
         super(cursor);
@@ -39,6 +41,7 @@ public class FeedMediaCursor extends CursorWrapper {
         indexPlayedDuration = cursor.getColumnIndexOrThrow(PodDBAdapter.KEY_PLAYED_DURATION);
         indexLastPlayedTimeStatistics = cursor.getColumnIndexOrThrow(PodDBAdapter.KEY_LAST_PLAYED_TIME_STATISTICS);
         indexHasEmbeddedPicture = cursor.getColumnIndexOrThrow(PodDBAdapter.KEY_HAS_EMBEDDED_PICTURE);
+        indexAdSegments = cursor.getColumnIndex(PodDBAdapter.KEY_AD_SEGMENTS);
     }
 
     /**
@@ -62,7 +65,7 @@ public class FeedMediaCursor extends CursorWrapper {
                 break;
         }
 
-        return new FeedMedia(
+        FeedMedia media = new FeedMedia(
                 getLong(indexId),
                 null,
                 getInt(indexDuration),
@@ -77,5 +80,9 @@ public class FeedMediaCursor extends CursorWrapper {
                 hasEmbeddedPicture,
                 getLong(indexLastPlayedTimeStatistics)
         );
+        if (indexAdSegments >= 0) {
+            media.setAdSegments(AdSegment.parse(getString(indexAdSegments)));
+        }
+        return media;
     }
 }

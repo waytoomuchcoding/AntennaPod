@@ -43,6 +43,7 @@ import de.danoeh.antennapod.event.FeedEvent;
 import de.danoeh.antennapod.storage.preferences.PlaybackPreferences;
 import de.danoeh.antennapod.storage.preferences.UserPreferences;
 import de.danoeh.antennapod.model.download.DownloadResult;
+import de.danoeh.antennapod.model.feed.AdSegment;
 import de.danoeh.antennapod.model.feed.Feed;
 import de.danoeh.antennapod.model.feed.FeedItem;
 import de.danoeh.antennapod.model.feed.FeedMedia;
@@ -144,9 +145,11 @@ public class DBWriter {
             media.setDownloaded(false, 0);
             media.setLocalFileUrl(null);
             media.setHasEmbeddedPicture(false);
+            media.setAdSegments(null);
             PodDBAdapter adapter = PodDBAdapter.getInstance();
             adapter.open();
             adapter.setMediaDownloadInformation(media);
+            adapter.setFeedMediaAdSegments(media.getId(), null);
             adapter.close();
         }
 
@@ -771,6 +774,19 @@ public class DBWriter {
             adapter.open();
             adapter.setFeedMediaPlaybackInformation(media);
             adapter.close();
+        });
+    }
+
+    public static Future<?> setAdSegments(final FeedMedia media, @Nullable final List<AdSegment> segments) {
+        return runOnDbThread(() -> {
+            media.setAdSegments(segments);
+            PodDBAdapter adapter = PodDBAdapter.getInstance();
+            adapter.open();
+            adapter.setFeedMediaAdSegments(media.getId(), segments == null ? null : AdSegment.serialize(segments));
+            adapter.close();
+            if (media.getItem() != null) {
+                EventBus.getDefault().post(new FeedItemEvent(Collections.singletonList(media.getItem()), false));
+            }
         });
     }
 

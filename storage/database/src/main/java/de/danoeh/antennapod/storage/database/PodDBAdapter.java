@@ -55,7 +55,7 @@ public class PodDBAdapter {
 
     private static final String TAG = "PodDBAdapter";
     public static final String DATABASE_NAME = "Antennapod.db";
-    public static final int VERSION = 3110000;
+    public static final int VERSION = 3120000;
 
     /**
      * Maximum number of arguments for IN-operator.
@@ -113,6 +113,8 @@ public class PodDBAdapter {
     public static final String KEY_HAS_EMBEDDED_PICTURE = "has_embedded_picture";
     public static final String KEY_LAST_PLAYED_TIME_HISTORY = "playback_completion_date";
     public static final String KEY_LAST_PLAYED_TIME_STATISTICS = "last_played_time";
+    public static final String KEY_AD_SEGMENTS = "ad_segments";
+    public static final String KEY_FEED_AD_SKIPPING = "feed_ad_skipping";
     public static final String KEY_INCLUDE_FILTER = "include_filter";
     public static final String KEY_EXCLUDE_FILTER = "exclude_filter";
     public static final String KEY_MINIMAL_DURATION_FILTER = "minimal_duration_filter";
@@ -173,6 +175,7 @@ public class PodDBAdapter {
             + KEY_AUTO_DELETE_ACTION + " INTEGER DEFAULT 0,"
             + KEY_FEED_PLAYBACK_SPEED + " REAL DEFAULT " + SPEED_USE_GLOBAL + ","
             + KEY_FEED_SKIP_SILENCE + " INTEGER DEFAULT " + FeedPreferences.SkipSilence.GLOBAL.code + ","
+            + KEY_FEED_AD_SKIPPING + " INTEGER DEFAULT 1,"
             + KEY_FEED_VOLUME_ADAPTION + " INTEGER DEFAULT 0,"
             + KEY_FEED_TAGS + " TEXT,"
             + KEY_FEED_SKIP_INTRO + " INTEGER DEFAULT 0,"
@@ -204,7 +207,8 @@ public class PodDBAdapter {
             + KEY_FEEDITEM + " INTEGER,"
             + KEY_PLAYED_DURATION + " INTEGER,"
             + KEY_HAS_EMBEDDED_PICTURE + " INTEGER,"
-            + KEY_LAST_PLAYED_TIME_STATISTICS + " INTEGER" + ")";
+            + KEY_LAST_PLAYED_TIME_STATISTICS + " INTEGER,"
+            + KEY_AD_SEGMENTS + " TEXT" + ")";
 
     private static final String CREATE_TABLE_DOWNLOAD_LOG = "CREATE TABLE "
             + TABLE_NAME_DOWNLOAD_LOG + " (" + TABLE_PRIMARY_KEY + KEY_FEEDFILE
@@ -305,7 +309,8 @@ public class PodDBAdapter {
             + TABLE_NAME_FEED_MEDIA + "." + KEY_FEEDITEM + ", "
             + TABLE_NAME_FEED_MEDIA + "." + KEY_PLAYED_DURATION + ", "
             + TABLE_NAME_FEED_MEDIA + "." + KEY_HAS_EMBEDDED_PICTURE + ", "
-            + TABLE_NAME_FEED_MEDIA + "." + KEY_LAST_PLAYED_TIME_STATISTICS;
+            + TABLE_NAME_FEED_MEDIA + "." + KEY_LAST_PLAYED_TIME_STATISTICS + ", "
+            + TABLE_NAME_FEED_MEDIA + "." + KEY_AD_SEGMENTS;
 
     private static final String KEYS_FEED =
             TABLE_NAME_FEEDS + "." + KEY_ID + " AS " + SELECT_KEY_FEED_ID + ", "
@@ -339,6 +344,7 @@ public class PodDBAdapter {
             + TABLE_NAME_FEEDS + "." + KEY_MINIMAL_DURATION_FILTER + ", "
             + TABLE_NAME_FEEDS + "." + KEY_FEED_PLAYBACK_SPEED + ", "
             + TABLE_NAME_FEEDS + "." + KEY_FEED_SKIP_SILENCE + ", "
+            + TABLE_NAME_FEEDS + "." + KEY_FEED_AD_SKIPPING + ", "
             + TABLE_NAME_FEEDS + "." + KEY_FEED_TAGS + ", "
             + TABLE_NAME_FEEDS + "." + KEY_FEED_SKIP_INTRO + ", "
             + TABLE_NAME_FEEDS + "." + KEY_FEED_SKIP_ENDING + ", "
@@ -506,6 +512,7 @@ public class PodDBAdapter {
         values.put(KEY_MINIMAL_DURATION_FILTER, prefs.getFilter().getMinimalDurationFilter());
         values.put(KEY_FEED_PLAYBACK_SPEED, prefs.getFeedPlaybackSpeed());
         values.put(KEY_FEED_SKIP_SILENCE, prefs.getFeedSkipSilence().code);
+        values.put(KEY_FEED_AD_SKIPPING, prefs.isAdSkippingEnabled());
         values.put(KEY_FEED_TAGS, prefs.getTagsAsString());
         values.put(KEY_FEED_SKIP_INTRO, prefs.getFeedSkipIntro());
         values.put(KEY_FEED_SKIP_ENDING, prefs.getFeedSkipEnding());
@@ -580,6 +587,12 @@ public class PodDBAdapter {
         } else {
             Log.e(TAG, "setMediaDownloadInformation: ID of media was 0");
         }
+    }
+
+    public void setFeedMediaAdSegments(long mediaId, String adSegments) {
+        ContentValues values = new ContentValues();
+        values.put(KEY_AD_SEGMENTS, adSegments);
+        db.update(TABLE_NAME_FEED_MEDIA, values, KEY_ID + "=?", new String[]{String.valueOf(mediaId)});
     }
 
     public void setFeedMediaPlaybackInformation(FeedMedia media) {
