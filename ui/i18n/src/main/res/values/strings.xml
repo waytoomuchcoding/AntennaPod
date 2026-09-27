@@ -489,6 +489,16 @@
     <string name="pref_smart_mark_as_played_title">Smart mark as played</string>
     <string name="pref_skip_keeps_episodes_sum">Keep episodes when they are skipped</string>
     <string name="pref_skip_keeps_episodes_title">Keep skipped episodes</string>
+    <string name="ad_skipping">Ad skipping</string>
+    <string name="pref_ad_skipping_title">Skip ads</string>
+    <string name="pref_ad_skipping_sum">Detect ads in downloaded episodes using Gemini and skip over them during playback</string>
+    <string name="pref_gemini_api_key_title">Gemini API key</string>
+    <string name="pref_gemini_api_key_sum">API key used to detect ads in downloaded episodes</string>
+    <string name="pref_ad_skip_self_promos_title">Skip show promos</string>
+    <string name="pref_ad_skip_self_promos_sum">Also skip the podcast\'s promotions for its own shows, merchandise and memberships</string>
+    <string name="pref_ad_skip_delay_title">Ad skip delay</string>
+    <string name="pref_ad_skip_delay_sum">Seconds of an ad to play before skipping it, so that a wrong detection does not hide the start of the content</string>
+    <string name="pref_feed_ad_skipping_sum">Skip ads detected in episodes of this podcast</string>
     <string name="ad_skipped">Skipped ad (%1$s)</string>
     <string name="ad_skipped_self_promo">Skipped show promo (%1$s)</string>
     <string name="ad_detection_quota_title">Ad detection paused</string>

@@ -243,6 +243,15 @@ public class FeedSettingsPreferenceFragment extends PreferenceFragmentCompat {
             updateNewEpisodesActionSummary();
             return false;
         });
+        SwitchPreferenceCompat adSkipping = findPreference("feedAdSkipping");
+        adSkipping.setChecked(feedPreferences.isAdSkippingEnabled());
+        adSkipping.setOnPreferenceChangeListener((preference, newValue) -> {
+            boolean checked = Boolean.TRUE.equals(newValue);
+            feedPreferences.setAdSkippingEnabled(checked);
+            DBWriter.setFeedPreferences(feedPreferences);
+            adSkipping.setChecked(checked);
+            return false;
+        });
         SwitchPreferenceCompat keepUpdated = findPreference("keepUpdated");
         keepUpdated.setChecked(feedPreferences.getKeepUpdated());
         keepUpdated.setOnPreferenceChangeListener((preference, newValue) -> {

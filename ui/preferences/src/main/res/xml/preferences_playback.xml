@@ -42,6 +42,35 @@
                 android:title="@string/playback_speed"/>
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/ad_skipping">
+        <SwitchPreferenceCompat
+                android:defaultValue="false"
+                android:enabled="true"
+                android:key="prefAdSkipping"
+                android:summary="@string/pref_ad_skipping_sum"
+                android:title="@string/pref_ad_skipping_title"/>
+        <EditTextPreference
+                android:dependency="prefAdSkipping"
+                android:key="prefGeminiApiKey"
+                android:summary="@string/pref_gemini_api_key_sum"
+                android:title="@string/pref_gemini_api_key_title"
+                search:ignore="true" />
+        <SwitchPreferenceCompat
+                android:defaultValue="true"
+                android:dependency="prefAdSkipping"
+                android:key="prefAdSkipSelfPromos"
+                android:summary="@string/pref_ad_skip_self_promos_sum"
+                android:title="@string/pref_ad_skip_self_promos_title"/>
+        <de.danoeh.antennapod.ui.preferences.preference.MaterialListPreference
+                android:defaultValue="0"
+                android:dependency="prefAdSkipping"
+                android:entries="@array/ad_skip_delay_values"
+                android:entryValues="@array/ad_skip_delay_values"
+                android:key="prefAdSkipDelay"
+                android:summary="@string/pref_ad_skip_delay_sum"
+                android:title="@string/pref_ad_skip_delay_title"/>
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/reassign_hardware_buttons">
         <de.danoeh.antennapod.ui.preferences.preference.MaterialListPreference
                 android:defaultValue="@string/keycode_media_fast_forward"
