@@ -2,5 +2,7 @@
     <item name="notification_downloading" type="id"/>
     <item name="notification_updating_feeds" type="id"/>
     <item name="notification_download_report" type="id"/>
+    <item name="notification_ad_detection_quota" type="id"/>
+    <item name="pending_intent_ad_detection_quota" type="id"/>
     <item name="notification_auto_download_report" type="id"/>
 </resources>
