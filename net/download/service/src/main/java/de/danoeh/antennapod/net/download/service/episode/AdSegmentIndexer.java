@@ -23,6 +23,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -35,6 +39,10 @@ public class AdSegmentIndexer {
     private static final long TRANSCRIPT_CHUNK_MS = 30 * 60 * 1000L;
     private static final long CLIP_MS = 10 * 60 * 1000L;
     private static final int CLIP_ATTEMPTS = 3;
+    private static final int TRANSCRIPTS_PER_CLIP = 2;
+    private static final double TRANSCRIPT_TEMPERATURE_STEP = 0.4;
+    private static final double WORDS_PER_SECOND = 2.5;
+    private static final long START_SILENCE_MS = 3000;
     private static final long MAX_PART_DURATION_MS = 8 * 60 * 60 * 1000L;
     private static final long TIMESTAMP_TOLERANCE_MS = 5000;
     private static final long MERGE_GAP_MS = 5000;
@@ -50,7 +58,7 @@ public class AdSegmentIndexer {
     private final String apiKey;
     private final File tempDir;
 
-    private static class TranscriptLine {
+    static class TranscriptLine {
         final long time;
         final String text;
 
@@ -146,21 +154,88 @@ public class AdSegmentIndexer {
     private void transcribeClip(File file, long byteStart, long byteEnd, String mimeType, long clipStartMs,
                                 long clipLength, List<TranscriptLine> lines)
             throws IOException, JSONException, InterruptedException {
-        String transcript = "";
-        for (int attempt = 0; attempt < CLIP_ATTEMPTS; attempt++) {
+        String best = null;
+        String fallback = "";
+        double bestMisfit = Double.MAX_VALUE;
+        for (int attempt = 0; attempt < CLIP_ATTEMPTS && best == null; attempt++) {
             JSONObject uploadedFile = upload(file, byteStart, byteEnd, mimeType);
+            List<String> transcripts;
             try {
                 uploadedFile = waitUntilActive(uploadedFile);
-                transcript = transcribe(uploadedFile, -1, -1, 0.3 * attempt);
+                transcripts = transcribeInParallel(uploadedFile, 0.3 * attempt);
             } finally {
                 deleteUploadedFile(uploadedFile.getString("name"));
             }
-            if (hasValidTimestamps(transcript, clipLength)) {
-                break;
+            for (String transcript : transcripts) {
+                fallback = transcript;
+                if (!hasValidTimestamps(transcript, clipLength)) {
+                    continue;
+                }
+                List<TranscriptLine> candidate = new ArrayList<>();
+                parseTranscript(transcript, 0, clipLength, 0, candidate);
+                double misfit = getTimingMisfit(candidate, clipLength);
+                Log.d(TAG, "Transcript of clip at " + clipStartMs + " has timing misfit " + misfit);
+                if (misfit < bestMisfit) {
+                    bestMisfit = misfit;
+                    best = transcript;
+                }
             }
-            Log.d(TAG, "Transcript of clip at " + clipStartMs + " has invalid timestamps, retrying");
+            if (best == null) {
+                Log.d(TAG, "Transcripts of clip at " + clipStartMs + " have invalid timestamps, retrying");
+            }
         }
-        parseTranscript(transcript, 0, clipLength, clipStartMs, lines);
+        parseTranscript(best != null ? best : fallback, 0, clipLength, clipStartMs, lines);
+    }
+
+    /**
+     * Transcribes the clip twice in parallel, so that a transcript with wrong timestamps can be discarded.
+     */
+    private List<String> transcribeInParallel(JSONObject uploadedFile, double extraTemperature)
+            throws IOException, JSONException, InterruptedException {
+        ExecutorService executor = Executors.newFixedThreadPool(TRANSCRIPTS_PER_CLIP);
+        try {
+            List<Future<String>> futures = new ArrayList<>();
+            for (int i = 0; i < TRANSCRIPTS_PER_CLIP; i++) {
+                double temperature = Math.min(1, TRANSCRIPT_TEMPERATURE_STEP * i + extraTemperature);
+                futures.add(executor.submit(() -> transcribe(uploadedFile, -1, -1, temperature)));
+            }
+            List<String> transcripts = new ArrayList<>();
+            for (Future<String> future : futures) {
+                try {
+                    transcripts.add(future.get());
+                } catch (ExecutionException e) {
+                    if (e.getCause() instanceof IOException) {
+                        throw (IOException) e.getCause();
+                    } else if (e.getCause() instanceof JSONException) {
+                        throw (JSONException) e.getCause();
+                    }
+                    throw new IOException(e.getCause());
+                }
+            }
+            return transcripts;
+        } finally {
+            executor.shutdownNow();
+        }
+    }
+
+    /**
+     * Returns the fraction of the clip's duration that the length of the transcribed sentences does not explain,
+     * for example silence at the start, gaps between sentences or sentences that follow each other too fast.
+     */
+    static double getTimingMisfit(List<TranscriptLine> lines, long clipLength) {
+        if (lines.isEmpty() || clipLength <= 0) {
+            return Double.MAX_VALUE;
+        }
+        double misfit = Math.max(0, lines.get(0).time - START_SILENCE_MS);
+        for (int i = 0; i < lines.size(); i++) {
+            double expected = lines.get(i).text.split("\\s+").length * 1000.0 / WORDS_PER_SECOND;
+            if (i + 1 < lines.size()) {
+                misfit += Math.abs(lines.get(i + 1).time - lines.get(i).time - expected);
+            } else {
+                misfit += Math.max(0, clipLength - lines.get(i).time - expected - START_SILENCE_MS);
+            }
+        }
+        return misfit / clipLength;
     }
 
     private static boolean hasValidTimestamps(String transcript, long clipLength) {
