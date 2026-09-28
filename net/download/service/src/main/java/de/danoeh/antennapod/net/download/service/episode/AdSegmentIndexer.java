@@ -58,6 +58,11 @@ public class AdSegmentIndexer {
     private final OkHttpClient client;
     private final String apiKey;
     private final File tempDir;
+    private ProgressListener progressListener = percent -> { };
+
+    public interface ProgressListener {
+        void onProgress(int percent);
+    }
 
     static class TranscriptLine {
         final long time;
@@ -78,6 +83,10 @@ public class AdSegmentIndexer {
         this.tempDir = tempDir;
     }
 
+    public void setProgressListener(@NonNull ProgressListener progressListener) {
+        this.progressListener = progressListener;
+    }
+
     @NonNull
     public List<AdSegment> index(@NonNull File file, @Nullable String mimeType, long durationMs,
                                  @Nullable String episodeTitle, @Nullable String podcastTitle)
@@ -90,6 +99,7 @@ public class AdSegmentIndexer {
             for (Mp3FrameSplitter.Chunk clip : clips) {
                 transcribeClip(file, clip.byteStart, clip.byteEnd, "audio/mpeg",
                         clip.startMs, clip.endMs - clip.startMs, lines);
+                progressListener.onProgress((int) (100 * clip.endMs / clips.get(clips.size() - 1).endMs));
             }
             Log.d(TAG, "Transcript has " + lines.size() + " lines from " + clips.size() + " clips");
             if (lines.isEmpty()) {
@@ -108,6 +118,7 @@ public class AdSegmentIndexer {
                         long actualStart = aacExtractor.writeClip(clipStart, clipEnd, clipFile);
                         transcribeClip(clipFile, 0, clipFile.length(), "audio/mp4",
                                 actualStart, clipEnd - actualStart, lines);
+                        progressListener.onProgress((int) (100 * clipEnd / totalMs));
                     }
                 } finally {
                     if (clipFile.exists() && !clipFile.delete()) {
@@ -140,6 +151,7 @@ public class AdSegmentIndexer {
                     long chunkEnd = Math.min(partDuration, chunkStart + TRANSCRIPT_CHUNK_MS);
                     String transcript = transcribe(uploadedFile, chunkStart, chunkEnd, 0);
                     parseTranscript(transcript, chunkStart, chunkEnd, partOffset, lines);
+                    progressListener.onProgress((int) (100 * (partOffset + chunkEnd) / durationMs));
                 }
             } finally {
                 deleteUploadedFile(uploadedFile.getString("name"));
