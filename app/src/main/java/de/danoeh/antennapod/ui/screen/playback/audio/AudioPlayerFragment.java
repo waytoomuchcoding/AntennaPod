@@ -1,6 +1,9 @@
 package de.danoeh.antennapod.ui.screen.playback.audio;
 
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -524,8 +527,10 @@ public class AudioPlayerFragment extends Fragment implements
                 && (currentMedia.getAdSegments() != null || currentMedia.isDownloaded() || indexing));
         menuItem.setEnabled(!indexing);
         if (indexing) {
-            menuItem.setTitle(getString(R.string.ad_status_detecting,
+            SpannableString title = new SpannableString(getString(R.string.ad_status_detecting,
                     AdSegmentIndexWorker.getProgress(currentMedia.getId())));
+            title.setSpan(new ForegroundColorSpan(0x88888888), 0, title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            menuItem.setTitle(title);
         } else if (currentMedia.getAdSegments() == null) {
             menuItem.setTitle(R.string.detect_ads);
         } else {
