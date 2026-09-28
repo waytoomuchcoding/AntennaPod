@@ -511,9 +511,10 @@
     <string name="ads_detecting">Detecting ads</string>
     <string name="ad_detection_quota_title">Ad detection paused</string>
     <string name="ad_detection_quota_message">The Gemini API quota is used up. Ads will be detected automatically once the quota resets.</string>
+    <string name="detect_ads">Detect ads</string>
     <string name="ad_status_detecting">Detecting ads… %1$d%%</string>
-    <string name="ad_status_failed">Ad detection failed</string>
-    <string name="ad_status_not_detected">Ads not detected yet</string>
+    <string name="ad_status_failed">Ad detection failed. Tap to try again</string>
+    <string name="ad_status_not_detected">Ads not detected yet. Tap to detect ads</string>
     <string name="ad_status_no_api_key">Enter a Gemini API key in the settings to detect ads</string>
     <string name="ad_status_none">No ads found</string>
     <plurals name="ad_status_found">

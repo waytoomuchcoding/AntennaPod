@@ -20,6 +20,7 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 import de.danoeh.antennapod.event.FeedItemEvent;
+import de.danoeh.antennapod.event.MessageEvent;
 import de.danoeh.antennapod.model.feed.AdSegment;
 import de.danoeh.antennapod.model.feed.FeedItem;
 import de.danoeh.antennapod.model.feed.FeedMedia;
@@ -76,6 +77,14 @@ public class AdSegmentIndexWorker extends Worker {
         if (media.getItem() != null) {
             EventBus.getDefault().post(new FeedItemEvent(Collections.singletonList(media.getItem()), false));
         }
+    }
+
+    public static void detectAds(@NonNull Context context, @NonNull FeedMedia media) {
+        if (UserPreferences.getGeminiApiKey().isEmpty()) {
+            EventBus.getDefault().post(new MessageEvent(context.getString(R.string.ad_status_no_api_key)));
+            return;
+        }
+        enqueue(context, media);
     }
 
     public static boolean isIndexing(long mediaId) {
