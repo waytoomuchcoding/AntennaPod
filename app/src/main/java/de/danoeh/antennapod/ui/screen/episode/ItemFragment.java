@@ -319,10 +319,10 @@ public class ItemFragment extends Fragment {
             viewBinding.txtvAdStatus.setOnClickListener(v -> AdBreaksDialog.show(requireContext(), media));
         } else if (UserPreferences.getGeminiApiKey().isEmpty()) {
             viewBinding.txtvAdStatus.setText(R.string.ad_status_no_api_key);
-        } else if (AdSegmentIndexWorker.hasFailed(media.getId())) {
-            viewBinding.txtvAdStatus.setText(R.string.ad_status_failed);
         } else {
-            viewBinding.txtvAdStatus.setText(R.string.ad_status_not_detected);
+            viewBinding.txtvAdStatus.setText(AdSegmentIndexWorker.hasFailed(media.getId())
+                    ? R.string.ad_status_failed : R.string.ad_status_not_detected);
+            viewBinding.txtvAdStatus.setOnClickListener(v -> AdSegmentIndexWorker.detectAds(requireContext(), media));
         }
     }
 
