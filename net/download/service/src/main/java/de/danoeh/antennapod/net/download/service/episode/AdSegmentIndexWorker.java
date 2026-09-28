@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -35,8 +36,10 @@ import org.json.JSONException;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -47,8 +50,11 @@ public class AdSegmentIndexWorker extends Worker {
     private static final String WORK_ID_PREFIX = "AdSegmentIndex_";
     private static final int MAX_ATTEMPTS = 3;
     private static final long QUOTA_NOTIFICATION_INTERVAL_MS = 6 * 60 * 60 * 1000L;
+    private static final int MAX_ERROR_LENGTH = 300;
     private static long lastQuotaNotification = 0;
     private static final Set<Long> PENDING = Collections.synchronizedSet(new HashSet<>());
+    private static final Set<Long> FAILED = Collections.synchronizedSet(new HashSet<>());
+    private static final Map<Long, Integer> PROGRESS = Collections.synchronizedMap(new HashMap<>());
 
     public AdSegmentIndexWorker(@NonNull Context context, @NonNull WorkerParameters params) {
         super(context, params);
@@ -66,6 +72,7 @@ public class AdSegmentIndexWorker extends Worker {
         WorkManager.getInstance(context).enqueueUniqueWork(WORK_ID_PREFIX + media.getId(),
                 ExistingWorkPolicy.REPLACE, request);
         PENDING.add(media.getId());
+        FAILED.remove(media.getId());
         if (media.getItem() != null) {
             EventBus.getDefault().post(new FeedItemEvent(Collections.singletonList(media.getItem()), false));
         }
@@ -73,6 +80,15 @@ public class AdSegmentIndexWorker extends Worker {
 
     public static boolean isIndexing(long mediaId) {
         return PENDING.contains(mediaId);
+    }
+
+    public static int getProgress(long mediaId) {
+        Integer progress = PROGRESS.get(mediaId);
+        return progress != null ? progress : 0;
+    }
+
+    public static boolean hasFailed(long mediaId) {
+        return FAILED.contains(mediaId);
     }
 
     private static boolean isEnabledFor(@NonNull FeedMedia media) {
@@ -84,6 +100,63 @@ public class AdSegmentIndexWorker extends Worker {
                 || item.getFeed().getPreferences().isAdSkippingEnabled();
     }
 
+    private boolean canPostNotifications() {
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
+                || ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.POST_NOTIFICATIONS)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private PendingIntent getMainActivityIntent(int requestCode) {
+        return PendingIntent.getActivity(getApplicationContext(), requestCode,
+                new MainActivityStarter(getApplicationContext()).getIntent(),
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    }
+
+    private void showProgressNotification(FeedMedia media, int percent) {
+        if (!canPostNotifications()) {
+            return;
+        }
+        Context context = getApplicationContext();
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,
+                NotificationUtils.CHANNEL_ID_DOWNLOADING)
+                .setContentTitle(context.getString(R.string.ads_detecting))
+                .setContentText(media.getEpisodeTitle())
+                .setProgress(100, percent, percent == 0)
+                .setSmallIcon(R.drawable.ic_notification_sync)
+                .setContentIntent(getMainActivityIntent(R.id.pending_intent_ad_detection_progress))
+                .setOngoing(true)
+                .setOnlyAlertOnce(true)
+                .setShowWhen(false)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.notify(WORK_ID_PREFIX + media.getId(), R.id.notification_ad_detection_progress, builder.build());
+    }
+
+    private void cancelProgressNotification(long mediaId) {
+        NotificationManager nm = (NotificationManager) getApplicationContext()
+                .getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.cancel(WORK_ID_PREFIX + mediaId, R.id.notification_ad_detection_progress);
+    }
+
+    private void showErrorNotification(@NonNull FeedMedia media, @NonNull String message) {
+        if (!canPostNotifications()) {
+            return;
+        }
+        Context context = getApplicationContext();
+        String text = context.getString(R.string.ad_detection_failed_message, media.getEpisodeTitle());
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,
+                NotificationUtils.CHANNEL_ID_DOWNLOAD_ERROR)
+                .setContentTitle(context.getString(R.string.ad_detection_failed_title))
+                .setContentText(text)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(text + "\n\n" + message))
+                .setSmallIcon(R.drawable.ic_notification_sync_error)
+                .setContentIntent(getMainActivityIntent(R.id.pending_intent_ad_detection_error))
+                .setAutoCancel(true)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.notify(WORK_ID_PREFIX + media.getId(), R.id.notification_ad_detection_error, builder.build());
+    }
+
     private void showQuotaNotification() {
         synchronized (AdSegmentIndexWorker.class) {
             if (System.currentTimeMillis() - lastQuotaNotification < QUOTA_NOTIFICATION_INTERVAL_MS) {
@@ -91,14 +164,11 @@ public class AdSegmentIndexWorker extends Worker {
             }
             lastQuotaNotification = System.currentTimeMillis();
         }
-        Context context = getApplicationContext();
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (!canPostNotifications()) {
             return;
         }
-        PendingIntent intent = PendingIntent.getActivity(context, R.id.pending_intent_ad_detection_quota,
-                new MainActivityStarter(context).getIntent(),
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        Context context = getApplicationContext();
+        PendingIntent intent = getMainActivityIntent(R.id.pending_intent_ad_detection_quota);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,
                 NotificationUtils.CHANNEL_ID_DOWNLOAD_ERROR)
                 .setContentTitle(context.getString(R.string.ad_detection_quota_title))
@@ -123,8 +193,13 @@ public class AdSegmentIndexWorker extends Worker {
             result = index(mediaId);
             return result;
         } finally {
+            cancelProgressNotification(mediaId);
+            PROGRESS.remove(mediaId);
             if (!Result.retry().equals(result)) {
                 PENDING.remove(mediaId);
+                if (Result.failure().equals(result)) {
+                    FAILED.add(mediaId);
+                }
                 FeedMedia media = DBReader.getFeedMedia(mediaId);
                 if (media != null && media.getItem() != null) {
                     EventBus.getDefault().post(new FeedItemEvent(Collections.singletonList(media.getItem()), false));
@@ -145,9 +220,17 @@ public class AdSegmentIndexWorker extends Worker {
         }
         List<AdSegment> segments;
         try {
-            segments = new AdSegmentIndexer(AntennapodHttpClient.getHttpClient(), apiKey,
-                    getApplicationContext().getCacheDir())
-                    .index(new File(media.getLocalFileUrl()), media.getMimeType(), media.getDuration(),
+            showProgressNotification(media, 0);
+            AdSegmentIndexer indexer = new AdSegmentIndexer(AntennapodHttpClient.getHttpClient(), apiKey,
+                    getApplicationContext().getCacheDir());
+            indexer.setProgressListener(percent -> {
+                PROGRESS.put(media.getId(), percent);
+                showProgressNotification(media, percent);
+                if (media.getItem() != null) {
+                    EventBus.getDefault().post(new FeedItemEvent(Collections.singletonList(media.getItem()), false));
+                }
+            });
+            segments = indexer.index(new File(media.getLocalFileUrl()), media.getMimeType(), media.getDuration(),
                             media.getEpisodeTitle(), media.getFeedTitle());
             FeedMedia currentMedia = DBReader.getFeedMedia(media.getId());
             if (currentMedia == null || !currentMedia.localFileAvailable()) {
@@ -160,7 +243,15 @@ public class AdSegmentIndexWorker extends Worker {
             return Result.retry();
         } catch (IOException | JSONException | ExecutionException e) {
             Log.e(TAG, "Indexing ads failed", e);
-            return getRunAttemptCount() + 1 < MAX_ATTEMPTS ? Result.retry() : Result.failure();
+            String message = String.valueOf(e.getMessage());
+            boolean invalidKey = message.contains("API_KEY_INVALID");
+            if (!invalidKey && getRunAttemptCount() + 1 < MAX_ATTEMPTS) {
+                return Result.retry();
+            }
+            showErrorNotification(media, invalidKey
+                    ? getApplicationContext().getString(R.string.ad_detection_invalid_key)
+                    : message.substring(0, Math.min(message.length(), MAX_ERROR_LENGTH)));
+            return Result.failure();
         } catch (InterruptedException e) {
             return Result.retry();
         }

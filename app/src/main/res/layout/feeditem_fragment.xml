@@ -89,6 +89,15 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/txtvAdStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    style="@style/AntennaPod.TextView.ListItemSecondaryTitle"
+                    tools:text="3 ad breaks (4:12)"
+                    tools:visibility="visible" />
+
             </LinearLayout>
 
         </LinearLayout>

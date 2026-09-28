@@ -41,9 +41,11 @@ import de.danoeh.antennapod.event.FeedItemEvent;
 import de.danoeh.antennapod.event.FeedListUpdateEvent;
 import de.danoeh.antennapod.event.MessageEvent;
 import de.danoeh.antennapod.event.PlayerStatusEvent;
+import de.danoeh.antennapod.model.feed.AdSegment;
 import de.danoeh.antennapod.model.feed.Feed;
 import de.danoeh.antennapod.model.feed.FeedItem;
 import de.danoeh.antennapod.model.feed.FeedMedia;
+import de.danoeh.antennapod.net.download.service.episode.AdSegmentIndexWorker;
 import de.danoeh.antennapod.net.download.serviceinterface.DownloadServiceInterface;
 import de.danoeh.antennapod.playback.service.PlaybackController;
 import de.danoeh.antennapod.playback.service.PlaybackService;
@@ -59,6 +61,7 @@ import de.danoeh.antennapod.ui.common.ImagePlaceholder;
 import de.danoeh.antennapod.ui.common.ThemeUtils;
 import de.danoeh.antennapod.ui.episodes.ImageResourceUtils;
 import de.danoeh.antennapod.ui.screen.feed.FeedItemlistFragment;
+import de.danoeh.antennapod.ui.screen.playback.audio.AdBreaksDialog;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -68,6 +71,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -288,6 +292,40 @@ public class ItemFragment extends Fragment {
         updateButtons();
     }
 
+    private void updateAdStatus(FeedMedia media) {
+        boolean enabledForFeed = item.getFeed().getPreferences() == null
+                || item.getFeed().getPreferences().isAdSkippingEnabled();
+        List<AdSegment> segments = media.getAdSegments();
+        boolean indexing = AdSegmentIndexWorker.isIndexing(media.getId());
+        if (!UserPreferences.isAdSkippingEnabled() || !enabledForFeed
+                || (!media.isDownloaded() && segments == null && !indexing)) {
+            viewBinding.txtvAdStatus.setVisibility(View.GONE);
+            return;
+        }
+        viewBinding.txtvAdStatus.setVisibility(View.VISIBLE);
+        viewBinding.txtvAdStatus.setOnClickListener(null);
+        if (indexing) {
+            viewBinding.txtvAdStatus.setText(getString(R.string.ad_status_detecting,
+                    AdSegmentIndexWorker.getProgress(media.getId())));
+        } else if (segments != null && segments.isEmpty()) {
+            viewBinding.txtvAdStatus.setText(R.string.ad_status_none);
+        } else if (segments != null) {
+            long adDuration = 0;
+            for (AdSegment segment : segments) {
+                adDuration += segment.getDuration();
+            }
+            viewBinding.txtvAdStatus.setText(getResources().getQuantityString(R.plurals.ad_status_found,
+                    segments.size(), segments.size(), Converter.getDurationStringLong((int) adDuration)));
+            viewBinding.txtvAdStatus.setOnClickListener(v -> AdBreaksDialog.show(requireContext(), media));
+        } else if (UserPreferences.getGeminiApiKey().isEmpty()) {
+            viewBinding.txtvAdStatus.setText(R.string.ad_status_no_api_key);
+        } else if (AdSegmentIndexWorker.hasFailed(media.getId())) {
+            viewBinding.txtvAdStatus.setText(R.string.ad_status_failed);
+        } else {
+            viewBinding.txtvAdStatus.setText(R.string.ad_status_not_detected);
+        }
+    }
+
     private void updateButtons() {
         viewBinding.circularProgressBar.setVisibility(View.GONE);
         if (item.hasMedia()) {
@@ -316,6 +354,7 @@ public class ItemFragment extends Fragment {
                 viewBinding.txtvDuration.setContentDescription(
                         Converter.getDurationStringLocalized(getContext(), media.getDuration()));
             }
+            updateAdStatus(media);
             if (PlaybackStatus.isCurrentlyPlaying(media)) {
                 actionButton1 = new PauseActionButton(item);
             } else if (item.getFeed().isLocalFeed()) {
