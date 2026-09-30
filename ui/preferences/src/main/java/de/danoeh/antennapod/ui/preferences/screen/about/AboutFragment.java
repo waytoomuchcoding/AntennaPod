@@ -50,6 +50,10 @@ public class AboutFragment extends AnimatedPreferenceFragment {
                     .addToBackStack(getString(R.string.contributors)).commit();
             return true;
         });
+        findPreference("about_fork").setOnPreferenceClickListener((preference) -> {
+            IntentUtils.openInBrowser(getContext(), "https://github.com/waytoomuchcoding/AntennaPod");
+            return true;
+        });
         findPreference("about_privacy_policy").setOnPreferenceClickListener((preference) -> {
             IntentUtils.openInBrowser(getContext(), "https://antennapod.org/privacy/");
             return true;

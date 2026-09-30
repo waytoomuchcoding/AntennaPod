@@ -24,5 +24,10 @@
             android:icon="@drawable/ic_info"
             android:summary="@string/licenses_summary"
             android:title="@string/licenses"/>
+    <Preference
+            android:key="about_fork"
+            android:icon="@drawable/ic_info"
+            android:summary="@string/about_fork_summary"
+            android:title="@string/about_fork_title"/>
 
 </PreferenceScreen>
