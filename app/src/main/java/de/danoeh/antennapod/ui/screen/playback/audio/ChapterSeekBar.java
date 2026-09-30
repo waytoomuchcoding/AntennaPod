@@ -3,6 +3,7 @@ package de.danoeh.antennapod.ui.screen.playback.audio;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
@@ -26,6 +27,8 @@ public class ChapterSeekBar extends androidx.appcompat.widget.AppCompatSeekBar {
     private final Paint paintProgressPrimary = new Paint();
     private final Paint paintAdSegment = new Paint();
     private final Paint paintAdSegmentInactive = new Paint();
+    private final Paint paintAdSegmentTrack = new Paint();
+    private final RectF adSegmentRect = new RectF();
 
     public ChapterSeekBar(Context context) {
         super(context);
@@ -50,9 +53,14 @@ public class ChapterSeekBar extends androidx.appcompat.widget.AppCompatSeekBar {
         paintBackground.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorSurfaceVariant));
         paintBackground.setAlpha(128);
         paintProgressPrimary.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorPrimary));
-        paintAdSegment.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorTertiary));
+        paintAdSegment.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorTertiaryContainer));
+        paintAdSegment.setAntiAlias(true);
         paintAdSegmentInactive.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorTertiary));
-        paintAdSegmentInactive.setAlpha(64);
+        paintAdSegmentInactive.setAlpha(128);
+        paintAdSegmentInactive.setAntiAlias(true);
+        paintAdSegmentInactive.setStyle(Paint.Style.STROKE);
+        paintAdSegmentInactive.setStrokeWidth(density);
+        paintAdSegmentTrack.setColor(ThemeUtils.getColorFromAttr(getContext(), R.attr.colorTertiary));
     }
 
     public void setAdSegmentPos(final float[] adSegmentPos, final boolean[] adSegmentActive) {
@@ -97,12 +105,13 @@ public class ChapterSeekBar extends androidx.appcompat.widget.AppCompatSeekBar {
         progressSecondary = getSecondaryProgress() / (float) getMax() * width;
         progressPrimary = getProgress() / (float) getMax() * width;
 
+        drawAdSegments(canvas);
         if (dividerPos == null) {
             drawProgress(canvas);
         } else {
             drawProgressChapters(canvas);
         }
-        drawAdSegments(canvas);
+        drawAdSegmentTracks(canvas);
         drawThumb(canvas);
     }
 
@@ -159,12 +168,48 @@ public class ChapterSeekBar extends androidx.appcompat.widget.AppCompatSeekBar {
         }
         final int saveCount = canvas.save();
         canvas.translate(getPaddingLeft(), getPaddingTop());
+        float radius = density * 5;
         for (int i = 0; i + 1 < adSegmentPos.length; i += 2) {
             boolean active = adSegmentActive == null || adSegmentActive[i / 2];
-            canvas.drawRect(adSegmentPos[i] * width, top, adSegmentPos[i + 1] * width, bottom,
-                    active ? paintAdSegment : paintAdSegmentInactive);
+            setAdSegmentRect(i, radius);
+            if (!active) {
+                adSegmentRect.inset(density / 2, density / 2);
+            }
+            canvas.drawRoundRect(adSegmentRect, radius, radius, active ? paintAdSegment : paintAdSegmentInactive);
         }
         canvas.restoreToCount(saveCount);
+    }
+
+    private void drawAdSegmentTracks(Canvas canvas) {
+        if (adSegmentPos == null) {
+            return;
+        }
+        final int saveCount = canvas.save();
+        canvas.translate(getPaddingLeft(), getPaddingTop());
+        float radius = density * 5;
+        for (int i = 0; i + 1 < adSegmentPos.length; i += 2) {
+            if (adSegmentActive != null && !adSegmentActive[i / 2]) {
+                continue;
+            }
+            setAdSegmentRect(i, radius);
+            float left = Math.max(adSegmentRect.left + radius / 2, progressPrimary);
+            float right = adSegmentRect.right - radius / 2;
+            if (left < right) {
+                canvas.drawRect(left, top, right, bottom, paintAdSegmentTrack);
+            }
+        }
+        canvas.restoreToCount(saveCount);
+    }
+
+    private void setAdSegmentRect(int index, float radius) {
+        float left = adSegmentPos[index] * width;
+        float right = adSegmentPos[index + 1] * width;
+        if (right - left < 4 * radius) {
+            float middle = (left + right) / 2;
+            left = middle - 2 * radius;
+            right = middle + 2 * radius;
+        }
+        adSegmentRect.set(left, center - radius, right, center + radius);
     }
 
     private void drawThumb(Canvas canvas) {
