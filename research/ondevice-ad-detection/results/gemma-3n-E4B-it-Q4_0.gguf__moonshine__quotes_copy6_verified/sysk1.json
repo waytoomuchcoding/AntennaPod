@@ -1,0 +1,111 @@
+{
+ "episode": "sysk1",
+ "pred": [
+  [
+   "00:00",
+   "02:37"
+  ],
+  [
+   "17:28",
+   "19:29"
+  ],
+  [
+   "34:21",
+   "36:08"
+  ],
+  [
+   "55:34",
+   "56:21"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "02:37",
+   "ad"
+  ],
+  [
+   "04:25",
+   "07:04",
+   "self_promo"
+  ],
+  [
+   "17:31",
+   "19:28",
+   "ad"
+  ],
+  [
+   "34:09",
+   "36:07",
+   "ad"
+  ],
+  [
+   "55:15",
+   "55:48",
+   "self_promo"
+  ],
+  [
+   "55:48",
+   "57:26",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 413.0,
+  "pred": 418.0,
+  "gt": 490.0,
+  "breaks": 4,
+  "found": 3,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 33,
+  "in_tokens": 37373,
+  "out_tokens": 1739,
+  "seconds": 389.3
+ },
+ "wall_s": 366.9,
+ "audio_s": 3446,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "02:37"
+   ],
+   "out": "McCormick",
+   "keep": true
+  },
+  {
+   "interval": [
+    "17:28",
+    "19:29"
+   ],
+   "out": "HelloDivorce",
+   "keep": true
+  },
+  {
+   "interval": [
+    "34:21",
+    "36:08"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  },
+  {
+   "interval": [
+    "52:41",
+    "53:10"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "55:34",
+    "56:21"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  }
+ ]
+}

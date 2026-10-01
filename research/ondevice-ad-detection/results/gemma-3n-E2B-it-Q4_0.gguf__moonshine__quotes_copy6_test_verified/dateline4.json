@@ -1,0 +1,98 @@
+{
+ "episode": "dateline4",
+ "pred": [
+  [
+   "00:00",
+   "00:29"
+  ],
+  [
+   "11:19",
+   "13:27"
+  ],
+  [
+   "29:00",
+   "31:27"
+  ],
+  [
+   "41:47",
+   "42:19"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:00",
+   "ad"
+  ],
+  [
+   "11:17",
+   "13:26",
+   "ad"
+  ],
+  [
+   "28:58",
+   "31:25",
+   "ad"
+  ],
+  [
+   "41:11",
+   "41:38",
+   "self_promo"
+  ],
+  [
+   "41:46",
+   "42:19",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 333.0,
+  "pred": 336.0,
+  "gt": 369.0,
+  "breaks": 4,
+  "found": 3,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 23,
+  "in_tokens": 25935,
+  "out_tokens": 1336,
+  "seconds": 160.2
+ },
+ "wall_s": 149.3,
+ "audio_s": 2539,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:29"
+   ],
+   "out": "20th Century Studios",
+   "keep": true
+  },
+  {
+   "interval": [
+    "11:19",
+    "13:27"
+   ],
+   "out": "Mint Mobile",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:00",
+    "31:27"
+   ],
+   "out": "HERS",
+   "keep": true
+  },
+  {
+   "interval": [
+    "41:47",
+    "42:19"
+   ],
+   "out": "Capital One",
+   "keep": true
+  }
+ ]
+}

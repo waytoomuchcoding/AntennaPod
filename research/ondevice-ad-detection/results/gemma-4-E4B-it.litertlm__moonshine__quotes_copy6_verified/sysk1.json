@@ -1,0 +1,103 @@
+{
+ "episode": "sysk1",
+ "pred": [
+  [
+   "00:00",
+   "02:37"
+  ],
+  [
+   "17:44",
+   "19:29"
+  ],
+  [
+   "34:21",
+   "36:08"
+  ],
+  [
+   "55:34",
+   "57:26"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "02:37",
+   "ad"
+  ],
+  [
+   "04:25",
+   "07:04",
+   "self_promo"
+  ],
+  [
+   "17:31",
+   "19:28",
+   "ad"
+  ],
+  [
+   "34:09",
+   "36:07",
+   "ad"
+  ],
+  [
+   "55:15",
+   "55:48",
+   "self_promo"
+  ],
+  [
+   "55:48",
+   "57:26",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 465.0,
+  "pred": 467.0,
+  "gt": 490.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 34,
+  "in_tokens": 38264,
+  "out_tokens": 1534,
+  "seconds": 318.2
+ },
+ "wall_s": 304.4,
+ "audio_s": 3446,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "02:37"
+   ],
+   "out": "McCormick",
+   "keep": true
+  },
+  {
+   "interval": [
+    "17:44",
+    "19:29"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  },
+  {
+   "interval": [
+    "34:21",
+    "36:08"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  },
+  {
+   "interval": [
+    "55:34",
+    "57:26"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  }
+ ]
+}

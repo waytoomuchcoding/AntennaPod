@@ -1,0 +1,74 @@
+[
+ {
+  "start": "00:03",
+  "end": "00:48",
+  "type": "ad",
+  "what": "Apple Card"
+ },
+ {
+  "start": "00:49",
+  "end": "01:39",
+  "type": "ad",
+  "what": "LifeLock"
+ },
+ {
+  "start": "23:05",
+  "end": "23:37",
+  "type": "ad",
+  "what": "Tom Cruise movie, Survivor (CBS)"
+ },
+ {
+  "start": "23:37",
+  "end": "24:08",
+  "type": "ad",
+  "what": "Survivor (CBS)"
+ },
+ {
+  "start": "24:08",
+  "end": "24:43",
+  "type": "ad",
+  "what": "Grainger"
+ },
+ {
+  "start": "1:01:07",
+  "end": "1:02:22",
+  "type": "ad",
+  "what": "T-Mobile"
+ },
+ {
+  "start": "1:02:22",
+  "end": "1:03:19",
+  "type": "ad",
+  "what": "Alka-Seltzer"
+ },
+ {
+  "start": "1:03:19",
+  "end": "1:04:36",
+  "type": "ad",
+  "what": "BetterHelp"
+ },
+ {
+  "start": "1:11:15",
+  "end": "1:11:24",
+  "type": "self_promo",
+  "what": "SiriusXM"
+ },
+ {
+  "start": "1:11:24",
+  "end": "1:11:37",
+  "type": "self_promo",
+  "what": "Conan O\u2019Brien Needs a Friend"
+ },
+ {
+  "start": "1:11:51",
+  "end": "1:12:41",
+  "type": "ad",
+  "what": "Alka-Seltzer"
+ },
+ {
+  "start": "1:12:41",
+  "end": "1:13:41",
+  "type": "ad",
+  "what": "Let\u2019s Talk Off Camera with Kelly Ripa"
+ }
+]

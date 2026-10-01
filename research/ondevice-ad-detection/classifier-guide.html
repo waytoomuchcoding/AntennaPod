@@ -1,0 +1,234 @@
+<title>Ad Line Classifier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#f6f8f8; --surface:#ffffff; --ink:#15211f; --muted:#56635f; --line:#d8e0de;
+  --accent:#0f6e74; --accent-soft:#e1f0f0; --ad:#b8680c; --ad-soft:#fbeedd; --ok:#2e7d4f; --bad:#b23a3a;
+  --code-bg:#eef3f2;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1514; --surface:#162020; --ink:#e3ecea; --muted:#9aaba7; --line:#2a3836;
+    --accent:#5cc2c7; --accent-soft:#17383a; --ad:#f0a54a; --ad-soft:#3a2a14; --ok:#6fcf97; --bad:#ef7d7d;
+    --code-bg:#1b2826; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1514; --surface:#162020; --ink:#e3ecea; --muted:#9aaba7; --line:#2a3836;
+  --accent:#5cc2c7; --accent-soft:#17383a; --ad:#f0a54a; --ad-soft:#3a2a14; --ok:#6fcf97; --bad:#ef7d7d;
+  --code-bg:#1b2826; color-scheme:dark;
+}
+body{background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;padding-inline:16px;padding-block:32px 64px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:2.1rem;font-weight:700;letter-spacing:-0.01em}
+h2{font-size:1.35rem;font-weight:650}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0}
+section{display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:1.1rem;color:var(--muted)}
+code,.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em}
+code{background:var(--code-bg);padding:1px 5px;border-radius:4px}
+.steps{display:flex;flex-direction:column;gap:18px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{display:grid;grid-template-columns:2.2rem 1fr;gap:12px;counter-increment:s}
+.steps li::before{content:counter(s);font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:50%;width:2rem;height:2rem;display:grid;place-items:center}
+.steps li>div{display:flex;flex-direction:column;gap:6px}
+.flow{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.flow svg{display:block;min-width:620px;width:100%;height:auto}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+th{font-weight:600;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar{display:inline-block;height:8px;border-radius:4px;background:var(--accent);vertical-align:middle}
+.bar.ad{background:var(--ad)}
+.pill{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--ad-soft);color:var(--ad)}
+.pill.c{background:var(--accent-soft);color:var(--accent)}
+tr.adrow td:first-child{box-shadow:inset 3px 0 0 var(--ad)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.wordlist{display:flex;flex-wrap:wrap;gap:6px}
+.w{font-family:"JetBrains Mono",monospace;font-size:.8rem;padding:2px 8px;border-radius:6px;background:var(--ad-soft);color:var(--ad)}
+.w.c{background:var(--accent-soft);color:var(--accent)}
+.good{color:var(--ok);font-weight:600}
+.muted{color:var(--muted)}
+ul.plain{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:6px}
+.txt{max-width:340px}
+</style>
+
+<div class="wrap">
+
+<header style="display:flex;flex-direction:column;gap:10px">
+  <span class="eyebrow">On-device podcast ad detection · AntennaPod fork</span>
+  <h1>The ad line classifier</h1>
+  <p class="lede">A small text model that scores every transcript line with how likely it is to be part of an ad. It is too rough to skip ads by itself, but as a second opinion on the LLM it removes false alarms without losing real ad breaks.</p>
+</header>
+
+<section>
+  <h2>Where it sits in the pipeline</h2>
+  <p>The LLM (Gemma via LiteRT-LM) does the real work: it copies each ad out of the transcript, and a verify call double-checks it. The classifier runs next to it on the same transcript and gets a veto: an LLM detection is kept only if the classifier also sees something ad-like in that stretch of audio.</p>
+  <div class="flow" role="img" aria-label="Audio goes to Moonshine speech recognition, producing transcript lines. The lines go to two branches: the Gemma copy and verify step, and the classifier. Both feed a veto step that outputs ad breaks to skip.">
+    <svg viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="Instrument Sans, system-ui, sans-serif" font-size="13">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/>
+        </marker>
+      </defs>
+      <g style="fill:var(--surface);stroke:var(--line)" stroke-width="1.5">
+        <rect x="8" y="70" width="96" height="50" rx="8"/>
+        <rect x="140" y="70" width="120" height="50" rx="8"/>
+        <rect x="300" y="18" width="180" height="50" rx="8"/>
+        <rect x="300" y="122" width="180" height="50" rx="8" style="stroke:var(--ad)"/>
+        <rect x="520" y="70" width="132" height="50" rx="8" style="stroke:var(--accent)"/>
+      </g>
+      <g style="fill:var(--ink)" text-anchor="middle">
+        <text x="56" y="92" font-weight="600">Episode audio</text>
+        <text x="56" y="109" style="fill:var(--muted)" font-size="11">downloaded mp3</text>
+        <text x="200" y="92" font-weight="600">Moonshine ASR</text>
+        <text x="200" y="109" style="fill:var(--muted)" font-size="11">transcript lines</text>
+        <text x="390" y="40" font-weight="600">Gemma: copy + verify</text>
+        <text x="390" y="57" style="fill:var(--muted)" font-size="11">~40 calls per audio hour</text>
+        <text x="390" y="144" font-weight="600" style="fill:var(--ad)">Line classifier</text>
+        <text x="390" y="161" style="fill:var(--muted)" font-size="11">milliseconds, no LLM</text>
+        <text x="586" y="92" font-weight="600" style="fill:var(--accent)">Veto</text>
+        <text x="586" y="109" style="fill:var(--muted)" font-size="11">keep if both agree</text>
+      </g>
+      <g style="stroke:var(--muted);fill:none" stroke-width="1.5" marker-end="url(#arr)">
+        <path d="M104,95 L138,95"/>
+        <path d="M260,88 L298,48"/>
+        <path d="M260,102 L298,142"/>
+        <path d="M480,43 L518,85"/>
+        <path d="M480,147 L518,105"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><div>
+      <h3>Start from transcript lines</h3>
+      <p>Moonshine's voice-activity detector splits the audio into speech segments, and neighbouring segments are merged into lines of at most 25 words that never span a pause longer than 1.5 s. A one-hour episode becomes roughly 400 to 600 lines, each with a start and end time.</p>
+    </div></li>
+    <li><div>
+      <h3>Turn each line into word features</h3>
+      <p>Each line is described by the words and word pairs it contains, using TF-IDF: a word counts more when it is frequent in this line and rare across all lines. This is done twice, once for the line itself and once for a five-line context window (two lines before and two after), so a line inherits some signal from its neighbours. Words that appear in fewer than two lines are dropped. That gives about 80,000 features.</p>
+    </div></li>
+    <li><div>
+      <h3>Score the line with logistic regression</h3>
+      <p>The model has one weight per feature. A line's score is the sum of the weights of its features, squashed into a probability between 0 and 1. Positive weights push towards "ad", negative weights towards "content". Training sets the weights from labelled episodes: about 4,800 lines, of which about 480 are ad lines. Ads are only one line in ten, so the training gives ad lines extra weight (<code>class_weight="balanced"</code>). Self-promo lines, which are neither clearly ad nor content, are left out of training.</p>
+    </div></li>
+    <li><div>
+      <h3>Smooth and threshold</h3>
+      <p>Single lines are noisy, so each score is averaged with the line before and after. A line counts as ad when the smoothed score is above <code>0.15</code>. The threshold is low on purpose: as a veto, the classifier should almost never miss a real ad, and the LLM already provides precision.</p>
+    </div></li>
+    <li><div>
+      <h3>Turn lines into time ranges</h3>
+      <p>Consecutive ad lines become one interval, intervals less than 20 s apart are merged, and anything shorter than 10 s is dropped. This is the same conversion the LLM pipeline uses.</p>
+    </div></li>
+    <li><div>
+      <h3>Use it as a veto</h3>
+      <p>For each ad break the LLM reports, check whether any classifier interval overlaps it. If none does, drop the LLM's detection. The classifier never adds breaks of its own.</p>
+    </div></li>
+  </ol>
+</section>
+
+<section>
+  <h2>What it learned</h2>
+  <p>These are the strongest weights from a model trained on twelve episodes (Daily 2 held out). The ad side is web addresses and calls to action. The content side is mostly past-tense storytelling and pronouns, which is how interviews and true-crime narration sound.</p>
+  <div class="cols">
+    <div class="note">
+      <span class="eyebrow" style="color:var(--ad)">Pushes towards ad</span>
+      <div class="wordlist">
+        <span class="w">com</span><span class="w">your</span><span class="w">slash</span><span class="w">com slash</span><span class="w">october</span><span class="w">podcast</span><span class="w">new</span><span class="w">therapy</span><span class="w">visit</span>
+      </div>
+    </div>
+    <div class="note">
+      <span class="eyebrow">Pushes towards content</span>
+      <div class="wordlist">
+        <span class="w c">was</span><span class="w c">he</span><span class="w c">that</span><span class="w c">they</span><span class="w c">she</span><span class="w c">yeah</span>
+      </div>
+    </div>
+  </div>
+  <p class="muted">"october" ranks high because several held-out ads promote films and TV shows opening in October. This is the classifier's main weakness: part of what it learns is this season's sponsors, not ads in general.</p>
+</section>
+
+<section>
+  <h2>A worked example</h2>
+  <p>Daily episode "Are Prediction Markets Gambling?", scored by a model that never saw this episode. The first table is the 13:30 mid-roll (YouTube Premium, Link, then a narrative Rinse ad). The second is the stretch the LLM wrongly flags: reporting that plays clips of Kalshi's TV ads.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Time</th><th>Label</th><th class="num">Line score</th><th class="num">Smoothed</th><th>Transcript</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">13:13</td><td><span class="pill c">content</span></td><td class="num">0.04</td><td class="num"><span class="bar" style="width:11px"></span> 0.11</td><td class="txt">There's sort of an X factor here that's really influencing how these platforms…</td></tr>
+        <tr class="adrow"><td class="mono">13:34</td><td><span class="pill">ad</span></td><td class="num">0.97</td><td class="num"><span class="bar ad" style="width:75px"></span> 0.75</td><td class="txt">If you like youtube you'll love youtube…</td></tr>
+        <tr class="adrow"><td class="mono">14:04</td><td><span class="pill">ad</span></td><td class="num">0.99</td><td class="num"><span class="bar ad" style="width:99px"></span> 0.99</td><td class="txt">Hey, what's up, guys? It's Haley Bailey. Okay, I need to tell you about…</td></tr>
+        <tr class="adrow"><td class="mono">14:34</td><td><span class="pill">ad</span></td><td class="num">0.63</td><td class="num"><span class="bar ad" style="width:84px"></span> 0.84</td><td class="txt">Never check out online and think, wow, that was easy. Then you might have used Link…</td></tr>
+        <tr class="adrow"><td class="mono">15:05</td><td><span class="pill">ad</span></td><td class="num">0.77</td><td class="num"><span class="bar ad" style="width:89px"></span> 0.89</td><td class="txt">His friends call in the Omicosay Authority, 17 counters ran. The evenings…</td></tr>
+        <tr class="adrow"><td class="mono">15:13</td><td><span class="pill">ad</span></td><td class="num">0.93</td><td class="num"><span class="bar ad" style="width:60px"></span> 0.60</td><td class="txt">We'll take the laundry. You take Mint.com slash Omicase.</td></tr>
+        <tr><td class="mono">15:21</td><td><span class="pill c">content</span></td><td class="num">0.11</td><td class="num"><span class="bar" style="width:36px"></span> 0.36</td><td class="txt">Okay, David, how does President Trump and his family factor into all this…</td></tr>
+        <tr><td class="mono">15:30</td><td><span class="pill c">content</span></td><td class="num">0.04</td><td class="num"><span class="bar" style="width:5px"></span> 0.05</td><td class="txt">has a pretty significant financial stake in the prediction market industry.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Time</th><th>Label</th><th class="num">Line score</th><th class="num">Smoothed</th><th>Transcript</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">02:08</td><td><span class="pill c">content</span></td><td class="num">0.08</td><td class="num"><span class="bar" style="width:8px"></span> 0.08</td><td class="txt">We heard about this prediction market, Calci. You can't turn on the TV… With Calci, you can trade on anything.</td></tr>
+        <tr><td class="mono">02:25</td><td><span class="pill c">content</span></td><td class="num">0.12</td><td class="num"><span class="bar" style="width:8px"></span> 0.08</td><td class="txt">Trading, you gotta stand your toes… It's another recent one with Sidney Sweeney.</td></tr>
+        <tr><td class="mono">02:34</td><td><span class="pill c">content</span></td><td class="num">0.05</td><td class="num"><span class="bar" style="width:7px"></span> 0.07</td><td class="txt">It's false. It seems like all the top celebrities are getting kind of sucked into this world.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Two things stand out. The classifier scores the narrative Rinse ad at 0.77 to 0.93, the ad the LLM misses. And it stays far below the threshold on the quoted Kalshi clips, because they have no web address, no "visit" and plenty of reporting language around them. That second case is exactly what the veto is for. The 15:21 line shows the cost of smoothing: the first content line after a break inherits some ad score, so classifier intervals run a few seconds long. That does not matter for a veto.</p>
+</section>
+
+<section>
+  <h2>How well it does</h2>
+  <p>Each episode was scored by a model trained on the other twelve (leave-one-episode-out), so no episode is scored by a model that saw it. F1 combines precision (how much of the flagged time is really ads) and recall (how much of the ad time is found); 1.0 is perfect.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Detector</th><th>Episodes</th><th class="num">F1</th><th class="num">Breaks found</th><th class="num">False alarms</th></tr></thead>
+      <tbody>
+        <tr><td>Classifier alone</td><td>dev (7)</td><td class="num">0.84</td><td class="num">31 / 31</td><td class="num">9</td></tr>
+        <tr><td>Classifier alone</td><td>held-out (6)</td><td class="num">0.80</td><td class="num">24 / 24</td><td class="num">9</td></tr>
+        <tr><td>Gemma 4 E2B</td><td>dev (7)</td><td class="num">0.939</td><td class="num">30 / 31</td><td class="num">2</td></tr>
+        <tr><td>Gemma 4 E2B + veto</td><td>dev (7)</td><td class="num good">0.944</td><td class="num">30 / 31</td><td class="num good">1</td></tr>
+        <tr><td>Gemma 4 E2B</td><td>held-out (6)</td><td class="num">0.890</td><td class="num">24 / 24</td><td class="num">2</td></tr>
+        <tr><td>Gemma 4 E2B + veto</td><td>held-out (6)</td><td class="num good">0.910</td><td class="num">24 / 24</td><td class="num good">1</td></tr>
+        <tr><td>Gemma 4 E4B</td><td>held-out (6)</td><td class="num">0.967</td><td class="num">24 / 24</td><td class="num">1</td></tr>
+        <tr><td>Gemma 4 E4B + veto</td><td>held-out (6)</td><td class="num good">0.969</td><td class="num">24 / 24</td><td class="num good">0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>On its own the classifier finds every ad break but flags too much content, so its time ranges are too loose to skip by. As a veto it never cost a real break in any test and removed half the remaining false alarms.</p>
+</section>
+
+<section>
+  <h2>Running it on the phone</h2>
+  <ul class="plain">
+    <li><strong>No ML runtime needed.</strong> Scoring is a vocabulary lookup, a weighted sum and a sigmoid, which is a few dozen lines of Kotlin. The model ships as a word-to-weight table plus the IDF values.</li>
+    <li><strong>Size.</strong> The full model pickles to about 2.5 MB. Keeping only the 5,000 to 10,000 strongest features should bring it to a few hundred KB with little loss, though that is not measured yet.</li>
+    <li><strong>Speed.</strong> Scoring an hour of transcript should take well under a second on a phone CPU (sparse dot products; not yet measured on a device), which is negligible next to transcription and the LLM.</li>
+    <li><strong>Training</strong> happens offline on a computer. The weights are exported once and bundled with the app.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Limits and caveats</h2>
+  <ul class="plain">
+    <li><strong>Small training set.</strong> 13 episodes, 55 ad breaks, about 11 hours of audio. The weights partly memorise this month's sponsors (YouTube Premium, BetterHelp, films opening in October), so the classifier will drift as sponsors change and needs retraining with new labelled episodes.</li>
+    <li><strong>Threshold picked by looking at results.</strong> The 0.15 threshold was chosen after seeing held-out scores at 0.15, 0.25 and 0.35, and the leave-one-episode-out numbers above use the same value. That makes them a little optimistic.</li>
+    <li><strong>Words only.</strong> It cannot hear music, pauses or voices, and it reads ASR errors as they are. A host-read ad with no web address and no "sponsored by" can slip under the threshold.</li>
+    <li><strong>Possible upgrade.</strong> Replacing word counts with sentence embeddings, for example from EmbeddingGemma (300M parameters, available for LiteRT), should generalise better to sponsors the model has not seen, at the cost of a small extra model.</li>
+  </ul>
+  <p class="muted mono">Code: ~/Projects/ondevice-adtest/clf.py (train on dev, score held-out) and clf_loo.py (leave-one-episode-out and veto).</p>
+</section>
+
+</div>

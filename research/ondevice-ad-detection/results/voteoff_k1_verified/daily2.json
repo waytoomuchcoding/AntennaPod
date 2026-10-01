@@ -1,0 +1,87 @@
+{
+ "episode": "daily2",
+ "pred": [
+  [
+   "00:00",
+   "00:30"
+  ],
+  [
+   "02:08",
+   "02:41"
+  ],
+  [
+   "13:34",
+   "15:22"
+  ],
+  [
+   "26:50",
+   "29:04"
+  ],
+  [
+   "30:28",
+   "31:00"
+  ]
+ ],
+ "score": {
+  "tp": 244.0,
+  "pred": 337.0,
+  "gt": 255.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 43,
+  "in_tokens": 47410,
+  "out_tokens": 2189,
+  "seconds": 312.8
+ },
+ "audio_s": 1859,
+ "runs": [
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_off50"
+ ],
+ "k": 1,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:30"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "02:08",
+    "02:41"
+   ],
+   "out": "Calci",
+   "keep": true
+  },
+  {
+   "interval": [
+    "13:34",
+    "15:22"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "26:50",
+    "29:04"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "30:28",
+    "31:00"
+   ],
+   "out": "Ultra",
+   "keep": true
+  }
+ ]
+}

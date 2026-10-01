@@ -1,0 +1,113 @@
+{
+ "episode": "crimejunkie1",
+ "pred": [
+  [
+   "00:01",
+   "00:33"
+  ],
+  [
+   "12:59",
+   "14:31"
+  ],
+  [
+   "30:13",
+   "31:04"
+  ],
+  [
+   "44:26",
+   "46:32"
+  ],
+  [
+   "55:10",
+   "55:51"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:33",
+   "ad"
+  ],
+  [
+   "30:04",
+   "31:04",
+   "ad"
+  ],
+  [
+   "44:25",
+   "46:31",
+   "ad"
+  ],
+  [
+   "55:18",
+   "55:51",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 241.0,
+  "pred": 342.0,
+  "gt": 252.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 32,
+  "in_tokens": 34850,
+  "out_tokens": 1156,
+  "seconds": 119.0
+ },
+ "wall_s": 112.0,
+ "audio_s": 3351,
+ "verify_log": [
+  {
+   "interval": [
+    "00:01",
+    "00:33"
+   ],
+   "out": "park predators",
+   "keep": true
+  },
+  {
+   "interval": [
+    "12:59",
+    "14:31"
+   ],
+   "out": "Prime Video",
+   "keep": true
+  },
+  {
+   "interval": [
+    "30:13",
+    "31:04"
+   ],
+   "out": "SimplySafe",
+   "keep": true
+  },
+  {
+   "interval": [
+    "44:26",
+    "46:32"
+   ],
+   "out": "function",
+   "keep": true
+  },
+  {
+   "interval": [
+    "53:38",
+    "53:57"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "55:10",
+    "55:51"
+   ],
+   "out": "So Supernatural",
+   "keep": true
+  }
+ ]
+}

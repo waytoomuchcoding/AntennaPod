@@ -1,0 +1,44 @@
+[
+ {
+  "start": "00:00",
+  "end": "01:03",
+  "type": "ad",
+  "what": "Capital One, Kraft Mac & Cheese Power Mac"
+ },
+ {
+  "start": "15:09",
+  "end": "16:42",
+  "type": "ad",
+  "what": "Time Suck podcast, Kraft Mac & Cheese Power Mac, Ernesta"
+ },
+ {
+  "start": "33:59",
+  "end": "35:32",
+  "type": "ad",
+  "what": "Time Suck podcast, Kraft Mac & Cheese Power Mac, Ernesta"
+ },
+ {
+  "start": "48:18",
+  "end": "49:55",
+  "type": "ad",
+  "what": "Time Suck podcast, Kraft Mac & Cheese Power Mac, Grocery Outlet"
+ },
+ {
+  "start": "1:03:56",
+  "end": "1:05:32",
+  "type": "ad",
+  "what": "Time Suck podcast, Kraft Mac & Cheese Power Mac, Ernesta"
+ },
+ {
+  "start": "1:27:55",
+  "end": "1:28:13",
+  "type": "self_promo",
+  "what": "Talking Dateline podcast"
+ },
+ {
+  "start": "1:28:27",
+  "end": "1:28:56",
+  "type": "ad",
+  "what": "Kraft Mac & Cheese Power Mac"
+ }
+]

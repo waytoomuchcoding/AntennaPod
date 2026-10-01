@@ -1,0 +1,105 @@
+{
+ "episode": "daily2",
+ "pred": [
+  [
+   "00:00",
+   "00:16"
+  ],
+  [
+   "02:08",
+   "02:40"
+  ],
+  [
+   "13:34",
+   "15:21"
+  ],
+  [
+   "26:50",
+   "28:22"
+  ],
+  [
+   "30:28",
+   "30:59"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:16",
+   "ad"
+  ],
+  [
+   "13:31",
+   "15:20",
+   "ad"
+  ],
+  [
+   "26:45",
+   "28:21",
+   "ad"
+  ],
+  [
+   "30:25",
+   "30:59",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 244.0,
+  "pred": 278.0,
+  "gt": 255.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 40,
+  "in_tokens": 32397,
+  "out_tokens": 1270,
+  "seconds": 114.7
+ },
+ "wall_s": 109.5,
+ "audio_s": 1859,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:16"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "02:08",
+    "02:40"
+   ],
+   "out": "Calci",
+   "keep": true
+  },
+  {
+   "interval": [
+    "13:34",
+    "15:21"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "26:50",
+    "28:22"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "30:28",
+    "30:59"
+   ],
+   "out": "Ultra",
+   "keep": true
+  }
+ ]
+}

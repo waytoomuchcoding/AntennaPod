@@ -1,0 +1,51 @@
+{
+ "episode": "crimejunkie1",
+ "pred": [
+  [
+   "00:01",
+   "00:34"
+  ],
+  [
+   "12:59",
+   "15:26"
+  ],
+  [
+   "30:13",
+   "31:05"
+  ],
+  [
+   "44:26",
+   "46:33"
+  ],
+  [
+   "53:38",
+   "53:58"
+  ],
+  [
+   "55:10",
+   "55:52"
+  ]
+ ],
+ "score": {
+  "tp": 368.0,
+  "pred": 421,
+  "gt": 379.0,
+  "breaks": 5,
+  "found": 5,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 108,
+  "in_tokens": 131796,
+  "out_tokens": 5872,
+  "seconds": 640.2
+ },
+ "audio_s": 3351,
+ "runs": [
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s1",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s2",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s3"
+ ],
+ "k": 2
+}

@@ -1,0 +1,117 @@
+{
+ "episode": "morbid1",
+ "pred": [
+  [
+   "00:16",
+   "01:32"
+  ],
+  [
+   "03:43",
+   "05:08"
+  ],
+  [
+   "27:42",
+   "29:36"
+  ],
+  [
+   "58:08",
+   "1:01:21"
+  ],
+  [
+   "1:20:36",
+   "1:21:15"
+  ],
+  [
+   "1:22:44",
+   "1:23:14"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:26",
+   "ad"
+  ],
+  [
+   "27:40",
+   "29:38",
+   "ad"
+  ],
+  [
+   "58:05",
+   "1:01:22",
+   "ad"
+  ],
+  [
+   "1:22:44",
+   "1:23:14",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 407.0,
+  "pred": 537.0,
+  "gt": 431.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 2
+ },
+ "stats": {
+  "calls": 69,
+  "in_tokens": 60601,
+  "out_tokens": 2324,
+  "seconds": 210.8
+ },
+ "wall_s": 203.5,
+ "audio_s": 4994,
+ "verify_log": [
+  {
+   "interval": [
+    "00:16",
+    "01:32"
+   ],
+   "out": "Chamberlain University, State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "03:43",
+    "05:08"
+   ],
+   "out": "Kiff",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:42",
+    "29:36"
+   ],
+   "out": "Stella Rosa",
+   "keep": true
+  },
+  {
+   "interval": [
+    "58:08",
+    "1:01:21"
+   ],
+   "out": "Ashley",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:20:36",
+    "1:21:15"
+   ],
+   "out": "koala show",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:22:44",
+    "1:23:14"
+   ],
+   "out": "SimplySafe",
+   "keep": true
+  }
+ ]
+}

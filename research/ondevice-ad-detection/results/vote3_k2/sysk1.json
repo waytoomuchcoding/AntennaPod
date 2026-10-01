@@ -1,0 +1,66 @@
+{
+ "episode": "sysk1",
+ "pred": [
+  [
+   "00:00",
+   "02:48"
+  ],
+  [
+   "04:25",
+   "07:13"
+  ],
+  [
+   "11:01",
+   "11:18"
+  ],
+  [
+   "17:44",
+   "19:30"
+  ],
+  [
+   "25:50",
+   "26:04"
+  ],
+  [
+   "30:29",
+   "31:08"
+  ],
+  [
+   "34:21",
+   "36:09"
+  ],
+  [
+   "44:29",
+   "45:09"
+  ],
+  [
+   "52:41",
+   "53:42"
+  ],
+  [
+   "55:23",
+   "57:27"
+  ]
+ ],
+ "score": {
+  "tp": 465.0,
+  "pred": 661.0,
+  "gt": 490.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 5
+ },
+ "stats": {
+  "calls": 138,
+  "in_tokens": 158706,
+  "out_tokens": 8395,
+  "seconds": 622.5
+ },
+ "audio_s": 3446,
+ "runs": [
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s1",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s2",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s3"
+ ],
+ "k": 2
+}

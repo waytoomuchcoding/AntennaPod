@@ -1,0 +1,32 @@
+[
+ {
+  "start": "00:01",
+  "end": "00:33",
+  "type": "ad",
+  "what": "Park Predators podcast"
+ },
+ {
+  "start": "12:59",
+  "end": "15:07",
+  "type": "ad",
+  "what": "Carrie on Prime Video, Verity movie"
+ },
+ {
+  "start": "30:05",
+  "end": "31:04",
+  "type": "ad",
+  "what": "SimpliSafe"
+ },
+ {
+  "start": "44:26",
+  "end": "46:32",
+  "type": "ad",
+  "what": "Function Health, Carrie on Prime Video"
+ },
+ {
+  "start": "55:20",
+  "end": "55:46",
+  "type": "ad",
+  "what": "So Supernatural podcast"
+ }
+]

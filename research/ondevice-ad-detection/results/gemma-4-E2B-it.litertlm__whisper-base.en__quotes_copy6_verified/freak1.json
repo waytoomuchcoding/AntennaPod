@@ -1,0 +1,126 @@
+{
+ "episode": "freak1",
+ "pred": [
+  [
+   "00:01",
+   "02:22"
+  ],
+  [
+   "19:41",
+   "21:01"
+  ],
+  [
+   "21:36",
+   "22:23"
+  ],
+  [
+   "36:31",
+   "38:50"
+  ],
+  [
+   "53:34",
+   "59:20"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "02:20",
+   "ad"
+  ],
+  [
+   "19:39",
+   "22:20",
+   "ad"
+  ],
+  [
+   "36:29",
+   "38:48",
+   "ad"
+  ],
+  [
+   "56:22",
+   "56:32",
+   "self_promo"
+  ],
+  [
+   "57:36",
+   "59:49",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 504.0,
+  "pred": 743.0,
+  "gt": 573.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 45,
+  "in_tokens": 48006,
+  "out_tokens": 2310,
+  "seconds": 181.5
+ },
+ "wall_s": 173.4,
+ "audio_s": 3589,
+ "verify_log": [
+  {
+   "interval": [
+    "00:01",
+    "02:22"
+   ],
+   "out": "Angie",
+   "keep": true
+  },
+  {
+   "interval": [
+    "04:32",
+    "04:49"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "19:41",
+    "21:01"
+   ],
+   "out": "Fidelity Investments",
+   "keep": true
+  },
+  {
+   "interval": [
+    "21:36",
+    "22:23"
+   ],
+   "out": "Hotels.com",
+   "keep": true
+  },
+  {
+   "interval": [
+    "36:31",
+    "38:50"
+   ],
+   "out": "Square",
+   "keep": true
+  },
+  {
+   "interval": [
+    "47:27",
+    "47:45"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "53:34",
+    "59:20"
+   ],
+   "out": "everpuredata.com, Ozem Innovation, ozempic, Southern Company",
+   "keep": true
+  }
+ ]
+}

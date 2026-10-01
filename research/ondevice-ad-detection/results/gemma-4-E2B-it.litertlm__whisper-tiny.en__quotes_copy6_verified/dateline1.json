@@ -1,0 +1,148 @@
+{
+ "episode": "dateline1",
+ "pred": [
+  [
+   "00:00",
+   "00:59"
+  ],
+  [
+   "15:09",
+   "16:42"
+  ],
+  [
+   "33:59",
+   "35:32"
+  ],
+  [
+   "48:18",
+   "49:47"
+  ],
+  [
+   "1:03:56",
+   "1:05:32"
+  ],
+  [
+   "1:27:55",
+   "1:28:56"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:02",
+   "ad"
+  ],
+  [
+   "15:08",
+   "16:41",
+   "ad"
+  ],
+  [
+   "33:58",
+   "35:31",
+   "ad"
+  ],
+  [
+   "48:17",
+   "49:54",
+   "ad"
+  ],
+  [
+   "1:03:55",
+   "1:05:31",
+   "ad"
+  ],
+  [
+   "1:27:55",
+   "1:28:13",
+   "self_promo"
+  ],
+  [
+   "1:28:20",
+   "1:28:56",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 463.0,
+  "pred": 473.0,
+  "gt": 477.0,
+  "breaks": 6,
+  "found": 6,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 49,
+  "in_tokens": 54660,
+  "out_tokens": 1831,
+  "seconds": 181.9
+ },
+ "wall_s": 172.4,
+ "audio_s": 5336,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:59"
+   ],
+   "out": "Capital One",
+   "keep": true
+  },
+  {
+   "interval": [
+    "10:08",
+    "10:23"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "15:09",
+    "16:42"
+   ],
+   "out": "Craft Mac and Cheese Power Mac",
+   "keep": true
+  },
+  {
+   "interval": [
+    "33:59",
+    "35:32"
+   ],
+   "out": "Craft Mac and Cheese Power Mac",
+   "keep": true
+  },
+  {
+   "interval": [
+    "48:18",
+    "49:47"
+   ],
+   "out": "Craft Mac and Cheese Power Mac",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:03:56",
+    "1:05:32"
+   ],
+   "out": "Kraft Mac and Cheese Power Mac",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:16:09",
+    "1:16:55"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "1:27:55",
+    "1:28:56"
+   ],
+   "out": "Craft Mac and Cheese Power Mac",
+   "keep": true
+  }
+ ]
+}

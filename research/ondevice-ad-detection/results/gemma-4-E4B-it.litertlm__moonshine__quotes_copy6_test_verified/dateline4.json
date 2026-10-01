@@ -1,0 +1,98 @@
+{
+ "episode": "dateline4",
+ "pred": [
+  [
+   "00:00",
+   "01:00"
+  ],
+  [
+   "11:19",
+   "13:27"
+  ],
+  [
+   "29:00",
+   "31:27"
+  ],
+  [
+   "41:47",
+   "42:19"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:00",
+   "ad"
+  ],
+  [
+   "11:17",
+   "13:26",
+   "ad"
+  ],
+  [
+   "28:58",
+   "31:25",
+   "ad"
+  ],
+  [
+   "41:11",
+   "41:38",
+   "self_promo"
+  ],
+  [
+   "41:46",
+   "42:19",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 364.0,
+  "pred": 367.0,
+  "gt": 369.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 24,
+  "in_tokens": 26916,
+  "out_tokens": 1409,
+  "seconds": 238.0
+ },
+ "wall_s": 224.2,
+ "audio_s": 2539,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:00"
+   ],
+   "out": "20th Century Studios, Southern New Hampshire University",
+   "keep": true
+  },
+  {
+   "interval": [
+    "11:19",
+    "13:27"
+   ],
+   "out": "Mazda, Mint Mobile, Grainger",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:00",
+    "31:27"
+   ],
+   "out": "HERS",
+   "keep": true
+  },
+  {
+   "interval": [
+    "41:47",
+    "42:19"
+   ],
+   "out": "Capital One",
+   "keep": true
+  }
+ ]
+}

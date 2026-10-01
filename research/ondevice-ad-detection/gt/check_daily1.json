@@ -1,0 +1,32 @@
+[
+ {
+  "start": "00:00",
+  "end": "00:16",
+  "type": "ad",
+  "what": "YouTube Premium"
+ },
+ {
+  "start": "13:22",
+  "end": "14:58",
+  "type": "ad",
+  "what": "YouTube Premium, Link, Rinse.com"
+ },
+ {
+  "start": "23:09",
+  "end": "23:27",
+  "type": "self_promo",
+  "what": "New York Times app"
+ },
+ {
+  "start": "23:40",
+  "end": "25:09",
+  "type": "ad",
+  "what": "YouTube Premium, Vrbo"
+ },
+ {
+  "start": "27:15",
+  "end": "27:44",
+  "type": "ad",
+  "what": "Rinse.com"
+ }
+]

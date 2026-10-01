@@ -1,0 +1,62 @@
+[
+ {
+  "start": "00:01",
+  "end": "00:23",
+  "type": "ad",
+  "what": "Sheriff Country"
+ },
+ {
+  "start": "00:24",
+  "end": "00:53",
+  "type": "ad",
+  "what": "Chamberlain University"
+ },
+ {
+  "start": "00:53",
+  "end": "01:17",
+  "type": "ad",
+  "what": "State Farm"
+ },
+ {
+  "start": "27:41",
+  "end": "28:21",
+  "type": "ad",
+  "what": "Stella Rosa"
+ },
+ {
+  "start": "28:21",
+  "end": "29:02",
+  "type": "ad",
+  "what": "State Farm"
+ },
+ {
+  "start": "29:02",
+  "end": "29:39",
+  "type": "ad",
+  "what": "Other Mommy"
+ },
+ {
+  "start": "58:08",
+  "end": "59:29",
+  "type": "ad",
+  "what": "Ashley"
+ },
+ {
+  "start": "59:29",
+  "end": "1:00:03",
+  "type": "ad",
+  "what": "Other Mommy"
+ },
+ {
+  "start": "1:00:03",
+  "end": "1:01:24",
+  "type": "ad",
+  "what": "Pantene"
+ },
+ {
+  "start": "1:22:44",
+  "end": "1:23:14",
+  "type": "ad",
+  "what": "SimpliSafe"
+ }
+]

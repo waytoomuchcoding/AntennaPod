@@ -1,0 +1,54 @@
+{
+ "episode": "freak1",
+ "pred": [
+  [
+   "00:01",
+   "02:25"
+  ],
+  [
+   "04:17",
+   "04:50"
+  ],
+  [
+   "19:41",
+   "22:24"
+  ],
+  [
+   "36:31",
+   "38:51"
+  ],
+  [
+   "47:27",
+   "47:46"
+  ],
+  [
+   "56:12",
+   "56:56"
+  ],
+  [
+   "57:38",
+   "59:23"
+  ]
+ ],
+ "score": {
+  "tp": 540.0,
+  "pred": 638.0,
+  "gt": 573.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 3
+ },
+ "stats": {
+  "calls": 105,
+  "in_tokens": 127872,
+  "out_tokens": 5688,
+  "seconds": 466.7
+ },
+ "audio_s": 3589,
+ "runs": [
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s1",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s2",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s3"
+ ],
+ "k": 2
+}

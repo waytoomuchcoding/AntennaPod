@@ -1,0 +1,93 @@
+{
+ "episode": "dateline3",
+ "pred": [
+  [
+   "00:27",
+   "01:02"
+  ],
+  [
+   "15:36",
+   "18:07"
+  ],
+  [
+   "29:25",
+   "31:20"
+  ],
+  [
+   "45:24",
+   "45:46"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:02",
+   "ad"
+  ],
+  [
+   "15:08",
+   "16:42",
+   "ad"
+  ],
+  [
+   "29:24",
+   "31:35",
+   "ad"
+  ],
+  [
+   "45:23",
+   "45:46",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 238.0,
+  "pred": 323.0,
+  "gt": 310.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 25,
+  "in_tokens": 27176,
+  "out_tokens": 1114,
+  "seconds": 151.5
+ },
+ "wall_s": 141.1,
+ "audio_s": 2746,
+ "verify_log": [
+  {
+   "interval": [
+    "00:27",
+    "01:02"
+   ],
+   "out": "Capital One",
+   "keep": true
+  },
+  {
+   "interval": [
+    "15:36",
+    "18:07"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:25",
+    "31:20"
+   ],
+   "out": "Viori",
+   "keep": true
+  },
+  {
+   "interval": [
+    "45:24",
+    "45:46"
+   ],
+   "out": "Pandora",
+   "keep": true
+  }
+ ]
+}

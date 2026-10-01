@@ -1,0 +1,43 @@
+{
+ "episode": "dateline2",
+ "pred": [
+  [
+   "00:00",
+   "01:12"
+  ],
+  [
+   "14:49",
+   "16:23"
+  ],
+  [
+   "27:18",
+   "28:56"
+  ],
+  [
+   "44:23",
+   "45:23"
+  ]
+ ],
+ "score": {
+  "tp": 279.0,
+  "pred": 305.0,
+  "gt": 281.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 80,
+  "in_tokens": 98463,
+  "out_tokens": 4323,
+  "seconds": 462.6
+ },
+ "audio_s": 2722,
+ "runs": [
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s1",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s2",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s3"
+ ],
+ "k": 2
+}

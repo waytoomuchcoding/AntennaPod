@@ -1,0 +1,94 @@
+{
+ "episode": "daily1",
+ "pred": [
+  [
+   "00:00",
+   "00:16"
+  ],
+  [
+   "13:22",
+   "14:58"
+  ],
+  [
+   "23:09",
+   "25:09"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:16",
+   "ad"
+  ],
+  [
+   "13:18",
+   "14:58",
+   "ad"
+  ],
+  [
+   "23:09",
+   "23:28",
+   "self_promo"
+  ],
+  [
+   "23:38",
+   "25:08",
+   "ad"
+  ],
+  [
+   "27:12",
+   "27:45",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 202.0,
+  "pred": 213.0,
+  "gt": 239.0,
+  "breaks": 4,
+  "found": 3,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 20,
+  "in_tokens": 21277,
+  "out_tokens": 881,
+  "seconds": 197.3
+ },
+ "wall_s": 191.1,
+ "audio_s": 1665,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:16"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "09:21",
+    "09:33"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "13:22",
+    "14:58"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "23:09",
+    "25:09"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  }
+ ]
+}

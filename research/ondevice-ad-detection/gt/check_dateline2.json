@@ -1,0 +1,32 @@
+[
+ {
+  "start": "00:00",
+  "end": "01:00",
+  "type": "ad",
+  "what": "Capital One, Amazon Prime Big Deal Days"
+ },
+ {
+  "start": "14:49",
+  "end": "16:08",
+  "type": "ad",
+  "what": "Mr. Ballin' Podcast, Ernesta, Ro"
+ },
+ {
+  "start": "27:18",
+  "end": "28:39",
+  "type": "ad",
+  "what": "Morbid Podcast, Ernesta, Ro"
+ },
+ {
+  "start": "44:23",
+  "end": "44:42",
+  "type": "self_promo",
+  "what": "Talking Dateline podcast, Dateline NBC season premiere"
+ },
+ {
+  "start": "44:53",
+  "end": "45:18",
+  "type": "ad",
+  "what": "AAA Insurance"
+ }
+]

@@ -1,0 +1,83 @@
+{
+ "episode": "daily1",
+ "pred": [
+  [
+   "00:00",
+   "00:17"
+  ],
+  [
+   "13:22",
+   "14:59"
+  ],
+  [
+   "23:09",
+   "25:30"
+  ],
+  [
+   "27:32",
+   "27:45"
+  ]
+ ],
+ "score": {
+  "tp": 215.0,
+  "pred": 249.0,
+  "gt": 239.0,
+  "breaks": 4,
+  "found": 3,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 34,
+  "in_tokens": 36102,
+  "out_tokens": 1648,
+  "seconds": 260.7
+ },
+ "audio_s": 1665,
+ "runs": [
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_off50"
+ ],
+ "k": 1,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:17"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "09:21",
+    "09:34"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "13:22",
+    "14:59"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "23:09",
+    "25:30"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:32",
+    "27:45"
+   ],
+   "out": "rinse.com",
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+# Local, large or copyrighted artifacts. Regenerate with setup.sh, fetch_audio.py and transcribe.py.
+venv/
+models/
+asr/
+llama.cpp/
+audio/
+wav/
+tx/
+dumps_*.jsonl
+bench/dump_*.jsonl
+problem_cases.md
+logs_*.txt
+.litert-cache/
+__pycache__/

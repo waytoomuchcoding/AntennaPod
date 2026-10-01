@@ -1,0 +1,131 @@
+{
+ "episode": "sysk1",
+ "pred": [
+  [
+   "00:00",
+   "02:47"
+  ],
+  [
+   "04:08",
+   "05:53"
+  ],
+  [
+   "17:44",
+   "19:29"
+  ],
+  [
+   "34:21",
+   "36:08"
+  ],
+  [
+   "55:23",
+   "57:26"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "02:37",
+   "ad"
+  ],
+  [
+   "04:25",
+   "07:04",
+   "self_promo"
+  ],
+  [
+   "17:31",
+   "19:28",
+   "ad"
+  ],
+  [
+   "34:09",
+   "36:07",
+   "ad"
+  ],
+  [
+   "55:15",
+   "55:48",
+   "self_promo"
+  ],
+  [
+   "55:48",
+   "57:26",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 465.0,
+  "pred": 494.0,
+  "gt": 490.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 45,
+  "in_tokens": 48735,
+  "out_tokens": 2508,
+  "seconds": 187.7
+ },
+ "wall_s": 178.8,
+ "audio_s": 3446,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "02:47"
+   ],
+   "out": "McCormick",
+   "keep": true
+  },
+  {
+   "interval": [
+    "04:08",
+    "05:53"
+   ],
+   "out": "Three Putt Bogey",
+   "keep": true
+  },
+  {
+   "interval": [
+    "17:44",
+    "19:29"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  },
+  {
+   "interval": [
+    "22:25",
+    "23:32"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "30:24",
+    "31:11"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "34:21",
+    "36:08"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  },
+  {
+   "interval": [
+    "55:23",
+    "57:26"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  }
+ ]
+}

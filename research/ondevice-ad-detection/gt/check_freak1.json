@@ -1,0 +1,32 @@
+[
+ {
+  "start": "00:01",
+  "end": "02:11",
+  "type": "ad",
+  "what": "Angie, Hotels.com, Amika, ChatGPT Work"
+ },
+ {
+  "start": "19:41",
+  "end": "22:06",
+  "type": "ad",
+  "what": "Fidelity Investments, PNC Bank, Hotels.com"
+ },
+ {
+  "start": "36:31",
+  "end": "38:32",
+  "type": "ad",
+  "what": "Square, Angie, Hotels.com"
+ },
+ {
+  "start": "56:22",
+  "end": "56:32",
+  "type": "self_promo",
+  "what": "Better in Person"
+ },
+ {
+  "start": "57:38",
+  "end": "59:41",
+  "type": "ad",
+  "what": "Everpure, Ozempic, Southern Company, US Marines"
+ }
+]

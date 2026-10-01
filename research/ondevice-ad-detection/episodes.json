@@ -1,0 +1,93 @@
+{
+ "daily1": {
+  "podcast": "The Daily",
+  "title": "Inside the Devastating Hack of the F.B.I.",
+  "split": "dev",
+  "feed": "https://feeds.simplecast.com/54nAGcIl",
+  "downloaded": "2026-09-30"
+ },
+ "daily2": {
+  "podcast": "The Daily",
+  "title": "Are Prediction Markets Gambling? A Lot Rides on the Answer.",
+  "split": "dev",
+  "feed": "https://feeds.simplecast.com/54nAGcIl",
+  "downloaded": "2026-09-30"
+ },
+ "dateline1": {
+  "podcast": "Dateline NBC",
+  "title": "The Family Plot",
+  "split": "dev",
+  "feed": "https://podcastfeeds.nbcnews.com/HL4TzgYC",
+  "downloaded": "2026-09-30"
+ },
+ "dateline2": {
+  "podcast": "Dateline NBC",
+  "title": "The Man Who Loved Christmas",
+  "split": "dev",
+  "feed": "https://podcastfeeds.nbcnews.com/HL4TzgYC",
+  "downloaded": "2026-09-30"
+ },
+ "sysk1": {
+  "podcast": "Stuff You Should Know",
+  "title": "A Good Walk Ruined: The History of Golf",
+  "split": "dev",
+  "feed": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/a91018a4-ea4f-4130-bf55-ae270180c327/44710ecc-10bb-48d1-93c7-ae270180c33e/podcast.rss",
+  "downloaded": "2026-09-30"
+ },
+ "crimejunkie1": {
+  "podcast": "Crime Junkie",
+  "title": "MURDERED: Marina Ramos",
+  "split": "dev",
+  "feed": "https://feeds.simplecast.com/qm_9xx0g",
+  "downloaded": "2026-09-30"
+ },
+ "freak1": {
+  "podcast": "Freakonomics Radio",
+  "title": "688. When Is a Bet Not a Bet?",
+  "split": "dev",
+  "feed": "https://feeds.simplecast.com/Y8lFbOT4",
+  "downloaded": "2026-09-30"
+ },
+ "planetmoney1": {
+  "podcast": "Planet Money",
+  "title": "The Domino\u2019s Pizza Tracker Theory of Everything",
+  "split": "test",
+  "feed": "https://feeds.npr.org/510289/podcast.xml",
+  "downloaded": "2026-09-30"
+ },
+ "conan1": {
+  "podcast": "Conan O\u2019Brien Needs A Friend",
+  "title": "Matt Groening",
+  "split": "test",
+  "feed": "https://feeds.simplecast.com/dHoohVNH",
+  "downloaded": "2026-09-30"
+ },
+ "morbid1": {
+  "podcast": "Morbid",
+  "title": "The Murders of Mary Phagan and Leo Frank",
+  "split": "test",
+  "feed": "https://feeds.simplecast.com/ohmVlJZQ",
+  "downloaded": "2026-09-30"
+ },
+ "huberman1": {
+  "podcast": "Huberman Lab",
+  "title": "Essentials: Diet & Nutrition for Mental Health | Dr. Chris Palmer",
+  "split": "test",
+  "feed": "https://feeds.megaphone.fm/hubermanlab",
+  "downloaded": "2026-09-30"
+ },
+ "dateline3": {
+  "podcast": "Dateline NBC",
+  "title": "True Lies",
+  "split": "test",
+  "feed": "https://podcastfeeds.nbcnews.com/HL4TzgYC",
+  "downloaded": "2026-09-30"
+ },
+ "dateline4": {
+  "podcast": "Dateline NBC",
+  "title": "Talking Dateline: The Family Plot",
+  "split": "test",
+  "feed": "https://podcastfeeds.nbcnews.com/HL4TzgYC",
+  "downloaded": "2026-09-30"
+ }
+}

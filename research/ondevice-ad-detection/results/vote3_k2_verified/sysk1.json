@@ -1,0 +1,124 @@
+{
+ "episode": "sysk1",
+ "pred": [
+  [
+   "00:00",
+   "02:48"
+  ],
+  [
+   "17:44",
+   "19:30"
+  ],
+  [
+   "34:21",
+   "36:09"
+  ],
+  [
+   "55:23",
+   "57:27"
+  ]
+ ],
+ "score": {
+  "tp": 465.0,
+  "pred": 481.0,
+  "gt": 490.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 148,
+  "in_tokens": 163730,
+  "out_tokens": 8410,
+  "seconds": 639.3
+ },
+ "audio_s": 3446,
+ "runs": [
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s1",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s2",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s3"
+ ],
+ "k": 2,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "02:48"
+   ],
+   "out": "McCormick",
+   "keep": true
+  },
+  {
+   "interval": [
+    "04:25",
+    "07:13"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "11:01",
+    "11:18"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "17:44",
+    "19:30"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  },
+  {
+   "interval": [
+    "25:50",
+    "26:04"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "30:29",
+    "31:08"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "34:21",
+    "36:09"
+   ],
+   "out": "Hello Divorce",
+   "keep": true
+  },
+  {
+   "interval": [
+    "44:29",
+    "45:09"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "52:41",
+    "53:42"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "55:23",
+    "57:27"
+   ],
+   "out": "hello divorce",
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+[
+ {
+  "start": "00:00",
+  "end": "00:16",
+  "type": "ad",
+  "what": "HubSpot"
+ },
+ {
+  "start": "00:17",
+  "end": "01:36",
+  "type": "self_promo",
+  "what": "Planet Money book and game"
+ },
+ {
+  "start": "06:55",
+  "end": "08:03",
+  "type": "ad",
+  "what": "Superhuman Go, Ethos, Capella University"
+ },
+ {
+  "start": "25:11",
+  "end": "26:04",
+  "type": "ad",
+  "what": "BetterHelp, LinkedIn"
+ },
+ {
+  "start": "33:26",
+  "end": "34:05",
+  "type": "self_promo",
+  "what": "The Indicator newsletter, Gastronomics podcast"
+ },
+ {
+  "start": "34:38",
+  "end": "35:19",
+  "type": "ad",
+  "what": "Mint Mobile, EasyCater"
+ }
+]

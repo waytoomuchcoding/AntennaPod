@@ -1,0 +1,98 @@
+{
+ "episode": "dateline4",
+ "pred": [
+  [
+   "00:00",
+   "01:00"
+  ],
+  [
+   "11:19",
+   "13:27"
+  ],
+  [
+   "29:00",
+   "31:27"
+  ],
+  [
+   "40:52",
+   "42:19"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:00",
+   "ad"
+  ],
+  [
+   "11:17",
+   "13:26",
+   "ad"
+  ],
+  [
+   "28:58",
+   "31:25",
+   "ad"
+  ],
+  [
+   "41:11",
+   "41:38",
+   "self_promo"
+  ],
+  [
+   "41:46",
+   "42:19",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 365.0,
+  "pred": 395.0,
+  "gt": 369.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 27,
+  "in_tokens": 30706,
+  "out_tokens": 1531,
+  "seconds": 116.0
+ },
+ "wall_s": 110.3,
+ "audio_s": 2539,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:00"
+   ],
+   "out": "Whale Fall",
+   "keep": true
+  },
+  {
+   "interval": [
+    "11:19",
+    "13:27"
+   ],
+   "out": "MazdaUSA.com, Mint Mobile, Grainger",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:00",
+    "31:27"
+   ],
+   "out": "HERS",
+   "keep": true
+  },
+  {
+   "interval": [
+    "40:52",
+    "42:19"
+   ],
+   "out": "Capital One",
+   "keep": true
+  }
+ ]
+}

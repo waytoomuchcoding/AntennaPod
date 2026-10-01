@@ -1,0 +1,114 @@
+{
+ "episode": "freak1",
+ "pred": [
+  [
+   "00:01",
+   "02:24"
+  ],
+  [
+   "19:41",
+   "23:08"
+  ],
+  [
+   "36:31",
+   "39:47"
+  ],
+  [
+   "55:37",
+   "59:49"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "02:20",
+   "ad"
+  ],
+  [
+   "19:39",
+   "22:20",
+   "ad"
+  ],
+  [
+   "36:29",
+   "38:48",
+   "ad"
+  ],
+  [
+   "56:22",
+   "56:32",
+   "self_promo"
+  ],
+  [
+   "57:36",
+   "59:49",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 568.0,
+  "pred": 788.0,
+  "gt": 573.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 43,
+  "in_tokens": 51597,
+  "out_tokens": 2405,
+  "seconds": 190.1
+ },
+ "wall_s": 182.9,
+ "audio_s": 3589,
+ "verify_log": [
+  {
+   "interval": [
+    "00:01",
+    "02:24"
+   ],
+   "out": "Angie",
+   "keep": true
+  },
+  {
+   "interval": [
+    "04:32",
+    "04:49"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "19:41",
+    "23:08"
+   ],
+   "out": "Fidelity",
+   "keep": true
+  },
+  {
+   "interval": [
+    "36:31",
+    "39:47"
+   ],
+   "out": "Square",
+   "keep": true
+  },
+  {
+   "interval": [
+    "54:37",
+    "55:11"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "55:37",
+    "59:49"
+   ],
+   "out": "Ozempic",
+   "keep": true
+  }
+ ]
+}

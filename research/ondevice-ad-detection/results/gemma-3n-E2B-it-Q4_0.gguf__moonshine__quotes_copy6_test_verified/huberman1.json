@@ -1,0 +1,93 @@
+{
+ "episode": "huberman1",
+ "pred": [
+  [
+   "07:33",
+   "08:50"
+  ],
+  [
+   "21:10",
+   "22:03"
+  ],
+  [
+   "33:11",
+   "34:25"
+  ],
+  [
+   "38:21",
+   "38:49"
+  ]
+ ],
+ "gt": [
+  [
+   "07:33",
+   "08:50",
+   "ad"
+  ],
+  [
+   "21:13",
+   "22:14",
+   "ad"
+  ],
+  [
+   "33:11",
+   "34:25",
+   "ad"
+  ],
+  [
+   "38:21",
+   "38:49",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 229.0,
+  "pred": 232.0,
+  "gt": 240.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 19,
+  "in_tokens": 21146,
+  "out_tokens": 903,
+  "seconds": 120.0
+ },
+ "wall_s": 110.6,
+ "audio_s": 2329,
+ "verify_log": [
+  {
+   "interval": [
+    "07:33",
+    "08:50"
+   ],
+   "out": "Eight Sleep",
+   "keep": true
+  },
+  {
+   "interval": [
+    "21:10",
+    "22:03"
+   ],
+   "out": "BetterHelp",
+   "keep": true
+  },
+  {
+   "interval": [
+    "33:11",
+    "34:25"
+   ],
+   "out": "AG1",
+   "keep": true
+  },
+  {
+   "interval": [
+    "38:21",
+    "38:49"
+   ],
+   "out": "Mobile One Advanced Clean Motor Oil",
+   "keep": true
+  }
+ ]
+}

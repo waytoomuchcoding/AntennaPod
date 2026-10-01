@@ -1,0 +1,56 @@
+[
+ {
+  "start": "00:00",
+  "end": "00:27",
+  "type": "ad",
+  "what": "University of Arizona"
+ },
+ {
+  "start": "00:27",
+  "end": "01:02",
+  "type": "ad",
+  "what": "Capital One"
+ },
+ {
+  "start": "15:09",
+  "end": "15:36",
+  "type": "ad",
+  "what": "University of Arizona"
+ },
+ {
+  "start": "15:36",
+  "end": "16:03",
+  "type": "ad",
+  "what": "Progressive"
+ },
+ {
+  "start": "16:03",
+  "end": "16:43",
+  "type": "ad",
+  "what": "Grainger"
+ },
+ {
+  "start": "29:25",
+  "end": "30:02",
+  "type": "ad",
+  "what": "SmartLess"
+ },
+ {
+  "start": "30:02",
+  "end": "30:57",
+  "type": "ad",
+  "what": "Vuori"
+ },
+ {
+  "start": "30:57",
+  "end": "31:36",
+  "type": "ad",
+  "what": "Monday.com"
+ },
+ {
+  "start": "45:24",
+  "end": "45:46",
+  "type": "ad",
+  "what": "Pandora"
+ }
+]

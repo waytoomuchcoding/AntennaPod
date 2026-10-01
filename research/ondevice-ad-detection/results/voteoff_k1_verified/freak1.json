@@ -1,0 +1,111 @@
+{
+ "episode": "freak1",
+ "pred": [
+  [
+   "00:01",
+   "02:25"
+  ],
+  [
+   "19:41",
+   "22:24"
+  ],
+  [
+   "25:27",
+   "25:48"
+  ],
+  [
+   "36:31",
+   "38:51"
+  ],
+  [
+   "57:38",
+   "59:23"
+  ]
+ ],
+ "score": {
+  "tp": 540.0,
+  "pred": 573.0,
+  "gt": 573.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 79,
+  "in_tokens": 90794,
+  "out_tokens": 3610,
+  "seconds": 538.0
+ },
+ "audio_s": 3589,
+ "runs": [
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_off50"
+ ],
+ "k": 1,
+ "verify_log": [
+  {
+   "interval": [
+    "00:01",
+    "02:25"
+   ],
+   "out": "Angie",
+   "keep": true
+  },
+  {
+   "interval": [
+    "04:17",
+    "04:59"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "19:41",
+    "22:24"
+   ],
+   "out": "Fidelity",
+   "keep": true
+  },
+  {
+   "interval": [
+    "25:27",
+    "25:48"
+   ],
+   "out": "Polymarket",
+   "keep": true
+  },
+  {
+   "interval": [
+    "36:31",
+    "38:51"
+   ],
+   "out": "Square",
+   "keep": true
+  },
+  {
+   "interval": [
+    "47:27",
+    "47:46"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "55:37",
+    "56:56"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "57:38",
+    "59:23"
+   ],
+   "out": "EverPure",
+   "keep": true
+  }
+ ]
+}

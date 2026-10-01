@@ -1,0 +1,115 @@
+{
+ "episode": "planetmoney1",
+ "pred": [
+  [
+   "00:00",
+   "01:36"
+  ],
+  [
+   "06:55",
+   "08:04"
+  ],
+  [
+   "25:11",
+   "26:05"
+  ],
+  [
+   "33:26",
+   "34:06"
+  ],
+  [
+   "34:38",
+   "35:19"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:17",
+   "ad"
+  ],
+  [
+   "00:17",
+   "01:42",
+   "self_promo"
+  ],
+  [
+   "06:55",
+   "08:04",
+   "ad"
+  ],
+  [
+   "25:11",
+   "26:05",
+   "ad"
+  ],
+  [
+   "33:26",
+   "34:05",
+   "self_promo"
+  ],
+  [
+   "34:38",
+   "35:19",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 181.0,
+  "pred": 182.0,
+  "gt": 181.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 24,
+  "in_tokens": 26607,
+  "out_tokens": 1034,
+  "seconds": 478.3
+ },
+ "wall_s": 466.3,
+ "audio_s": 2119,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:36"
+   ],
+   "out": "HubSpot",
+   "keep": true
+  },
+  {
+   "interval": [
+    "06:55",
+    "08:04"
+   ],
+   "out": "Superhuman, Ethos, Capella University",
+   "keep": true
+  },
+  {
+   "interval": [
+    "25:11",
+    "26:05"
+   ],
+   "out": "BetterHelp",
+   "keep": true
+  },
+  {
+   "interval": [
+    "33:26",
+    "34:06"
+   ],
+   "out": "The Indicator",
+   "keep": true
+  },
+  {
+   "interval": [
+    "34:38",
+    "35:19"
+   ],
+   "out": "Mint Mobile, EasyCater",
+   "keep": true
+  }
+ ]
+}

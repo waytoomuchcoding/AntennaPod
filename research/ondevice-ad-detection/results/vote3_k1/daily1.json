@@ -1,0 +1,42 @@
+{
+ "episode": "daily1",
+ "pred": [
+  [
+   "00:00",
+   "00:17"
+  ],
+  [
+   "09:21",
+   "09:34"
+  ],
+  [
+   "13:22",
+   "14:59"
+  ],
+  [
+   "23:09",
+   "25:10"
+  ]
+ ],
+ "score": {
+  "tp": 202.0,
+  "pred": 229.0,
+  "gt": 239.0,
+  "breaks": 4,
+  "found": 3,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 39,
+  "in_tokens": 49247,
+  "out_tokens": 1880,
+  "seconds": 175.4
+ },
+ "audio_s": 1665,
+ "runs": [
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s1",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s2",
+  "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_t07s3"
+ ],
+ "k": 1
+}

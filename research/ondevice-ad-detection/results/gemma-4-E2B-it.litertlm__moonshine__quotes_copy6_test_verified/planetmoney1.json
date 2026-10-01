@@ -1,0 +1,131 @@
+{
+ "episode": "planetmoney1",
+ "pred": [
+  [
+   "00:00",
+   "00:17"
+  ],
+  [
+   "06:55",
+   "08:04"
+  ],
+  [
+   "25:11",
+   "26:05"
+  ],
+  [
+   "33:26",
+   "34:06"
+  ],
+  [
+   "34:38",
+   "35:19"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:17",
+   "ad"
+  ],
+  [
+   "00:17",
+   "01:42",
+   "self_promo"
+  ],
+  [
+   "06:55",
+   "08:04",
+   "ad"
+  ],
+  [
+   "25:11",
+   "26:05",
+   "ad"
+  ],
+  [
+   "33:26",
+   "34:05",
+   "self_promo"
+  ],
+  [
+   "34:38",
+   "35:19",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 181.0,
+  "pred": 182.0,
+  "gt": 181.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 27,
+  "in_tokens": 28510,
+  "out_tokens": 1111,
+  "seconds": 103.2
+ },
+ "wall_s": 96.4,
+ "audio_s": 2119,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:17"
+   ],
+   "out": "HubSpot",
+   "keep": true
+  },
+  {
+   "interval": [
+    "00:57",
+    "01:48"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "06:55",
+    "08:04"
+   ],
+   "out": "Superhuman Go, ethos, Capella University",
+   "keep": true
+  },
+  {
+   "interval": [
+    "16:45",
+    "17:26"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "25:11",
+    "26:05"
+   ],
+   "out": "BetterHelp, LinkedIn",
+   "keep": true
+  },
+  {
+   "interval": [
+    "33:26",
+    "34:06"
+   ],
+   "out": "Gastronomics",
+   "keep": true
+  },
+  {
+   "interval": [
+    "34:38",
+    "35:19"
+   ],
+   "out": "Mint Mobile, EasyCater",
+   "keep": true
+  }
+ ]
+}
