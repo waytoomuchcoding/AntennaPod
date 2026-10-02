@@ -27,6 +27,12 @@ Target phones: the owner's **Pixel 10 Pro Fold** and a **Pixel 11**.
   per-copy verification, longer context, focus windows with surrounding context, thinking mode, audio cues
   (speaker labels, pauses, music) in the prompt, and a more detailed system message. Details in section 7.
 
+- **Update 2026-10-02 (section 13, new labels `gt_v2`, leave-one-show-out):** a 300M EmbeddingGemma line
+  classifier + HMM finds all 54 breaks with 0 false alarms and **no LLM call** (all 13 eps F1 0.935, held-out
+  0.920), beating Gemma 4 E2B copy + verify (0.917). Best overall: **E4B copy6 + EmbeddingGemma veto, held-out
+  0.966, dev 0.969, 0 false alarms**. Repetition matching of already-confirmed ads is ~98% precise and covers
+  ~25% of ad time even with 12 episodes. Distilling E4B labels from 35 other shows did not help.
+
 ### Headline results (copy + verify, Moonshine transcripts)
 
 | Model (phone it stands in for) | Dev F1 (7 eps) | Held-out F1 (6 eps) | All 13: P / R / F1 [95% CI] | Breaks found | False alarms |
