@@ -759,3 +759,38 @@ leave-one-show-out evaluation, so numbers compare directly with 13.1–13.5.
   improves dev and line AP but lowers held-out recall.
 - Not tried: CLAP and AST (general audio-event models; branches exist in `audio_emb.py`), and audio models
   trained on many more shows, which might fix the generalisation gap.
+
+### 14.6 Automatic labels by aligning the audio of two downloads (`audio_align.py`, owner's idea)
+Better than the transcript diff of 14.4: no ASR noise. Loudness envelope in 10 ms buckets for both copies; copy A
+is cut into 2 s pieces, each matched into copy B by normalised cross-correlation; **content = runs of ≥3 pieces
+with the same time shift** (copies are re-encoded, so content correlates 0.93–0.99, not 1.0; ads land at random
+shifts). A stretches with no steady match (≥10 s) are inserted ads; edges are refined bucket by bucket while the
+copies agree (≤4 dB). Flat/silent B windows are excluded from matching (they broke the normalisation). ~3–60 s per
+episode, audio only, no transcription needed.
+
+| 4 labelled eps (daily1, conan1, sysk1, planetmoney1) | Precision | Ad time found | Breaks | FA |
+|---|---|---|---|---|
+| transcript diff, any copy (14.4) | 0.81 | 0.79 | 15/16 | 15 |
+| **audio alignment, 2 extra copies, ≥10 s** | **0.985** | 0.79 | 15/16 | **0** |
+| audio alignment, 5 extra copies | 0.977 | 0.81 | 15/16 | 0 |
+
+- Edges: median error 0.0 s (start) / -0.3 s (end); most within 1–2 s of the hand labels. Large misses (+27 to
+  +76 s late starts, and one sysk1 break) are ads that were identical in all 6 downloads: baked in or the same
+  campaign everywhere. More copies barely help, so 2 extra copies are enough.
+- `gt_auto/`: labels for the 34 extra episodes (copies `ua1`, `ua2`; `fetch_variants.py`), 172 min. Plausibility
+  vs E4B: E4B marks 83% of the auto-labelled time as ad (90–100% on most shows). Three episodes look broken (E4B
+  agreement 23–60%, fragmented stretches): Casefile, Revisionist History, Hidden Brain. Lore and Acquired have no
+  inserted ads. The labels cover ~53% of E4B's ad time (the rest is baked in or shared), so they measure recall,
+  not precision.
+
+### 14.7 Recall on 29 unseen shows (auto labels, `logs/eval_auto.txt`)
+29 episodes (34 minus the 5 above), 145 min of inserted ads in 134 stretches. Classifier trained on all 13
+human-labelled episodes with the dev-picked HMM knobs:
+
+| Method | Inserted-ad time found | Stretches found (≥50% covered) |
+|---|---|---|
+| EmbeddingGemma + HMM (no LLM) | **0.865** | 103/134 |
+| E4B copy6 | 0.917 | 112/134 |
+
+For comparison, held-out recall on the human-labelled shows: EmbeddingGemma 0.884, E4B 0.973. The classifier
+generalises to genuinely new shows with little loss; E4B stays ~5 points ahead in recall.
