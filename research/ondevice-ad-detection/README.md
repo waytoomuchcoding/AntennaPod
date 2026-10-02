@@ -683,3 +683,52 @@ within ~0.03–0.04 F1 of E4B at a tiny fraction of the compute, and beats E2B.
 - Next for distillation: fine-tune on teacher + human labels (human weighted up), or pre-train on teacher data and
   then fine-tune on the human-labelled shows (needs leave-one-show-out folds: ~9 × 40 min on this CPU); fine-tune
   EmbeddingGemma itself (300M) on a GPU machine.
+
+---
+
+## 14. Session 3 (2026-10-02 morning): speed, GPU, boundaries, inserted-ad alignment
+
+### 14.1 EmbeddingGemma speed and size
+- Files: full precision safetensors 1.21 GB; **Q8_0 GGUF 334 MB** (`ggml-org/embeddinggemma-300M-GGUF`); Google's
+  QAT LiteRT builds run in <200 MB RAM and take <15 ms per 256-token input on a Pixel's EdgeTPU (Google blog).
+  The trained part (logistic regression + HMM) is ~20 KB.
+- Per audio hour (~425 lines of 32 tokens; 5-line windows of 153 tokens), idle VM:
+  PyTorch fp32 CPU 18 s lines only, 69 s windows, **87 s both**; llama.cpp Q8_0 on the Vulkan GPU (`egemma_gguf.py`,
+  CPU busy with transcription) **24 s both**. Accuracy of Q8_0 features: test line AP 0.961 (fp32 0.962), HMM dev
+  0.942 / test 0.906 (fp32 0.945 / 0.920), 54/54 breaks, 0 false alarms.
+- Whole classifier pipeline per audio hour on this VM: Moonshine ~1.5–2 min + embedding 0.4–1.5 min + classifier
+  <1 s. Phone estimate for the embedding step: ~5–10 s on the TPU, ~20–60 s on CPU (not measured).
+
+### 14.2 Boundaries (`boundary_err.py`, `edge_refine.py`)
+Per labelled break (all 13 eps), ad seconds left playing / content seconds wrongly skipped: EmbeddingGemma+HMM
+8.0 / 5.0, E2B copy+verify 5.2 / 12.2, E4B copy 3.4 / 4.8. Most error is at **starts** (classifier starts >5 s
+late on 24% of breaks). Lines are ~7 s (median 21 words), so line-level edges are coarse.
+- Classifier-guided edge refinement of LLM intervals (extend while the next line scores >ext, trim while <trim,
+  knobs on dev): E4B dev 0.967 → 0.975 (ad left 3.5 → 1.1 s/break) but test unchanged (0.959 → 0.957); E2B
+  0.888 → 0.904 test. Not a robust win.
+- Shorter lines (`LINE_WORDS=12`, median 3.9 s; VAD segments limit it to ~3 s): test 0.914 vs 0.906, but it trades
+  ad seconds left (9.2 → 5.5) for wrongly skipped content (5.3 → 10.4). Granularity is not the bottleneck; the
+  classifier's judgement at transitions is. Next idea: ask the LLM about a small window around each classifier
+  edge only (~2 short calls per break).
+
+### 14.3 Which feeds insert ads per download (`dai_survey.py`, `logs/dai_survey.txt`)
+1-byte range requests with two User-Agents, compared with our earlier downloads: **46 of 48 episodes are
+dynamically stitched** (simplecast, megaphone, art19, triton, acast, PRX dovetail, flightcast, cloudfront). Only Lore
+(libsyn) and Acquired (transistor) were identical. Big shows rarely ship purely baked-in audio; host-read ads may
+still be baked in alongside the inserted ones.
+
+### 14.4 Free labels from inserted ads (`fetch_variants.py`, `dai_align.py`)
+Downloading the same episode with other User-Agents gives identical content with different inserted ads. Aligning
+the word streams (difflib, matches ≥4 words) and keeping base stretches ≥15 s that have no counterpart:
+
+| Rule (daily1, conan1, sysk1, planetmoney1; 2 extra copies each) | Precision | Ad time found | Breaks | FA |
+|---|---|---|---|---|
+| differs from **every** copy | **0.97** | 0.48 | 8/16 | 1 |
+| differs from **any** copy | 0.81 | 0.79 | 15/16 | 15 |
+| any copy, ≥8 s | 0.70 | 0.80 | 16/16 | 41 |
+
+All 16 breaks in these episodes are inserted (none baked in). Short false stretches come from ASR differences when
+the same audio is segmented at a different offset; requiring a difference from every copy removes them but loses
+slots where two copies got the same ad. Use: high-precision positive labels for new shows at the cost of downloads
+and transcription only, combined with the classifier/E4B for the rest. `variants_extra.sh` fetches and transcribes
+two copies of each of the 35 extra episodes for this.

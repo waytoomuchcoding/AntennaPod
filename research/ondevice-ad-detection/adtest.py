@@ -20,8 +20,10 @@ def load_gt(ep):
     return g["duration"], [(mmss(s["s"]), mmss(s["e"]), s["type"]) for s in g["segments"]]
 
 
-def load_lines(asr, ep, max_words=25, max_gap=1.5):
-    """Merge VAD segments into lines of up to ~max_words words; a line never spans a pause > max_gap s."""
+def load_lines(asr, ep, max_words=None, max_gap=1.5):
+    """Merge VAD segments into lines of up to ~max_words words; a line never spans a pause > max_gap s.
+    max_words defaults to $LINE_WORDS or 25 (all LLM runs used 25)."""
+    max_words = max_words or int(os.environ.get("LINE_WORDS", 25))
     lines, cur = [], None
     for l in open(f"{ROOT}/tx/{asr}/{ep}.jsonl"):
         s = json.loads(l)
