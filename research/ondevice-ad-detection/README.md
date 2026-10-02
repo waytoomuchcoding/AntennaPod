@@ -732,3 +732,30 @@ the same audio is segmented at a different offset; requiring a difference from e
 slots where two copies got the same ad. Use: high-precision positive labels for new shows at the cost of downloads
 and transcription only, combined with the classifier/E4B for the rest. `variants_extra.sh` fetches and transcribes
 two copies of each of the 35 extra episodes for this.
+
+### 14.5 Audio embeddings instead of (or next to) the transcript (`audio_emb.py`, `emb_concat.py`)
+Same per-line layout as the text features ([line audio, mean of lines i-2..i+2]), same logistic regression, HMM and
+leave-one-show-out evaluation, so numbers compare directly with 13.1–13.5.
+
+| Features | Size | Line AUC dev / test | Line AP dev / test | HMM dev F1 | HMM test F1 (breaks) |
+|---|---|---|---|---|---|
+| log-mel + loudness stats ("production style") | 0 | 0.634 / 0.389 | 0.168 / 0.090 | 0.371 | 0.062 |
+| Whisper-base encoder, frames mean-pooled | 20M (encoder) | 0.988 / 0.961 | 0.937 / 0.856 | 0.898 | 0.741 (19/23) |
+| **Gemma 4 E2B audio encoder** (305M) | 610 MB bf16 | 0.977 / 0.952 | 0.896 / 0.827 | 0.873 | 0.659 (14/23) |
+| *text: EmbeddingGemma (13.5)* | 300M | 0.998 / 0.991 | 0.983 / 0.962 | 0.945 | **0.920 (23/23)** |
+| text + Whisper, features joined | | 0.998 / 0.990 | 0.989 / 0.968 | 0.950 | 0.890 (22/23) |
+| text + Gemma audio, features joined | | 0.996 / 0.984 | 0.982 / 0.936 | 0.950 | 0.879 (22/23) |
+| text + Whisper, scores averaged | | | | 0.943 | 0.763 (19/23) |
+
+- Gemma 4's audio encoder: only its weights were fetched from `google/gemma-4-E2B-it` (public, not gated) with an
+  HTTP range request (614 MB of the 10.2 GB file; offsets from the safetensors header, `models/gemma4_e2b_audio/`),
+  loaded into `transformers`' `Gemma4AudioModel` (305M params, strict load). 30 s chunks; ~4.6 min per audio hour
+  on this CPU (fp32, mostly uncontended). Use `curl -r`, not aria2c: aria2c ignored the Range header and pulled
+  the whole file.
+- **Audio does not beat the transcript, and adding it hurts on held-out shows.** Audio embeddings separate ads well
+  within the shows they were trained on (dev AUC 0.98–0.99) but generalise worse to unseen shows: they learn each
+  show's sound (voices, mics, music beds), while the transcript carries the generic ad language (offers, URLs,
+  promo codes). Raw spectral statistics are worse than chance on unseen shows. Joining text and audio slightly
+  improves dev and line AP but lowers held-out recall.
+- Not tried: CLAP and AST (general audio-event models; branches exist in `audio_emb.py`), and audio models
+  trained on many more shows, which might fix the generalisation gap.
