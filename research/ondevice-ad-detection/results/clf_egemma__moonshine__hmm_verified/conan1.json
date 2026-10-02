@@ -1,0 +1,70 @@
+{
+ "episode": "conan1",
+ "pred": [
+  [
+   "00:03",
+   "01:41"
+  ],
+  [
+   "23:55",
+   "27:11"
+  ],
+  [
+   "1:04:41",
+   "1:07:10"
+  ],
+  [
+   "1:14:03",
+   "1:15:37"
+  ]
+ ],
+ "score": {
+  "tp": 514.0,
+  "pred": 518.0,
+  "gt": 631.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 4,
+  "in_tokens": 2500,
+  "out_tokens": 15,
+  "seconds": 41.0
+ },
+ "audio_s": 4537,
+ "verify_log": [
+  {
+   "interval": [
+    "00:03",
+    "01:41"
+   ],
+   "out": "Apple Card",
+   "keep": true
+  },
+  {
+   "interval": [
+    "23:55",
+    "27:11"
+   ],
+   "out": "LifeLock",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:04:41",
+    "1:07:10"
+   ],
+   "out": "LifeLock",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:14:03",
+    "1:15:37"
+   ],
+   "out": "SiriusXM, Tom Cruise, Robert Half",
+   "keep": true
+  }
+ ]
+}

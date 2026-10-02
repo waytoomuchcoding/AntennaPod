@@ -608,3 +608,32 @@ Word 6-gram hashes of the ads the LLM confirmed in the *other* 12 episodes; a li
 are in that database. Alone: **precision 0.976, 0 false alarms**, recall 0.25 (15/54 breaks); 13 of the LLM's 60
 detected breaks are already covered, so a phone could skip the LLM there. Using every line of other episodes
 instead (no LLM filter) adds intros/credits: precision 0.90, 6 false alarms. This grows with the user's library.
+
+### 13.5 EmbeddingGemma 300M and the Gemma hidden-state probe
+| Features | Line AUC dev / test | Line AP dev / test | Test F1, 3-line avg | Test F1, HMM | Dev F1, HMM |
+|---|---|---|---|---|---|
+| **EmbeddingGemma 300M** (`unsloth/embeddinggemma-300m`, "Classification" prompt) | 0.998 / **0.991** | 0.983 / **0.962** | 0.920 (1 FA) | **0.920 (23/23, 0 FA)** | 0.945 (31/31, 0 FA) |
+| Gemma 4 E2B final-layer probe (mean + last token per line, via llama.cpp) | 0.988 / 0.983 | 0.962 / 0.925 | 0.877 | 0.880 | 0.937 |
+
+- **EmbeddingGemma + HMM alone (no LLM): all 13 episodes F1 0.935, 54/54 breaks, 0 false alarms** (E2B copy6 +
+  verify: 0.917, 4 FA). ~1 s per 4 lines on this busy VM CPU in fp32 (unoptimised; batch of line + window texts).
+  HMM knobs picked on dev: alpha 1, switch 0.01, bias -1.
+- The final-layer probe is worse than a purpose-built embedding model. A mid-layer probe needs a truncated GGUF:
+  `--override-kv gemma4.block_count` fails because per-layer arrays (`feed_forward_length`, …) must have 35 entries.
+- Ensembles (averaged line probabilities, HMM): EmbeddingGemma + bge-small test 0.940 / 0 FA (dev 0.937); adding
+  TF-IDF or the probe does not help. Chosen after seeing test numbers and within noise (6 held-out episodes), so
+  EmbeddingGemma alone stays the principled pick.
+
+### 13.6 Combinations with the LLM (all 0 false alarms unless noted)
+| Pipeline | Dev F1 | Test F1 | Breaks | LLM calls per audio hour |
+|---|---|---|---|---|
+| E2B copy6 + verify | 0.938 (1 FA) | 0.888 (3 FA) | 54/54 | ~35 |
+| E2B copy6 + verify + EmbeddingGemma veto | 0.938 (1 FA) | 0.931 | 54/54 | ~35 |
+| EmbeddingGemma + HMM alone | 0.945 | 0.920 | 54/54 | 0 |
+| EmbeddingGemma + HMM, then E2B verify per interval (`clf_run.py` + `verify.py`) | all 13: 0.938 | | 54/54 | ~5 |
+| E4B copy6 | 0.967 (1 FA) | 0.959 (2 FA) | 54/54 | ~33 (2× slower calls) |
+| **E4B copy6 + EmbeddingGemma veto** | **0.969** | **0.966** | **54/54** | ~33 |
+
+Takeaways: on a Pixel 11 class phone, E4B copy + an EmbeddingGemma veto is the most accurate (0 false alarms in
+11.6 h). Where the LLM is unavailable or too slow (Pixel 10, background limits), EmbeddingGemma + HMM alone is
+within ~0.03–0.04 F1 of E4B at a tiny fraction of the compute, and beats E2B.

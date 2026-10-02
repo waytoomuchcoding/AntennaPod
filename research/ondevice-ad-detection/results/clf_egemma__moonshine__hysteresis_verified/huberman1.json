@@ -1,0 +1,58 @@
+{
+ "episode": "huberman1",
+ "pred": [
+  [
+   "07:19",
+   "09:09"
+  ],
+  [
+   "20:51",
+   "22:18"
+  ],
+  [
+   "32:46",
+   "34:32"
+  ]
+ ],
+ "score": {
+  "tp": 212.0,
+  "pred": 303.0,
+  "gt": 212.0,
+  "breaks": 3,
+  "found": 3,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 3,
+  "in_tokens": 1831,
+  "out_tokens": 6,
+  "seconds": 22.7
+ },
+ "audio_s": 2299,
+ "verify_log": [
+  {
+   "interval": [
+    "07:19",
+    "09:09"
+   ],
+   "out": "Eight Sleep",
+   "keep": true
+  },
+  {
+   "interval": [
+    "20:51",
+    "22:18"
+   ],
+   "out": "BetterHelp",
+   "keep": true
+  },
+  {
+   "interval": [
+    "32:46",
+    "34:32"
+   ],
+   "out": "AG1",
+   "keep": true
+  }
+ ]
+}

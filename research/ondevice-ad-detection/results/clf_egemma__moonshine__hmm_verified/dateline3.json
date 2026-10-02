@@ -1,0 +1,70 @@
+{
+ "episode": "dateline3",
+ "pred": [
+  [
+   "00:00",
+   "01:17"
+  ],
+  [
+   "15:19",
+   "16:44"
+  ],
+  [
+   "30:07",
+   "31:26"
+  ],
+  [
+   "45:16",
+   "45:44"
+  ]
+ ],
+ "score": {
+  "tp": 253.0,
+  "pred": 269.0,
+  "gt": 308.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 4,
+  "in_tokens": 1670,
+  "out_tokens": 16,
+  "seconds": 23.3
+ },
+ "audio_s": 2744,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:17"
+   ],
+   "out": "Southern New Hampshire University",
+   "keep": true
+  },
+  {
+   "interval": [
+    "15:19",
+    "16:44"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "30:07",
+    "31:26"
+   ],
+   "out": "Solace Health, Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "45:16",
+    "45:44"
+   ],
+   "out": "MazdaUSA.com",
+   "keep": true
+  }
+ ]
+}

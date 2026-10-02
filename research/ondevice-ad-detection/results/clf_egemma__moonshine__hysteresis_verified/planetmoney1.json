@@ -1,0 +1,70 @@
+{
+ "episode": "planetmoney1",
+ "pred": [
+  [
+   "00:00",
+   "00:23"
+  ],
+  [
+   "06:54",
+   "08:31"
+  ],
+  [
+   "24:47",
+   "26:40"
+  ],
+  [
+   "34:46",
+   "35:53"
+  ]
+ ],
+ "score": {
+  "tp": 215.0,
+  "pred": 293.0,
+  "gt": 216.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 4,
+  "in_tokens": 1827,
+  "out_tokens": 30,
+  "seconds": 27.7
+ },
+ "audio_s": 2153,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:23"
+   ],
+   "out": "U.S. Bank",
+   "keep": true
+  },
+  {
+   "interval": [
+    "06:54",
+    "08:31"
+   ],
+   "out": "Superhuman, Whole Foods Market, Odoo",
+   "keep": true
+  },
+  {
+   "interval": [
+    "24:47",
+    "26:40"
+   ],
+   "out": "Whole Foods Market, 365, ethos, Odoo",
+   "keep": true
+  },
+  {
+   "interval": [
+    "34:46",
+    "35:53"
+   ],
+   "out": "EasyCater",
+   "keep": true
+  }
+ ]
+}

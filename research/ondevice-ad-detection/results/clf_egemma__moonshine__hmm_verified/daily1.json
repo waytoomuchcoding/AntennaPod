@@ -1,0 +1,70 @@
+{
+ "episode": "daily1",
+ "pred": [
+  [
+   "00:00",
+   "00:31"
+  ],
+  [
+   "13:37",
+   "15:13"
+  ],
+  [
+   "23:24",
+   "25:41"
+  ],
+  [
+   "27:36",
+   "28:22"
+  ]
+ ],
+ "score": {
+  "tp": 280.0,
+  "pred": 293.0,
+  "gt": 295.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 4,
+  "in_tokens": 1901,
+  "out_tokens": 8,
+  "seconds": 23.8
+ },
+ "audio_s": 1702,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:31"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "13:37",
+    "15:13"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "23:24",
+    "25:41"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:36",
+    "28:22"
+   ],
+   "out": "Vanta",
+   "keep": true
+  }
+ ]
+}

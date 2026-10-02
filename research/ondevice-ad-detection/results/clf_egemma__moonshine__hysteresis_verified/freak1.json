@@ -1,0 +1,70 @@
+{
+ "episode": "freak1",
+ "pred": [
+  [
+   "00:01",
+   "02:24"
+  ],
+  [
+   "19:15",
+   "22:12"
+  ],
+  [
+   "35:51",
+   "38:23"
+  ],
+  [
+   "56:59",
+   "59:15"
+  ]
+ ],
+ "score": {
+  "tp": 546.0,
+  "pred": 608.0,
+  "gt": 547.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 4,
+  "in_tokens": 2726,
+  "out_tokens": 9,
+  "seconds": 32.6
+ },
+ "audio_s": 3555,
+ "verify_log": [
+  {
+   "interval": [
+    "00:01",
+    "02:24"
+   ],
+   "out": "EverPure",
+   "keep": true
+  },
+  {
+   "interval": [
+    "19:15",
+    "22:12"
+   ],
+   "out": "ChatGPT",
+   "keep": true
+  },
+  {
+   "interval": [
+    "35:51",
+    "38:23"
+   ],
+   "out": "LabCorp On Demand",
+   "keep": true
+  },
+  {
+   "interval": [
+    "56:59",
+    "59:15"
+   ],
+   "out": "Southern Company",
+   "keep": true
+  }
+ ]
+}

@@ -15,7 +15,9 @@ probe() {  # name, extra server args
   killport 8092
   llama.cpp/build/bin/llama-server -m models/gemma-4-E2B-it-Q4_K_M.gguf --embeddings --pooling none -ngl 99 -t 2 \
       -c 2048 -b 2048 -ub 2048 --port 8092 --no-webui $2 > logs/probe_server_$1.txt 2>&1 &
-  until curl -s localhost:8092/health | grep -q ok; do sleep 2; done
+  local pid=$!
+  until curl -s localhost:8092/health | grep -q ok; do
+    kill -0 $pid 2>/dev/null || { log "probe $1 server failed to start"; return; }; sleep 2; done
   ./venv/bin/python gemma_probe.py $1 8092 >> logs/probe_$1.txt 2>&1
   log "probe $1 rc=$?"
   killport 8092
@@ -25,7 +27,7 @@ log START
   ./venv/bin/python emb_loo.py egemma --veto gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_v2_verified \
       > logs/emb_egemma.txt 2>&1; log "egemma done" ) &
 probe probe_e2b_last ""
-probe probe_e2b_L20 "--override-kv gemma4.block_count=int:20 --override-kv gemma4.attention.shared_kv_layers=int:5"
+# Layer-20 probe: --override-kv block_count fails (per-layer arrays must have 35 entries); needs a truncated GGUF.
 wait
 log "embeddings and probes done"
 

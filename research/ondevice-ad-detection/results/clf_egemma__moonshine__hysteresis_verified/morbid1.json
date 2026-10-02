@@ -1,0 +1,70 @@
+{
+ "episode": "morbid1",
+ "pred": [
+  [
+   "00:07",
+   "01:21"
+  ],
+  [
+   "27:29",
+   "30:56"
+  ],
+  [
+   "59:20",
+   "1:03:25"
+  ],
+  [
+   "1:23:04",
+   "1:25:42"
+  ]
+ ],
+ "score": {
+  "tp": 554.0,
+  "pred": 684.0,
+  "gt": 578.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 4,
+  "in_tokens": 2288,
+  "out_tokens": 8,
+  "seconds": 28.9
+ },
+ "audio_s": 5142,
+ "verify_log": [
+  {
+   "interval": [
+    "00:07",
+    "01:21"
+   ],
+   "out": "State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:29",
+    "30:56"
+   ],
+   "out": "State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "59:20",
+    "1:03:25"
+   ],
+   "out": "Stella Rosa",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:23:04",
+    "1:25:42"
+   ],
+   "out": "SimplySafe",
+   "keep": true
+  }
+ ]
+}

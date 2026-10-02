@@ -1,0 +1,70 @@
+{
+ "episode": "sysk1",
+ "pred": [
+  [
+   "00:00",
+   "02:03"
+  ],
+  [
+   "17:03",
+   "20:25"
+  ],
+  [
+   "35:20",
+   "39:04"
+  ],
+  [
+   "58:23",
+   "1:00:09"
+  ]
+ ],
+ "score": {
+  "tp": 606.0,
+  "pred": 640.0,
+  "gt": 624.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 4,
+  "in_tokens": 2651,
+  "out_tokens": 8,
+  "seconds": 37.8
+ },
+ "audio_s": 3609,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "02:03"
+   ],
+   "out": "Capital One",
+   "keep": true
+  },
+  {
+   "interval": [
+    "17:03",
+    "20:25"
+   ],
+   "out": "Wayfair",
+   "keep": true
+  },
+  {
+   "interval": [
+    "35:20",
+    "39:04"
+   ],
+   "out": "Bombas",
+   "keep": true
+  },
+  {
+   "interval": [
+    "58:23",
+    "1:00:09"
+   ],
+   "out": "Capital One",
+   "keep": true
+  }
+ ]
+}

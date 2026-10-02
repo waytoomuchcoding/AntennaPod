@@ -1,0 +1,70 @@
+{
+ "episode": "conan1",
+ "pred": [
+  [
+   "00:03",
+   "01:46"
+  ],
+  [
+   "23:05",
+   "27:18"
+  ],
+  [
+   "1:03:51",
+   "1:07:16"
+  ],
+  [
+   "1:13:34",
+   "1:15:37"
+  ]
+ ],
+ "score": {
+  "tp": 621.0,
+  "pred": 660.0,
+  "gt": 631.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 4,
+  "in_tokens": 2561,
+  "out_tokens": 15,
+  "seconds": 38.5
+ },
+ "audio_s": 4537,
+ "verify_log": [
+  {
+   "interval": [
+    "00:03",
+    "01:46"
+   ],
+   "out": "Apple Card",
+   "keep": true
+  },
+  {
+   "interval": [
+    "23:05",
+    "27:18"
+   ],
+   "out": "LifeLock, Quince",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:03:51",
+    "1:07:16"
+   ],
+   "out": "Lifelock, BetterHelp",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:13:34",
+    "1:15:37"
+   ],
+   "out": "Robert Half",
+   "keep": true
+  }
+ ]
+}

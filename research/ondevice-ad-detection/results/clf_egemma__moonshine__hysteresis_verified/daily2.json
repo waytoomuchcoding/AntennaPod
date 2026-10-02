@@ -1,0 +1,58 @@
+{
+ "episode": "daily2",
+ "pred": [
+  [
+   "13:30",
+   "14:59"
+  ],
+  [
+   "25:59",
+   "28:03"
+  ],
+  [
+   "29:09",
+   "30:05"
+  ]
+ ],
+ "score": {
+  "tp": 183.0,
+  "pred": 269.0,
+  "gt": 199.0,
+  "breaks": 4,
+  "found": 3,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 3,
+  "in_tokens": 1519,
+  "out_tokens": 9,
+  "seconds": 19.0
+ },
+ "audio_s": 1805,
+ "verify_log": [
+  {
+   "interval": [
+    "13:30",
+    "14:59"
+   ],
+   "out": "Capital One Venture X Card",
+   "keep": true
+  },
+  {
+   "interval": [
+    "25:59",
+    "28:03"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:09",
+    "30:05"
+   ],
+   "out": "Capital One",
+   "keep": true
+  }
+ ]
+}

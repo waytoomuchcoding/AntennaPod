@@ -1,0 +1,82 @@
+{
+ "episode": "crimejunkie1",
+ "pred": [
+  [
+   "00:00",
+   "01:15"
+  ],
+  [
+   "14:02",
+   "16:14"
+  ],
+  [
+   "30:45",
+   "33:38"
+  ],
+  [
+   "46:50",
+   "49:18"
+  ],
+  [
+   "57:56",
+   "58:37"
+  ]
+ ],
+ "score": {
+  "tp": 523.0,
+  "pred": 569.0,
+  "gt": 547.0,
+  "breaks": 5,
+  "found": 5,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 5,
+  "in_tokens": 2928,
+  "out_tokens": 14,
+  "seconds": 40.9
+ },
+ "audio_s": 3517,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:15"
+   ],
+   "out": "BetterHelp",
+   "keep": true
+  },
+  {
+   "interval": [
+    "14:02",
+    "16:14"
+   ],
+   "out": "YouTube Premium, BetterHelp",
+   "keep": true
+  },
+  {
+   "interval": [
+    "30:45",
+    "33:38"
+   ],
+   "out": "SoFi",
+   "keep": true
+  },
+  {
+   "interval": [
+    "46:50",
+    "49:18"
+   ],
+   "out": "Quince",
+   "keep": true
+  },
+  {
+   "interval": [
+    "57:56",
+    "58:37"
+   ],
+   "out": "full body chills",
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "episode": "dateline1",
+ "pred": [
+  [
+   "00:00",
+   "01:12"
+  ],
+  [
+   "15:24",
+   "16:56"
+  ],
+  [
+   "34:03",
+   "36:49"
+  ],
+  [
+   "49:15",
+   "51:58"
+  ],
+  [
+   "1:05:35",
+   "1:08:52"
+  ],
+  [
+   "1:31:16",
+   "1:32:37"
+  ]
+ ],
+ "score": {
+  "tp": 671.0,
+  "pred": 758.0,
+  "gt": 695.0,
+  "breaks": 6,
+  "found": 6,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 6,
+  "in_tokens": 3513,
+  "out_tokens": 24,
+  "seconds": 45.6
+ },
+ "audio_s": 5557,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:12"
+   ],
+   "out": "Southern New Hampshire University",
+   "keep": true
+  },
+  {
+   "interval": [
+    "15:24",
+    "16:56"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "34:03",
+    "36:49"
+   ],
+   "out": "IXL, Solace Health, Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "49:15",
+    "51:58"
+   ],
+   "out": "TravelSouthDecoded.com",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:05:35",
+    "1:08:52"
+   ],
+   "out": "Hers",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:31:16",
+    "1:32:37"
+   ],
+   "out": "Rosetta Stone",
+   "keep": true
+  }
+ ]
+}

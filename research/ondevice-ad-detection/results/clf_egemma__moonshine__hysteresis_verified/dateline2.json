@@ -1,0 +1,70 @@
+{
+ "episode": "dateline2",
+ "pred": [
+  [
+   "00:00",
+   "01:12"
+  ],
+  [
+   "15:03",
+   "16:31"
+  ],
+  [
+   "27:20",
+   "29:25"
+  ],
+  [
+   "44:48",
+   "46:07"
+  ]
+ ],
+ "score": {
+  "tp": 313.0,
+  "pred": 340.0,
+  "gt": 337.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 4,
+  "in_tokens": 2065,
+  "out_tokens": 16,
+  "seconds": 27.1
+ },
+ "audio_s": 2767,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:12"
+   ],
+   "out": "Capital One",
+   "keep": true
+  },
+  {
+   "interval": [
+    "15:03",
+    "16:31"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:20",
+    "29:25"
+   ],
+   "out": "Paragold, SimpliSafe, Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "44:48",
+    "46:07"
+   ],
+   "out": "Rosetta Stone",
+   "keep": true
+  }
+ ]
+}
