@@ -1,0 +1,101 @@
+{
+ "episode": "dateline3",
+ "pred": [
+  [
+   "00:00",
+   "01:04"
+  ],
+  [
+   "15:10",
+   "16:58"
+  ],
+  [
+   "29:26",
+   "31:26"
+  ],
+  [
+   "45:16",
+   "45:44"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:03",
+   "ad"
+  ],
+  [
+   "15:08",
+   "16:43",
+   "ad"
+  ],
+  [
+   "29:25",
+   "31:25",
+   "ad"
+  ],
+  [
+   "45:14",
+   "45:44",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 303.0,
+  "pred": 320.0,
+  "gt": 308.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 30,
+  "in_tokens": 32436,
+  "out_tokens": 1167,
+  "seconds": 87.6
+ },
+ "wall_s": 83.0,
+ "audio_s": 2744,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:04"
+   ],
+   "out": "Southern New Hampshire University",
+   "keep": true
+  },
+  {
+   "interval": [
+    "02:21",
+    "02:52"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "15:10",
+    "16:58"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:26",
+    "31:26"
+   ],
+   "out": "Solace Health",
+   "keep": true
+  },
+  {
+   "interval": [
+    "45:16",
+    "45:44"
+   ],
+   "out": "Mazda",
+   "keep": true
+  }
+ ]
+}

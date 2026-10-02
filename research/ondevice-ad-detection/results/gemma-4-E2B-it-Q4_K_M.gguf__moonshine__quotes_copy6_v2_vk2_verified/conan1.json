@@ -1,0 +1,122 @@
+{
+ "episode": "conan1",
+ "pred": [
+  [
+   "00:03",
+   "02:27"
+  ],
+  [
+   "23:16",
+   "27:11"
+  ],
+  [
+   "1:03:51",
+   "1:07:04"
+  ],
+  [
+   "1:13:14",
+   "1:15:37"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:40",
+   "ad"
+  ],
+  [
+   "23:05",
+   "27:25",
+   "ad"
+  ],
+  [
+   "1:03:51",
+   "1:07:08",
+   "ad"
+  ],
+  [
+   "1:13:58",
+   "1:14:22",
+   "self_promo"
+  ],
+  [
+   "1:14:23",
+   "1:15:37",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 599.0,
+  "pred": 691.0,
+  "gt": 631.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 54,
+  "in_tokens": 58719,
+  "out_tokens": 2994,
+  "seconds": 180.6
+ },
+ "wall_s": 172.4,
+ "audio_s": 4537,
+ "verify_log": [
+  {
+   "interval": [
+    "00:03",
+    "02:27"
+   ],
+   "out": "Apple Card",
+   "keep": true
+  },
+  {
+   "interval": [
+    "12:03",
+    "12:41"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "23:16",
+    "27:11"
+   ],
+   "out": "LifeLock",
+   "keep": true
+  },
+  {
+   "interval": [
+    "49:06",
+    "49:26"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "1:01:19",
+    "1:02:22"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "1:03:51",
+    "1:07:04"
+   ],
+   "out": "Lifelock",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:13:14",
+    "1:15:37"
+   ],
+   "out": "SiriusXM",
+   "keep": true
+  }
+ ]
+}

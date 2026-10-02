@@ -55,3 +55,10 @@
 {"precision": 0.844, "recall": 0.928, "f1": 0.884, "breaks_found": "29/31", "false_alarms": 2, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_s_verified"}
 {"precision": 0.836, "recall": 0.946, "f1": 0.887, "breaks_found": "54/54", "false_alarms": 17, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_v2"}
 {"precision": 0.888, "recall": 0.949, "f1": 0.917, "breaks_found": "54/54", "false_alarms": 4, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_v2_verified"}
+{"precision": 0.869, "recall": 0.918, "f1": 0.893, "breaks_found": "52/54", "false_alarms": 9, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6shots_v2"}
+{"precision": 0.915, "recall": 0.921, "f1": 0.918, "breaks_found": "52/54", "false_alarms": 1, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6shots_v2_verified"}
+{"precision": 0.8, "recall": 0.957, "f1": 0.871, "breaks_found": "53/54", "false_alarms": 14, "run": "gemma-4-E2B-it-Q4_K_M.gguf__moonshine__quotes_copy6_v2_vk2"}
+{"precision": 0.833, "recall": 0.96, "f1": 0.892, "breaks_found": "53/54", "false_alarms": 6, "run": "gemma-4-E2B-it-Q4_K_M.gguf__moonshine__quotes_copy6_v2_vk2_verified"}
+{"precision": 0.829, "recall": 0.735, "f1": 0.779, "breaks_found": "45/54", "false_alarms": 23, "run": "gemma-4-E2B-it.litertlm__moonshine__label_label30_v2"}
+{"precision": 0.954, "recall": 0.967, "f1": 0.96, "breaks_found": "54/54", "false_alarms": 3, "run": "gemma-4-E4B-it.litertlm__moonshine__quotes_copy6_v2"}
+{"precision": 0.957, "recall": 0.964, "f1": 0.96, "breaks_found": "53/54", "false_alarms": 3, "run": "gemma-4-E4B-it.litertlm__moonshine__quotes_copy6_v2_verified"}

@@ -1,0 +1,131 @@
+{
+ "episode": "planetmoney1",
+ "pred": [
+  [
+   "00:00",
+   "00:16"
+  ],
+  [
+   "06:54",
+   "08:04"
+  ],
+  [
+   "25:11",
+   "26:34"
+  ],
+  [
+   "33:51",
+   "34:04"
+  ],
+  [
+   "35:06",
+   "35:53"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:16",
+   "ad"
+  ],
+  [
+   "00:16",
+   "01:41",
+   "self_promo"
+  ],
+  [
+   "06:53",
+   "08:03",
+   "ad"
+  ],
+  [
+   "25:10",
+   "26:29",
+   "ad"
+  ],
+  [
+   "33:51",
+   "34:29",
+   "self_promo"
+  ],
+  [
+   "35:02",
+   "35:53",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 210.0,
+  "pred": 216.0,
+  "gt": 216.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 28,
+  "in_tokens": 38556,
+  "out_tokens": 1135,
+  "seconds": 143.1
+ },
+ "wall_s": 134.1,
+ "audio_s": 2153,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:16"
+   ],
+   "out": "U.S. Bank",
+   "keep": true
+  },
+  {
+   "interval": [
+    "00:56",
+    "01:51"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "05:31",
+    "06:19"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "06:54",
+    "08:04"
+   ],
+   "out": "Superhuman",
+   "keep": true
+  },
+  {
+   "interval": [
+    "25:11",
+    "26:34"
+   ],
+   "out": "Whole Foods Market, 365, ethos, Odoo",
+   "keep": true
+  },
+  {
+   "interval": [
+    "33:51",
+    "34:04"
+   ],
+   "out": "npr.org slash indicator newsletter",
+   "keep": true
+  },
+  {
+   "interval": [
+    "35:06",
+    "35:53"
+   ],
+   "out": "EasyCater",
+   "keep": true
+  }
+ ]
+}

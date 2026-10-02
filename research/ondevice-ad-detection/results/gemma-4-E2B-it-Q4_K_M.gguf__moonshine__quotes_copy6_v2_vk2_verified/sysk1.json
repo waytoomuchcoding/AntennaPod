@@ -1,0 +1,127 @@
+{
+ "episode": "sysk1",
+ "pred": [
+  [
+   "00:00",
+   "02:03"
+  ],
+  [
+   "16:45",
+   "20:25"
+  ],
+  [
+   "35:20",
+   "38:56"
+  ],
+  [
+   "55:47",
+   "1:00:07"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:54",
+   "ad"
+  ],
+  [
+   "03:42",
+   "06:30",
+   "self_promo"
+  ],
+  [
+   "16:55",
+   "20:09",
+   "ad"
+  ],
+  [
+   "35:10",
+   "38:55",
+   "ad"
+  ],
+  [
+   "58:04",
+   "58:38",
+   "self_promo"
+  ],
+  [
+   "58:38",
+   "1:00:09",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 612.0,
+  "pred": 785.0,
+  "gt": 624.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 53,
+  "in_tokens": 54737,
+  "out_tokens": 4094,
+  "seconds": 198.8
+ },
+ "wall_s": 190.1,
+ "audio_s": 3609,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "02:03"
+   ],
+   "out": "Capital One",
+   "keep": true
+  },
+  {
+   "interval": [
+    "03:32",
+    "06:21"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "16:45",
+    "20:25"
+   ],
+   "out": "YouTube Premium, Wayfair",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:09",
+    "27:24"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "31:20",
+    "31:53"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "35:20",
+    "38:56"
+   ],
+   "out": "Bombas",
+   "keep": true
+  },
+  {
+   "interval": [
+    "55:47",
+    "1:00:07"
+   ],
+   "out": "CapitalOne",
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "episode": "huberman1",
+ "pred": [
+  [
+   "07:33",
+   "08:50"
+  ],
+  [
+   "21:10",
+   "22:14"
+  ],
+  [
+   "33:11",
+   "34:25"
+  ]
+ ],
+ "gt": [
+  [
+   "07:33",
+   "08:50",
+   "ad"
+  ],
+  [
+   "21:13",
+   "22:14",
+   "ad"
+  ],
+  [
+   "33:11",
+   "34:25",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 212.0,
+  "pred": 215.0,
+  "gt": 212.0,
+  "breaks": 3,
+  "found": 3,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 19,
+  "in_tokens": 29119,
+  "out_tokens": 891,
+  "seconds": 108.0
+ },
+ "wall_s": 103.7,
+ "audio_s": 2299,
+ "verify_log": [
+  {
+   "interval": [
+    "07:33",
+    "08:50"
+   ],
+   "out": "Eight S Aidsleep",
+   "keep": true
+  },
+  {
+   "interval": [
+    "21:10",
+    "22:14"
+   ],
+   "out": "BetterHelp",
+   "keep": true
+  },
+  {
+   "interval": [
+    "33:11",
+    "34:25"
+   ],
+   "out": "AG1",
+   "keep": true
+  }
+ ]
+}

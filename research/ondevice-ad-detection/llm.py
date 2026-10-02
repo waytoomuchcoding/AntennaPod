@@ -73,7 +73,9 @@ class LlamaServer:
     def generate(self, prompt, max_out=MAX_OUTPUT_TOKENS, system=None):
         msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]
         t0 = time.time()
+        # Gemma 4's llama.cpp chat template thinks by default and spends the whole output budget on it.
         r = self._post("/v1/chat/completions", {"messages": msgs, "max_tokens": max_out,
+                                                "chat_template_kwargs": {"enable_thinking": False},
                                                 "temperature": self.sampling[0] if self.sampling else 0,
                                                 "top_k": 40 if self.sampling else 1,
                                                 "seed": self.sampling[1] if self.sampling else 1})

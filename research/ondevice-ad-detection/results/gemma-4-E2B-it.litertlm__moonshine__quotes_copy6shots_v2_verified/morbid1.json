@@ -1,0 +1,113 @@
+{
+ "episode": "morbid1",
+ "pred": [
+  [
+   "00:01",
+   "01:51"
+  ],
+  [
+   "02:56",
+   "05:15"
+  ],
+  [
+   "29:36",
+   "31:04"
+  ],
+  [
+   "59:33",
+   "1:03:23"
+  ],
+  [
+   "1:24:43",
+   "1:25:42"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:31",
+   "ad"
+  ],
+  [
+   "27:45",
+   "31:03",
+   "ad"
+  ],
+  [
+   "59:30",
+   "1:03:20",
+   "ad"
+  ],
+  [
+   "1:24:43",
+   "1:25:42",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 463.0,
+  "pred": 626.0,
+  "gt": 578.0,
+  "breaks": 4,
+  "found": 3,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 50,
+  "in_tokens": 76492,
+  "out_tokens": 2335,
+  "seconds": 276.7
+ },
+ "wall_s": 268.1,
+ "audio_s": 5142,
+ "verify_log": [
+  {
+   "interval": [
+    "00:01",
+    "01:51"
+   ],
+   "out": "State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "02:56",
+    "05:15"
+   ],
+   "out": "butcher legacy",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:36",
+    "31:04"
+   ],
+   "out": "Quince, State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "59:33",
+    "1:03:23"
+   ],
+   "out": "Stella Rosa",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:22:17",
+    "1:22:34"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "1:24:43",
+    "1:25:42"
+   ],
+   "out": "SimplySafe",
+   "keep": true
+  }
+ ]
+}

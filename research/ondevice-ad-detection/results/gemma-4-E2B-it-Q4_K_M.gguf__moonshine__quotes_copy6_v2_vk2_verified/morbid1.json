@@ -1,0 +1,117 @@
+{
+ "episode": "morbid1",
+ "pred": [
+  [
+   "00:16",
+   "01:51"
+  ],
+  [
+   "02:56",
+   "03:42"
+  ],
+  [
+   "04:40",
+   "05:15"
+  ],
+  [
+   "27:48",
+   "31:04"
+  ],
+  [
+   "59:33",
+   "1:03:23"
+  ],
+  [
+   "1:22:17",
+   "1:25:42"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:31",
+   "ad"
+  ],
+  [
+   "27:45",
+   "31:03",
+   "ad"
+  ],
+  [
+   "59:30",
+   "1:03:20",
+   "ad"
+  ],
+  [
+   "1:24:43",
+   "1:25:42",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 556.0,
+  "pred": 807.0,
+  "gt": 578.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 3
+ },
+ "stats": {
+  "calls": 51,
+  "in_tokens": 57859,
+  "out_tokens": 2746,
+  "seconds": 180.3
+ },
+ "wall_s": 173.3,
+ "audio_s": 5142,
+ "verify_log": [
+  {
+   "interval": [
+    "00:16",
+    "01:51"
+   ],
+   "out": "State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "02:56",
+    "03:42"
+   ],
+   "out": "morbidpodcast",
+   "keep": true
+  },
+  {
+   "interval": [
+    "04:40",
+    "05:15"
+   ],
+   "out": "Butcher Legacy",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:48",
+    "31:04"
+   ],
+   "out": "State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "59:33",
+    "1:03:23"
+   ],
+   "out": "Stella Rosa",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:22:17",
+    "1:25:42"
+   ],
+   "out": "SimplySafe",
+   "keep": true
+  }
+ ]
+}

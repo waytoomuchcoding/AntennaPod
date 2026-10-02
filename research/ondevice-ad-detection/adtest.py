@@ -3,6 +3,9 @@ import argparse, json, os, re, sys, time
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 EPISODES = json.load(open(f"{ROOT}/episodes.json"))
+# Unlabelled distillation episodes (split "extra", fetch_extra.py); they only get empty labels in gt_extra/.
+if os.path.exists(f"{ROOT}/episodes_extra.json"):
+    EPISODES.update(json.load(open(f"{ROOT}/episodes_extra.json")))
 
 
 def mmss(x):

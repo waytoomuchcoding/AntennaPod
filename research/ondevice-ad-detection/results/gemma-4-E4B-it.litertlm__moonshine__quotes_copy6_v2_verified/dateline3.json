@@ -1,0 +1,93 @@
+{
+ "episode": "dateline3",
+ "pred": [
+  [
+   "00:00",
+   "01:04"
+  ],
+  [
+   "15:19",
+   "16:44"
+  ],
+  [
+   "29:26",
+   "31:26"
+  ],
+  [
+   "45:16",
+   "45:44"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:03",
+   "ad"
+  ],
+  [
+   "15:08",
+   "16:43",
+   "ad"
+  ],
+  [
+   "29:25",
+   "31:25",
+   "ad"
+  ],
+  [
+   "45:14",
+   "45:44",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 294.0,
+  "pred": 297.0,
+  "gt": 308.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 24,
+  "in_tokens": 26486,
+  "out_tokens": 978,
+  "seconds": 292.4
+ },
+ "wall_s": 275.1,
+ "audio_s": 2744,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:04"
+   ],
+   "out": "Southern New Hampshire University, Capital One",
+   "keep": true
+  },
+  {
+   "interval": [
+    "15:19",
+    "16:44"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:26",
+    "31:26"
+   ],
+   "out": "Solace Health, Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "45:16",
+    "45:44"
+   ],
+   "out": "Mazda",
+   "keep": true
+  }
+ ]
+}

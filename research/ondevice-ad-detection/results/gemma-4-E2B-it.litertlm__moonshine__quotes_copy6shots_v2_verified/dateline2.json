@@ -1,0 +1,98 @@
+{
+ "episode": "dateline2",
+ "pred": [
+  [
+   "00:00",
+   "01:12"
+  ],
+  [
+   "15:18",
+   "16:24"
+  ],
+  [
+   "27:20",
+   "29:19"
+  ],
+  [
+   "44:37",
+   "46:07"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:02",
+   "ad"
+  ],
+  [
+   "14:48",
+   "16:23",
+   "ad"
+  ],
+  [
+   "27:12",
+   "29:18",
+   "ad"
+  ],
+  [
+   "44:48",
+   "45:12",
+   "self_promo"
+  ],
+  [
+   "45:14",
+   "46:08",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 298.0,
+  "pred": 323.0,
+  "gt": 337.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 26,
+  "in_tokens": 38837,
+  "out_tokens": 1086,
+  "seconds": 138.8
+ },
+ "wall_s": 133.0,
+ "audio_s": 2767,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:12"
+   ],
+   "out": "Capital One",
+   "keep": true
+  },
+  {
+   "interval": [
+    "15:18",
+    "16:24"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:20",
+    "29:19"
+   ],
+   "out": "Paragold, SimpliSafe, Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "44:37",
+    "46:07"
+   ],
+   "out": "Rosetta Stone",
+   "keep": true
+  }
+ ]
+}

@@ -1,12 +1,13 @@
 #!/bin/bash
 # Each line: <model>|<shell command using {spec}>. Starts llama-server for .gguf models. One at a time.
+# Extra llama-server flags via LLAMA_ARGS, e.g. LLAMA_ARGS="-ngl 99" for the Vulkan GPU build.
 cd "$(dirname "$0")"
 while IFS='|' read -r model cmd; do
   [ -z "$model" ] && continue
   srv=
   if [[ "$model" == *.gguf ]]; then
     name=$(basename $model .gguf)
-    llama.cpp/build/bin/llama-server -m $model -c 4608 -t 6 --port 8090 -np 1 --no-webui --cache-ram 0 > logs_server_$name.txt 2>&1 &
+    llama.cpp/build/bin/llama-server -m $model -c 4608 -t 6 --port 8090 -np 1 --no-webui --cache-ram 0 $LLAMA_ARGS > logs_server_$name.txt 2>&1 &
     srv=$!
     until curl -s localhost:8090/health | grep -q ok; do sleep 2; done
     spec="http://localhost:8090#$name.gguf"

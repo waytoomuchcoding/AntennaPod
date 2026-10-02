@@ -1,0 +1,115 @@
+{
+ "episode": "planetmoney1",
+ "pred": [
+  [
+   "00:00",
+   "01:41"
+  ],
+  [
+   "05:31",
+   "05:57"
+  ],
+  [
+   "06:54",
+   "08:04"
+  ],
+  [
+   "25:11",
+   "26:34"
+  ],
+  [
+   "33:51",
+   "35:53"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:16",
+   "ad"
+  ],
+  [
+   "00:16",
+   "01:41",
+   "self_promo"
+  ],
+  [
+   "06:53",
+   "08:03",
+   "ad"
+  ],
+  [
+   "25:10",
+   "26:29",
+   "ad"
+  ],
+  [
+   "33:51",
+   "34:29",
+   "self_promo"
+  ],
+  [
+   "35:02",
+   "35:53",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 214.0,
+  "pred": 279.0,
+  "gt": 216.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 25,
+  "in_tokens": 27958,
+  "out_tokens": 1369,
+  "seconds": 81.8
+ },
+ "wall_s": 76.3,
+ "audio_s": 2153,
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:41"
+   ],
+   "out": "U.S. Bank",
+   "keep": true
+  },
+  {
+   "interval": [
+    "05:31",
+    "05:57"
+   ],
+   "out": "Gastronomics",
+   "keep": true
+  },
+  {
+   "interval": [
+    "06:54",
+    "08:04"
+   ],
+   "out": "Superhuman",
+   "keep": true
+  },
+  {
+   "interval": [
+    "25:11",
+    "26:34"
+   ],
+   "out": "Whole Foods Market, ethos, Odoo",
+   "keep": true
+  },
+  {
+   "interval": [
+    "33:51",
+    "35:53"
+   ],
+   "out": "EasyCater",
+   "keep": true
+  }
+ ]
+}

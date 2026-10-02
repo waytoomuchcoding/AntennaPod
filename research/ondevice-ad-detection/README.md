@@ -469,13 +469,88 @@ The old VM's WAVs were not available, so everything was re-downloaded.
   works, run the pipeline through `queue2.sh` (add `-ngl 99`). Watch RAM: `gemma-4-E4B-it-Q4_K_M.gguf` is
   5.0 GB on a 5.9 GB VM.
 
-### Not yet measured
-- **No GPU speed numbers exist yet.** CPU reference (old VM): E2B ~6 min per audio hour, E4B ~2×.
-- Moonshine on this VM's CPU: 27–37× real time (all 13 episodes in ~25 min while other jobs ran).
-- No LLM run has been scored on `gt_v2` yet. First job after restart: re-baseline copy6 + verify for E2B and E4B
-  on `gt_v2`, then try the two new options below.
+### Re-baseline on `gt_v2` (CPU)
+| Run (Gemma 4 E2B, all 13 eps) | P | R | F1 | Breaks | False alarms |
+|---|---|---|---|---|---|
+| copy6 | 0.836 | 0.946 | 0.887 | 54/54 | 17 |
+| copy6 + verify | 0.888 | 0.949 | **0.917** | 54/54 | 4 |
 
-### New, untested options (README section 10 ideas)
+- Speed on this VM's CPU: 2.6 min per audio hour (copy 30 min + verify 1.7 min for 11.6 h).
+- `clf_edges.py`: TF-IDF line classifier retrained leave-one-episode-out on `gt_v2`, used to trim interval
+  edges. With the threshold picked on dev, held-out F1 0.885 → **0.914**. Per-line scores in `clfp_gt_v2/`.
+- Moonshine on this VM's CPU: 27–37× real time (all 13 episodes in ~25 min while other jobs ran).
+- `runq.sh [queue.txt]` runs the uncommented lines of a queue file one by one (marks each `# done:`), logging to
+  `logs/runq.txt` and `logs/runq_out.txt`. Defaults `GT_DIR=gt_v2`.
+- The VM rebooted at ~20:09 during the `shots=1` run; the partial result was discarded and the queue restarted
+  at 20:40. Remaining queue: shots + verify, `label` strategy, E4B copy6 + verify.
+- LiteRT-LM logs `XNNPack weight cache could neither be loaded from or saved to .litert-cache/...` when that
+  folder is missing; create it (`mkdir .litert-cache`) to skip re-packing weights on every start.
+
+### Few-shot examples (`shots=1`, E2B, CPU, `gt_v2`)
+| Run | P | R | F1 | Breaks | False alarms |
+|---|---|---|---|---|---|
+| copy6 shots | 0.869 | 0.918 | 0.893 | 52/54 | 9 |
+| copy6 shots + verify | 0.915 | 0.921 | **0.918** | 52/54 | 1 |
+
+Same F1 as the baseline (0.917): fewer false alarms (1 vs 4) but two breaks missed. Not a clear win.
+
+### Per-line labelling (`--strategy label`, chunk 30, context 6, topic words, E2B, CPU, `gt_v2`)
+P 0.829, R 0.735, **F1 0.779**, 45/54 breaks, 23 false alarms, 33 min for 11.6 h. Clearly worse than copy mode;
+like the line-number ranges in 7.1, the 2B model cannot keep per-line labels straight. Dropped.
+
+### GPU (Vulkan through Venus, after the reboot)
+- `vulkaninfo --summary` and `llama-server --list-devices` work after the reboot (Venus, 16 GB shared).
+  LiteRT-LM GPU was **not** retried (it wedged the VM last time).
+- `llama-bench` Gemma 4 E2B Q4_K_M `-ngl 99`: **515 tok/s prefill, 39 tok/s decode** (CPU queue running at the
+  same time).
+- **Gotcha:** llama.cpp's Gemma 4 chat template thinks by default. Every call spent all 256 output tokens in
+  `reasoning_content` and returned empty content (F1 0; that run was deleted). `llm.py` now sends
+  `chat_template_kwargs: {enable_thinking: false}`.
+- `queue2.sh` takes extra server flags from `LLAMA_ARGS`; GPU runs use `LLAMA_ARGS="-ngl 99"`.
+
+| Run (E2B, all 13 eps, `gt_v2`) | Backend | P | R | F1 | Breaks | FA | LLM min per audio hour |
+|---|---|---|---|---|---|---|---|
+| copy6 | LiteRT-LM CPU (int4 `.litertlm`) | 0.836 | 0.946 | 0.887 | 54/54 | 17 | 2.56 |
+| copy6 | llama.cpp Vulkan (Q4_K_M) | 0.800 | 0.957 | 0.871 | 53/54 | 14 | 2.07 |
+| copy6 + verify | LiteRT-LM CPU | 0.888 | 0.949 | **0.917** | 54/54 | 4 | |
+| copy6 + verify | llama.cpp Vulkan | 0.833 | 0.960 | 0.892 | 53/54 | 6 | |
+
+The GPU is only ~20% faster than LiteRT-LM on CPU here (the CPU queue shared the machine during the GPU run), and
+the Q4_K_M GGUF scores a bit lower than the LiteRT-LM file (different quantisation and chat template). For
+phone estimates, the LiteRT-LM numbers stay the reference.
+
+Why the GPU gain is small (investigated, not a bug):
+- The host is a **Mac mini with a base Apple M4** (confirmed by the owner): 10-core GPU, Metal 4, 16 GiB unified
+  memory shared with macOS and this VM, 120 GB/s. Native
+  Metal on that chip does ~221 tok/s prefill and ~24 tok/s decode on Llama 2 7B Q4_0 (llama.cpp Apple Silicon
+  thread, github.com/ggml-org/llama.cpp/discussions/4167). Scaled to E2B's ~2.3B compute parameters that is roughly
+  ~640 prefill / ~55–60 decode, so the measured 515 / 39 is ~65–80% of native.
+- The guest path is Mesa Venus → virglrenderer → MoltenVK → Metal. Red Hat measured Venus at 75–80% of native
+  llama.cpp speed because every Vulkan call is serialised through virtio-gpu (developers.redhat.com, 2025-09-18).
+  MoltenVK also exposes no cooperative matrix or integer dot product (`int dot: 0`, `matrix cores: none` in the
+  llama.cpp log), so llama.cpp's Vulkan backend uses its slowest matmul path. Running Vulkan on Apple GPUs
+  natively (Asahi, M2 Max) was 6× slower than Metal for prefill in llama.cpp issue #10982.
+- Flash attention and ubatch 256/512/1024 change nothing (466–513 prefill, 37–40 decode): the limit is the
+  translation layer and the small GPU, not llama.cpp settings.
+- The CPU side is strong: 6 vCPUs of M4 with `i8mm`, `bf16` and `asimddp` exposed, which XNNPack's int8 kernels use.
+  A base M4's CPU and GPU are close in LLM throughput, unlike phones (S26 Ultra: GPU prefill ~7× CPU).
+- Conclusion: this VM cannot predict phone GPU speedups. For phone numbers use Google's published LiteRT-LM figures
+  or run on a Pixel. Red Hat's "API remoting" krunkit build (forwards ggml calls to host Metal) reaches near-native
+  speed if real Apple GPU numbers are ever needed.
+
+### Gemma 4 E4B on `gt_v2` (CPU)
+| Run | P | R | F1 | Breaks | False alarms |
+|---|---|---|---|---|---|
+| E4B copy6 | 0.954 | 0.967 | **0.960** | 54/54 | 3 |
+| E4B copy6 + verify | 0.957 | 0.964 | 0.960 | 53/54 | 3 |
+
+E4B needs no verify pass (it costs a break). ~5 min LLM time per audio hour on this CPU (2× E2B). On the 7 dev
+episodes the copy stage alone: E4B 0.963 / 1 false alarm vs E2B 0.908 / 9.
+
+### Not yet measured
+- LiteRT-LM on the GPU (`LITERT_BACKEND=gpu`); CPU reference (old VM): E2B ~6 min per audio hour, E4B ~2×.
+
+### Options added in session 2 (both tested above: shots = no gain, label = worse)
 - `--arg shots=1` (quotes/copy strategy): appends four invented worked examples to the system message (host-read
   ad, narrative ad naming the brand at the end, reporting that quotes an ad → NONE, show credits/plugs → NONE).
   Invented text so the held-out split stays clean.
@@ -488,3 +563,48 @@ The old VM's WAVs were not available, so everything was re-downloaded.
 - Hugging Face downloads through `huggingface_hub` ran at ~235 KB/s here; `dl_models.sh` uses `aria2c -x16`
   (~48 MB/s). Gemma 4 GGUFs: `unsloth/gemma-4-E2B-it-GGUF`, `unsloth/gemma-4-E4B-it-GGUF` (Q4_K_M).
 - `transcribe_all.sh` transcribes every `wav/*.wav` without a transcript.
+
+---
+
+## 13. Session 2, night of 2026-10-01: cheap classifiers instead of (or next to) the LLM
+
+Goal: something much smaller and faster than Gemma that finds ads well, or at least vetoes the LLM's false alarms.
+Everything on `gt_v2`. **Evaluation is leave-one-show-out** (`GROUP=show`): all episodes of a show are held out
+together, because same-day downloads of one show carry the same inserted ads (Daily ×2, Dateline ×4), which let
+leave-one-episode-out memorise them. (It turned out to matter little: TF-IDF test F1 0.796 → 0.793.) Thresholds
+and smoothing knobs are picked on the 7 dev episodes and applied unchanged to the 6 held-out ones.
+
+Scripts: `emb_loo.py` (features + logistic regression, writes per-line scores to `embp_gt_v2_show/<name>/`),
+`seq_smooth.py` (score → intervals: 3-line average, hysteresis, 2-state HMM/Viterbi), `repeat_match.py`,
+`gemma_probe.py` (Gemma hidden states via `llama-server --embeddings --pooling none`), `fetch_extra.py`,
+`night.sh` (resumable overnight chain). Logs in `logs/emb_*`, `logs/seq_*`, `logs/repeat_match.txt`.
+
+### 13.1 Line classifiers (each line + a 5-line window, both embedded; logistic regression)
+| Features | Size | Line AUC dev / test | Line AP dev / test | Alone, test F1 (ma3) | Breaks | FA |
+|---|---|---|---|---|---|---|
+| TF-IDF words + pairs (old classifier) | ~2.5 MB | 0.996 / 0.981 | 0.972 / 0.910 | 0.793 | 20/23 | 2 |
+| Model2Vec potion-base-8M (static) | 30 MB | 0.991 / 0.956 | 0.941 / 0.827 | 0.704 | 17/23 | 5 |
+| all-MiniLM-L6-v2 | 22M params | 0.986 / 0.974 | 0.932 / 0.884 | 0.819 | 20/23 | 4 |
+| **bge-small-en-v1.5** | 33M params | 0.992 / **0.989** | 0.961 / **0.953** | **0.880** | 23/23 | 6 |
+
+### 13.2 Smoothing (score → intervals), held-out test F1 of the classifier alone
+| Features | 3-line average | Hysteresis | HMM (Viterbi) |
+|---|---|---|---|
+| TF-IDF | 0.793 (2 FA) | 0.803 (4 FA) | 0.822 (1 FA) |
+| MiniLM | 0.819 (4 FA) | 0.821 (3 FA) | 0.878 (0 FA) |
+| **bge-small** | 0.880 (6 FA) | 0.907 (1 FA) | **0.917 (23/23 breaks, 1 FA)** |
+
+**bge-small + HMM alone matches the LLM:** held-out F1 0.917 vs 0.888 for E2B copy6 + verify on the same 6 episodes
+(E4B: 0.96). It is a 33M-parameter encoder (~35 MB int8) plus a logistic regression and a 2-state HMM, i.e.
+milliseconds per line on a phone CPU, no LLM call at all. HMM knobs picked on dev: alpha 2, switch 0.001, bias 1.
+
+### 13.3 As a veto on E2B copy6 + verify (drop LLM intervals the classifier does not overlap)
+Held-out: 0.888 / 3 FA → **0.931 / 0 FA** with TF-IDF or bge-small (no break lost); MiniLM and Model2Vec lose one
+break. Dev stays 0.938 (TF-IDF) or 0.931–0.934 (embeddings, which drop 1–2 dev breaks). The veto can only remove
+LLM intervals, so it caps out once the false alarms are gone.
+
+### 13.4 Repetition matching (`repeat_match.py`)
+Word 6-gram hashes of the ads the LLM confirmed in the *other* 12 episodes; a line matches when ≥50% of its 6-grams
+are in that database. Alone: **precision 0.976, 0 false alarms**, recall 0.25 (15/54 breaks); 13 of the LLM's 60
+detected breaks are already covered, so a phone could skip the LLM there. Using every line of other episodes
+instead (no LLM filter) adds intros/credits: precision 0.90, 6 false alarms. This grows with the user's library.

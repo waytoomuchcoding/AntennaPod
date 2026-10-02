@@ -1,7 +1,7 @@
 # done: ./venv/bin/python adtest.py --model models/gemma-4-E2B-it.litertlm --split all --strategy quotes --arg mode=copy --arg iters=6 --arg min_words=5 --tag _copy6_v2
 # done: ./venv/bin/python verify.py models/gemma-4-E2B-it.litertlm gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_v2
 # done: ./venv/bin/python adtest.py --model models/gemma-4-E2B-it.litertlm --split all --strategy quotes --arg mode=copy --arg iters=6 --arg min_words=5 --arg shots=1 --tag _copy6shots_v2
-./venv/bin/python verify.py models/gemma-4-E2B-it.litertlm gemma-4-E2B-it.litertlm__moonshine__quotes_copy6shots_v2
-./venv/bin/python adtest.py --model models/gemma-4-E2B-it.litertlm --split all --strategy label --tag _label30_v2
-./venv/bin/python adtest.py --model models/gemma-4-E4B-it.litertlm --split all --strategy quotes --arg mode=copy --arg iters=6 --arg min_words=5 --tag _copy6_v2
-./venv/bin/python verify.py models/gemma-4-E4B-it.litertlm gemma-4-E4B-it.litertlm__moonshine__quotes_copy6_v2
+# done: ./venv/bin/python verify.py models/gemma-4-E2B-it.litertlm gemma-4-E2B-it.litertlm__moonshine__quotes_copy6shots_v2
+# done: ./venv/bin/python adtest.py --model models/gemma-4-E2B-it.litertlm --split all --strategy label --tag _label30_v2
+# done: ./venv/bin/python adtest.py --model models/gemma-4-E4B-it.litertlm --split all --strategy quotes --arg mode=copy --arg iters=6 --arg min_words=5 --tag _copy6_v2
+# done: ./venv/bin/python verify.py models/gemma-4-E4B-it.litertlm gemma-4-E4B-it.litertlm__moonshine__quotes_copy6_v2

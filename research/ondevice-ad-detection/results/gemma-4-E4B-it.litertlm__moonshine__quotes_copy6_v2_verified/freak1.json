@@ -1,0 +1,98 @@
+{
+ "episode": "freak1",
+ "pred": [
+  [
+   "00:01",
+   "02:16"
+  ],
+  [
+   "19:33",
+   "22:01"
+  ],
+  [
+   "35:58",
+   "38:18"
+  ],
+  [
+   "57:07",
+   "59:15"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "02:15",
+   "ad"
+  ],
+  [
+   "19:30",
+   "22:00",
+   "ad"
+  ],
+  [
+   "36:05",
+   "38:17",
+   "ad"
+  ],
+  [
+   "55:50",
+   "56:00",
+   "self_promo"
+  ],
+  [
+   "57:05",
+   "59:15",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 541.0,
+  "pred": 551.0,
+  "gt": 547.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 33,
+  "in_tokens": 37408,
+  "out_tokens": 1812,
+  "seconds": 322.4
+ },
+ "wall_s": 296.9,
+ "audio_s": 3555,
+ "verify_log": [
+  {
+   "interval": [
+    "00:01",
+    "02:16"
+   ],
+   "out": "EverPure",
+   "keep": true
+  },
+  {
+   "interval": [
+    "19:33",
+    "22:01"
+   ],
+   "out": "ChatGPT, Schwab, Peloton",
+   "keep": true
+  },
+  {
+   "interval": [
+    "35:58",
+    "38:18"
+   ],
+   "out": "LabCorp On Demand",
+   "keep": true
+  },
+  {
+   "interval": [
+    "57:07",
+    "59:15"
+   ],
+   "out": "Southern Company",
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "episode": "morbid1",
+ "pred": [
+  [
+   "00:01",
+   "01:51"
+  ],
+  [
+   "04:40",
+   "04:51"
+  ],
+  [
+   "27:48",
+   "31:04"
+  ],
+  [
+   "59:33",
+   "1:03:23"
+  ],
+  [
+   "1:24:43",
+   "1:25:42"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:31",
+   "ad"
+  ],
+  [
+   "27:45",
+   "31:03",
+   "ad"
+  ],
+  [
+   "59:30",
+   "1:03:20",
+   "ad"
+  ],
+  [
+   "1:24:43",
+   "1:25:42",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 571.0,
+  "pred": 606.0,
+  "gt": 578.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 44,
+  "in_tokens": 50602,
+  "out_tokens": 2206,
+  "seconds": 423.9
+ },
+ "wall_s": 402.8,
+ "audio_s": 5142,
+ "verify_log": [
+  {
+   "interval": [
+    "00:01",
+    "01:51"
+   ],
+   "out": "State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "04:40",
+    "04:51"
+   ],
+   "out": "butcher legacy",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:48",
+    "31:04"
+   ],
+   "out": "State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "59:33",
+    "1:03:23"
+   ],
+   "out": "Stella Rosa, Pantene",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:24:43",
+    "1:25:42"
+   ],
+   "out": "SimplySafe",
+   "keep": true
+  }
+ ]
+}
