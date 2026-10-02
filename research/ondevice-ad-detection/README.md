@@ -670,5 +670,10 @@ within ~0.03–0.04 F1 of E4B at a tiny fraction of the compute, and beats E2B.
   marks 40% of self-promo lines as ad, which the human labels leave neutral. The likely cause is distribution: the 12 labelled
   shows are closer to each other (same networks, same day's ad campaigns) than to the 35 new shows. A linear
   model on frozen embeddings already has enough data at 13 episodes; more distant data dilutes it.
-- Next for distillation: weight human data higher, or use teacher data only to pre-train and fine-tune on human
-  labels; a fine-tuned encoder (below) is the case where more data should matter most.
+- **Fine-tuned bge-small** (`finetune.py`: whole encoder + linear head, input = (line, 5-line window) pair, 1 epoch
+  on the 15,325 teacher-labelled lines, 37 min on this CPU): test line AP **0.936** (frozen bge-small on the same
+  teacher labels: 0.865), dev AP 0.975. After HMM: dev 0.926, test 0.851 (23/23 breaks, 2 FA). Fine-tuning clearly
+  helps per line, but the teacher-only domain gap remains; it does not beat frozen EmbeddingGemma on human labels.
+- Next for distillation: fine-tune on teacher + human labels (human weighted up), or pre-train on teacher data and
+  then fine-tune on the human-labelled shows (needs leave-one-show-out folds: ~9 × 40 min on this CPU); fine-tune
+  EmbeddingGemma itself (300M) on a GPU machine.
