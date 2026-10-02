@@ -534,6 +534,13 @@ Why the GPU gain is small (investigated, not a bug):
   translation layer and the small GPU, not llama.cpp settings.
 - The CPU side is strong: 6 vCPUs of M4 with `i8mm`, `bf16` and `asimddp` exposed, which XNNPack's int8 kernels use.
   A base M4's CPU and GPU are close in LLM throughput, unlike phones (S26 Ultra: GPU prefill ~7× CPU).
+- **Clean benchmark (02:20, idle machine, `logs/clean_bench*.txt`)**, E2B Q4_K_M, llama.cpp, 1200-token prompt:
+  pure CPU (`-ngl 0 -nopo 1`, 6 threads) **92 tok/s prefill / 40 decode**; GPU (`-ngl 99`) **518 / 43**. So the GPU
+  is 5.6× faster than llama.cpp's CPU path at reading prompts (decode is memory-bound and equal). Note `-ngl 0`
+  alone still offloads large prompt batches to the GPU (404 / 27 tok/s), so use `-nopo 1` for CPU numbers.
+  The small end-to-end gain (2.56 → 2.07 min per audio hour) is because **LiteRT-LM's CPU path is itself fast**
+  (XNNPack int8 kernels using `i8mm`): per call it is only ~20% slower than llama.cpp on the GPU, i.e. several
+  times faster than llama.cpp on the CPU.
 - Conclusion: this VM cannot predict phone GPU speedups. For phone numbers use Google's published LiteRT-LM figures
   or run on a Pixel. Red Hat's "API remoting" krunkit build (forwards ggml calls to host Metal) reaches near-native
   speed if real Apple GPU numbers are ever needed.

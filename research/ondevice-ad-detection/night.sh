@@ -52,3 +52,10 @@ if [ -n "$todo" ]; then
   log "teacher done rc=$?"
 fi
 log ALL_DONE
+
+# 5. distillation students (appended 01:40): LR on frozen embeddings, then a fine-tuned bge-small
+if [ -n "$(ls results/gemma-4-E4B-it.litertlm__moonshine__quotes_teacher 2>/dev/null)" ]; then
+  for m in egemma bge-small; do ./venv/bin/python distill.py $m > logs/distill_$m.txt 2>&1; log "distill $m rc=$?"; done
+  ./venv/bin/python finetune.py > logs/finetune_bge.txt 2>&1; log "finetune rc=$?"
+fi
+log STUDENTS_DONE
