@@ -12,3 +12,4 @@ problem_cases.md
 logs_*.txt
 .litert-cache/
 __pycache__/
+logs/

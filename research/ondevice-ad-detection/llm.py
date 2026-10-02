@@ -14,7 +14,8 @@ class LiteRT:
         import litert_lm
         self.m = litert_lm
         litert_lm.set_min_log_severity(litert_lm.LogSeverity.ERROR)
-        self.engine = litert_lm.Engine(path, backend=litert_lm.Backend.CPU(), max_num_tokens=4096 + 512,
+        backend = litert_lm.Backend.GPU() if os.environ.get("LITERT_BACKEND", "cpu") == "gpu" else litert_lm.Backend.CPU()
+        self.engine = litert_lm.Engine(path, backend=backend, max_num_tokens=4096 + 512,
                                        cache_dir=os.path.join(ROOT, ".litert-cache"))
         self.name = path.rsplit("/", 1)[-1]
         self.stats = {"calls": 0, "in_tokens": 0, "out_tokens": 0, "seconds": 0.0}

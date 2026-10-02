@@ -434,3 +434,57 @@ Other open items:
 7. Audio cues (diarization, YAMNet) as annotations and post-processing: no gain.
 8. Case bench for fast iteration: context length, focus windows, short windows, thinking, sliding + veto.
 9. TF-IDF classifier as a veto: small, consistent gain; guide published as a private artifact.
+
+---
+
+## 12. Session 2 (2026-10-01, Lima `krunkit` VM with GPU) — status and handoff
+
+New VM: Fedora 44 arm64, 6 vCPU, 5.9 GB RAM, Vulkan through Venus (`Virtio-GPU Venus (Apple M4)`).
+The old VM's WAVs were not available, so everything was re-downloaded.
+
+### Re-downloaded audio has different ads → new labels in `gt_v2/`
+- 12 of 13 episodes changed length (−54 s to +221 s; only dateline3 within 2 s). Ad loads are different
+  (e.g. daily1's Rinse mid-roll is now Harvey; the Rinse narrative end ad is now Vanta). **`gt/` matches only
+  the old audio; `gt_v2/` matches the audio downloaded on 2026-10-01.** Section 8's error cases no longer exist
+  in the new audio.
+- `gt_v2/`: 13 episodes, 11.63 h, 54 ad breaks, 91.8 ad minutes. Labelled by hand from the Moonshine
+  transcripts: `strong_cues.py` (cue scan) plus reading around every hit and every old break position (DAI slots
+  stay at the same story positions). Same conventions as before: network cross-promos for other podcasts are
+  `ad`; the show's own plugs/credits asks are `self_promo`. No cloud second labeller was run.
+- `adtest.py` reads labels from `$GT_DIR` (default `gt`). Use `GT_DIR=gt_v2` for every run on the new audio;
+  old `results/` runs only make sense with the default `gt`.
+
+### GPU: not working yet (VM wedged)
+- `LITERT_BACKEND=gpu` (new in `llm.py`) with `gemma-4-E2B-it-gpu.litertlm` hung during engine creation
+  (no output after 10 min). The process then got stuck in the kernel (`D` state in `exit_mm`) and cannot be killed.
+- Afterwards llama.cpp built with `-DGGML_VULKAN=ON` hung in `virtio_gpu_vram_mmap` on `--list-devices`, and
+  `vulkaninfo` hangs too: the guest GPU is wedged until the VM restarts. dmesg showed
+  `virtio_gpu_dequeue_ctrl_func ... response 0x1200` errors from early boot.
+- Side effect: `ps`, `pgrep`, `pkill` block forever on the stuck process (`__access_remote_vm`). Avoid them while
+  it exists; read `/proc/<pid>/stat` directly instead.
+- RAM was not the cause (4.8 GB available, no swap use during the hang).
+- **After restart, test the GPU in this order, each with `timeout -s KILL` in the background:** `vulkaninfo
+  --summary` → `llama.cpp/build/bin/llama-server --list-devices` → `llama-bench -m
+  models/gemma-4-E2B-it-Q4_K_M.gguf -ngl 99 -p 1200 -n 64` → only then LiteRT-LM GPU. If llama.cpp Vulkan
+  works, run the pipeline through `queue2.sh` (add `-ngl 99`). Watch RAM: `gemma-4-E4B-it-Q4_K_M.gguf` is
+  5.0 GB on a 5.9 GB VM.
+
+### Not yet measured
+- **No GPU speed numbers exist yet.** CPU reference (old VM): E2B ~6 min per audio hour, E4B ~2×.
+- Moonshine on this VM's CPU: 27–37× real time (all 13 episodes in ~25 min while other jobs ran).
+- No LLM run has been scored on `gt_v2` yet. First job after restart: re-baseline copy6 + verify for E2B and E4B
+  on `gt_v2`, then try the two new options below.
+
+### New, untested options (README section 10 ideas)
+- `--arg shots=1` (quotes/copy strategy): appends four invented worked examples to the system message (host-read
+  ad, narrative ad naming the brand at the end, reporting that quotes an ad → NONE, show credits/plugs → NONE).
+  Invented text so the held-out split stays clean.
+- `--strategy label` (`chunk=30 context=6 topic=1`): numbered lines, the model writes `N | topic | AD/C` for
+  every line (30 lines ≈ 240 output tokens, under the 256 cap). `topic=0` drops the topic word.
+
+### Environment notes (Fedora)
+- `dnf install gh git ffmpeg-free cmake gcc gcc-c++ python3-devel vulkan-headers vulkan-loader-devel glslc
+  glslang spirv-tools spirv-headers-devel aria2`; the venv works on Python 3.14.
+- Hugging Face downloads through `huggingface_hub` ran at ~235 KB/s here; `dl_models.sh` uses `aria2c -x16`
+  (~48 MB/s). Gemma 4 GGUFs: `unsloth/gemma-4-E2B-it-GGUF`, `unsloth/gemma-4-E4B-it-GGUF` (Q4_K_M).
+- `transcribe_all.sh` transcribes every `wav/*.wav` without a transcript.

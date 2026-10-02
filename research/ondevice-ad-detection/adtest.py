@@ -13,7 +13,7 @@ def mmss(x):
 
 
 def load_gt(ep):
-    g = json.load(open(f"{ROOT}/gt/{ep}.json"))
+    g = json.load(open(f"{ROOT}/{os.environ.get('GT_DIR', 'gt')}/{ep}.json"))
     return g["duration"], [(mmss(s["s"]), mmss(s["e"]), s["type"]) for s in g["segments"]]
 
 
@@ -223,9 +223,34 @@ SYSTEMS = {
 }
 
 
+SHOTS = """
+
+Examples (invented, not from this podcast):
+
+Transcript part:
+so that's where the investigation stood in March. This episode is brought to you by Fernway. I've been using Fernway meal kits for a few months now and honestly dinner got so much easier. Go to fernway.com slash daily and use code DAILY for 50% off your first box. That's fernway.com slash daily. Okay, back to the detectives.
+Correct answer:
+This episode is brought to you by Fernway. I've been using Fernway meal kits for a few months now and honestly dinner got so much easier. Go to fernway.com slash daily and use code DAILY for 50% off your first box. That's fernway.com slash daily.
+
+Transcript part:
+and nobody in town had heard from him since. A man stands in his kitchen staring at a sink full of dishes. His phone buzzes. Dinner guests in twenty minutes. He sighs, then smiles. One tap, and a cleaner is on the way. Tidyly. Book a home cleaning in under a minute at tidyly.com. When the police arrived the next morning, the door was unlocked.
+Correct answer:
+A man stands in his kitchen staring at a sink full of dishes. His phone buzzes. Dinner guests in twenty minutes. He sighs, then smiles. One tap, and a cleaner is on the way. Tidyly. Book a home cleaning in under a minute at tidyly.com.
+
+Transcript part:
+the company's TV commercial said, quote, bet on anything, anywhere, download the app today. Regulators say that ad crossed a line. So what did the agency actually decide? Well, the ruling came down last week and it was narrower than people expected.
+Correct answer:
+NONE
+
+Transcript part:
+that's our show for this week. If you liked it, tell a friend, and you can find our new video series on our YouTube channel. Thanks to our producer Sam and our editor Lee. We'll see you next week.
+Correct answer:
+NONE"""
+
+
 def strategy_quotes(llm, lines, meta, budget=1200, overlap=0.3, min_match=0.5, iters=1, min_words=3, max_span=120,
                     marker=1, mode="quotes", offset=0.0, verify_each=0, annot="", episode=None, sys="",
-                    marker_fallback=0, focus=0, only=None, veto=0.0, max_vetoes=3, log=None):
+                    marker_fallback=0, focus=0, only=None, veto=0.0, max_vetoes=3, shots=0, log=None):
     """Plain-text windows; the model quotes the first/last words of each ad; quotes are matched back to words.
     With iters > 1, found ads are replaced by a marker and the window is asked again until NONE or iters passes."""
     words, word_line = [], []
@@ -242,7 +267,7 @@ def strategy_quotes(llm, lines, meta, budget=1200, overlap=0.3, min_match=0.5, i
         clfp = [probs.get(str(l["t"]), 0.0) for l in lines]
     prefix = line_annotations(episode, lines, annot)
     speakers = getattr(line_annotations, "speakers", [None] * len(lines)) if "s" in annot else [None] * len(lines)
-    system = SYSTEMS.get(sys, QUOTES_SYSTEM) + (ANNOT_SYSTEM if annot else "")
+    system = SYSTEMS.get(sys, QUOTES_SYSTEM) + (ANNOT_SYSTEM if annot else "") + (SHOTS if shots else "")
     toks_per_word = llm.count(" ".join(words[:2000])) / max(1, min(2000, len(words)))
     win = int(budget / toks_per_word)
     start = -int(win * offset)
@@ -362,6 +387,57 @@ def strategy_quotes(llm, lines, meta, budget=1200, overlap=0.3, min_match=0.5, i
         if end >= len(words) or only:
             break
         start += max(1, int(win * (1 - overlap)))
+    return is_ad
+
+
+# ---------------------------------------------------------------- strategy: label
+LABEL_PROMPT = """Below is part of the transcript of the podcast "{podcast}", episode "{title}".{context_note}
+
+<transcript>
+{transcript}
+</transcript>
+
+Label every numbered line. For each line write its number, a short topic of one to three words, and AD if the line is part of an advertisement or C if it is the podcast's own content. Use this format, one line each:
+{example}
+Write a label for every numbered line from {first} to {last} and nothing else."""
+
+LABEL_PROMPT_NOTOPIC = """Below is part of the transcript of the podcast "{podcast}", episode "{title}".{context_note}
+
+<transcript>
+{transcript}
+</transcript>
+
+Label every numbered line: write its number and AD if the line is part of an advertisement or C if it is the podcast's own content. Use this format, one line each:
+{example}
+Write a label for every numbered line from {first} to {last} and nothing else."""
+
+
+def strategy_label(llm, lines, meta, chunk=30, context=6, topic=1, log=None, episode=None):
+    is_ad = [False] * len(lines)
+    system = QUOTES_SYSTEM.replace(" You only copy words that appear in the transcript.", "") + \
+        " Several ads often play back to back, and an ad may be read by the hosts themselves."
+    prompt = LABEL_PROMPT if topic else LABEL_PROMPT_NOTOPIC
+    ex = "1 | murder trial | C\n2 | meal kits | AD" if topic else "1 C\n2 AD"
+    for start in range(0, len(lines), chunk):
+        end = min(len(lines), start + chunk)
+        ctx = lines[max(0, start - context):start]
+        tx = "".join(f"- {l['text']}\n" for l in ctx) + "".join(
+            f"{i - start + 1}. {lines[i]['text']}\n" for i in range(start, end))
+        note = (" Lines starting with - come just before and are only there for context; do not label them."
+                if ctx else "")
+        out = llm.generate(prompt.format(transcript=tx.rstrip(), context_note=note, example=ex, first=1,
+                                         last=end - start, **meta), system=system)
+        labels = {}
+        for row in out.splitlines():
+            m = re.match(r"\s*(\d+)\s*[.:|)-]?\s*(?:(.*?)\s*[|:-]\s*)?\b(AD|C|CONTENT)\b\s*$", row.strip(), re.I)
+            if m:
+                labels[int(m.group(1))] = (m.group(2) or "", m.group(3).upper() == "AD")
+        for n, (_, ad) in labels.items():
+            if 1 <= n <= end - start:
+                is_ad[start + n - 1] = ad
+        if log is not None:
+            log.append({"window": [start, end], "labelled": len(labels), "ads": sum(a for _, a in labels.values()),
+                        "topics": [labels[n][0] for n in sorted(labels)]})
     return is_ad
 
 
@@ -575,7 +651,7 @@ def main():
     a = ap.parse_args()
     if not a.episodes:
         a.episodes = ",".join(e for e, m in EPISODES.items() if a.split in ("all", m.get("split", "dev"))
-                              and os.path.exists(f"{ROOT}/gt/{e}.json")
+                              and os.path.exists(f"{ROOT}/{os.environ.get('GT_DIR', 'gt')}/{e}.json")
                               and os.path.exists(f"{ROOT}/tx/{a.asr}/{e}.jsonl"))
     import llm as llm_mod
     global TIGHT_ENDS
@@ -585,7 +661,8 @@ def main():
         llm.sampling = (a.temp, a.seed)
     conv = lambda v: float(v) if v.replace(".", "").isdigit() and "." in v else int(v) if v.isdigit() else v
     kwargs = {k: conv(v) for k, v in (x.split("=") for x in a.arg)}
-    fn = {"ranges": strategy_ranges, "blocks": strategy_blocks, "quotes": strategy_quotes}[a.strategy]
+    fn = {"ranges": strategy_ranges, "blocks": strategy_blocks, "quotes": strategy_quotes,
+          "label": strategy_label}[a.strategy]
     run = f"{llm.name}__{a.asr}__{a.strategy}{a.tag}"
     os.makedirs(f"{ROOT}/results/{run}", exist_ok=True)
     scores = []
@@ -595,7 +672,7 @@ def main():
         before = dict(llm.stats)
         log = []
         t0 = time.time()
-        extra = {"episode": ep} if a.strategy in ("blocks", "quotes") else {}
+        extra = {"episode": ep} if a.strategy in ("blocks", "quotes", "label") else {}
         is_ad = fn(llm, lines, EPISODES[ep], log=log, **extra, **kwargs)
         pred = to_intervals(lines, is_ad, duration)
         sc = score(pred, gt)
