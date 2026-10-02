@@ -4,7 +4,7 @@ import adtest
 rows = []
 for run in sorted(os.listdir(f"{adtest.ROOT}/results")):
     d = f"{adtest.ROOT}/results/{run}"
-    if not os.path.isdir(d):
+    if not os.path.isdir(d) or (run.endswith("_v2") or "_v2_" in run) != (os.environ.get("GT_DIR") == "gt_v2"):
         continue
     files = sorted(f for f in os.listdir(d) if f.endswith(".json"))
     if not files or (len(files) < 6 and "--all" not in sys.argv):

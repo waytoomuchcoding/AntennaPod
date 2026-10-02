@@ -1,0 +1,399 @@
+{
+ "episode": "dateline3",
+ "pred": [
+  [
+   "00:00",
+   "01:04"
+  ],
+  [
+   "15:19",
+   "16:44"
+  ],
+  [
+   "29:45",
+   "31:26"
+  ],
+  [
+   "45:16",
+   "45:44"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:03",
+   "ad"
+  ],
+  [
+   "15:08",
+   "16:43",
+   "ad"
+  ],
+  [
+   "29:25",
+   "31:25",
+   "ad"
+  ],
+  [
+   "45:14",
+   "45:44",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 275.0,
+  "pred": 278.0,
+  "gt": 308.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 28,
+  "in_tokens": 29781,
+  "out_tokens": 985,
+  "seconds": 99.8
+ },
+ "wall_s": 94.6,
+ "audio_s": 2744,
+ "log": [
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 0,
+   "out": "When it comes to affordable, convenient, graduate education, Southern New Hampshire University delivers.\noffering career-focused master's programs, online courses with no-set class times, and some of the lowest online tuition rates in the U.S.,\nSouthern New Hampshire University makes going back to school possible. Ready to add Masters degree to your resume.\nVisit snhu.edu slash dateline to get started. That's snhu.edu.\n100 slash Dateline. With no fees or minimums on checking accounts, it's no wonder the Capital One bank guy is so passionate about\nBanking with capital one. If he were here. You wouldn't just tell you about no fees or minim\nYou'd also talk about how Capital One cafes are open seven days a week to assist with your banking needs, yep, even on weekends.\nPretty much all he talks In a good way What's in your wal Terms apply. See CapitalOne.com slash bank guy. CapitalOne NA member FDIC.",
+   "matches": [
+    [
+     "00:00",
+     "01:03",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 1,
+   "out": "Here's Dennis Murphy with True Lives.",
+   "matches": [
+    [
+     "02:21",
+     "02:24",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 2,
+   "out": "Bill Kine knew he was a lucky man. The single dad with five kids was getting a second chance at love. She was the most wonderful lady I've ever met. He first set eyes on her at a nail salon, a business she ran with her twin sister. And they're standing in front of this big neon sign that says nails. And I says, do y'all do nails here?",
+   "matches": [
+    [
+     "02:32",
+     "02:51",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    651,
+    1581
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1302,
+    2232
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1953,
+    2883
+   ],
+   "iter": 0,
+   "out": "Switch your home and auto to progressive and see if you could save and keep Sipping away. Get your quote today at Progressive.com.\nProgressive Casualty Insurance Company, Affiliates, and Other Insurers.\nNot available in all states. Grainger knows if you're a procurement manager at an industrial manufacturing facility, you're balancing inventory and budget while sourcing critical supplies across the operation. Too much inventory? Costs climb. Too little? Production slows. Grainger's $2 billion in on-hand inventory helps you get what you need when you need it. So you can help keep budgets balanced and lines moving.\nCall 1-800-GRAINGER, clickgrainger.com, Grainger, for the ones who get it done.",
+   "matches": [
+    [
+     "15:53",
+     "16:34",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1953,
+    2883
+   ],
+   "iter": 1,
+   "out": "Bear down at the University of Arizona. Whoever says saving money is hard doesn't know that the new customers who bundle and save with Progressive save hundreds. Because switching your home and auto insurance... A better than cutting down on those iced lattes you love",
+   "matches": [
+    [
+     "15:37",
+     "15:52",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1953,
+    2883
+   ],
+   "iter": 2,
+   "out": "In this land and built on curiosity excellence excellence and determination. We have transformed bare down into a legacy. And you know what? We're just getting started.",
+   "matches": [
+    [
+     "15:19",
+     "15:35",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1953,
+    2883
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    2604,
+    3534
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3255,
+    4185
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3906,
+    4836
+   ],
+   "iter": 0,
+   "out": "Based on the transcript provided, there are no advertisements present.",
+   "matches": [
+    [
+     "Based on the transcript provided, there ",
+     "nomatch-start",
+     0.38
+    ]
+   ]
+  },
+  {
+   "window": [
+    4557,
+    5487
+   ],
+   "iter": 0,
+   "out": "Solace Health takes that work off your plate. Solace advocates work for you and are covered by insurance nationwide\nYour advocate is your personal care coordinator, doctor, decoder, medical pathfinder, and coverage defender.\nThey will explain the jargon, tests and treatments, find you doctors, make appointments, fight the denials and break through the system.\nSalas handles everything from paperwork to bills so you can focus on your health. Go to solacehealth.com slash dateline to see if you qualify.\nIt takes about two minutes and it's covered by insurance. That's S-O-L-A-C-E health dot com slash dateline.\nMust be 18 or older advocates to not provide medical or legal advice whoever says saving money is hard\ndoesn't know that the new customers who bundle and save with progressive save hundreds. Because switching your home and auto insurance\nA better than cutting down on those iced lattes you love\nSwitch your home and auto to Progressive and see if you could save and keep Sipping away. Get your quote today at Progressive.com.\nProgressive Casualty Insurance Company, Affiliates, and Other Insurers. Not available in all states.",
+   "matches": [
+    [
+     "30:07",
+     "31:17",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4557,
+    5487
+   ],
+   "iter": 1,
+   "out": "Navigating the healthcare system is a full-time job. Unanswered questions, endless paperwork, denied claims, confusion, and run-arounds. Wouldn't you rather give that job to someone else",
+   "matches": [
+    [
+     "29:45",
+     "30:07",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4557,
+    5487
+   ],
+   "iter": 2,
+   "out": "Based on the transcript provided, there is no advertisement present.\n\nNONE",
+   "matches": [
+    [
+     "Based on the transcript provided, there ",
+     "nomatch-start",
+     0.38
+    ]
+   ]
+  },
+  {
+   "window": [
+    5208,
+    6138
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    5859,
+    6789
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    6510,
+    7440
+   ],
+   "iter": 0,
+   "out": "Mazda has been named Consumer Reports' safest new car brand. It starts with our approach. Every Mazda comes standard with proactive safety features. So you're more aware of what's around you, more focused on the",
+   "matches": [
+    [
+     "45:16",
+     "45:32",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    6510,
+    7440
+   ],
+   "iter": 1,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    7161,
+    7471
+   ],
+   "iter": 0,
+   "out": "Mazda, more of what matters most to you. Go to MasdaUSA.com to learn more. Consumer Reports does not endorse or promote any product.",
+   "matches": [
+    [
+     "45:33",
+     "45:43",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    7161,
+    7471
+   ],
+   "iter": 1,
+   "out": "road ahead, and ready before problems ever start.",
+   "matches": [
+    [
+     "45:25",
+     "45:32",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    7161,
+    7471
+   ],
+   "iter": 2,
+   "out": "NONE",
+   "matches": []
+  }
+ ],
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:04"
+   ],
+   "out": "Southern New Hampshire University",
+   "keep": true
+  },
+  {
+   "interval": [
+    "02:21",
+    "02:52"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "15:19",
+    "16:44"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:45",
+    "31:26"
+   ],
+   "out": "Solace Health, Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "45:16",
+    "45:44"
+   ],
+   "out": "MazdaUSA.com",
+   "keep": true
+  }
+ ]
+}

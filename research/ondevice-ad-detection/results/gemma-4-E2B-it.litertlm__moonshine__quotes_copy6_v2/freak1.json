@@ -1,0 +1,601 @@
+{
+ "episode": "freak1",
+ "pred": [
+  [
+   "00:01",
+   "02:16"
+  ],
+  [
+   "04:09",
+   "04:41"
+  ],
+  [
+   "19:33",
+   "22:01"
+  ],
+  [
+   "35:58",
+   "38:18"
+  ],
+  [
+   "43:45",
+   "44:00"
+  ],
+  [
+   "46:55",
+   "47:13"
+  ],
+  [
+   "55:17",
+   "59:15"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "02:15",
+   "ad"
+  ],
+  [
+   "19:30",
+   "22:00",
+   "ad"
+  ],
+  [
+   "36:05",
+   "38:17",
+   "ad"
+  ],
+  [
+   "55:50",
+   "56:00",
+   "self_promo"
+  ],
+  [
+   "57:05",
+   "59:15",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 542.1999999999999,
+  "pred": 717.2099999999994,
+  "gt": 547.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 3
+ },
+ "stats": {
+  "calls": 38,
+  "in_tokens": 43907,
+  "out_tokens": 2357,
+  "seconds": 174.9
+ },
+ "wall_s": 175.0,
+ "audio_s": 3555,
+ "log": [
+  {
+   "window": [
+    0,
+    969
+   ],
+   "iter": 0,
+   "out": "Freakonomics Radio is sponsored by EverPure. Is the value of AI not living up to the promise?\nThe problem is probably your data, not your AI models, when it's scattered across different systems. Getting your data AI ready is a challenge.\nYou keep your AI waiting and everything slows down. Every pure unifies your data so you can see it, understand it, and control it all from one simple place and get it AI ready fast.\nUnlock the true value of your AI at ever pure data dot com.",
+   "matches": [
+    [
+     "00:01",
+     "00:28",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    969
+   ],
+   "iter": 1,
+   "out": "Comcast Business is now offering advanced big business cybersecurity for small businesses. An AI-powered firewall built right into your network connection.\nSwitch to Comcast Business and get started for just $50 a month for one year on a qualifying internet package with one month of security edge preferred on us. Plus, for a limited time. Ask about a $500 prepaid card. Call today. Limited time offer. Restrictions apply. New customers only. Requires 300 megabits per second internet. Security Edge. Security Edge preferred and wireless connect. One-year agreement. Paperless billing and automatic payments required. Equipment. Taxes and fees extra. After promo",
+   "matches": [
+    [
+     "00:33",
+     "01:02",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    969
+   ],
+   "iter": 2,
+   "out": "Freakonomics Radio is sponsored by Hotels.com. Hotels.com helps you find and book the right stay for work faster. With business preferences, save your travel must-haves like...\nGM Access or Breakfast just once, then get tailored results whenever you search for work travel.\nPlus, with a free membership, you can save up to 20% on hotels and earn rewards on every stay for future travel.\nBook now at hotels.com. Visit hotels.com for details.",
+   "matches": [
+    [
+     "01:03",
+     "01:30",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    969
+   ],
+   "iter": 3,
+   "out": "Freakonomics Radio is sponsored by Pacific Life Insurance. From pinky swears to I do, you make promises throughout your life.\nFor nearly 160 years, Pacific Life has been helping you keep them by protecting those who matter most. Pacific Life, The Power of a Promise.\nAsk a financial professional how Pacific life.\ncan help you create a more confident financial future. Pacific Life Insurance Company, Omaha, Nebraska, and in New York. Pacific Life and Annuity, Phoenix, Arizona.",
+   "matches": [
+    [
+     "01:36",
+     "02:04",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    969
+   ],
+   "iter": 4,
+   "out": "This is Freakonomics Radio, the podcast that explores the hidden side of everything with your host, Stephen Dubner.",
+   "matches": [
+    [
+     "04:24",
+     "04:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    969
+   ],
+   "iter": 5,
+   "out": "Two in our series, the price of prediction starts now.",
+   "matches": [
+    [
+     "04:09",
+     "04:12",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    678,
+    1647
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1356,
+    2325
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    2034,
+    3003
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    2712,
+    3681
+   ],
+   "iter": 0,
+   "out": "I'm thrilled to get you this sponsored by ChatGPT. Want a partner for your most ambitious work? Introducing ChatGPT Work, a new way to work in ChatGPT that brings together information from across your apps and files to help you create finished work. Picture marketing team preparing a campaign launch. GPT work can pull from sheets, docs and Slack. Surface key themes and draft a brief. Or imagine a finance team closing out the month. ChatGPT work can connect to your tools like meeting notes and calendars. And then draft a reconciliation summary. The scheduled tasks feature even lets you automate work in ChatGPT by asking it to do something once, repeat it on a fixed schedule, or monitor changes over time. And the whole time you control what moves forward and what gets approved. http t work is for when you don't just need an answer you need help getting the work done put chat gpt to work on your most ambitious ideas and projects get started at chat gpt.com By selecting work mode available on plus and pro plans.",
+   "matches": [
+    [
+     "19:33",
+     "20:32",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2712,
+    3681
+   ],
+   "iter": 1,
+   "out": "Investing with Schwab is like a Saturday at a farmer's market. You can fill your tote with a\nMaybe you choose free-range, self-directed investing, or you pick up a few farm-fresh trades. You can even get help from a dedicated advisor.\nFull service wealth management.\nMix, match, and change your mind whenever you want. No matter your goals or appetite for investing, Schwab has everything you need all in one place.\nLearn more at schwab.com.",
+   "matches": [
+    [
+     "20:39",
+     "21:03",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2712,
+    3681
+   ],
+   "iter": 2,
+   "out": "Freakonomics Radio is sponsored by Peloton. Somewhere in a run, things get fun. You stop counting, you stop trying, you're just here. Wait lists wide open, more alive than you've been all day. That's the run doing what it does, clearing the noise, loosening the grip the day had on you. Reminding you what your body's capable of when you finally let it go there. And now that feeling fits wherever you need it to. The new Peloton Treadflex. It's designed to fit your life, movable and foldable, so you can run, walk, or hike",
+   "matches": [
+    [
+     "21:05",
+     "21:35",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2712,
+    3681
+   ],
+   "iter": 3,
+   "out": "I'm sorry, but I could not find any advertisements in the provided transcript.",
+   "matches": [
+    [
+     "I'm sorry, but I could not find any",
+     "nomatch-start",
+     0.25
+    ]
+   ]
+  },
+  {
+   "window": [
+    3390,
+    4359
+   ],
+   "iter": 0,
+   "out": "Explore tread flex at one heloton dot com",
+   "matches": [
+    [
+     "21:45",
+     "21:48",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3390,
+    4359
+   ],
+   "iter": 1,
+   "out": "when you need to and roll it away when you don't.\nWith instructors worth showing up for and workouts that meet you where you are, you've got the freedom to move on your own terms. That's what running gives back. Let yourself run.",
+   "matches": [
+    [
+     "21:28",
+     "21:44",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3390,
+    4359
+   ],
+   "iter": 2,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    4068,
+    5037
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    4746,
+    5715
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    5424,
+    6393
+   ],
+   "iter": 0,
+   "out": "Freakonomics Radio is sponsored by LabCorp On Demand. Each October, establish your health baseline with health testings. You can move forward with confidence. LabCorp On Demand can help. Just visit their website and choose from over 100 health tests ranging from micronutrient to sexual wellness. It only takes minutes to purchase a health test you need and just days to get fast, accurate results from a company, Doctors Trust. To start your journey this season, visit ondemand.labcore.com slash freak and use code freak to save up to 25% off select tests. That's ondemand.labcore.com slash freak and use code freak. Know yourself.",
+   "matches": [
+    [
+     "35:58",
+     "36:47",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5424,
+    6393
+   ],
+   "iter": 1,
+   "out": "Freakonomics Radio is sponsored by Southern New Hampshire University\nThere's no hiding how convenient Southern New Hampshire University makes college. They offer over 80 career-focused graduate programs online.\nClasses have no set meeting time so you can balance life and learning and online tuition rates are some of the lowest in the country.\nMaking it all a little more manageable A school this willing to work with you is worth the investment.\nVisit snhu.edu slash freakonomics to learn more.",
+   "matches": [
+    [
+     "36:51",
+     "37:18",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5424,
+    6393
+   ],
+   "iter": 2,
+   "out": "And I'm Xradio, sponsored by PNC Word bad rep\n100% time and time again here at Freakonomics, we find that when something culture changing happens, boring things like Calculations and careful planning are usually behind it. begs the question why not apply it to other aspects of life like banking for example\nWell, PNC Bank did since its inception, proving time and again that the best banking strategy isn't the exciting type, but the steady, reliable, definitely not YOLO type.\nPnc bank Brilliantly boring since 1865. Brilliantly boring since 1865 is a registered mark of the PNC Financial Services Group, Inc.\nPNC Bank National Association Member FDIC.",
+   "matches": [
+    [
+     "37:23",
+     "38:06",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5424,
+    6393
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    6102,
+    7071
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    6780,
+    7749
+   ],
+   "iter": 0,
+   "out": "I don't know what they're doing these days, but historically, they don't KYC. You can access the offshore But by just sending Bitcoin somewhere, you start trad Say who you But I think that's flagging fraudsters because someone commits fraud. You don't even know who they are. How do you",
+   "matches": [
+    [
+     "43:45",
+     "44:00",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    6780,
+    7749
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    7458,
+    8427
+   ],
+   "iter": 0,
+   "out": "I'm worried that we might be grouped together in the way that we are When in fact, we're two extremely distinct entities. Two distinct entities she's talking about are Kelsey and Polly Markett. Holly Market's US operation has more stringent rules around its markets, but it's offshore crypto-based platform. much looser is",
+   "matches": [
+    [
+     "46:55",
+     "47:13",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    7458,
+    8427
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    8136,
+    9105
+   ],
+   "iter": 0,
+   "out": "I hope more people do it",
+   "matches": [
+    [
+     "50:16",
+     "50:20",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8136,
+    9105
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    8814,
+    9783
+   ],
+   "iter": 0,
+   "out": "There's really not anything anybody can do to magically make beef prices come down. This is a demand store. The end of the day",
+   "matches": [
+    [
+     "55:27",
+     "55:35",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8814,
+    9783
+   ],
+   "iter": 1,
+   "out": "The most important thing for your listeners to know about the skyrocketing cost of ground beef right now\nIt encapsulates all this brokenness. Why are beef prices so hot?\nThe answer is not as simple as you might think. That's next time on Freakonomics Radio. Also, please check out the TV talk show we're making. It's called Better in Person.\nYou can find it on the Freakonomics YouTube channel, also on Apple Podcasts.\nWe will be back here in a week with a new episode of Freakonomics Radio. Until then, take care of yourself. And if you can, someone else too.\nFreakonomics Radio is produced by Renbud Radio. You can find our entire archive on any podcast app.\nIt's also at freakonomics.com where we publish transcripts and show notes and This episode was produced quite expertly by Tayo Jacobs.\nIt was edited by Ellen Frankman and mixed by Jake Loomis with help from Jeremy Johnston.\nThe Freakonomics Radio Network staff also includes Dalvin Abuaji, Eleanor Osborne, Elsa Hernandez, Gabriel Roth, Ilaria Montenegorte, Madden. Our theme song is Mr. Fortune by the Hitchhikers and our composer is Luis Guerra. As always, thanks",
+   "matches": [
+    [
+     "55:17",
+     "56:43",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8814,
+    9783
+   ],
+   "iter": 2,
+   "out": "Free Economics Radio is sponsored by Southern Company. The world and its energy needs are always changing. Southern Company's commitment to meeting this demand stays the same. That's because Southern Company believes energy is more than a utility. It's what powers possibilities. So they are looking ahead and investing $80 billion in infrastructure upgrades. And are committed to fueling growth in ways that benefit all customers that reliable and affordable energy is accessible for generations to come. Go to southerncompany.com to learn more. Southern company. Building. Future of energy.",
+   "matches": [
+    [
+     "57:07",
+     "57:40",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8814,
+    9783
+   ],
+   "iter": 3,
+   "out": "Ball season is here and the fantasy footballers are back to help you dominate your league. And this season, we're bringing you five episodes every week. That's more starts, more sits, more waiver wire wins, and more trades. From draft day all the way to your fantasy championship. 100% the rankings, the matchups, the news, and the advice you need to win. The Fantasy Footballers Podcast, five episodes a week, all season long. Watch on YouTube or listen wherever you get your podcasts. What's going on? I'm Arch Manning,",
+   "matches": [
+    [
+     "57:45",
+     "58:20",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8814,
+    9783
+   ],
+   "iter": 4,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    9492,
+    9957
+   ],
+   "iter": 0,
+   "out": "Viori Athlete and College Corvette. Whether I'm running, training, traveling, Breathable boxer brief wire, a quick-to-draw eye, super versatile, and stand-ups even Plus, they come in three inseams and a Ready to try, pair? Go to viore.com slash arch and get 20 I think you're going to love them as much as I do. That's V-U-R-R-I dot com slash A-R-C- Visit the website for full terms and Not only will you receive 20% off your first purchase, but enjoy free shipping on any U.S. orders over $75 and free returns. Have a great day.",
+   "matches": [
+    [
+     "58:14",
+     "58:50",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    9492,
+    9957
+   ],
+   "iter": 1,
+   "out": "You wouldn't take financial advice from a 72 hours in a single day alpha influencer, would you? Same goes if you're in a Or any accident? Who you choose matters. That's why Morgan and Morgan exists. They're the largest injury law firm in America, and they've built a reputation by actually winning cases. Not just talking about it. Over a thousand lawyers across all 50 states and $30 billion recovered. Inj Go to forthepeople.com slash podcast. That's forthepeople.com slash podcast.",
+   "matches": [
+    [
+     "58:39",
+     "59:14",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    9492,
+    9957
+   ],
+   "iter": 2,
+   "out": "Freakonomics Radio Network. The hidden side of everything.",
+   "matches": [
+    [
+     "56:59",
+     "57:02",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    9492,
+    9957
+   ],
+   "iter": 3,
+   "out": "for listening.",
+   "matches": [
+    [
+     "for listening.",
+     "rejected",
+     "56:36",
+     "56:43"
+    ]
+   ]
+  }
+ ]
+}

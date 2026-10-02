@@ -1,0 +1,303 @@
+{
+ "episode": "daily1",
+ "pred": [
+  [
+   "00:00",
+   "00:42"
+  ],
+  [
+   "13:37",
+   "15:13"
+  ],
+  [
+   "23:16",
+   "25:46"
+  ],
+  [
+   "27:47",
+   "28:22"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:30",
+   "ad"
+  ],
+  [
+   "13:22",
+   "15:12",
+   "ad"
+  ],
+  [
+   "23:24",
+   "23:41",
+   "self_promo"
+  ],
+  [
+   "23:42",
+   "25:40",
+   "ad"
+  ],
+  [
+   "27:45",
+   "28:22",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 275.59,
+  "pred": 304.88,
+  "gt": 295.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 17,
+  "in_tokens": 19924,
+  "out_tokens": 1044,
+  "seconds": 88.7
+ },
+ "wall_s": 88.7,
+ "audio_s": 1702,
+ "log": [
+  {
+   "window": [
+    0,
+    967
+   ],
+   "iter": 0,
+   "out": "If you like youtube, you'll love youtube premium. Hi, I'm Sean Evans from Hot Ones, and I want to tell you about YouTube Prem\nIt has offline downloads so you can watch without wifi. Background play. So you can lock your phone and it still plays, baby. Oh.\nAnd it is completely ad-free. Yes, I said it ad-free. Try YouTube Premium for two months free. at youtube.com/premium Trial eligibility varies, terms apply,\nCancel any time",
+   "matches": [
+    [
+     "00:00",
+     "00:28",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    967
+   ],
+   "iter": 1,
+   "out": "Two Minute Times. I'm Megabob This is the day.",
+   "matches": [
+    [
+     "00:31",
+     "00:35",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    967
+   ],
+   "iter": 2,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    676,
+    1643
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1352,
+    2319
+   ],
+   "iter": 0,
+   "out": "Hey what's up guys it' Ok, I need to tell you about I just got YouTube premium It's got tons of awesome features like offline downloads so I can download my favorite videos before I travel and watch them whenever I don't have Wi-Fi. Because we all know Airplane Wi-Fi is the worst. I get a free, I get backroom play, and there's like a ton more You should try If you like youtube, you'll love youtube prem 1-800-439-5732. If you like YouTube, you'll love YouTube Premium. Hi, I'm Sean Evans from Hot Ones and I want to tell you about YouTube Premium. It has offline downloads, so you can watch without Wi-Fi. Background Play. See, you can lock your phone and it still plays, baby. Oh, and it is completely ad-free. Yes, I said it, ad-free. Try YouTube Premium for two months free at youtube.com/premium. Trial eligibility varies, terms apply, cancel anytime. It starts with a handshake.",
+   "matches": [
+    [
+     "13:37",
+     "14:38",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1352,
+    2319
+   ],
+   "iter": 1,
+   "out": "A word becomes an agreement, an agreement becomes a contract, a contract becomes bound by law. Today, Harvey, the AI platform, designed specifically for legal work, Powering that next step. More than 200,000 lawyers and 80% of the Amla 100 are building with Harvey. Celerating review Sharpening negotiations and more. Harvey. Learn more at harvey.ai. Harvey does not provide legal advice. Users should always independently review and verify any output from Harvey.",
+   "matches": [
+    [
+     "14:38",
+     "15:11",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1352,
+    2319
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    2028,
+    2995
+   ],
+   "iter": 0,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    2704,
+    3671
+   ],
+   "iter": 0,
+   "out": "You can read more from Dustin Vaults and all of our reporters on the New York Times app. Don't already have you. We want to let you know that if you download it right now, You'll get access to all of our journalism free for one month. So give it a",
+   "matches": [
+    [
+     "23:24",
+     "23:41",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2704,
+    3671
+   ],
+   "iter": 1,
+   "out": "Hey what's up guys it' Okay, I need to tell you about I just got YouTube premium It's got tons of awesome features like offline downloads so I can download my favorite videos before I travel and watch them whenever I",
+   "matches": [
+    [
+     "23:55",
+     "24:07",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2704,
+    3671
+   ],
+   "iter": 2,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3380,
+    4181
+   ],
+   "iter": 0,
+   "out": "You should try If you like youtube, you'll love youtube 1Password.com slash premium.\nIf you like youtube,\nYou'll love YouTube Premium. Hi, I'm Sean Evans from Hot Ones, and I want to tell you about YouTube Premium. It has offline downloads, so you can watch without Wi-Fi. Background Play. So you can lock your phone, and it still plays, baby. Oh, and it is completely ad-free. Yes, I said it, ad-free. Try YouTube Premium for two months free at youtube.com slash premium.\nTrial eligibility varies, terms apply, cancel any time.",
+   "matches": [
+    [
+     "24:14",
+     "24:58",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3380,
+    4181
+   ],
+   "iter": 1,
+   "out": "don't have Wi-Fi.\nBecause we all know airplane Wi-Fi is the worst. I get ad free, I get backroom play, and there's like a ton more\npodcasts supported by Planned Parenthood Federation of America.\nYou pay attention, and you know healthcare in this country is becoming harder to get and more expensive. It's getting worse now because the Trump administration is going after Title 10 family planning.\nprogram that funds birth control, cancer screenings, and more for uninsured, underinsured, and low-income people. Parenthood is fighting back.\nContinuing to provide care no matter what. And they need your help. Donate at plannedparenthood.org slash defend.",
+   "matches": [
+    [
+     "24:01",
+     "25:25",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3380,
+    4181
+   ],
+   "iter": 2,
+   "out": "This week, someone at Book Club actually finished the book. Have thoughts. We'll take the You take the time Rinse.com/bookclub. It's time to",
+   "matches": [
+    [
+     "25:25",
+     "25:39",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3380,
+    4181
+   ],
+   "iter": 3,
+   "out": "AI adoption grows, so do your company's security risks and requirements. New frameworks, audits, and vendors keep piling on, but your team isn't getting any bigger. Vanta works differently. Their agentic trust platform is built to scale with you, not slow you down. with over 1,400 automated tests across 400-plus integrations. Vanta collects evidence and monitors your controls year-round, cutting your audit prep by 82%. Learn more at vanta.com/daily. That's v-a-n-t-a dot com slash daily.",
+   "matches": [
+    [
+     "27:47",
+     "28:21",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3380,
+    4181
+   ],
+   "iter": 4,
+   "out": "Thank you very much I' Thank you for having",
+   "matches": [
+    [
+     "23:16",
+     "23:21",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3380,
+    4181
+   ],
+   "iter": 5,
+   "out": "[advertisement removed]\nHere's what else you need to know today.",
+   "matches": [
+    [
+     "25:41",
+     "25:45",
+     1.0,
+     1.0
+    ]
+   ]
+  }
+ ]
+}

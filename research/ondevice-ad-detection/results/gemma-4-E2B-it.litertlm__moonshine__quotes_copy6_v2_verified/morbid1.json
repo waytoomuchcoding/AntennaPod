@@ -1,0 +1,665 @@
+{
+ "episode": "morbid1",
+ "pred": [
+  [
+   "00:01",
+   "01:51"
+  ],
+  [
+   "02:56",
+   "04:51"
+  ],
+  [
+   "27:48",
+   "31:04"
+  ],
+  [
+   "59:33",
+   "1:03:23"
+  ],
+  [
+   "1:25:09",
+   "1:25:42"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:31",
+   "ad"
+  ],
+  [
+   "27:45",
+   "31:03",
+   "ad"
+  ],
+  [
+   "59:30",
+   "1:03:20",
+   "ad"
+  ],
+  [
+   "1:24:43",
+   "1:25:42",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 545.0,
+  "pred": 684.0,
+  "gt": 578.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 50,
+  "in_tokens": 55258,
+  "out_tokens": 2578,
+  "seconds": 208.5
+ },
+ "wall_s": 201.0,
+ "audio_s": 5142,
+ "log": [
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 0,
+   "out": "Marina Baccarin is back as straight shooting sheriff Mickey Fox in sheriff country season two.\nMickie investigates crime while patrolling the streets of small town edgewater, contending with her ex-con father while dealing with personal battles and an ever-growing criminal threat.\nSheriff country all new Friday, October 9th, part of CBS Premier Weekend streaming on Paramount+.\nChilling crime cases are mysterious, but finding coverage shouldn't be. With the State Farm Personal Price Plan, you have options and can personalize your plan.\nto help create an affordable price so you can get back to cracking all of life's bigger cases.\nTalk to a State Farm agent today to learn how you can choose to bundle and save with the personal price plan.\nLike a good neighbor, State Farm is there. Had to state farm dot com to get a quote\nPrices are based on rating plans that vary by state, coverage options are selected by the customer, availability amount of discounts and savings, and eligibility vary by state.",
+   "matches": [
+    [
+     "00:01",
+     "00:58",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 1,
+   "out": "In this October, you're about to be asking, who is other mommy?\nThe New Horror Movie from Blumhouse, Executive Producer of Obsession and James Bond Producer of Backrooms. Pitts theaters October 9th.\n2021, other mommy will keep audiences on the edge of their seats as Academy Award winner Jessica Chastain stars in dual roles.\nShe leaves everyone guessing on. Just to his other mommy.\nIt's been a great year for horror films and other mommy feels like it's going to continue on that path.\nYour mommy won't save you this October. Other mommy releases in theaters October 9th. Hey weirdos, I'm Ash. And I'm Elena. And this is Morbid.",
+   "matches": [
+    [
+     "00:59",
+     "01:37",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 2,
+   "out": "Yeah, so you always send your listeners tales into morbidpodcast at gmail dot com. So tell us, you're like most fucked up scary Halloween stories. Yeah. And then make sure you put like Halloween listener tale and the subject line and start getting them into debt because she's got to sift through a lot of them. Yeah. And if we get a lot of them and like we get to November, we can carry it to November and we can start using them at the end of some of the spooky episodes just to like add to the fun. So give it to us. Give us your spooky Halloween listener tales or like. Haunted house experiences. Yeah. Possession. And let us know what you're going to be for Halloween while you're at",
+   "matches": [
+    [
+     "02:56",
+     "03:42",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 3,
+   "out": "I'm going to learn it. Yeah. I'm going to start it to the kids. Listen to it on Spotify.",
+   "matches": [
+    [
+     "04:15",
+     "04:22",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 4,
+   "out": "I'm a single appellant. Yeah. the it's seeth so there you go it's a journey that you'll follow and my name is and i have bare feet and i hop on my hand watch kiff it is my goal is my goal to learn all of those words because he does this like spell in the middle on kiff of course where it's like it's so fast.",
+   "matches": [
+    [
+     "03:50",
+     "04:22",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 5,
+   "out": "business i mean you can you can still buy the butcher legacy if you want you know you're not a butcher larry anymore it's there you could buy all three of them in fact you could in fact i recommend it yeah you should start at the end of the beginning",
+   "matches": [
+    [
+     "04:40",
+     "04:50",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    651,
+    1581
+   ],
+   "iter": 0,
+   "out": "I actually saw a squirrel run into the road this morning and I was a kiff",
+   "matches": [
+    [
+     "04:22",
+     "04:25",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    651,
+    1581
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]\n[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    1302,
+    2232
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1953,
+    2883
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    2604,
+    3534
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3255,
+    4185
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3906,
+    4836
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    4557,
+    5487
+   ],
+   "iter": 0,
+   "out": "Quince's all about staple pieces and I have so many staple pieces from them. It's also not just apparel, by Quinn springs that same approach to every single thing they make. from hotel quality bedding and bath to kitchen essentials and thoughtfully designed furniture. Yeah, guys, they have furniture too, and it's gorgeous.",
+   "matches": [
+    [
+     "28:08",
+     "28:26",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4557,
+    5487
+   ],
+   "iter": 1,
+   "out": "They make well-designed pieces for everyday living.",
+   "matches": [
+    [
+     "28:27",
+     "28:29",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4557,
+    5487
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    5208,
+    6138
+   ],
+   "iter": 0,
+   "out": "Find the fall pieces that you'll reach for the most at Quince. Download the Quince app for app-free exclusive offers. Or go to quince.com/morbid Get free shipping on your order and 365-day returns, now available in Canada and the UK too. That's Q-U-I-N-C-E dot com slash morbid.",
+   "matches": [
+    [
+     "29:36",
+     "29:54",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5208,
+    6138
+   ],
+   "iter": 1,
+   "out": "Every good detective needs a partner to support them on important cases. Think of a state arm agent like your sidekick. They're to help you along the way in your search for coverage. State Farm can help you choose the coverage you need, whether it's for your home, car, boat, or even RV. With so many options, it's nice knowing you have help finding what fits for you so you can get back to solving all of life's bigger cases. Go to statefarm.com or use the award-winning app to connect with a local agent and get a quote. Like a good neighbor, State Farm is there. This October, you're about to be asking, who is other mommy? The New Horror Movie from Blumhouse, Executive Producer of Obsession and James Bond Producer of Backrooms. Pitts theaters, October 9th. Other mommy will keep audiences on the edge of their seats as Academy Award winner Jessica Chastain stars in dual roles. She leaves everyone guessing on Just to his other mommy. It's been a great year for horror films and other mommy feels like it's going to continue on that path. Your mommy won't save you this October. Other mommy releases in theaters October 9th",
+   "matches": [
+    [
+     "29:54",
+     "30:58",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5208,
+    6138
+   ],
+   "iter": 2,
+   "out": "You know those staple pieces in your closet that you find yourself reaching for over and over again? The sweater that somehow works with everything, the jeans that you know are always going to fit right, that's just going to set you up for a good day.\nOr the bag that you carry everywhere? Those pieces that earn permanent places in your wardrobe That's exactly what Quinn does so well.",
+   "matches": [
+    [
+     "27:48",
+     "28:08",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5208,
+    6138
+   ],
+   "iter": 3,
+   "out": "As I'm thinking about switching over my wardrobe to fall, obviously I live in New England, so we never know if we're going to get fall right away or if it's going to be like a longer\nAnd I'm always dying to wear a sweater.\nSo what I do is I get their Mongolian cashmere t-shirts and it makes me kind of feel like I'm wearing a sweater. But at the same time, I still got my arms out, you know what I'm saying?\nPair that with a A little silky skirt and boom you have a wicked cute outfit\nAnd then when it finally hits that nice fall weather, you can transition over to the Mongolian Kashmir sweaters that are like full length actual sleeves.\nGorgeous, gorgeous And then this year, I'm so ready for boots this fall. I can't wait\nI have a ton of boots from Quince, but I actually just added one more pair. The Italian suede block heel boots are\nDunning, my darlings. I got them in the color espresso brown. It is this rich,\nluxurious looking brown that I just think is going to look so cute with all of my Fall Outfits it'd be cute with jeans be",
+   "matches": [
+    [
+     "28:29",
+     "29:33",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5208,
+    6138
+   ],
+   "iter": 4,
+   "out": "cute with a skirt a little dress whatever you want\nI'm obsessed with Quince and I think you guys will be",
+   "matches": [
+    [
+     "29:24",
+     "29:36",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5208,
+    6138
+   ],
+   "iter": 5,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    5859,
+    6789
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    6510,
+    7440
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    7161,
+    8091
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    7812,
+    8742
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    8463,
+    9393
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    9114,
+    10044
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    9765,
+    10695
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    10416,
+    11346
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    11067,
+    11997
+   ],
+   "iter": 0,
+   "out": "This episode is sponsored by Stella Rosa.\nWhere it is? Mikey here. After all the murder, mayhem, and deeply unsettling stories, sometimes a palate cleanser is exactly what you need.\nStellar Rosa Black is a semi-sweet, semi-sparkling red wine. Blackberry, blueberry, and raspberry flavors.\nDark, fruity, and honestly feels extremely appropriate for weirdos like you and me.\nIf a wine was going to join you for a creepy story at night, obviously it would be this one.\nThen there's Stella Rosa Moscato Diasdi, a semi-sweet, semi-sparkling wine with ripe pear and apple flavors.\nIt's lighter, bright, and basically the perfect palate cleanser to have after spending an hour discussing something deeply disturbing.\nI am not a huge fan of dry wine. I can't have things that taste like Bare all that they are stored in.\nI just like something sweet. I love the sweet things in life.\nAnd the best part about Stella Rosa is that it also is sparkling. I love me some sparkling water and I love sparkling wine. It's so refreshing and bright and it's so delicious. It's the perfect way to end a meal.\nAbsolutely",
+   "matches": [
+    [
+     "59:33",
+     "1:00:55",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11067,
+    11997
+   ],
+   "iter": 1,
+   "out": "love it. Find Stella Rosa at StellaRosa.com or at your local retailer. You must be 21 plus to drink responsibly.\nThis is a paid ad by BetterHelp. Mental health initiatives like World Mental Health Day are so important.\nBut you also have to remember that your mental health should be priority every single day, 365, baby.\nFor some people, therapy can be one way to support their mental well-being.\nAnd remember, therapy isn't just for big life choices either. It can be a place to talk about relationship problems, work issues, etc.\nOr simply the sense that something feels off.\nWith over 30,000 therapists worldwide, BetterHelp is one of the leading online therapy platforms, having served millions of people globally.\nBetterHelp therapists have at least three years and a thousand hours of hands-on experience. Plus, BetterHelp makes it easy to fit therapy into your routine, with flexible ways to connect that work for different schedules and lifestyles.\nYour mental health doesn't need a special occasion, or anybody else's permission to matter.\nBetterHelp can connect you with a therapist who gets you, so you can make space for what matters to you.",
+   "matches": [
+    [
+     "1:00:45",
+     "1:01:52",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11067,
+    11997
+   ],
+   "iter": 2,
+   "out": "Visit betterhelp.com slash morbid to explore your payment options. That's betterhelp, H-E-L-P dot com slash morbid.",
+   "matches": [
+    [
+     "1:01:53",
+     "1:02:00",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11067,
+    11997
+   ],
+   "iter": 3,
+   "out": "As a former stylist, I have seen a lot of types of hair damage and there's all different kinds. There's over processed, overheated. My clients were always like, \"Girl, what can you do? Help me with this.\" But they always thought that solutions for their damage to error would be super expensive. Here's a little hair care When it comes to repairing damaged hair, the answer isn't some pricey, fancy schmancy product that costs a small fortune. It's actually pantene Pantene Daily Moisturize a renewal shampoo and conditioning system gently cleanses hair with a vitamin-rich lather with two times more nutrients than with results that last over 72 hours. Plus, antioxidants help to repair hair damage, strengthen hair bonds, and even help build new ones. One of the best parts? You don't need to go to a salon and spend hours getting some expensive treatment. You can give your hair the repair it needs at home. And for extra moisture, detangling power and strength against breakage, use the Pantene Miracle Rescue 10-in-1 Multitasking Spray daily on wet or dry hair. It packs 10 daily hair benefits into one bottle, making it an easy addition to any daily",
+   "matches": [
+    [
+     "1:02:02",
+     "1:03:10",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11067,
+    11997
+   ],
+   "iter": 4,
+   "out": "routine whenever your hair needs a little extra TLC.\nThe end result, hair that feels healthier, stronger, and easier to manage. For salon quality hair repair, it's actually",
+   "matches": [
+    [
+     "1:03:02",
+     "1:03:17",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11067,
+    11997
+   ],
+   "iter": 5,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    11718,
+    12648
+   ],
+   "iter": 0,
+   "out": "pantene.",
+   "matches": [
+    [
+     "pantene.",
+     "rejected",
+     "1:03:10",
+     "1:03:17"
+    ]
+   ]
+  },
+  {
+   "window": [
+    12369,
+    13299
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    13020,
+    13950
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    13671,
+    14601
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    14322,
+    15252
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    14973,
+    15721
+   ],
+   "iter": 0,
+   "out": "Bear down at the University of Arizona. When an intruder approaches a home, they expect a camera. What they don't expect. Stop. This is simply safe. Police are on the way. Using smart AI cameras, live U.S.-based agents help deter intruders in under 30 seconds. Don't just record a break-in, stop it from ever happening. Plan starting around a dollar a day. Right now, get 60% off your new system with professional monitoring at simplysave.com slash SXM.\n30 seconds response time requires monitoring plan with outdoor protection starting at 49.99 a month. Visit SimplySafe.com/licenses for alarm license information.",
+   "matches": [
+    [
+     "1:25:09",
+     "1:25:42",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    14973,
+    15721
+   ],
+   "iter": 1,
+   "out": "Koalas have fingerprints that are really similar to human beings' fingerprints, so they have accidentally messed up police crimes in sometimes. I hate that they've messed up crime scenes, but I'm obsessed with it. That's fucked in. It's fucked Dully good",
+   "matches": [
+    [
+     "1:22:17",
+     "1:22:33",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    14973,
+    15721
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  }
+ ],
+ "verify_log": [
+  {
+   "interval": [
+    "00:01",
+    "01:51"
+   ],
+   "out": "State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "02:56",
+    "04:51"
+   ],
+   "out": "butcher legacy",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:48",
+    "31:04"
+   ],
+   "out": "State Farm",
+   "keep": true
+  },
+  {
+   "interval": [
+    "59:33",
+    "1:03:23"
+   ],
+   "out": "Stella Rosa",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:22:17",
+    "1:22:34"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "1:25:09",
+    "1:25:42"
+   ],
+   "out": "SimplySafe",
+   "keep": true
+  }
+ ]
+}

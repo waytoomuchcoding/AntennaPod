@@ -1,0 +1,372 @@
+{
+ "episode": "dateline2",
+ "pred": [
+  [
+   "00:00",
+   "01:12"
+  ],
+  [
+   "15:18",
+   "16:24"
+  ],
+  [
+   "27:20",
+   "29:19"
+  ],
+  [
+   "44:48",
+   "46:07"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:02",
+   "ad"
+  ],
+  [
+   "14:48",
+   "16:23",
+   "ad"
+  ],
+  [
+   "27:12",
+   "29:18",
+   "ad"
+  ],
+  [
+   "44:48",
+   "45:12",
+   "self_promo"
+  ],
+  [
+   "45:14",
+   "46:08",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 298.0,
+  "pred": 312.0,
+  "gt": 337.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 25,
+  "in_tokens": 28311,
+  "out_tokens": 1093,
+  "seconds": 99.0
+ },
+ "wall_s": 94.4,
+ "audio_s": 2767,
+ "log": [
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 0,
+   "out": "With no fees or minimums on checking accounts, it's no wonder the Capital One bank guy is so passionate about. Banking with capital one.\nIf he were here. You wouldn't just tell you about no fees or minim\nYou'd also talk about how Capital One cafes are open seven days a week to assist with your banking needs, yep, even on weekends.\nPretty much all he talks In a good way What's in your wal\nTerms apply. See CapitalOne.com slash bank guy. CapitalOne NA member FDIC. CapitalOne NA member FDIC.",
+   "matches": [
+    [
+     "00:00",
+     "00:32",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 1,
+   "out": "They say higher education is outdated, irrelevant, but at Grand Canyon University, they don't settle for the status quo. They shatter it.\nG-C-U empowers learners of every generation, offering on-campus, online, and hybrid learning environments. Hands-on classes are designed to prepare you for skills for industry.\nAnd online programs have a supportive community from all over the country. This is purpose-driven education. Take action. Find your purpose. Grand Canyon University.\nVisit gcu.edu. Visit Tonight on date live, I will never again. Being able to h Breathe The three brothers begins the world.",
+   "matches": [
+    [
+     "00:33",
+     "01:11",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    930
+   ],
+   "iter": 2,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    651,
+    1581
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1302,
+    2232
+   ],
+   "iter": 0,
+   "out": "I'm sorry, but I could not find any advertisements in the provided transcript.",
+   "matches": [
+    [
+     "I'm sorry, but I could not find any",
+     "nomatch-start",
+     0.25
+    ]
+   ]
+  },
+  {
+   "window": [
+    1953,
+    2883
+   ],
+   "iter": 0,
+   "out": "Because switching your home and auto insurance A better than cutting down on those iced lattes you love Switch your home and auto to progressive and see if you could save and keep Sipping away. Get your quote today at Progressive.com. Progressive Casualty Insurance Company, Affiliates, and Other Insurers.",
+   "matches": [
+    [
+     "15:27",
+     "15:44",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1953,
+    2883
+   ],
+   "iter": 1,
+   "out": "Not available in all states. This is the story of the one. As a shipping manager, he's running the dock, stocking supplies, and making sure every order goes out on time. And Grainger helps him stay prepared. From shipping supplies to PPE to hand tools, he counts on Grainger to keep products moving and trucks rolling. So his operation runs smoothly, no matter the shift. Call 1-800-GRAINGER, click Grainger.com, or just stop by. Grainger, for the ones who get it done.",
+   "matches": [
+    [
+     "15:44",
+     "16:14",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1953,
+    2883
+   ],
+   "iter": 2,
+   "out": "is tonight. Whoever says saving money is hard doesn't know that the new customers who bundle and save with progressive save hundreds.",
+   "matches": [
+    [
+     "15:18",
+     "15:27",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1953,
+    2883
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    2604,
+    3534
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3255,
+    4185
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3906,
+    4836
+   ],
+   "iter": 0,
+   "out": "Elevate the season with unique heirloom, quality decor, and gifts, hosting essentials, and more. from Design's Best Brands. Their largest ever selection has something for every celebration and style. Shop in store and online. Paragold.com. Very good.",
+   "matches": [
+    [
+     "27:20",
+     "27:43",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3906,
+    4836
+   ],
+   "iter": 1,
+   "out": "Luxury lives here Many people think a camera or video doorbell is home security. Truth is, those can only record a break-in. Can't stop one\nThat's the difference with SimpliSafe\nWhen an intruder steps onto your property, SimplySafe's AI-powered cameras detect the threat and alert a live US-based agent who intervenes to stop them before they ever get to your door.\nBecause it's not just your house or valuables that you need to be worried about.\nIt's a stranger getting anywhere close to the people you love.\nJoin the more than 6 million people who entrust simply safe with their home security.\nRight now, save 60% off with professional monitoring when you visit simplysafe.com/dateline That simply safe dot com slash date line\nAnd when you order, please write in \"Dateline\" in the checkout survey.\nIt lets them know we sent you and it really helps support the show. Simply safe. A head of crime In real time. In\nWhoever says saving money is hard.\nDoesn't know that the new customers who bundle and save with Progressive save hundreds. Because switching your home and auto insurance Better than cutting down on those ice lattes,",
+   "matches": [
+    [
+     "27:20",
+     "29:00",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3906,
+    4836
+   ],
+   "iter": 2,
+   "out": "you lot. Switch your home and auto to progressive and see if you could save and keep\nSipping away. Get your quote today at Progressive.com. Progressive Casualty Insurance Company, Affiliates, and Other Insurers. Not available in all states.",
+   "matches": [
+    [
+     "28:53",
+     "29:09",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3906,
+    4836
+   ],
+   "iter": 3,
+   "out": "Paragold. The destination for",
+   "matches": [
+    [
+     "Paragold. The destination for",
+     "rejected",
+     "27:20",
+     "27:32"
+    ]
+   ]
+  },
+  {
+   "window": [
+    4557,
+    5487
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    5208,
+    6138
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    5859,
+    6789
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    6510,
+    7094
+   ],
+   "iter": 0,
+   "out": "Rosetta Stone just came out with Rosetta Stone Sapphire. Their biggest launch in over a decade.\n1 new feature in Rosetta Stone Sapphire is chat missions. Which turns conversation practice into a game.\nAdmissions, you're put in interactive scenarios and given three objectives. And mission to accomplish by asking how much something costs Ordering a cold brew coffee.\nOr getting a wifi password. Well, on the way, you get real-time corrections and feedback to help you sound more natural and confident.\nIt's a supportive way to build confidence before putting your language skills to use in real life.\nIf you want to take your language goes to the next level. To try resetta stone sapphire\nDatagline listeners can get 20% off their Rosetta Stone Sapphire subscription when you sign up today. This gets you access to. Procede stones, affirer\n45 languages. 4",
+   "matches": [
+    [
+     "45:16",
+     "46:07",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    6510,
+    7094
+   ],
+   "iter": 1,
+   "out": "don't forget to check out our Talking Dateline podcast, in which we'll go behind the scenes of tonight's episode, available Wednesday in the Dateline feed, wherever you get your podcasts.",
+   "matches": [
+    [
+     "44:48",
+     "45:06",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    6510,
+    7094
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  }
+ ],
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:12"
+   ],
+   "out": "Capital One",
+   "keep": true
+  },
+  {
+   "interval": [
+    "15:18",
+    "16:24"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "27:20",
+    "29:19"
+   ],
+   "out": "Paragold, SimpliSafe, Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "44:48",
+    "46:07"
+   ],
+   "out": "Rosetta Stone",
+   "keep": true
+  }
+ ]
+}

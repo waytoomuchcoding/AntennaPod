@@ -1,0 +1,318 @@
+{
+ "episode": "dateline4",
+ "pred": [
+  [
+   "00:00",
+   "01:07"
+  ],
+  [
+   "11:52",
+   "12:55"
+  ],
+  [
+   "28:28",
+   "30:21"
+  ],
+  [
+   "39:46",
+   "41:32"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:02",
+   "ad"
+  ],
+  [
+   "11:24",
+   "12:54",
+   "ad"
+  ],
+  [
+   "28:25",
+   "30:20",
+   "ad"
+  ],
+  [
+   "40:01",
+   "40:38",
+   "self_promo"
+  ],
+  [
+   "40:40",
+   "41:32",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 288.0,
+  "pred": 312.0,
+  "gt": 319.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 22,
+  "in_tokens": 24253,
+  "out_tokens": 1240,
+  "seconds": 94.3
+ },
+ "wall_s": 89.4,
+ "audio_s": 2492,
+ "log": [
+  {
+   "window": [
+    0,
+    940
+   ],
+   "iter": 0,
+   "out": "With no fees or minimums on checking accounts, it's no wonder the Capital One bank guy is so passionate about. Banking with capital one.\nIf he were here. You wouldn't just tell you about no fees or minim\nYou'd also talk about how Capital One cafes are open seven days a week to assist with your banking needs, yep, even on weekends.\nPretty much all he talks In a good way What's in your wal Terms apply. See CapitalOne.com slash bank guy. CapitalOne NA member FDIC.\nThey say higher education is outdated, irrelevant, but at Grand Canyon University, they don't settle for the status quo. They shatter it.\nG-C-U empowers learners of every generation, offering on-campus, online, and hybrid learning environments. Hands-on classes are designed to prepare you for skills for industry.\nAnd online programs have a supportive community from all over the country. This is purpose-driven education. Take action. Find your purpose. Grand Canyon University.\nVisit gcu.edu. Visit",
+   "matches": [
+    [
+     "00:00",
+     "01:01",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    940
+   ],
+   "iter": 1,
+   "out": "Well, anyway, before we get to the story, why don't you listen to the episode if you haven't yet? You can find it right below this one or stream it on Peacock and then come right back here.",
+   "matches": [
+    [
+     "03:21",
+     "03:29",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    940
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    658,
+    1598
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1316,
+    2256
+   ],
+   "iter": 0,
+   "out": "doesn't know that the new customers who bundle and save with progressive save hundreds. Because switching your home and auto insurance Better than cutting down on those ice lattes you love. Switch your home and auto to progressive and see if you could save and keep Siping away Get your quote today at Progressive.com. Progressive Casualty Insurance Company, Affiliates, and other insurers. Not available in all states. Grainger knows if you're a procurement manager at an industrial manufacturing facility, you're balancing inventory and budget while sourcing critical supplies across the operation. Too much inventory? Costs climb. Too little? Production slows. Grainger's $2 billion in on-hand inventory helps you get what you need when you need it. So you can help keep budgets balanced and lines moving. Call 1-800-GRAINGER, click Grainger.com, or just stop by. Grainger, for the ones who get it done.",
+   "matches": [
+    [
+     "11:57",
+     "12:50",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1316,
+    2256
+   ],
+   "iter": 1,
+   "out": "Bear down at the University of Arizona. Whoever says saving money is hard.",
+   "matches": [
+    [
+     "11:52",
+     "11:57",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1316,
+    2256
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    1974,
+    2914
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    2632,
+    3572
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3290,
+    4230
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3948,
+    4888
+   ],
+   "iter": 0,
+   "out": "extraordinary holiday, starts at. Paragold. The destination for luxury homes. Elevate the season with unique heirloom quality decor. Hosting essentials and more from Designs Best Brands. Their largest ever selection has something for every celebration and style. In-store and online Paragold.com. Very gold. Luxury lives here Many people think a camera or video doorbell is home security. The truth is, those can only record a break-in. can't stop one That's the difference with SimpliSafe When an intruder steps onto your property, SimplySafe's AI-powered cameras detect the threat and alert a live US-based agent who intervenes to stop them before they ever get to your door. Because it's not just your house or valuables that you need to be worried about. It's a stranger getting anywhere close to the people you love. Join the more than 6 million people who entrust simply safe with their home security. Right now, save 60% off with professional monitoring when you visit simplysafe.com/dateline That simply safe dot com slash date line And when you order, please write in \"Dateline\" in the checkout survey. It lets them know we sent you and it really helps support the show.",
+   "matches": [
+    [
+     "28:28",
+     "29:50",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3948,
+    4888
+   ],
+   "iter": 1,
+   "out": "Simply safe. A head of crime in real tie in\nWherever says saving money is hard\ndoesn't know that the new customers who bundle and save with progressive save hundreds. Because switching your home and auto insurance\nBetter than cutting down on those iced lattes you love Switch your home and auto to progressive and see if you could save and keep\nSiping away Get your quote today at Progressive.com. Progressive Casualty Insurance Company, Affiliates, and other insurers. Not available in all states.",
+   "matches": [
+    [
+     "29:44",
+     "30:17",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3948,
+    4888
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    4606,
+    5546
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    5264,
+    6204
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    5922,
+    6517
+   ],
+   "iter": 0,
+   "out": "Rosetta Stone just came out with. Resettistan's half-ey Their biggest launch in over a decade. One new feature in Rosetta Stone Sapphire is chat missions. Which turns conversation practice into a game. 100% chat missions are put in interactive scenarios and given three objectives. And mission to accomplish by asking how much something costs Ordering a cold brew coffee. Or getting a wifi password. Well, on the way, you get real-time corrections and feedback to help you sound more natural and confident. It's a supportive way to build confidence before putting your language skills to use in real life. If you want to take your language skills to the next level, To try resetta stone sapphire Datagline listeners can get 20% off their Rosetta Stone Sapphire subscription when they sign up today. This gets you access to. Prosetta Stone's affir 45 languages. 4",
+   "matches": [
+    [
+     "40:41",
+     "41:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5922,
+    6517
+   ],
+   "iter": 1,
+   "out": "Remember if you have any questions about this episode or any other episode or any question that you would like to ask us, you can reach out to us on social media at at DatelineNBC. You can also leave us a voicemail. Would you? Yeah. 212-413-4 Five, two, five, two for a chance to be featured. Right here and let me just say Like the woman who did not leave her name but recorded that message earlier about how great i am Let me just say, talking about how great a job I did, that's going to get you on Talking Dateline. That's just a little insight to you. And you can also watch the video version of talking dateline on youtube or on the Nbc news app. Keith and I, an Andrea and Lester in Blaine. See Fridays on Dateline. And then we will.",
+   "matches": [
+    [
+     "39:46",
+     "40:34",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5922,
+    6517
+   ],
+   "iter": 2,
+   "out": "NONE",
+   "matches": []
+  }
+ ],
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:07"
+   ],
+   "out": "Capital One",
+   "keep": true
+  },
+  {
+   "interval": [
+    "11:52",
+    "12:55"
+   ],
+   "out": "Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "28:28",
+    "30:21"
+   ],
+   "out": "Paragold, SimpliSafe, Progressive",
+   "keep": true
+  },
+  {
+   "interval": [
+    "39:46",
+    "41:32"
+   ],
+   "out": "Rosetta Stone",
+   "keep": true
+  }
+ ]
+}

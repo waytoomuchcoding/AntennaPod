@@ -1,0 +1,727 @@
+{
+ "episode": "sysk1",
+ "pred": [
+  [
+   "00:04",
+   "01:54"
+  ],
+  [
+   "05:02",
+   "06:21"
+  ],
+  [
+   "17:03",
+   "20:25"
+  ],
+  [
+   "27:09",
+   "27:24"
+  ],
+  [
+   "31:20",
+   "31:53"
+  ],
+  [
+   "35:20",
+   "38:56"
+  ],
+  [
+   "47:18",
+   "48:15"
+  ],
+  [
+   "56:15",
+   "56:30"
+  ],
+  [
+   "58:12",
+   "1:00:09"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:54",
+   "ad"
+  ],
+  [
+   "03:42",
+   "06:30",
+   "self_promo"
+  ],
+  [
+   "16:55",
+   "20:09",
+   "ad"
+  ],
+  [
+   "35:10",
+   "38:55",
+   "ad"
+  ],
+  [
+   "58:04",
+   "58:38",
+   "self_promo"
+  ],
+  [
+   "58:38",
+   "1:00:09",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 601.0199999999998,
+  "pred": 738.9499999999998,
+  "gt": 624.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 4
+ },
+ "stats": {
+  "calls": 45,
+  "in_tokens": 52539,
+  "out_tokens": 3333,
+  "seconds": 225.7
+ },
+ "wall_s": 225.8,
+ "audio_s": 3609,
+ "log": [
+  {
+   "window": [
+    0,
+    902
+   ],
+   "iter": 0,
+   "out": "With no fees or minimums on checking accounts, it's no wonder that Capital One Bank Guy is so passionate about banking with Capital One. If you were here, He wouldn't just tell you about no fees or minimums. He'd also tell you about how Capital One cafes are open seven days a week to assist with your banking needs. Yep. Even on weekends, it's pretty much all he talks In a good way what's in your wal Terms apply. See CapitalOne.com slash bank guy. CapitalOne NA member FDIC.",
+   "matches": [
+    [
+     "00:04",
+     "00:32",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    902
+   ],
+   "iter": 1,
+   "out": "Hey everybody, you already like YouTube, so how can YouTube get any better? Well, we're talking premium, because premium is the supercharged way to experience YouTube. Ad-free, which means uninterrupted videos, of course, background play, which lets you keep listening with your screen locked or offline downloads. You can download your videos to watch anywhere, even without Wi-Fi connection. I mean, as researchers ourselves, like researching all day long for the show, and I really love not having ads on YouTube Premium because it really speeds up the learning process. Whether you're relaxing at home or on the go, it's built for you because your YouTube experience just got even better with Premium. So if you like YouTube, you'll love Premium. Sign up now for your free trial, terms, and conditions apply.",
+   "matches": [
+    [
+     "00:32",
+     "01:14",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    902
+   ],
+   "iter": 2,
+   "out": "Owning a home means one thing something's gonna break AC plumbing fridge and it's never convenient or cheap\nThat's where American Home Shield comes in, and AHS Home Warranty can help protect your wallet from pricey breakdowns on even your oldest appliances and systems. And if they can't repair the covered item, they'll replace it. So check out American Home Shield and get 20% off any plan at ahs.com slash SYSK and see promo details.\nSee ahs.com/contracts for coverage details, including service fees, limitations, and exclusions. American home shield. Don't worry, be warranty",
+   "matches": [
+    [
+     "01:15",
+     "01:52",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    902
+   ],
+   "iter": 3,
+   "out": "This is an iHeart podcast Guaranteed human.\n[advertisement removed]\nHey, and welcome to the podcast. I'm Josh, and there's Chuck, and Jerry's here too. And in this episode, we'll get to hear Chuck do as Scottish acts on a lot, I will do.",
+   "matches": [
+    [
+     "This is an iHeart podcast Guaranteed hum",
+     "rejected",
+     "00:00",
+     "02:13"
+    ]
+   ]
+  },
+  {
+   "window": [
+    631,
+    1533
+   ],
+   "iter": 0,
+   "out": "And also follow us on socials, a three-putt bogey podcast on Instagram. We're going to have lots of fun content on there.",
+   "matches": [
+    [
+     "05:02",
+     "05:10",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    631,
+    1533
+   ],
+   "iter": 1,
+   "out": "Wow, that's a great name.\nThanks. Well, I mean, we hope it gets across like what it is, which is\nAgain, average guys, having a good time. What we're hoping to do is, Build a community of support.\nUh, because like I said, it's a hard game You\nThe worst thing you can do is go and play golf with people that are like,\nI really want to beat you or, like, want to gamble at golf and stuff. Like, that's not my deal\nI'd admire both kind of like cheerleaders when we play with each other and with friends and we're hoping to do just like cheerleaders when you play. Well, sometimes on, on,\nFridays. And maybe. I think that's definitely the better way to go is to do that rather than to\nBe like, you remember that one thing?\ncharacter on the pit who was hospitalized because he did too much cocaine and drank too much and like blacked out and tried to kill somebody yeah the golfer yeah\nThat's who I think I. I think of when you're describing the type of golfer you just did\nI mean, that's not",
+   "matches": [
+    [
+     "05:02",
+     "06:10",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    631,
+    1533
+   ],
+   "iter": 2,
+   "out": "me. like if you're, if you want to go out there and play for money and really compete against your friends, that's\nWe're trying to build a show that's fun and encouraging and Uh, I, I hope people give it a shot.\nSo maybe leave your fleece vest at the door when you listen to your podcast.",
+   "matches": [
+    [
+     "06:03",
+     "06:20",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    631,
+    1533
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    1262,
+    2164
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1893,
+    2795
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    2524,
+    3426
+   ],
+   "iter": 0,
+   "out": "Hey everybody, YouTube Premium takes something you already love, YouTube, and makes it even better. The content, the creators, the feeling of finding exactly what you're into for every mood and moment of your day. Like, for example, let's say you want to learn to cook, but you don't have time to go take cooking classes across town. Well, you can find tons of instructional cooking videos all without ads on YouTube Premium. That's right, Premium transforms that experience into a more supercharged, enhanced way to enjoy YouTube. A YouTube Premium subscription gives you access to exclusive YouTube features and benefits, including but not limited to, ad-free, so we're talking about uninterrupted videos, background play, so background play lets you keep listening with your screen locked, and offline downloads so you can download your videos to watch anywhere, even without Wi-Fi connection. That's pretty awesome. And smart downloads automatically downloads videos by your favorite creators, so even if you forget to download it ahead of time, Premium has you covered. So if you like YouTube, you'll love Premium. Sign up now for your free trial. Terms and conditions apply.",
+   "matches": [
+    [
+     "17:03",
+     "18:05",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2524,
+    3426
+   ],
+   "iter": 1,
+   "out": "If you're considering getting a home security system but you want something that fits your space, well, with ADT Blue, it's easy to customize a system that's right for you and set it up yourself. Just pick the kit and monitoring plan that makes sense for your home. Yes, say you're worried about package theft. Well, the ADT Plus app can walk you through setting up a new doorbell camera kit. Once it's installed, ADT Pros can help you keep tabs on it 24/7 or you can manage it yourself from the ADT+ app. And here's the best thing. There are no long-term contracts so you can change your monitoring plan whenever you want. The flexibility doesn't end there either. You can add to your system as you need to with things like extra cameras or motion sensors. Some life decisions are hard, but thanks to ADT Blue, you can DIY trusted ADT home security in the snap. Head to ADT.com slash BLU to build your system today. And to hear more about home protection and other grown-up topics, check out new episodes of Grown-Up Stuff on the iHeartRadio app, Apple Podcasts, or wherever you get your",
+   "matches": [
+    [
+     "18:11",
+     "19:08",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2524,
+    3426
+   ],
+   "iter": 2,
+   "out": "You know, you're never done decorating your home. You know what I mean? Sure. Yeah, because it's a process. There's always something you could do or buy or update. The only question is, what",
+   "matches": [
+    [
+     "19:15",
+     "19:23",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2524,
+    3426
+   ],
+   "iter": 3,
+   "out": "For us, our animals just wear out our rugs so quickly. It's usually a new rug. Well, Chuck, whether you need a rug or whatever is next",
+   "matches": [
+    [
+     "19:23",
+     "19:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2524,
+    3426
+   ],
+   "iter": 4,
+   "out": "[advertisement removed]\nThe vision.",
+   "matches": [
+    [
+     "The vision.",
+     "rejected",
+     "16:45",
+     "18:06"
+    ]
+   ]
+  },
+  {
+   "window": [
+    3155,
+    4057
+   ],
+   "iter": 0,
+   "out": "for you,\nYou can go to Wayfair. It's the smart place to get it.\nThat's right, whatever your style, whatever your budget, whatever you're looking for, Wayfair makes it easy to find it, and you can feel good about your purchases too because Wayfair verified products go through a thorough 10-point quality inspection. And with over 20 million five-star reviews, Wayfair must be doing something right. You can find pieces made for real life and get even more value with Wayfair Rewards.\nJoin Wayfair Rewards today to get 5% back on every purchase. Head to Wayfair.com to shop all things home. That's W-A-Y-F-A-I-R.com.\nWay fair, every style, every home. Thank you for",
+   "matches": [
+    [
+     "19:23",
+     "20:11",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3155,
+    4057
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]\npodcasts.\n[advertisement removed]",
+   "matches": [
+    [
+     "podcasts.",
+     "rejected",
+     "18:55",
+     "19:08"
+    ]
+   ]
+  },
+  {
+   "window": [
+    3786,
+    4688
+   ],
+   "iter": 0,
+   "out": "I'm dying to go to the master Really, really hard to get tickets. Yes, and I think you should do a call out. For anyone who can get you master's tickets to get them to you,",
+   "matches": [
+    [
+     "27:09",
+     "27:23",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3786,
+    4688
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    4417,
+    5319
+   ],
+   "iter": 0,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    5048,
+    5950
+   ],
+   "iter": 0,
+   "out": "Pickleball, please Get back to racquetball, people. That Sure. Back to it Maybe you and I should invest in a racquetball court franchise.",
+   "matches": [
+    [
+     "31:43",
+     "31:52",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5048,
+    5950
+   ],
+   "iter": 1,
+   "out": "Yeah, it is great. The court sounds cool. It's fun to watch. Great workout. Yeah, for sure. And the bags are usually pretty awesome, especially the early 80s, racquetball bags.",
+   "matches": [
+    [
+     "31:31",
+     "31:41",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5048,
+    5950
+   ],
+   "iter": 2,
+   "out": "I love racquetball. I haven't played since you and I did that commercial thing for like 14 years ago. That was awesome.",
+   "matches": [
+    [
+     "31:20",
+     "31:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5048,
+    5950
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    5679,
+    6581
+   ],
+   "iter": 0,
+   "out": "Hey everybody, YouTube Premium takes something you already love, YouTube, and makes it even better. The content, the creators, the feeling of finding exactly what you're into for every mood and moment of your day. Like for example, let's say you want to learn to cook, but you don't have time to go take cooking classes across town. Well, you can find tons of instructional cooking videos all without ads on YouTube Premium. That's right, Premium transforms that experience into a more supercharged, enhanced way to enjoy YouTube. A YouTube Premium subscription gives you access to exclusive YouTube features and benefits, including but not limited to, ad-free, so we're talking about uninterrupted videos, background play, so background play lets you keep listening with your screen locked, and offline downloads so you can download your videos to watch anywhere. even without Wi-Fi connection. That's pretty awesome. And smart downloads automatically downloads videos by your favorite creators. So even if you forget to download it ahead of time, Premium has you covered. So if you like YouTube, you'll love Premium. Sign up now for your free trial. Terms and conditions apply.",
+   "matches": [
+    [
+     "35:20",
+     "36:22",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5679,
+    6581
+   ],
+   "iter": 1,
+   "out": "You know, folks, for most of us, home security was never really about the house. It's about the people inside it, the ones you do anything to protect. And a break-in leaves a mark, even if nothing's taken, because it marks the moment homes stop feeling safe and simply safe gets that, right? Yeah. While other security systems react once a break-in is begun, simply safe is built to keep threats away from your door in the first place. That's right. Unlike traditional security systems that only alert you after a break-in is already underway, simply safe is built to stop it before it starts because an agent intervenes. and under 30 seconds, speaking through that camera to stop an intruder in their tracks and calling for urgent 911 dispatch when it's needed most. - Yep, simply safe as you covered. And they also have a great offer. You can join the more than 6 million people who entrust simply safe with their home security. Right now, save 60% off with professional monitoring. When you visit simplysafe.com/stuff. SimplySafe.com/stuff. And when you order, write in \"Stuff You Should Know\" in the checkout survey that",
+   "matches": [
+    [
+     "36:28",
+     "37:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5679,
+    6581
+   ],
+   "iter": 2,
+   "out": "SimplySafe, ahead of crime in real time.",
+   "matches": [
+    [
+     "37:20",
+     "37:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5679,
+    6581
+   ],
+   "iter": 3,
+   "out": "Hey everybody, Cozy Season is upon us, and that means Chris Mornings. That means soft layers, and that means Bombas. Yeah, Bombas makes your comfiest fall staples, so you can make the most out of one of the best seasons of the year. Bombas has new suede moccasins that are perfect for fall because they have cushy soles, a shearling lining, and they're made of water-resistant suede. That's right, and their slippers are everything you'd want for a cozy night in made with the softest, squishiest materials. And of course, Bombas has socks. Not just any socks. Socks for every type of weather, every type of occasion, because fall can be fickle, and Bombas makes socks that can",
+   "matches": [
+    [
+     "37:37",
+     "38:20",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5679,
+    6581
+   ],
+   "iter": 4,
+   "out": "lets them know we sent you and it helps to support the show. So thank you.",
+   "matches": [
+    [
+     "37:20",
+     "37:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    5679,
+    6581
+   ],
+   "iter": 5,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    6310,
+    7212
+   ],
+   "iter": 0,
+   "out": "handle it all. And the best part about Bombas, for every item you purchase, they donate an essential clothing item to someone facing housing insecurity. Purchased equals one donated with over 200 million donations and counting. So head on over to Bombas.com slash SYSK and use code SYSK at checkout for 20% off your first purchase. That's B-O-M-B-A-S dot com slash SYSK using code SYSK at checkout.",
+   "matches": [
+    [
+     "37:58",
+     "38:38",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    6310,
+    7212
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    6941,
+    7843
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    7572,
+    8474
+   ],
+   "iter": 0,
+   "out": "I want to say it's an issue I have with it, but there's something that stands out to me, not just in golf, but in life these days. Everything has optimize to the maximum degree that it's just like, you know, here, chase after this thing. You got enough money for this. And this is going to make you a million times better than you could be on your own through hard work and effort or whatever. It's just, I don't know. It just stands out to me.\nYeah, oh. Golf Forsher is a sport that wants to sell you every new thing under the sun.\nto make you better yeah i imagine and there's a lot of new things under the sun you said is a 200 plus billion dollar industry and just the u.s alone i imagine that's the case yeah\nIt is a little annoying though. I'm with you on that Ah, the term caddy was originally a term for a Scottish air and boy.\nAnd one of the errands was like, hey, come over here and carry my golf clubs. I don't want\nSo the balls, the feathery balls that you were talking about were expensive.\n",
+   "matches": [
+    [
+     "47:18",
+     "48:15",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    7572,
+    8474
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    8203,
+    9105
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    8834,
+    9736
+   ],
+   "iter": 0,
+   "out": "So I think this is high time that you tell everybody the name of your podcast again and when they can get it and where they can get it.",
+   "matches": [
+    [
+     "55:30",
+     "55:37",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8834,
+    9736
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    9465,
+    10367
+   ],
+   "iter": 0,
+   "out": "Yeah, it's already out. It's live, everybody. It was released once again this past Friday, September 25th. So, give it a listen",
+   "matches": [
+    [
+     "56:15",
+     "56:22",
+     0.88,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    9465,
+    10367
+   ],
+   "iter": 1,
+   "out": "If no fees or minimums on checking accounts, it's no wonder that Capital One Bank Guy is so passionate about banking with Capital One. If you were here, He wouldn't just tell you about no fees or minimums. He'd also tell you about how Capital One cafes are open seven days a week to assist with your bank needs. Yep. Even on weekends, it's pretty much all he talks In a good way what's in your wal Terms apply. See CapitalOne.com slash bank guy. CapitalOne NA member FDIC.",
+   "matches": [
+    [
+     "58:39",
+     "59:12",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    9465,
+    10367
+   ],
+   "iter": 2,
+   "out": "In these episodes, they share their stories from diagnosis to working with their care team on their treatment plan. Listen to Voices",
+   "matches": [
+    [
+     "59:53",
+     "1:00:06",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    9465,
+    10367
+   ],
+   "iter": 3,
+   "out": "In military families, service is more than a job. It's\nAt American Military University, that legacy can help open new doors through education.\nIf someone in your family served in the military, you could be eligible for reduced tuition.\nTake the next step with flexible online programs built for real life. Learn more at amu.apus.edu/military.",
+   "matches": [
+    [
+     "59:01",
+     "59:30",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    9465,
+    10367
+   ],
+   "iter": 4,
+   "out": "Introducing Voices of VivGuard. VivGuard is also known as its generic name, \"F-Gard Tigamod Alpha F-Cam,\" and this new show features firsthand stories from people living with a rare disease. Hosted by Andrew Stratton, these perspectives highlight that life is more than a moment, a condition, or a tough day. Living with a rare disease can be challenging, but it does not define the voices of VivGuard.",
+   "matches": [
+    [
+     "59:31",
+     "59:53",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    9465,
+    10367
+   ],
+   "iter": 5,
+   "out": "Appreciate your support and appreciate your support, Josh, for allowing me to do another solo record.",
+   "matches": [
+    [
+     "56:23",
+     "56:29",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    10096,
+    10388
+   ],
+   "iter": 0,
+   "out": "here at stuff you should know. podcast at iheartradio.com.\nStuff you should know is a production of iHeartRadio\nFor more podcasts, my heart radio, visit the iHeartRadio app. Apple Podcasts or wherever you listen to your favorite shows.\n[advertisement removed]\nof VivGuard on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts. This is an iHeart podcast.\nGuaranteed human.",
+   "matches": [
+    [
+     "58:12",
+     "1:00:08",
+     1.0,
+     1.0
+    ]
+   ]
+  }
+ ]
+}

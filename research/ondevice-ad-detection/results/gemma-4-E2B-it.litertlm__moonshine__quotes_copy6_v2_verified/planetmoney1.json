@@ -1,0 +1,456 @@
+{
+ "episode": "planetmoney1",
+ "pred": [
+  [
+   "00:00",
+   "01:51"
+  ],
+  [
+   "06:54",
+   "08:04"
+  ],
+  [
+   "17:02",
+   "17:26"
+  ],
+  [
+   "25:11",
+   "26:34"
+  ],
+  [
+   "33:51",
+   "34:04"
+  ],
+  [
+   "35:06",
+   "35:53"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:16",
+   "ad"
+  ],
+  [
+   "00:16",
+   "01:41",
+   "self_promo"
+  ],
+  [
+   "06:53",
+   "08:03",
+   "ad"
+  ],
+  [
+   "25:10",
+   "26:29",
+   "ad"
+  ],
+  [
+   "33:51",
+   "34:29",
+   "self_promo"
+  ],
+  [
+   "35:02",
+   "35:53",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 210.0,
+  "pred": 250.0,
+  "gt": 216.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 30,
+  "in_tokens": 31462,
+  "out_tokens": 1324,
+  "seconds": 113.6
+ },
+ "wall_s": 105.9,
+ "audio_s": 2153,
+ "log": [
+  {
+   "window": [
+    0,
+    946
+   ],
+   "iter": 0,
+   "out": "This message comes from a us bank\nSimplify how you do business with business essentials a powerful combination of no Monthly maintenance v checking and card payment processors\nDeposit products are offered by U.S. Bank National Association, member FDIC.",
+   "matches": [
+    [
+     "00:00",
+     "00:15",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    946
+   ],
+   "iter": 1,
+   "out": "Hello, Planet Money listener. It's Kenny So? Odd thing happening and we're hoping that you, like you personally, could help us fix this perhaps. You probably know that we wrote a book. And thanks to you, a lot of those have been sold, and this is great, but... Given how well they've been selling, Our partners for both the book and the game. Have pointed out, like a m They're simply are not. Many reviews or ratings On sites like Barnes & Noble or Amazon, compared to what you would expect. given the sales numbers. So first of all, I mean, Thank you for even just coming along with us on our Many zany adventures and For spending your hard-earned money on a planet money book or a planet money game. Like truly, we cannot thank you enough. Secondly, though. We realize now, perhaps in hindsight, We were maybe too proud to ask for this, but we If you bought either the book or the game or if you plan to, Giving us a rating or a review on whatever site or with whatever store. Wot it from Really, really helps us at the show, especially especially. In the sage Uh, if you didn't buy either, that",
+   "matches": [
+    [
+     "00:16",
+     "01:38",
+     1.0,
+     0.88
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    946
+   ],
+   "iter": 2,
+   "out": "Hello and welcome to Play to Money. I'm Alex M Yes, many of you will recognize Alex's voice from some classic Planet Money episodes, or his name because he wrote the Planet Money book? Or maybe you're a listener to Alex's new Food and Economics show. It's called Gastronomics. It is there that Alex laid out this theory that Kind of love. Alex, you call it the Domino's Pizza Tracker. Theory of every. Yes, and here's the theory. The Domino's pizza tracker would become the canonical model for every website or app that maps out how",
+   "matches": [
+    [
+     "05:31",
+     "06:18",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    946
+   ],
+   "iter": 3,
+   "out": "Thank you for This is Planet Money. From NPR.",
+   "matches": [
+    [
+     "01:30",
+     "01:44",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    946
+   ],
+   "iter": 4,
+   "out": "I hate waiting. I hate waiting. I think we all",
+   "matches": [
+    [
+     "01:47",
+     "01:50",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    946
+   ],
+   "iter": 5,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    662,
+    1608
+   ],
+   "iter": 0,
+   "out": "This message comes from Superhuman. Have you heard of Superhuman Go? There Go AI Chat helps you draft emails and messages and can also summarize long threads and documents. It can search or cross your apps all without leaving the page you're on. It collaborates with you where you are, whether it's in a doc you're reading or the email you are writing. Try Superhuman Go from the makers of Grammarly. Find out more at superhuman.com.",
+   "matches": [
+    [
+     "06:54",
+     "07:22",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    662,
+    1608
+   ],
+   "iter": 1,
+   "out": "This message comes from Whole Foods Market.\nFall flavors are waiting for you at Whole Foods Market. Cozy picks all through the store, like maple leaf cookies from 365 brands.\nSwing by the bakery for pumpkin cheesecake here for a limited time, and pumpkin turmeric bread freshly baked every single day.\nthe season with 365 brand cinnamon spice coffee and pumpkin spice creamer while you still can. Spice up full at Whole Foods Market.",
+   "matches": [
+    [
+     "07:17",
+     "07:47",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    662,
+    1608
+   ],
+   "iter": 2,
+   "out": "This message comes from Odoo, the all-in-one business management software platform.\nWhether you're a small or large business, Odoo gives you one flexible platform built to grow with you.\nTry today for free at odu.com slash planetmoney.",
+   "matches": [
+    [
+     "07:48",
+     "08:02",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    662,
+    1608
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    1324,
+    2270
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1986,
+    2932
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    2648,
+    3594
+   ],
+   "iter": 0,
+   "out": "reassurance? How much you feel groundedness? And then people to say like, okay\nWhat parts of that do you want people, do you want your customers to feel when they are using your product?\nThis seems like a boss move that you would like start your mating with your important clients. And be like, okay\nI'll explain why later, but like, let's all order some pizza, like pizza, crunchies, hands up for pe",
+   "matches": [
+    [
+     "17:02",
+     "17:25",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2648,
+    3594
+   ],
+   "iter": 1,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3310,
+    4256
+   ],
+   "iter": 0,
+   "out": "Fall flavors are waiting for you at Whole Foods Market. Cozy picks all through the store, like maple leaf cookies from 365 brand. Swing by the bakery for pumpkin cheesecake here for a limited time, and pumpkin turmeric bread freshly baked every single day. the season with 365 brand cinnamon spice coffee and pumpkin spice creamer while you still can. Spice up fall at Whole Foods Market.",
+   "matches": [
+    [
+     "25:18",
+     "25:42",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3310,
+    4256
+   ],
+   "iter": 1,
+   "out": "This message comes from Whole Foods Market.\n[advertisement removed]\nThis message comes from ethos. It's easy to put off getting life insurance until something unexpected happens. That makes you realize your family needs you cover.\nEthos makes it easy. It's 100% online\nNo medical exam, just a few health questions. Apply in minutes and get same day coverage up to 3 million. Get your free quote today at ethos.com/money. That's ethos.com/money, application times and rates may vary.",
+   "matches": [
+    [
+     "25:11",
+     "26:10",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3310,
+    4256
+   ],
+   "iter": 2,
+   "out": "This message comes from Odoo. Running a business shouldn't feel like surviving a software group project. Start managing your business with one unified system. Odoo was the all-in-one business management software. Try for free today at odu.com/planetmoney. Right? Test one two get the test one",
+   "matches": [
+    [
+     "26:11",
+     "26:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3310,
+    4256
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    3972,
+    4918
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    4634,
+    5541
+   ],
+   "iter": 0,
+   "out": "This message comes from EasyCater, making it easy for organizations to order food for meetings and events from favorite restaurants, set up meal programs for their employees, and manage food spend all in one place. EasyCater.com",
+   "matches": [
+    [
+     "35:06",
+     "35:30",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4634,
+    5541
+   ],
+   "iter": 1,
+   "out": "If you haven't heard, our friends over at the Indicator have a new newsletter. It comes out every Friday, and it's full of economics tidbits and recommendations from their staff. You can sign up at npr.org/indicator newsletter.",
+   "matches": [
+    [
+     "33:51",
+     "34:03",
+     1.0,
+     0.75
+    ]
+   ]
+  },
+  {
+   "window": [
+    4634,
+    5541
+   ],
+   "iter": 2,
+   "out": "This message comes from Jerry. Noticing your car insurance rate creep up even without tickets or claims? You're not alone. That's why Sherry handles the legwork by comparing quotes side by side from over 50 top insurers so you can confidently hit by. No spam calls, no hidden fees. Jerry even tracks rates and alerts you when it's best to shop. Drivers who say with Jerry could save over $1,300 a year. Don't overpay. Download the Jari app or visit jerry.ai/NPR today.",
+   "matches": [
+    [
+     "35:19",
+     "35:52",
+     1.0,
+     0.75
+    ]
+   ]
+  },
+  {
+   "window": [
+    4634,
+    5541
+   ],
+   "iter": 3,
+   "out": "npr.org slash indicator newsletter.",
+   "matches": [
+    [
+     "npr.org slash indicator newsletter.",
+     "rejected",
+     "33:51",
+     "34:03"
+    ]
+   ]
+  }
+ ],
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "01:51"
+   ],
+   "out": "U.S. Bank",
+   "keep": true
+  },
+  {
+   "interval": [
+    "05:31",
+    "06:19"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "06:54",
+    "08:04"
+   ],
+   "out": "Superhuman",
+   "keep": true
+  },
+  {
+   "interval": [
+    "17:02",
+    "17:26"
+   ],
+   "out": "PIZZA",
+   "keep": true
+  },
+  {
+   "interval": [
+    "25:11",
+    "26:34"
+   ],
+   "out": "Whole Foods Market, 365, ethos, Odoo",
+   "keep": true
+  },
+  {
+   "interval": [
+    "33:51",
+    "34:04"
+   ],
+   "out": "npr.org slash indicator newsletter",
+   "keep": true
+  },
+  {
+   "interval": [
+    "35:06",
+    "35:53"
+   ],
+   "out": "EasyCater",
+   "keep": true
+  }
+ ]
+}

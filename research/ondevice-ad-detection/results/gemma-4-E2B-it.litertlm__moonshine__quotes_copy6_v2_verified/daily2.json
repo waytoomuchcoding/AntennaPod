@@ -1,0 +1,292 @@
+{
+ "episode": "daily2",
+ "pred": [
+  [
+   "00:00",
+   "00:16"
+  ],
+  [
+   "13:33",
+   "14:50"
+  ],
+  [
+   "26:19",
+   "27:33"
+  ],
+  [
+   "29:40",
+   "30:05"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "00:16",
+   "ad"
+  ],
+  [
+   "13:31",
+   "14:50",
+   "ad"
+  ],
+  [
+   "26:16",
+   "27:33",
+   "ad"
+  ],
+  [
+   "29:38",
+   "30:05",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 192.0,
+  "pred": 192.0,
+  "gt": 199.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 19,
+  "in_tokens": 19789,
+  "out_tokens": 751,
+  "seconds": 69.0
+ },
+ "wall_s": 64.9,
+ "audio_s": 1805,
+ "log": [
+  {
+   "window": [
+    0,
+    971
+   ],
+   "iter": 0,
+   "out": "If you like YouTube, you'll love YouTube Premium. I'm Destroyed, and with YouTube Premium, I get every video's offline downloads and so much more. Make sure y'all try YouTube Premium for too much free at youtube.com slash premium. Try eligibility varies, terms apply, and cancel anytime.",
+   "matches": [
+    [
+     "00:00",
+     "00:14",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    971
+   ],
+   "iter": 1,
+   "out": "There is no advertisement in this transcript.",
+   "matches": [
+    [
+     "There is no advertisement in this transc",
+     "nomatch-start",
+     0.29
+    ]
+   ]
+  },
+  {
+   "window": [
+    679,
+    1650
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1358,
+    2329
+   ],
+   "iter": 0,
+   "out": "This podcast is supported by the Capital One Venture X Card. VentureX offers the premium benefits you expect, like a $300 annual Capital One travel credit, for less than you expect. Elevate your earn with unlimited double miles on every purchase, bringing you one step closer to your next dream destination. Plus, enjoy access to over 1,000 airport lounges worldwide. The Capital One Venture X Card. What's in your wallet? Terms apply. Lounge Access is subject to change. See CapitalOne.com for details. If you like YouTube, you'll love YouTube Premium. Hi, I'm Haley Bailey. With YouTube Premium, I get ad-free videos, offline downloads, background play, and so much more. So try YouTube Premium for two months free at youtube.com slash premium. Trial eligibility varies. Terms apply. Cancel anytime.",
+   "matches": [
+    [
+     "13:33",
+     "14:23",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1358,
+    2329
+   ],
+   "iter": 1,
+   "out": "This podcast is supported by Planned Parenthood Federation of America. You pay attention. And you know health care in this country is becoming harder to get and more expensive. It's getting worse",
+   "matches": [
+    [
+     "14:15",
+     "14:33",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1358,
+    2329
+   ],
+   "iter": 2,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    2037,
+    3008
+   ],
+   "iter": 0,
+   "out": "Donate at plannedparenthood.org slash defend.",
+   "matches": [
+    [
+     "14:41",
+     "14:48",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2037,
+    3008
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]\nnow because the Trump administration is going after Title 10 family planning.\nprogram that funds birth control, cancer screenings, and more for uninsured, underinsured, and low-income people. Planned Parenthood is fighting back\nBy continuing to provide care no matter what. And they need your help.",
+   "matches": [
+    [
+     "14:23",
+     "14:48",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2037,
+    3008
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    2716,
+    3687
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3395,
+    4366
+   ],
+   "iter": 0,
+   "out": "If you like YouTube, you'll love YouTube Premium. Hi, I'm Tabitha Brown. With YouTube Premium, I get ad-free videos, offline downloads, and so much more. Try YouTube Premium for two months free. Trial eligibility varies. Terms apply. Cancel anytime. Brought to you by the Capital One Saver Card. With Saver, you earn unlimited 3% cash back on dining, entertainment, and at grocery stores. That's unlimited cash back on ordering takeout from home or unlimited cash back on tickets to concerts and games. So grab a b Grab a seat. Enter an unlimited 3% cash back with the saver card. Capital One, what's in your wallet? Terms apply. See CapitalOne.com for details. ZS is a global consulting and technology firm that partners with companies to improve",
+   "matches": [
+    [
+     "26:19",
+     "27:14",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3395,
+    4366
+   ],
+   "iter": 1,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    4074,
+    4779
+   ],
+   "iter": 0,
+   "out": "life and how we live it. With over 1,700 customers in more than 170 countries, ZS helps businesses connect data, technology, and human ingenuity to drive impact. ZS helps clients in healthcare, consumer goods and retail travel and hospitality and more by putting our deep expertise to work, ranging from AI and analytics to strategy and transformation. Ready to connect impact that matters? Visit zs.com today. That's zs.com.",
+   "matches": [
+    [
+     "26:53",
+     "27:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4074,
+    4779
+   ],
+   "iter": 1,
+   "out": "Brought to you by the Capital One Saver Card.\nWith Saver, you earn unlimited 3% cash back on dining, entertainment, and at grocery stores. That's unlimited cash back on ordering takeout from home or unlimited cash back on tickets to concerts and games.\nSo grab a b Grab a seat. Enter an unlimited 3% cash back with the saver card.\nCapital One. What's in your wallet? Terms apply. See CapitalOne.com for details.",
+   "matches": [
+    [
+     "29:40",
+     "30:05",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4074,
+    4779
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  }
+ ],
+ "verify_log": [
+  {
+   "interval": [
+    "00:00",
+    "00:16"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "13:33",
+    "14:50"
+   ],
+   "out": "Capital One Venture X Card",
+   "keep": true
+  },
+  {
+   "interval": [
+    "26:19",
+    "27:33"
+   ],
+   "out": "YouTube Premium",
+   "keep": true
+  },
+  {
+   "interval": [
+    "29:40",
+    "30:05"
+   ],
+   "out": "Capital One",
+   "keep": true
+  }
+ ]
+}

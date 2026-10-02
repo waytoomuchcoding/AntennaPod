@@ -1,0 +1,285 @@
+{
+ "episode": "huberman1",
+ "pred": [
+  [
+   "07:33",
+   "08:50"
+  ],
+  [
+   "21:10",
+   "22:14"
+  ],
+  [
+   "33:11",
+   "34:25"
+  ]
+ ],
+ "gt": [
+  [
+   "07:33",
+   "08:50",
+   "ad"
+  ],
+  [
+   "21:13",
+   "22:14",
+   "ad"
+  ],
+  [
+   "33:11",
+   "34:25",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 212.0,
+  "pred": 215.0,
+  "gt": 212.0,
+  "breaks": 3,
+  "found": 3,
+  "false_alarms": 0
+ },
+ "stats": {
+  "calls": 19,
+  "in_tokens": 22089,
+  "out_tokens": 911,
+  "seconds": 80.5
+ },
+ "wall_s": 76.4,
+ "audio_s": 2299,
+ "log": [
+  {
+   "window": [
+    0,
+    952
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    666,
+    1618
+   ],
+   "iter": 0,
+   "out": "I'd like to take a quick break and acknowledge our sponsor, Eight Sleep makes smart mattress covers with cooling, heating, and sleep tracking capacity. One of the best ways to ensure you get a great night's Is to make sure that the temperature of your sleeping environment is correct. And that's because in order to fall asleep and stay deeply asleep, Your body temperature actually has to drop by about 1 to 3 degrees, and in order to wake up feeling refreshed and energized, your body temperature actually has to increase by about 1 to 3 degrees. Eight Sleep automatically regulates the temperature of your bed throughout the night according to your unique needs. I've been sleeping on an eight-sleep mattress cover for nearly five years now. And it has completely transformed and improved the quality of my sleep. The latest eight-sleep model is the Pod 5. This is what I'm now sleeping on, and I absolutely love it. It has so many incredible features. For instance, the Pod5 has a feature called Autopilot, which is an AI engine that learns your sleep patterns and then adjusts the temperature of your sleeping environment across different sleep stages. It'll even elevate your head if you're snoring and it makes other shifts to optimize",
+   "matches": [
+    [
+     "07:33",
+     "08:34",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    666,
+    1618
+   ],
+   "iter": 1,
+   "out": "If you'd like to try 8 sleep, go to 8sleep.com/uberman to get up to $350 off the new pod 5. Eight sleep ships to many countries worldwide, including Mexico and the UAE. Again, that's 8sleep.com slash Huberman to save up to $350.",
+   "matches": [
+    [
+     "08:34",
+     "08:50",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    666,
+    1618
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    1332,
+    2284
+   ],
+   "iter": 0,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    1998,
+    2950
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    2664,
+    3616
+   ],
+   "iter": 0,
+   "out": "Better health better\nBetterHelp offers professional therapy with a licensed therapist carried out entirely. I've been doing therapy for a\nAnd while it's not always easy, every time I do a therapy session,\nI come away feeling better and knowing that the time was well spent. And that's because whenever I finish a therapy session,\nI come away with a valuable insight or new perspective on something I'm working through. Whether that's with work With relationships in my personal life.\nor with my relationship to myself. I've just consistently found that there's so much benefit that comes through effective therapy.\nBetter help, they make it extremely easy to find an expert therapist\nwho can help provide",
+   "matches": [
+    [
+     "21:10",
+     "22:03",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2664,
+    3616
+   ],
+   "iter": 1,
+   "out": "I'd like to take a quick break and acknowledge our sponsor",
+   "matches": [
+    [
+     "21:10",
+     "21:16",
+     1.0,
+     0.88
+    ]
+   ]
+  },
+  {
+   "window": [
+    2664,
+    3616
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    3330,
+    4282
+   ],
+   "iter": 0,
+   "out": "BetterHelp has an average rating of 4.9 out of 5 for its live sessions based on over 1.7 million client reviews. If you would like to try better help Go to betterhelp.com/huberman 10% off your first month. Again, that's betterhelp.com slash huberman.",
+   "matches": [
+    [
+     "21:51",
+     "22:14",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3330,
+    4282
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]\nspons",
+   "matches": [
+    [
+     "spons",
+     "rejected",
+     "21:10",
+     "21:16"
+    ]
+   ]
+  },
+  {
+   "window": [
+    3996,
+    4948
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    4662,
+    5614
+   ],
+   "iter": 0,
+   "out": "I'd like to take a quick break and acknowledge our sponsor, AG1.\nI'm excited to share that AG1 has just launched their newest formulation, AG1 Pro.\nAG1 Pro takes the clinically-backed AG1 formula, which is a blend of vitamins, minerals, probiotics, and adapt And it adds three important new ingredients.\nCreatine monohydrate, calcium HMB, and zinc carnosine. Each serving has 5 grams of creatine monohydrate to support muscle strength and performance, as well as brain health. Calcium HMB to support muscle recovery and reduce muscle breakdown, and zinc carnosine to support and improve the lining of your gut.\nAll three of these ingredients have compelling science to support them. And therefore, I love seeing them added to the existing AG1 formula.\nAs most of you know, I've been taking AG1 every day for nearly 14 years now.\nI started taking it long before I even knew what a podcast was.\nIt's a great product and it's now made even better with the new AG1 Pro Formula.\nIf you would like to try AG1 Pro, you can go to drinkag1.com/huberman to get a",
+   "matches": [
+    [
+     "33:11",
+     "34:10",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4662,
+    5614
+   ],
+   "iter": 1,
+   "out": "AG1 is giving away a free bottle of Omega-3 coenzyme Q10 with your first subscription. Again, go to drinkag1.com/huberman to get a free bottle of omega-3 coins on Q10 with your first AG1 subscription.",
+   "matches": [
+    [
+     "34:11",
+     "34:24",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4662,
+    5614
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    5328,
+    6036
+   ],
+   "iter": 0,
+   "out": "special offer.",
+   "matches": [
+    [
+     "special offer.",
+     "rejected",
+     "34:04",
+     "34:10"
+    ]
+   ]
+  }
+ ],
+ "verify_log": [
+  {
+   "interval": [
+    "07:33",
+    "08:50"
+   ],
+   "out": "Eight S Aidsleep",
+   "keep": true
+  },
+  {
+   "interval": [
+    "21:10",
+    "22:14"
+   ],
+   "out": "BetterHelp",
+   "keep": true
+  },
+  {
+   "interval": [
+    "33:11",
+    "34:25"
+   ],
+   "out": "AG1",
+   "keep": true
+  }
+ ]
+}

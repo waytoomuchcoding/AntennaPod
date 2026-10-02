@@ -1,0 +1,456 @@
+{
+ "episode": "crimejunkie1",
+ "pred": [
+  [
+   "00:00",
+   "01:36"
+  ],
+  [
+   "14:02",
+   "16:33"
+  ],
+  [
+   "31:13",
+   "33:27"
+  ],
+  [
+   "46:50",
+   "49:18"
+  ],
+  [
+   "56:24",
+   "56:43"
+  ],
+  [
+   "57:56",
+   "58:37"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:35",
+   "ad"
+  ],
+  [
+   "14:00",
+   "16:13",
+   "ad"
+  ],
+  [
+   "31:10",
+   "33:26",
+   "ad"
+  ],
+  [
+   "46:48",
+   "49:17",
+   "ad"
+  ],
+  [
+   "58:03",
+   "58:37",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 538.3499999999999,
+  "pred": 588.8199999999998,
+  "gt": 547.0,
+  "breaks": 5,
+  "found": 5,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 30,
+  "in_tokens": 35205,
+  "out_tokens": 2377,
+  "seconds": 155.5
+ },
+ "wall_s": 155.6,
+ "audio_s": 3517,
+ "log": [
+  {
+   "window": [
+    0,
+    971
+   ],
+   "iter": 0,
+   "out": "This episode is sponsored by BetterHelp.\nBetterHelp is one of the world's leading online therapy services. Now, insurance options may be available nationwide, with average copays of just $23 per session for eligible members. Because isn't the only thing holding people back.\nMost of us weren't taught stress management therapy gives you tools to keep stress from building\nBetterHelp works with more than 125 health plans, making it easy to get started with low cost sessions. Don't have eligible insurance? Get 10% off your first month at betterhelp.com slash crime junkie. Costing coverage may vary. Discount cannot be combined with insurance.",
+   "matches": [
+    [
+     "00:00",
+     "00:31",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    971
+   ],
+   "iter": 1,
+   "out": "I just bought a new automobile the same way they did in the 1900s when movies were silent. Wow. Well, I just got this Jeep from Flexcar. All mice, macaroons, go to paying off the hefty value this little gas buggy lost the second I chugged out of the dealership. Toot toot. Okay, well, Flexcar includes maintenance and insurance, and I can switch to an F-150 or Mercedes anytime. What are you high on giggle jizz? Buying a car is supposed to be the bum deal you pretend is the Bison's berries. I have no idea what you're",
+   "matches": [
+    [
+     "00:32",
+     "00:58",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    971
+   ],
+   "iter": 2,
+   "out": "The first and only month-to-month car lease. FlexCAR, you drive everything. If you know me, you know I love stories that make me go, wait.\nThe kind that stop you in your tracks and send you straight down a rabbit hole.\nAnd my friend, Delia D'Ambura, tell stories just like that on Park Predators.\nEvery Tuesday, Delia invests its true crime cases that unfold in the world's most beautiful places. From national parks to hiking trails, she reveals the shocking crimes, mysterious disappearances, and unsettling encounters hidden beneath the postcard-perfect scenery.\nIf you're ready to discover what's beyond the trailhead, listen to park predators wherever you get your podcasts.",
+   "matches": [
+    [
+     "00:58",
+     "01:34",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    971
+   ],
+   "iter": 3,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    679,
+    1650
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1358,
+    2329
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    2037,
+    3008
+   ],
+   "iter": 0,
+   "out": "YouTube is already an essential part of daily life, the go-to place for every mood, moment, and deep dive. If you like YouTube, you'll love YouTube Premium. YouTube Premium supercharges the entire viewing experience by removing every single interruption. That means completely ad-free watching across the world's largest creator ecosystem. Beyond continuous viewing, Premium is perfect for on-the-go busy routines. One of my favorite features is background play. All of my favorite videos in podcasts stream smoothly, even while I'm using other apps or walking with a locked screen. And when I'm traveling, offline downloads makes it so easy to save full videos and shorts for flights, long drives, or areas with Spotify. It gives me total control over my screen time and flexibility anywhere I go. YouTube Premium turns the platform that everyone already knows and loves into an even more immersive uninterrupted destination. I used YouTube Premium to build a playlist to set the vibe at my friend's birthday party the other day. I'm talking endless videos, their favorite artists, BTS, in concert, all without any ads to take us out of the moment. Watch anywhere, anytime, completely uninterrupted. YouTube.com/premium. Sign up now for your free trial.",
+   "matches": [
+    [
+     "14:02",
+     "15:10",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2037,
+    3008
+   ],
+   "iter": 1,
+   "out": "This episode is sponsored by BetterHelp. This There are plenty of reasons we put off getting support, and for a lot of people, cost is one of them. With BetterHelp, insurance options may now be available nationwide, with an average copay for eligible members of just $23 per session. And while we're reconsidering old assumptions, maybe there are a few others worth questioning too. Think about the pressure to be ambitious, but never intimidating. The demand to be available for everyone while still carving out personal time? Perhaps the belief is that a career should be perfectly defined by now or that being a reliable partner or friend means being reachable 24-7. Extending grace to oneself is just as important as showing compassion to others. If you've been waiting to start therapy, BetterHelp works with more than 125 health plan networks, and Eligible members have an average copay of just $23 per session with insurance. Don't have insurance or don't live in the United States? You can still get 10% off your first month. Visit betterhelp.com slash crime junkie to explore your payment options. That's betterhelp.com slash crime junkie.",
+   "matches": [
+    [
+     "15:14",
+     "16:10",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2037,
+    3008
+   ],
+   "iter": 2,
+   "out": "Today in 2026, Joseph Michael Nissensen is 75 years old, but he was only 38 back in 1990 when the FBI was making a possible connection between crimes that he committed in Washington and California in Tales of the crime committed out in Arizona.",
+   "matches": [
+    [
+     "16:14",
+     "16:32",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    2037,
+    3008
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    2716,
+    3687
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3395,
+    4366
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    4074,
+    5045
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    4753,
+    5724
+   ],
+   "iter": 0,
+   "out": "One of the simplest, most powerful ways to build wealth is something most people overlook, actually earning interest on your savings. But here's the problem. Most banks pay you next to nothing, a fraction of a percent. Your money just sits there doing nothing for you. That's where SoFi comes in, the Everything app for smarter money. With SoFi checking and savings, you can track your spending and save towards your goals. And with eligible direct deposit, you can actually earn eight times the national average savings rate. Terms apply. You'll even get paid up to two days early with direct deposit, and you can access additional FDIC insurance up to $3 million on your deposits through a network of participating banks. And right now, you can also earn up to $400 cash bonus when you open a soFi checking and savings account instead of eligible direct deposit of at least $1,000. Terms apply. Plus, you can manage your finances all from one app. Whatever your needs are, SoFi is there to help you get smart with your money. Open your SoFi Checking and Savings account today. Head to sofi.com slash cjbank to get started. SoFi Checking and Savings is offered through SoFi Bank",
+   "matches": [
+    [
+     "31:13",
+     "32:10",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4753,
+    5724
+   ],
+   "iter": 1,
+   "out": "Quince specializes in those exact permanent fixtures. Quince creates elevated essentials using luxury materials like organic cotton, washable silk, and 100% Mongolian cashmere, with cashmere sweaters starting at just $50. Beyond knitwear, the collection includes premium stretch denim, leather bags, footwear, and 14-carat gold jewelry designed to pull any look together. By partnering directly with ethical factories and removing middleman markups, Quince offers high-end quality at 50% to 80% less than comparable brands. That same approach extends beyond clothing into home goods, including hotel-quality bedding, bath, kitchen essentials, and thoughtfully designed furniture. Quince has been my go-to for wardrobe staples for years now, but I recently started upgrading my betting, towels, and even some kitchen essentials from Quince. And as usual, the quality of the items are impeccable, the aesthetic is unmatched, and the price is unbelievable. Find the fall pieces you'll reach for most at Quince. Download the Quince app for app-exclusive offers or go to quince.com slash crimejunkie. Get free shipping on your order and 365-day returns. Now available in Canada and the uk too. That's q",
+   "matches": [
+    [
+     "32:20",
+     "33:23",
+     1.0,
+     0.88
+    ]
+   ]
+  },
+  {
+   "window": [
+    4753,
+    5724
+   ],
+   "iter": 2,
+   "out": "q-u-i-n-c-e dot com slash crime junkie.",
+   "matches": [
+    [
+     "33:17",
+     "33:23",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4753,
+    5724
+   ],
+   "iter": 3,
+   "out": "Everyone has those go-to wardrobe staples that get reached for constantly. The sweater that works with everything, the perfect fitting jeans, or the bag carried everywhere.",
+   "matches": [
+    [
+     "32:12",
+     "32:20",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4753,
+    5724
+   ],
+   "iter": 4,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    5432,
+    6403
+   ],
+   "iter": 0,
+   "out": "and a member FDIC.",
+   "matches": [
+    [
+     "and a member FDIC.",
+     "rejected",
+     "31:58",
+     "32:10"
+    ]
+   ]
+  },
+  {
+   "window": [
+    6111,
+    7082
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    6790,
+    7761
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    7469,
+    8440
+   ],
+   "iter": 0,
+   "out": "Quince specializes in those exact permanent fixtures. Quince creates elevated essentials using luxury materials like organic cotton, washable silk, and 100% Mongolian cashmere, with cashmere sweaters starting at just $50. Beyond knitwear, the collection includes premium stretch denim, leather bags, footwear, and 14-carat gold jewelry designed to pull any look together. By partnering directly with ethical factories and removing middleman markups, Quince offers high-end quality at 50% to 80% less than comparable brands. That same approach extends beyond clothing into home goods, including hotel-quality bedding, bath, kitchen essentials, and thoughtfully designed furniture. Quince has been my go-to for wardrobe staples for years now, but I recently started upgrading my betting, towels, and even some kitchen essentials from Quince. And as usual, the quality of the items are impeccable, the aesthetic is unmatched, and the price is unbelievable. Find the fall pieces you'll reach for most at Quince. Download the Quince app for app-exclusive offers or go to quince.com slash crimejunkie. Get free shipping on your order and 365-day returns. Now available in Canada and the uk too. That's q",
+   "matches": [
+    [
+     "46:50",
+     "48:01",
+     1.0,
+     0.88
+    ]
+   ]
+  },
+  {
+   "window": [
+    7469,
+    8440
+   ],
+   "iter": 1,
+   "out": "Everyone has those go-to wardrobe staples that get reached for constantly. The sweater that works with everything, the perfect fitting jeans, or the bag carried everywhere.\nq-u-i-n-c-e dot com slash crime junkie.\nDo me a favor, put all five fingers up. Now, put one down if you have workout saved on Instagram that you haven't gone back to. Put one down if you are going to go to a workout class this week, but there's just none that the times worked out for. Put one down if you don't like working out at home because you don't know what to do and you need someone to push you. Put two fingers down if you want to stop this game. Okay.\nBabe, we are the same. I don't have a lot of time. And honestly, I'm not even someone who likes working out.\nBut latter actually changed them. I literally had to waddle into the studio to record this because my butt is so sore. Latter is quick. I'm not wasting time wandering around or doing reps of something that won't matter. I'm in, I'm out. I have a coach along the way who",
+   "matches": [
+    [
+     "46:50",
+     "48:48",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    7469,
+    8440
+   ],
+   "iter": 2,
+   "out": "can help me make 30 minutes with weights feel better than two hours of whatever I was doing before. And it's $1 a day. price was ever stopping you before you're officially out of excuses remove the guesswork with ladder and get a real coach in your ear telling you exactly what to do for every workout no thinking everything planned for you if you have an iPhone head to ladder.fit slash crime junkie and take a quick quiz to find your perfect ladder plan use my link and get a free seven-day trial with no credit card And $10 off your first month if you join.",
+   "matches": [
+    [
+     "48:28",
+     "49:14",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    7469,
+    8440
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    8148,
+    9119
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    8827,
+    9798
+   ],
+   "iter": 0,
+   "out": "Anyone with information about these people or marinas murder Please contact the Mojave County Sheriff's Office Special Investigation Unit in Kingman, Arizona. The number is 928-753-0753. The extension. is 4408.",
+   "matches": [
+    [
+     "56:24",
+     "56:42",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8827,
+    9798
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    9506,
+    9957
+   ],
+   "iter": 0,
+   "out": "Crime Junkie is an audio check production. I think Chuck would approve. When the nights grow longer, the shadows start to stir, and that can only mean one thing. Full body chills is back. This season, step inside, original tales, where every doorway leads somewhere darker, every stranger carries a secret, and nothing is ever quite what it seems. Each story takes you somewhere new, but be careful. You never know what might follow you home. So gather around, listen close, and stream full body chills wherever you get your podcasts.",
+   "matches": [
+    [
+     "57:56",
+     "58:35",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    9506,
+    9957
+   ],
+   "iter": 1,
+   "out": "NONE",
+   "matches": []
+  }
+ ]
+}

@@ -53,3 +53,5 @@
 {"precision": 0.832, "recall": 0.939, "f1": 0.882, "breaks_found": "29/31", "false_alarms": 2, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_gm_verified"}
 {"precision": 0.805, "recall": 0.925, "f1": 0.861, "breaks_found": "29/31", "false_alarms": 6, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_s"}
 {"precision": 0.844, "recall": 0.928, "f1": 0.884, "breaks_found": "29/31", "false_alarms": 2, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_s_verified"}
+{"precision": 0.836, "recall": 0.946, "f1": 0.887, "breaks_found": "54/54", "false_alarms": 17, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_v2"}
+{"precision": 0.888, "recall": 0.949, "f1": 0.917, "breaks_found": "54/54", "false_alarms": 4, "run": "gemma-4-E2B-it.litertlm__moonshine__quotes_copy6_v2_verified"}

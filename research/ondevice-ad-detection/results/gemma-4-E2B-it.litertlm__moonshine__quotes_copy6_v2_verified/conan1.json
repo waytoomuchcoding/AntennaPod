@@ -1,0 +1,751 @@
+{
+ "episode": "conan1",
+ "pred": [
+  [
+   "00:03",
+   "02:04"
+  ],
+  [
+   "13:29",
+   "14:48"
+  ],
+  [
+   "23:16",
+   "25:41"
+  ],
+  [
+   "26:17",
+   "27:11"
+  ],
+  [
+   "1:03:51",
+   "1:07:04"
+  ],
+  [
+   "1:13:14",
+   "1:15:35"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:40",
+   "ad"
+  ],
+  [
+   "23:05",
+   "27:25",
+   "ad"
+  ],
+  [
+   "1:03:51",
+   "1:07:08",
+   "ad"
+  ],
+  [
+   "1:13:58",
+   "1:14:22",
+   "self_promo"
+  ],
+  [
+   "1:14:23",
+   "1:15:37",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 561.0,
+  "pred": 709.0,
+  "gt": 631.0,
+  "breaks": 4,
+  "found": 4,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 55,
+  "in_tokens": 58809,
+  "out_tokens": 2928,
+  "seconds": 233.3
+ },
+ "wall_s": 217.2,
+ "audio_s": 4537,
+ "log": [
+  {
+   "window": [
+    0,
+    901
+   ],
+   "iter": 0,
+   "out": "This is a paid message for Apple Card. It's a new school year, which means yet another back-to-school shopping list.\nLuckily, when you use your Apple card, you can earn 3% daily cash back on everything at Apple, including the new iPad Air and the MacBook Pro.\nYeah, and in my day, when you were going back to school, it was years of your pencil and years of your apple. And that was it. I mean, real apple. Did you get anything? Like crunch, crunch, yum, yum. Yeah.\nYeah, but things have changed. Yeah. Gotta get their computers. Apply for Apple Card today and unlock the tools for a productive school year.\nSubject to credit appro Apple Card is issued by Goldman Sachs Bank USA Salt Lake City Branch. Terms and more at applecard.com.",
+   "matches": [
+    [
+     "00:03",
+     "00:45",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    901
+   ],
+   "iter": 1,
+   "out": "You looking for something sweet and satisfying? Always. Meat wonderful pistachios, chocolate sea salt and chocolate toffee, your go-to treats. Each pistachio is thinly, not thickly, but Finley dipped in dark chocolate antioxidant goodness. So when you said that, thinly and thickly, when they're so nice, it doesn't overwhelm the pistachio. They know what they're doing. I'm so glad they made Four Discover Wonderful Pistachios Dubai Chocolate. The sweet indulgence you didn't know you needed with rich, dark chocolate, smooth white chocolate, crispy, cautifey, and a delicious crunchy pistachio. I'm telling you, snack time never tasted so good. Yeah. Look it up in history. It never has. Never has. Can you? Check out wonderfulpistachios.com to learn more about Wonderful Pistachios Chocolate Products.",
+   "matches": [
+    [
+     "00:49",
+     "01:37",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    901
+   ],
+   "iter": 2,
+   "out": "So I'm going to have a huge deal with Texaco. Exactly. And then stick around and show business for a really long time and confuse the younger generation. Thank you.",
+   "matches": [
+    [
+     "01:46",
+     "02:02",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    901
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    630,
+    1531
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1260,
+    2161
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1890,
+    2791
+   ],
+   "iter": 0,
+   "out": "I don't know where I'd be if I hadn't gone there.",
+   "matches": [
+    [
+     "13:29",
+     "13:36",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1890,
+    2791
+   ],
+   "iter": 1,
+   "out": "I want Old office has been preserved.\nIt is used for storage. And it's right next to my office. And yesterday...\nI asked my assistant, Violet, I said, let me see Conan's old office so I can talk about it. And she said, no, no, no, no, don't. You can't. You can't. And you cannot mention it. And I said, come on, just let me see. Please don't talk about it. Please, I beg you. And I opened the door, and it is...\nFlorida ceiling. With Simpson's merchandise. Oh, wow. Yes. In fact. This is the merchandise that... About. Oh my god, Mr. Sparkle.\nOh my, look at this. Yeah, I got you one. These are amazing. That's after your time. That's after your time. This is 199\nThose are... I love Mr. Spark. Does it like lose all its value if I open it? Yes, don't. Okay. You know what I love?\nNow, the back Homer's head with bubbles coming out the back is saying, first of all, it",
+   "matches": [
+    [
+     "13:29",
+     "14:47",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1890,
+    2791
+   ],
+   "iter": 2,
+   "out": "Ah, for lucky best wash, use Mr. Sparkle. I'm disrespectful to dirt.",
+   "matches": [
+    [
+     "15:13",
+     "15:21",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1890,
+    2791
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    2520,
+    3421
+   ],
+   "iter": 0,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    3150,
+    4051
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3780,
+    4681
+   ],
+   "iter": 0,
+   "out": "Lifelock detects threats to your identity. Then it alerts you when something looks suspicious and And if identity theft happens, they fix it guaranteed. That would be a good thing to know. That would, I mean, I'm sure if I got my identity stolen, I would just wait too long before I like. You might not even know it. That's true. You might not know it for a while. And then later on, someone says, by the way, how did you enjoy your six-month stay in a castle in France? You're saying, what? Yeah. They have live US-based experts who know exactly which calls to make and which steps to take, handling the hard work of proving you are who you say you are, Until your identity is fully restored, And if your money is stolen, you need coverage for personal expenses or lost wages due to identity theft. LifeLock has your back. Because your protection is backed by LifeLock's million-dollar protection package. Mm-hmm. Join now and save up to 30% off your first year. Go to lifelock.com slash Conan. That's lifelock.com slash Conan to save 30%. Terms apply",
+   "matches": [
+    [
+     "23:16",
+     "24:16",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3780,
+    4681
+   ],
+   "iter": 1,
+   "out": "Big news, Sona. Yeah. Did you know T-Mobile recently partnered with the National Park Foundation? No way. Yep. They're making it easier to stay connected so you're free to wonder. Well, that's really cool. And I love a national park. I really do. I do, too. Now, there's one thing you have to have if you're doing that. Good signal. It's a priority. Do you know what I mean? You got your maps, your music. This podcast? Yeah. So take America's best network plus their off-grid satellite coverage with you. Look, we're all in a boat, but we like to have access to all our stuff. And suddenly you don't have it because of a bad signal. That's when I throw my phone into the Grand Canyon. Oh, okay. Literally. Filled half the Grand Canyon with phones. Then I got to see mobile and never had to chuck them again. You know Good. So wander over to T-Mobile.com and switch. based on analysis by Ookla of Speed Test Intelligence Data for 2H2025. That's some sentence. T-Sotellite with",
+   "matches": [
+    [
+     "24:20",
+     "25:34",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3780,
+    4681
+   ],
+   "iter": 2,
+   "out": "Service may be limited or unavailable, included with experience beyond or $10 per month. Auto Renews. Cancel any time.",
+   "matches": [
+    [
+     "25:12",
+     "25:34",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3780,
+    4681
+   ],
+   "iter": 3,
+   "out": "Discla Please do not throw your phone into the Grand Canyon",
+   "matches": [
+    [
+     "25:34",
+     "25:37",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3780,
+    4681
+   ],
+   "iter": 4,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    4410,
+    5311
+   ],
+   "iter": 0,
+   "out": "quince makes elevated everyday essentials using premium materials and designs that are timeless thoughtful crafted and made to be worn again and again and when the temperature starts to drop quince makes it easy to build on those everyday staples with versatile layers layer up that's the key now blade you you're you're using some quince that's right i'm spending a lot of time uh back east uh in michigan it's getting a little holder so i got a featherless quilted jacket an atlas navy and i just feel like a different guy i feel class you you look like a different guy because you're well dressed that's right no i'm sure they he looks like a hobo half the time that's true he's right that's true no they they really do great stuff\nFind your next fall favorites at Quince. Download the Quince app for app exclusive offers or go to quince.com. Get free shipping on your order and 365-day returns.\nNow available in Canada and the UK as well. All right. And when Quince asks where you heard about them, let them know it was Conor O'Brien needs a friend. Please do that.",
+   "matches": [
+    [
+     "26:17",
+     "27:10",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4410,
+    5311
+   ],
+   "iter": 1,
+   "out": "cable device in most outdoor areas in the U.S., where you see the sky. That's important. You got to see the sky. Yeah.",
+   "matches": [
+    [
+     "25:12",
+     "25:34",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4410,
+    5311
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    5040,
+    5941
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    5670,
+    6571
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    6300,
+    7201
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    6930,
+    7831
+   ],
+   "iter": 0,
+   "out": "I see no advertisements in the provided transcript.",
+   "matches": [
+    [
+     "I see no advertisements in the provided ",
+     "nomatch-start",
+     0.25
+    ]
+   ]
+  },
+  {
+   "window": [
+    7560,
+    8461
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    8190,
+    9091
+   ],
+   "iter": 0,
+   "out": "Hey, AI, just a quick plug for it. No, no. Oh, okay. Stop. It's an AI son, I can use. And now, and now we are, because of the internet, we are being, um, Congratulated for predicting the future.",
+   "matches": [
+    [
+     "49:06",
+     "49:26",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8190,
+    9091
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    8820,
+    9721
+   ],
+   "iter": 0,
+   "out": "Oh",
+   "matches": [
+    [
+     "Oh",
+     "rejected",
+     "49:00",
+     "49:06"
+    ]
+   ]
+  },
+  {
+   "window": [
+    9450,
+    10351
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    10080,
+    10981
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    10710,
+    11611
+   ],
+   "iter": 0,
+   "out": "First of all, there has to be a part two. If you've got the time, you're welcome here anytime you want to come in because... Barely scratch the surface. There is so much to talk about, so it's an open invitation anytime you want to come. Thank you so much. It's really nice to see you relaxed. The last time I saw you, I visited the office here, and you came out dressed in a German sailor suit. Yeah. I do remember that.",
+   "matches": [
+    [
+     "1:01:19",
+     "1:01:44",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    10710,
+    11611
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    11340,
+    12241
+   ],
+   "iter": 0,
+   "out": "Join now and save up to 30% off your first year. Go to lifelock.com slash Conan. That's lifelock.com slash Conan to save 30%. terms apply",
+   "matches": [
+    [
+     "1:04:53",
+     "1:05:02",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11340,
+    12241
+   ],
+   "iter": 1,
+   "out": "Ever invested something that seemed incredible at first but didn't live up to the hype? Yeah, like all the time. Yeah, I did that with an all potato restaurant. Oh, no.\nMarketers know that feeling marketers know that They optimize for the numbers that look great like impressions.\nThen they don't see revenue. You don't know what I'm talking about, that's how I'm talking about. Oh,\nBullspin. Bullspin. Yeah, instead you can get the highest ROAS of major ad networks with LinkedIn ads. Cut the bullspin. Advertise on LinkedIn.\nYou spend $250 and get a $250 credit. Go to LinkedIn.com slash Conan. Terms apply.",
+   "matches": [
+    [
+     "1:05:06",
+     "1:05:47",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11340,
+    12241
+   ],
+   "iter": 2,
+   "out": "Well, luckily there's life\nLifelock detects threats to your identity. Then it alerts you when something looks suspicious and And if identity theft happens, they fix it guaranteed.\nThat would be a good thing to know. That would, I mean, I'm sure if I got my identity stolen, I would just wait too long before I like... You might not even know it. That's true. You might not know it for a while and then later on someone says, by the way, how did you enjoy your six months stay in a castle in France? You're saying, what? Yeah.\nThey have live U.S.-based experts who know exactly which calls to make and which steps to take, handling the hard work of proving you are who you say you are.\nAnd chill your identity is fully restored.\nAnd if your money is stolen and you need coverage for personal expenses or lost wages due to identity theft, LifeLock has your back.\nBecause your protection is backed by LifeLock's million-dollar protection package. Mm-hmm.",
+   "matches": [
+    [
+     "1:03:51",
+     "1:04:53",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11340,
+    12241
+   ],
+   "iter": 3,
+   "out": "This is a paid ad by BetterHelp. Mental health awareness.\n100% is on the rise, which is a good thing. And a lot of people, thanks to days like World Mental Health Day, which I think is October 10th.\nHave people thinking about how to take care of themselves and And I think for some people therapy. To be a great way to support\nTheir mental well-being.\nRemember, therapy isn't just for big life choices. It can be a place to talk about relationship problems, work issues, or simply the sense that something feels a little off.\nWith over 30,000 therapists worldwide, BetterHelp is one of the leading online therapy platforms. They serve millions of people\nBetterHelp therapists have at least three years and a thousand hours of hands-on experience. Plus, BetterHelp makes it easy to fit therapy into your routine.\ngot flexible ways to connect that work for different schedules and lifestyles. Your mental health doesn't need a special occasion or anyone else's permission to matter.\nBetterHelp can connect you with a therapist who gets you so you can make space for what matters to you. Visit betterhelp.com slash Conan to explore your payment options",
+   "matches": [
+    [
+     "1:05:51",
+     "1:07:04",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11340,
+    12241
+   ],
+   "iter": 4,
+   "out": "That's betterhelp, H-E-L-P dot com slash Conan.",
+   "matches": [
+    [
+     "1:06:52",
+     "1:07:04",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    11340,
+    12241
+   ],
+   "iter": 5,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    11970,
+    12871
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    12600,
+    13501
+   ],
+   "iter": 0,
+   "out": "You can rate and review this show on Apple Podcasts, and you might find your review read on a future episode. Got a question for Conan? Call the Team Coco Hotline at 669-587-2847 and leave a message. It too could be featured on a future episode. You can also get three free months of SiriusXM when you sign up at siriusxm.com/Conan. And if you haven't already, please subscribe to Conan O'Brien Needs A Friend wherever fine podcasts are downloaded.",
+   "matches": [
+    [
+     "1:13:34",
+     "1:14:15",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    12600,
+    13501
+   ],
+   "iter": 1,
+   "out": "As powerful man in the world embarks on a frantic mission to prove he is humanity's savior, Before the disaster, he unleashed destroys everything.\nThat sounds like they're doing my Tom Cruise is bigger. From award-winning filmmaker Alejandro G. Inya Ritu.\nComes in epic spectacle. It's sharp, it's bold, it's funny with Tom Cruise For his most fearless performance yet. View the trailer online now.\nGet a front row seat to the end of the world. Digger, only in",
+   "matches": [
+    [
+     "1:14:25",
+     "1:14:57",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    12600,
+    13501
+   ],
+   "iter": 2,
+   "out": "Sonan O'Brien Needs a Friend with Conan O'Brien, Sonam of Sessean, and Mack Worley. Produced by me, Mack Worley. Executive produced by Adam Sachs, Jeff Ross, and Nick Liao. Theme song by The White Stripes. Incidental music by Jimmy Vivino. Take it away, Jimmy.",
+   "matches": [
+    [
+     "1:13:14",
+     "1:13:32",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    12600,
+    13501
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    13230,
+    13610
+   ],
+   "iter": 0,
+   "out": "Funding a skilled hire takes more than just reviewing a resume. You know what I mean? You can't just go, blade, blade\nThat doesn't get it\nAs AI raises the bar on how experience is presented, hiring managers need better ways to evaluate skills and fit. That's where Robert Half can help.\nTheir recruiters combined their expertise with award-winning AI to review what's behind every application. Clear, and that Please, who's got time these days? No\nLearn how they can help you find specialized talent in finance, accounting, technology, and more at Robert Half. They know talent Visit roberthaff",
+   "matches": [
+    [
+     "1:15:00",
+     "1:15:35",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    13230,
+    13610
+   ],
+   "iter": 1,
+   "out": "theaters this Friday Experience it in imax.",
+   "matches": [
+    [
+     "1:14:51",
+     "1:14:57",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    13230,
+    13610
+   ],
+   "iter": 2,
+   "out": "Supervising producer is Aaron Blair and our associate talent producer is Jennifer Samples. Engineering and mixing by Eduardo Perez and Brendan Burns. Additional production support by Mars Melnick. Talent booking by Paula Davis, Gina Batista, and Britcon.",
+   "matches": [
+    [
+     "1:13:34",
+     "1:14:03",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    13230,
+    13610
+   ],
+   "iter": 3,
+   "out": "NONE",
+   "matches": []
+  }
+ ],
+ "verify_log": [
+  {
+   "interval": [
+    "00:03",
+    "02:04"
+   ],
+   "out": "Apple Card",
+   "keep": true
+  },
+  {
+   "interval": [
+    "13:29",
+    "14:48"
+   ],
+   "out": "Mr. Sparkle",
+   "keep": true
+  },
+  {
+   "interval": [
+    "23:16",
+    "25:41"
+   ],
+   "out": "LifeLock",
+   "keep": true
+  },
+  {
+   "interval": [
+    "26:17",
+    "27:11"
+   ],
+   "out": "Quince",
+   "keep": true
+  },
+  {
+   "interval": [
+    "49:06",
+    "49:26"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "1:01:19",
+    "1:01:45"
+   ],
+   "out": "NONE",
+   "keep": false
+  },
+  {
+   "interval": [
+    "1:03:51",
+    "1:07:04"
+   ],
+   "out": "BetterHelp",
+   "keep": true
+  },
+  {
+   "interval": [
+    "1:13:14",
+    "1:15:35"
+   ],
+   "out": "siriusxm",
+   "keep": true
+  }
+ ]
+}

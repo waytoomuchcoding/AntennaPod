@@ -1,0 +1,590 @@
+{
+ "episode": "dateline1",
+ "pred": [
+  [
+   "00:00",
+   "02:22"
+  ],
+  [
+   "15:11",
+   "16:46"
+  ],
+  [
+   "34:03",
+   "36:29"
+  ],
+  [
+   "49:15",
+   "51:47"
+  ],
+  [
+   "1:05:48",
+   "1:08:52"
+  ],
+  [
+   "1:31:16",
+   "1:32:37"
+  ]
+ ],
+ "gt": [
+  [
+   "00:00",
+   "01:03",
+   "ad"
+  ],
+  [
+   "15:05",
+   "16:45",
+   "ad"
+  ],
+  [
+   "34:00",
+   "36:28",
+   "ad"
+  ],
+  [
+   "49:13",
+   "51:45",
+   "ad"
+  ],
+  [
+   "1:05:46",
+   "1:08:45",
+   "ad"
+  ],
+  [
+   "1:31:16",
+   "1:31:29",
+   "self_promo"
+  ],
+  [
+   "1:31:44",
+   "1:32:37",
+   "ad"
+  ]
+ ],
+ "score": {
+  "tp": 680.7300000000002,
+  "pred": 788.3400000000008,
+  "gt": 695.0,
+  "breaks": 6,
+  "found": 6,
+  "false_alarms": 1
+ },
+ "stats": {
+  "calls": 40,
+  "in_tokens": 48879,
+  "out_tokens": 2722,
+  "seconds": 198.0
+ },
+ "wall_s": 198.1,
+ "audio_s": 5557,
+ "log": [
+  {
+   "window": [
+    0,
+    916
+   ],
+   "iter": 0,
+   "out": "When it comes to affordable, convenient, graduate education, Southern New Hampshire University delivers.\noffering career-focused master's programs, online courses with no-set class times, and some of the lowest online tuition rates in the U.S.,\nSouthern New Hampshire University makes going back to school possible. Ready to add Masters degree to your resume.\nVisit snhu.edu slash dateline to get started. That's snhu.edu.\n100 slash Dateline. With no fees or minimums on checking accounts, it's no wonder the Capital One bank guy is so passionate about\nBanking with capital one. If he were here. You wouldn't just tell you about no fees or minim\nYou'd also talk about how Capital One cafes are open seven days a week to assist with your banking needs, yep, even on weekends.\nPretty much all he talks In a good way What's in your wal Terms apply. See CapitalOne.com slash bank guy. CapitalOne NA member FDIC.",
+   "matches": [
+    [
+     "00:00",
+     "01:03",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    916
+   ],
+   "iter": 1,
+   "out": "Tonight on the season premiere of Dade Live. I tried to get them to not get married. I said, don'\nWiz told us how she was scared to death of Matt.\nKate took the kids and went to Utah to get away from Matt. Yes. I heard that Matt came in with a knife.\nShe told me that he seemed agitated. My mom heard shots. And that's laying face down She says, \"mat is dead.\" Leave me mast dead.\nWe're just trying to ask questions. What happened?\nDuring that entire conversation, mom is whispering the answers to the daughter. Like telling her what to say? Yes.\nAll moms have influence over their children. This seems to be something more. Yeah, she called all the shots. What's going on? The knife and matt's hand that looked like it was backwards. He's not a violent person, not an aggressive person.\nMist did not make sense.\nWe've seen a bunch of text messages about a neurotack. Somebody wanted to know where Matt was leading up to his killing for sure.\nI knew they lied to me I tell my mom we're at war. One deadly shooting, two families divided and",
+   "matches": [
+    [
+     "01:04",
+     "02:21",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    0,
+    916
+   ],
+   "iter": 2,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    641,
+    1557
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1282,
+    2198
+   ],
+   "iter": 0,
+   "out": "Bestelling novel. I was hired to help Verity write. Verity had a current style. She'll ever walk or talk in. Tonight, discover the truth. This place is insane. Yeah, here you are. Above Verity. She was standing right there. She can't walk. I know what I saw. Wow. Way to go to Johnson, Josh Hartnett. I feel like I'm losing my mind, mourning darkness ahead. Verity, directed by Michael Showalter, rated R, 117 out of the middle of that parrot in theaters tonight. Whoever says saving money is hard doesn't know that",
+   "matches": [
+    [
+     "15:11",
+     "15:50",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1282,
+    2198
+   ],
+   "iter": 1,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    1923,
+    2839
+   ],
+   "iter": 0,
+   "out": "the new customers you bundle and save with progressive save hundreds. Because switching your home and auto insurance...\nA better than cutting down on those ice lattes you love.\nSwitch your home and auto to progressive and see if you could save and keep Sipping away. Get your quote today at Progressive.com.\nProgressive Casualty Insurance Company, Affiliates, and Other Insurers.\nNot available in all states.",
+   "matches": [
+    [
+     "15:28",
+     "16:15",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1923,
+    2839
+   ],
+   "iter": 1,
+   "out": "This is the story of the one. As a shipping manager, he's running the dock, stocking supplies, and making sure every order goes out on time. And Grainger helps him stay prepared. From shipping supplies to PPE to hand tools, he counts on Grainger to keep products moving and trucks rolling. So his operation runs smoothly, no matter the shift. Call 1-800-GRAINGER, click Grainger.com, or just stop by. Grainger, for the ones who get it done.",
+   "matches": [
+    [
+     "16:05",
+     "16:35",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    1923,
+    2839
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    2564,
+    3480
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3205,
+    4121
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    3846,
+    4762
+   ],
+   "iter": 0,
+   "out": "IXL gives kids personalized practice.",
+   "matches": [
+    [
+     "34:03",
+     "34:12",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    3846,
+    4762
+   ],
+   "iter": 1,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    4487,
+    5403
+   ],
+   "iter": 0,
+   "out": "IXL is an award-winning online learning platform, helps kids truly understand what they're learning.\nWhether they're building mass confidence or strengthening, reading, and writing skills or reviewing science concepts. From free k to 12th grade.\nIXL offers personalized interactive learning. that adapts to each child's level of pace and learning needs.\nWhether they need more practice with a challenging concept or are ready to keep progressing. Kids can practice what they're learning in school.\nReinforce the concepts they know. And spend more time on the skills where you need extra support.\nMake an impact on your child's learning with IXL. And Dateline listeners can get an exclusive twenty percent off ixl membership\nWhen they sign up today at ixl.com slash deadline.",
+   "matches": [
+    [
+     "34:12",
+     "35:01",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4487,
+    5403
+   ],
+   "iter": 1,
+   "out": "Navigating the health care system is a full-time job.\nUnanswered questions, endless paperwork, denied claims, confusion, and runarounds. Wouldn't you rather give that job to someone else\nSolace Health takes that work off your plate. Solace advocates work for you and are covered by insurance nationwide\nYour advocate is your personal care coordinator, doctor, decoder, medical pathfinder, and coverage defender.\nThey will explain the jargon, tests and treatments, find you doctors, make appointments, fight the denials and break through the system.\nStallis handles everything from paperwork to bills so you can focus on your health. Go to solacehealth.com slash dateline to see if you qualify.\nIt takes about two minutes and it's covered by insurance. That's S-O-L-A-C-E health dot com slash dateline.\nMust be 18 or older advocates to not provide medical or legal advice whoever says saving money is hard\ndoesn't know that the new customers who bundle and save with progressive save hundreds. Because switching your home and auto insurance\nA better than cutting down on those iced lattes you love\nSwitch your home and auto to progressive and see if you could save and keep.",
+   "matches": [
+    [
+     "34:55",
+     "36:14",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4487,
+    5403
+   ],
+   "iter": 2,
+   "out": "Sipping away. Get your quote today at Progressive.com.\nProgressive Casualty Insurance Company, Affiliates, and Other Insurers. Not available in all states.",
+   "matches": [
+    [
+     "36:07",
+     "36:20",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4487,
+    5403
+   ],
+   "iter": 3,
+   "out": "The lines we're supposed to are learning in school and help strengthen important skills.",
+   "matches": [
+    [
+     "34:03",
+     "34:12",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    4487,
+    5403
+   ],
+   "iter": 4,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    5128,
+    6044
+   ],
+   "iter": 0,
+   "out": "I do not find any advertisements in this transcript.",
+   "matches": [
+    [
+     "I do not find any advertisements in this",
+     "nomatch-start",
+     0.38
+    ]
+   ]
+  },
+  {
+   "window": [
+    5769,
+    6685
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    6410,
+    7326
+   ],
+   "iter": 0,
+   "out": "There's a freedom in South Dakota. One that reminds you how travel is supposed to make you feel. No crowds, no rush, no pressure. Just the freedom to explore on your own terms. South Dakota has a way of surprising you. Five million acres of forest mountain lakes, national monuments and prairies. Get your hiking boots dirty and black hills. Chase a clear sky full of stars in the badlands or cast a line. Into the Missouri River. Craving arts and culture. South Dakota's creativity runs deep. Firing dreams as big as Mount Rushmore and Unexpected local flavors alongside Wild West roots and rich Native American heritage.\n\nTabby Funn Whatever you want it to be Kids can run ahead. Parents can slow down. Everyone can enjoy moments you never saw coming. South Dakota. Read her own. Start planning your adventure at TravelSouthDecoded.com.",
+   "matches": [
+    [
+     "49:15",
+     "50:20",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    6410,
+    7326
+   ],
+   "iter": 1,
+   "out": "Many people think a camera or video doorbell is home security.\nTruth is, those can only record a break-in. Can't stop one That's the difference with SimpliSafe\nWhen an intruder steps onto your property, SimplySafe's AI-powered cameras detect the threat and alert a live US-based agent who intervenes to stop them before they ever get to your door.\nBecause it's not just your house or valuables that you need to be worried about.\nIt's a stranger getting anywhere close to the people you love.\nJoin the more than 6 million people who entrust simply safe with their home security.\nRight now, save 60% off with professional monitoring when you visit simplysafe.com/dateline. That simply safe dot com slash dateline\nAnd when you order, please write in \"Dateline\" in the checkout survey.\nIt lets the know we sent you and it really helps support the show. Simply safe. A head of crime",
+   "matches": [
+    [
+     "50:09",
+     "51:11",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    6410,
+    7326
+   ],
+   "iter": 2,
+   "out": "In real time and extraordinary holiday starts at Paragold. The destination for luxury homes. Elevate the season with unique heirloom, quality decor, and gifts, hosting essentials, and more. From Design's Best Brands. Their largest ever selection has something for every celebration and style. 5. In-store and online. Paragold.com. Perigold Luxury this year",
+   "matches": [
+    [
+     "51:12",
+     "51:39",
+     1.0,
+     0.88
+    ]
+   ]
+  },
+  {
+   "window": [
+    6410,
+    7326
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    7051,
+    7967
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    7692,
+    8608
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    8333,
+    9249
+   ],
+   "iter": 0,
+   "out": "If you've been waiting for the right time to tackle your weight loss goals, this is it. Hers now offers access to an affordable range of FDA-approved GLP-1 medications, including the Wegovy Pill and the Wegovy Pen. With Wegovies at Hers, lose up to 20% of your body weight when combined with diet and exercise. It helps regulate appetite, eat less, and keep weight off. And as the first-ever GLP-1 pill for weight loss, there are no needles needed. Everything is 100% online. A licensed provider determines if treatment is right",
+   "matches": [
+    [
+     "1:05:48",
+     "1:06:19",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8333,
+    9249
+   ],
+   "iter": 1,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    8974,
+    9890
+   ],
+   "iter": 0,
+   "out": "for you and if prescribed medication is delivered to your door. No insurance necessary. You'll also get 24-7 care team messaging. in-app lifestyle and nutrition support, and a personalized treatment plan with unlimited dosage changes as needed. HERS offers affordable GLP-1 options to fit your needs and budget if eligible. Ready to read your goals? Visit forhers.com/Dateline to get personalized, affordable care that gets you. That's F-O-R-H-E-R-S dot com slash dateline. Weight loss by HERS is not available in all 50 states. Wagovi is the registered trademark of Novo Nordisk A-S to get started and learn more, including important safety information. Wagovi clinical study information and restrictions. Visit forhers.com.",
+   "matches": [
+    [
+     "1:05:48",
+     "1:06:48",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8974,
+    9890
+   ],
+   "iter": 1,
+   "out": "With the season's changing. Now is the perfect time to get ahead of the cold and flu season.\nBut staying prepared shouldn't mean overpaying for your prescriptions And that's where good RX comes GoodRx makes it easy to take control.\nIf you're health and with savings on preventative, cold, and flu medications and your everyday prescriptions. Who in our righ Pretty easy to use.\nYou just search for your medication on their website or app, compare prices, and Bring the free coupon to show your pharmac\nGood Rx to save it over seventy thousand local pharmacies nationwide or get prescriptions delivered right to your front door.\nRemember, good RX is not insurance, but it works whether you have insurance or not. Could beat your insurance co-pay price.\nTo save time and money in your prescriptions this season. Check out goodrx.goodrx.com slash dateline. That's goodrx.com slash dateline. Everybody hates bank fees, right?\nThat's where time comes in. They're changing the way people bank. Chime offers fee-free banking with no overdraft fees, monthly fees, or minimum balance fees.\nYou get 5% cash back on Chime Card and a category of",
+   "matches": [
+    [
+     "1:06:48",
+     "1:08:05",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8974,
+    9890
+   ],
+   "iter": 2,
+   "out": "choice, big gas or groceries. Plus.\nYou can grow your money faster with a savings rate that is nine times the national average. Um.\nMe, that you overdraft up to $200 fee-free. Join the millions who are already backing fee-free at thechime.com slash deadline. Chime.com/daytime. Sign up now.\nOnly takes a few minutes. Chime is a fintech, not a bank. Banking services and Chime card provided by Chime's bank partners.\nQualifying direct deposits required, terms and limits apply. Go to Chime.com slash disclosures. The tails",
+   "matches": [
+    [
+     "1:07:58",
+     "1:08:43",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    8974,
+    9890
+   ],
+   "iter": 3,
+   "out": "[advertisement removed]",
+   "matches": []
+  },
+  {
+   "window": [
+    9615,
+    10531
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    10256,
+    11172
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    10897,
+    11813
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    11538,
+    12454
+   ],
+   "iter": 0,
+   "out": "NONE",
+   "matches": []
+  },
+  {
+   "window": [
+    12179,
+    12954
+   ],
+   "iter": 0,
+   "out": "Rosetta Stone just came out with Rosetta Stone Sapphire. Their biggest launch in over a decade. 1 new feature in Rosetta Stone Sapphire is chat missions. Which turns conversation practice into a game. Admissions, you're put in interactive scenarios and given three objectives. And mission to accomplish by asking how much something costs Ordering a cold brew coffee. Or getting a wifi password. Well on the way you get real-time corrections and feedback to help you sound more natural and confident. It's a supportive way to build confidence before putting your language skills to use in real life. If you want to take your language goes to the next level. To try resetta stone sapphire Dateline listeners can get 20% off their Rosetta Stone Sapphire subscription when you sign up today. This gets you access to. Procede stones, affirer 45 languages. 4",
+   "matches": [
+    [
+     "1:31:46",
+     "1:32:37",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    12179,
+    12954
+   ],
+   "iter": 1,
+   "out": "And don't forget to check out our Talking Dateline podcast, which will go behind the scenes of tonight's episode, available Wednesday in the Dateline feed, wherever you get your podcasts.",
+   "matches": [
+    [
+     "1:31:16",
+     "1:31:29",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    12179,
+    12954
+   ],
+   "iter": 2,
+   "out": "[advertisement removed]\nWe'll see you again next Friday at 9, 8 Central. I'm lester holt for all of us at Nbc news. Good night",
+   "matches": [
+    [
+     "1:31:29",
+     "1:31:37",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "window": [
+    12179,
+    12954
+   ],
+   "iter": 3,
+   "out": "NONE",
+   "matches": []
+  }
+ ]
+}
