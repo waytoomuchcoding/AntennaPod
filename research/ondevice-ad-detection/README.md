@@ -647,3 +647,28 @@ instead (no LLM filter) adds intros/credits: precision 0.90, 6 false alarms. Thi
 Takeaways: on a Pixel 11 class phone, E4B copy + an EmbeddingGemma veto is the most accurate (0 false alarms in
 11.6 h). Where the LLM is unavailable or too slow (Pixel 10, background limits), EmbeddingGemma + HMM alone is
 within ~0.03–0.04 F1 of E4B at a tiny fraction of the compute, and beats E2B.
+
+### 13.7 Distillation from the E4B teacher (`fetch_extra.py`, `night.sh`, `distill.py`, `finetune.py`)
+- Data: the newest 20–90 min episode of 35 other shows (none in the labelled set), 36.1 h, downloaded 2026-10-01/02
+  (`episodes_extra.json`, empty labels in `gt_extra/`). Moonshine transcripts in ~70 min. Teacher: E4B copy6 (no
+  verify), 4.7 min LLM per audio hour, 176 breaks, 12.8% of the time marked ad (labelled set: 13.2%). Teacher
+  results (logs stripped) in `results/gemma-4-E4B-it.litertlm__moonshine__quotes_teacher/`.
+- Student = the same logistic regression + HMM, every setting picked on dev, scored on the 13 human-labelled
+  episodes:
+
+| Features | Trained on | Dev F1 (HMM) | Test F1 (HMM) | Test line AP |
+|---|---|---|---|---|
+| EmbeddingGemma | human labels, other shows (13.5) | **0.945** | **0.920** | 0.962 |
+| EmbeddingGemma | teacher labels, 35 new shows only | 0.908 | 0.850 | 0.915 |
+| EmbeddingGemma | both | 0.929 | 0.907 | 0.941 |
+| bge-small | human labels | 0.921 | 0.917 | 0.953 |
+| bge-small | teacher only / both | 0.927 / 0.936 | 0.839 / 0.861 | 0.865 / 0.917 |
+
+- **Distilled data made the linear student worse.** Not because the teacher's labels are poor: on the 13
+  labelled episodes, E4B's labels agree with the human ones on 99.5% of lines, and a student trained on them
+  (leave-one-show-out) scores 0.935 / 0.904 vs 0.945 / 0.920 (`logs/teacher_label_diag.txt`). The teacher also
+  marks 40% of self-promo lines as ad, which the human labels leave neutral. The likely cause is distribution: the 12 labelled
+  shows are closer to each other (same networks, same day's ad campaigns) than to the 35 new shows. A linear
+  model on frozen embeddings already has enough data at 13 episodes; more distant data dilutes it.
+- Next for distillation: weight human data higher, or use teacher data only to pre-train and fine-tune on human
+  labels; a fine-tuned encoder (below) is the case where more data should matter most.

@@ -41,7 +41,7 @@ pos_weight = torch.tensor((len(train) - pos) / max(pos, 1))
 
 
 def logits(a, b):
-    x = tok(a, b, truncation="only_second", max_length=192, padding=True, return_tensors="pt")
+    x = tok(a, b, truncation="longest_first", max_length=192, padding=True, return_tensors="pt")
     return head(enc(**x).last_hidden_state[:, 0]).squeeze(-1)
 
 

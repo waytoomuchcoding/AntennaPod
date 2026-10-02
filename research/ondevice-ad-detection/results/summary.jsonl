@@ -64,3 +64,4 @@
 {"precision": 0.957, "recall": 0.964, "f1": 0.96, "breaks_found": "53/54", "false_alarms": 3, "run": "gemma-4-E4B-it.litertlm__moonshine__quotes_copy6_v2_verified"}
 {"precision": 0.952, "recall": 0.924, "f1": 0.938, "breaks_found": "54/54", "false_alarms": 0, "run": "clf_egemma__moonshine__hmm_verified"}
 {"precision": 0.847, "recall": 0.971, "f1": 0.905, "breaks_found": "53/54", "false_alarms": 2, "run": "clf_egemma__moonshine__hysteresis_verified"}
+{"precision": 0.0, "recall": 0, "f1": 0, "breaks_found": "0/0", "false_alarms": 176, "run": "gemma-4-E4B-it.litertlm__moonshine__quotes_teacher"}
