@@ -625,6 +625,9 @@ instead (no LLM filter) adds intros/credits: precision 0.90, 6 false alarms. Thi
 - **EmbeddingGemma + HMM alone (no LLM): all 13 episodes F1 0.935, 54/54 breaks, 0 false alarms** (E2B copy6 +
   verify: 0.917, 4 FA). ~1 s per 4 lines on this busy VM CPU in fp32 (unoptimised; batch of line + window texts).
   HMM knobs picked on dev: alpha 1, switch 0.01, bias -1.
+- Ablation (HMM, dev / test F1): line embedding only 0.941 / 0.912 (1 FA each); 5-line window only 0.876 / 0.896;
+  window cut to 256 or 128 Matryoshka dims 0.886 / 0.910 and 0.876 / 0.889; both 0.945 / 0.920. The HMM supplies
+  most of the context, so a phone could embed only each line (5× fewer tokens) and lose little.
 - The final-layer probe is worse than a purpose-built embedding model. A mid-layer probe needs a truncated GGUF:
   `--override-kv gemma4.block_count` fails because per-layer arrays (`feed_forward_length`, …) must have 35 entries.
 - Ensembles (averaged line probabilities, HMM): EmbeddingGemma + bge-small test 0.940 / 0 FA (dev 0.937); adding
