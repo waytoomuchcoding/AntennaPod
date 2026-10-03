@@ -794,3 +794,42 @@ human-labelled episodes with the dev-picked HMM knobs:
 
 For comparison, held-out recall on the human-labelled shows: EmbeddingGemma 0.884, E4B 0.973. The classifier
 generalises to genuinely new shows with little loss; E4B stays ~5 points ahead in recall.
+
+---
+
+## 15. Session 3 (2026-10-02 afternoon): fixing disguised ads, without the LLM where possible
+
+### 15.0 What the worst misses are (`logs/worst_cases.txt`)
+Per hand-labelled break (54), ad seconds still playing — EmbeddingGemma+HMM: 24 breaks 0–2 s, 14 at 2–5 s, 2 at
+5–10 s, 5 at 10–20 s, **6 at 20–40 s, 3 at 40–64 s**; E4B copy6: 46 breaks under 5 s, worst 26 s. Both wrongly skip
+~4 min of content in 11.6 h. The bad cases are almost all the **first ad of a break when it does not sound like an
+ad**: movie/TV trailers inside true-crime shows (the "Verity" trailer in 3 Dateline episodes, a "Sheriff Country"
+promo opening Morbid) and skit-style reads (a LifeLock dialogue in Conan). The classifier catches the break only from
+the second ad on.
+
+### 15.1 Idea 1: off-topic features (`topic_feats.py`; one evaluation for everything: `eval_all.py`)
+`eval_all.py` reports, for any feature or score set: dev/test F1 (leave-one-show-out, HMM knobs on dev), breaks with
+≥20 s of ad left (of 54), and recall on the 29 unseen auto-labelled shows (model trained on all 13 episodes).
+
+| Features (logistic regression + HMM) | Dev F1 | Test F1 | ≥20 s left | Unseen recall (stretches) |
+|---|---|---|---|---|
+| EmbeddingGemma (13.5) | 0.945 | 0.920 | 8 | 0.865 (103/134) |
+| **+ episode-centred window vector** (`egemma_ctr`) | 0.942 | 0.924 | **5** | **0.902** (108/134) |
+| + novelty scalars (cosine to episode mean, previous/next ~2 min) | 0.946 | 0.926 | 8 | 0.883 |
+| + both | 0.947 | 0.926 | 5 | 0.899 |
+| *E4B copy6, for reference* | 0.967 | 0.959 | 0 | 0.917 (112/134) |
+
+Subtracting each episode's mean window embedding removes "what this show always sounds like", so a trailer in a crime
+show stands out. Needs the whole transcript first (fine for downloaded episodes). False alarms stay at 0–1.
+
+### 15.2 Idea 2: bidirectional GRU over the line sequence (`seq_model.py`)
+Linear 2304→128, BiGRU, per-line output, random 60–200 line crops, human labels only (leave-one-show-out), HMM on top.
+
+| Model (egemma_ctr features) | Dev F1 | Test F1 | ≥20 s left | Unseen recall |
+|---|---|---|---|---|
+| logistic regression (15.1) | 0.942 | 0.924 | 5 | 0.902 |
+| GRU 64, 40 epochs | 0.918 | 0.916 | 7 | 0.909 |
+| GRU 32, 15 epochs | 0.942 | 0.933 | 6 | 0.906 |
+
+A tie with the logistic regression; 13 training episodes are too few for it to learn break structure. Worth
+retrying with more labelled episodes (e.g. the auto labels as training data).
