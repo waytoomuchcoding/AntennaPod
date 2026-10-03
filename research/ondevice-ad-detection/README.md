@@ -833,3 +833,38 @@ Linear 2304→128, BiGRU, per-line output, random 60–200 line crops, human lab
 
 A tie with the logistic regression; 13 training episodes are too few for it to learn break structure. Worth
 retrying with more labelled episodes (e.g. the auto labels as training data).
+
+### 15.3 Idea 8: LLM yes/no probability per line (`llm_score.py`)
+E2B Q4_K_M on the Vulkan GPU via llama-server: 40 transcript lines are read once (KV cache), then one question per
+target line ("Is this line part of an advertisement...? Answer Yes or No."), score = P(Yes)/(P(Yes)+P(No)) from
+the first token's top log-probabilities. ~190–220 s per audio hour on this GPU (slower than copy mode here: ~70
+question tokens per line + per-request overhead). **Bug found and fixed:** top-k tokens include "Yes" and "yes";
+a dict keyed by the lower-cased token let the rare variant overwrite the likely one and inverted the scores (line
+AUC 0.19). Rerun pending.
+
+---
+
+## 16. Bulk LLM-labelled training data (owner: "500 hours, a hoard of Haiku subagents")
+No API credits, so labelling is done by Claude Haiku subagents of this session reading transcript files.
+
+- `labtools.py`: exports `lab/in/<ep>.txt` (numbered, timestamped lines) and imports the labellers'
+  `lab/out/<ep>.json` (line ranges, type ad/self_promo) into `gt_<name>/` label files. `lab/INSTRUCTIONS.md`
+  holds the labelling rules (same conventions as `gt_v2`: other-show/movie promos are ads, the show's own plugs and
+  credits are self-promo). `lab_ready.py` hands out batches and tracks assignments (`lab/assigned.txt`).
+- `bulk_shows.py`: 673 episodes from 342 shows (iTunes search over ~10 genre terms before reaching 521 h; every
+  labelled/evaluation show excluded), 20–90 min each, up to 2 per show. Hosts: podtrac 233, pdst.fm 71,
+  megaphone 42, acast 40, pscrb 38, clrtpod 28, mgln 21, libsyn 21, simplecast 18, anchor 15, buzzsprout 15, …
+- `bulk.py` (daemon, resumable): downloads two copies (two User-Agents), transcribes one with Moonshine, aligns the
+  audio of both (inserted-ad labels → `gt_auto_bulk/`), exports the labelling input, then deletes the audio.
+  At most 8 episodes ahead of transcription; downloads pause below 4 GB free disk. Log: `logs/bulk.txt`.
+
+### 16.1 Haiku calibration on the 13 human-labelled episodes (`logs/haiku_calibration.txt`)
+4 Haiku agents, 3–4 episodes each (80–120K tokens and 2.5–5.5 min per agent). Haiku labels scored against `gt_v2`:
+
+| Labeller | P | R | F1 | Breaks | FA | Ad left / content skipped per break |
+|---|---|---|---|---|---|---|
+| Claude Haiku (whole transcript, one read) | 0.927 | 0.955 | 0.941 | 53/54 | 1 | 4.6 s / 7.7 s |
+| Gemma 4 E4B copy6 (on-device) | 0.957 | 0.969 | 0.963 | 54/54 | 3 | 3.1 s / 4.4 s |
+
+Haiku is good but not better than E4B: looser edges, one missed break (daily2), over-marking in sysk1 and
+planetmoney1 (P 0.77–0.81). Usable as training labels, ideally combined with the alignment labels.

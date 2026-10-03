@@ -14,3 +14,5 @@ logs_*.txt
 __pycache__/
 logs/
 emb/
+lab/in/
+lab/out/

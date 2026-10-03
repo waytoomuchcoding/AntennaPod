@@ -72,6 +72,8 @@ def _texts_unseen(e):
 os.makedirs(OUT, exist_ok=True)
 for fold in FOLDS:
     held = [e for e in eps if show(e) in fold]
+    if all(os.path.exists(f"{OUT}/{e}.json") for e in held):      # resumable after a restart
+        continue
     pred = train([e for e in eps if show(e) not in fold])
     for e in held:
         p, _ = pred(e); json.dump([round(float(v), 4) for v in p], open(f"{OUT}/{e}.json", "w"))

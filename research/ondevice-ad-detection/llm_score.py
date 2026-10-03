@@ -27,7 +27,10 @@ def post(path, body):
 
 def p_yes(prompt):
     r = post("/completion", {"prompt": prompt, "n_predict": 1, "n_probs": 20, "temperature": 0, "cache_prompt": True})
-    lp = {t["token"].strip().lower(): t["logprob"] for t in r["completion_probabilities"][0]["top_logprobs"]}
+    lp = {}
+    for t in r["completion_probabilities"][0]["top_logprobs"]:   # "Yes"/"yes"/"YES" variants: keep the most likely
+        k = t["token"].strip().lower()
+        lp[k] = max(lp.get(k, -99.0), t["logprob"])
     y, n = lp.get("yes", -30.0), lp.get("no", -30.0)
     return 1 / (1 + math.exp(n - y)), r.get("timings", {})
 

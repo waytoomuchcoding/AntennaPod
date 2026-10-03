@@ -6,6 +6,9 @@ EPISODES = json.load(open(f"{ROOT}/episodes.json"))
 # Unlabelled distillation episodes (split "extra", fetch_extra.py); they only get empty labels in gt_extra/.
 if os.path.exists(f"{ROOT}/episodes_extra.json"):
     EPISODES.update(json.load(open(f"{ROOT}/episodes_extra.json")))
+# Bulk episodes for LLM-labelled training data (split "bulk", bulk.py); labels in gt_haiku/, gt_auto_bulk/.
+if os.path.exists(f"{ROOT}/episodes_bulk.json"):
+    EPISODES.update(json.load(open(f"{ROOT}/episodes_bulk.json")))
 
 
 def mmss(x):
