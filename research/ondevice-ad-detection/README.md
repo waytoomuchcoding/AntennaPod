@@ -868,3 +868,19 @@ No API credits, so labelling is done by Claude Haiku subagents of this session r
 
 Haiku is good but not better than E4B: looser edges, one missed break (daily2), over-marking in sysk1 and
 planetmoney1 (P 0.77–0.81). Usable as training labels, ideally combined with the alignment labels.
+
+### 16.2 Labeller choice: Gemini 3.5 Flash-Lite with the app's own prompt (`gemini_label.py`)
+Haiku subagents were stopped (too much of the owner's Claude quota per episode; a 3-run vote test was abandoned
+half way). `gemini_label.py` reproduces `AdSegmentIndexer.detectAdsInWindow` exactly (model, prompt, JSON schema,
+20-min windows every 15 min, 5 s merge) on our Moonshine transcripts instead of Gemini's own transcription (saves
+quota). Key from `~/.config/antennapod-test/gemini-api-key` (mode 600, never committed). Calibration on the 13
+human-labelled episodes (`logs/gemini_calibration.txt`), 48 calls, ~3.5 min:
+
+| Labeller | P | R | F1 | Breaks | FA | Ad left / content skipped per break |
+|---|---|---|---|---|---|---|
+| **Gemini 3.5 Flash-Lite, app prompt** | **0.987** | 0.965 | **0.976** | 53/54 | 0 | 3.6 s / **1.3 s** |
+| Gemma 4 E4B copy6 (on-device) | 0.957 | 0.969 | 0.963 | 54/54 | 3 | 3.1 s / 4.4 s |
+| Claude Haiku (subagent) | 0.927 | 0.955 | 0.941 | 53/54 | 1 | 4.6 s / 7.7 s |
+
+~15 s and ~20K input tokens per episode. Runs as a daemon (`gemini_label.py --bulk`) next to `bulk.py`, labelling
+each bulk episode as soon as its transcript exists (`gt_gemini/`); sleeps an hour when the daily quota runs out.

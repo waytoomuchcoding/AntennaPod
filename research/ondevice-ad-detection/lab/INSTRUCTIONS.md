@@ -28,7 +28,8 @@ precise, consistent boundaries matter more than speed.
   to the ad. "And we're back" belongs to the content.
 
 ## Output
-Write `lab/out/<episode>.json` (exactly this format; an episode with no ads gets an empty list):
+Write `<output dir>/<episode>.json`, where the output dir is `lab/out` unless your task names another one under
+`lab/` (exactly this format; an episode with no ads gets an empty list):
 ```json
 {"labeller": "haiku", "segments": [{"from": 0, "to": 9, "type": "ad", "what": "YouTube Premium; Link"},
                                    {"from": 412, "to": 418, "type": "self_promo", "what": "credits"}]}
@@ -37,5 +38,5 @@ Write `lab/out/<episode>.json` (exactly this format; an episode with no ads gets
 anywhere, including the very first and very last lines.
 
 ## Rules
-- Only read files under `lab/in/` and write files under `lab/out/`. Do not run commands or modify anything else.
+- Only read files under `lab/in/` and write files in your output dir. Do not run commands or modify anything else.
 - Reply with one short line per episode: `<episode>: <n> segments` (no other commentary).
