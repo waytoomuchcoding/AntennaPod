@@ -911,3 +911,21 @@ took down the agent session and all its jobs.
 Fixes: `bulk.py` runs the transcriber with `MAX_SPEECH_S=10` in its own systemd scope (`MemoryMax=4500M`,
 `MemorySwapMax=1G`) with `oom_score_adj 1000`, so an overrun only kills that transcription; heavy experiments run
 strictly one at a time after the transcription (`queue_after_bulk.sh`, log `logs/queue.txt`).
+
+### 16.5 Fine-tuned small BERT on the Gemini-labelled data (`ft_bulk.py`)
+bge-small-en-v1.5 (33M, BERT architecture), whole model fine-tuned 1 epoch on 80 bulk episodes only (28,035 lines,
+Gemini ∪ alignment labels, no human labels; 3,972 s on 6 CPU threads with transcription stopped, peak ~3.5 GB RSS),
+scored on the 13 human-labelled and 29 unseen episodes (none of their shows in training). `eval_all.py` metrics:
+
+| Model | Labels | Dev F1 | Test F1 | ≥20 s left | Unseen recall | Line AP dev / test |
+|---|---|---|---|---|---|---|
+| **bge-small fine-tuned** | 80 bulk (Gemini) | 0.922 | **0.915** (23/23, 1 FA) | 7 | 0.885 | 0.967 / 0.948 |
+| same, dynamic int8 | 80 bulk (Gemini) | 0.917 | 0.879 (23/23, 2 FA) | 9 | 0.886 | 0.967 / 0.940 |
+| bge-small fine-tuned (13.7) | 35 shows (E4B) | 0.926 | 0.851 | – | – | – / 0.936 |
+| EmbeddingGemma + LR | 80 bulk (Gemini) | 0.895 | 0.876 | 12 | 0.867 | |
+| EmbeddingGemma + LR (best so far) | 13 human eps | 0.941 | 0.921 | 5 | 0.897 | |
+
+Fine-tuning uses the larger machine-labelled set where a linear model on frozen embeddings could not, and Gemini
+labels beat E4B labels as teacher. Without any human labels it comes within ~0.01 F1 of the human-trained
+EmbeddingGemma classifier. Inference: 29 ms/line fp32, 14 ms/line dynamic int8 on this CPU (~6 s per audio hour).
+Quick dynamic quantisation costs some held-out F1; static/QAT export for the phone should be tested.
