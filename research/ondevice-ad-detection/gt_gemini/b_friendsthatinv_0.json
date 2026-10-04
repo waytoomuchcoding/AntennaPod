@@ -1,0 +1,1 @@
+{"duration": 1561.01, "labeller": "gemini-3.5-flash-lite", "usage": {"in": 10247, "out": 220, "calls": 2}, "segments": [{"s": "00:00", "e": "01:16", "type": "ad"}, {"s": "14:44", "e": "15:38", "type": "ad"}, {"s": "25:17", "e": "25:35", "type": "self_promo"}, {"s": "25:35", "e": "26:01", "type": "ad"}]}

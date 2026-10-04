@@ -29,16 +29,16 @@ def make_recognizer(name, threads):
     raise ValueError(name)
 
 
-def main(model, wav, out, threads=6, limit_s=None):
+def main(model, wav, out, threads=6, limit_s=None, start_s=0.0):
     samples, sr = sf.read(wav, dtype="float32")
     assert sr == 16000
-    if limit_s:
-        samples = samples[: int(limit_s * sr)]
+    off = int(float(start_s) * sr)            # transcribe [start_s, start_s + limit_s); timestamps stay absolute
+    samples = samples[off: off + int(float(limit_s) * sr)] if limit_s else samples[off:]
     rec = make_recognizer(model, threads)
     cfg = sherpa_onnx.VadModelConfig()
     cfg.silero_vad.model = A + "silero_vad.onnx"
     cfg.silero_vad.min_silence_duration = 0.25
-    cfg.silero_vad.max_speech_duration = 20 if not model.startswith("whisper") else 28
+    cfg.silero_vad.max_speech_duration = float(os.environ.get("MAX_SPEECH_S", 20 if not model.startswith("whisper") else 28))
     cfg.sample_rate = sr
     vad = sherpa_onnx.VoiceActivityDetector(cfg, buffer_size_in_seconds=120)
     t0 = time.time()
@@ -52,7 +52,7 @@ def main(model, wav, out, threads=6, limit_s=None):
             rec.decode_stream(st)
             text = st.result.text.strip()
             if text:
-                segs.append({"t": round(seg.start / sr, 2), "e": round((seg.start + len(seg.samples)) / sr, 2),
+                segs.append({"t": round((off + seg.start) / sr, 2), "e": round((off + seg.start + len(seg.samples)) / sr, 2),
                              "text": text})
             vad.pop()
 
@@ -73,4 +73,4 @@ def main(model, wav, out, threads=6, limit_s=None):
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4]) if len(sys.argv) > 4 else 6,
-         float(sys.argv[5]) if len(sys.argv) > 5 else None)
+         float(sys.argv[5]) if len(sys.argv) > 5 else None, float(sys.argv[6]) if len(sys.argv) > 6 else 0.0)

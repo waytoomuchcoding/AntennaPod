@@ -14,8 +14,26 @@ FEAT = sys.argv[1]
 H = int(sys.argv[2]) if len(sys.argv) > 2 else 64
 EPOCHS = int(sys.argv[3]) if len(sys.argv) > 3 else 40
 OUT = f"embp_seq/{FEAT}_gru{H}_e{EPOCHS}"
-torch.manual_seed(1); torch.set_num_threads(6)
+torch.manual_seed(1); torch.set_num_threads(3)
 E = {e: np.load(f"emb/{FEAT}/{e}.npy") for e in list(eps) + eval_all.UNSEEN}
+# BULK=N adds N Gemini-labelled bulk episodes (labels as in train_bulk.py, union with alignment) to every
+# training set; FEAT must then have their features (egemma_q8_ctr does).
+BULK = []
+if os.environ.get("BULK"):
+    import adtest
+    for e in sorted(f[:-5] for f in os.listdir("gt_gemini") if f.startswith("b_")):
+        if len(BULK) >= int(os.environ["BULK"]) or not os.path.exists(f"emb/{FEAT}/{e}.npy"):
+            continue
+        lines = adtest.load_lines("moonshine", e)
+        seg = [(adtest.mmss(s["s"]), adtest.mmss(s["e"]), s["type"]) for s in json.load(open(f"gt_gemini/{e}.json"))["segments"]]
+        if os.path.exists(f"gt_auto_bulk/{e}.json"):
+            seg += [(adtest.mmss(s["s"]), adtest.mmss(s["e"]), "ad") for s in json.load(open(f"gt_auto_bulk/{e}.json"))["segments"]]
+        mid = [(l["t"] + l["e"]) / 2 for l in lines]
+        eps[e] = {"y": np.array([any(a <= m <= b for a, b, t in seg if t == "ad") for m in mid]),
+                  "neu": np.array([any(a <= m <= b for a, b, t in seg if t != "ad") for m in mid])}
+        E[e] = np.load(f"emb/{FEAT}/{e}.npy"); BULK.append(e)
+    OUT += f"_bulk{len(BULK)}"
+LABELLED = [e for e in eps if e not in BULK]
 
 
 class Net(torch.nn.Module):
@@ -52,10 +70,10 @@ def train(names):
 
 
 os.makedirs(OUT, exist_ok=True)
-for held in eps:
-    f = train([e for e in eps if group_of(e) != group_of(held)])
+for held in LABELLED:
+    f = train([e for e in LABELLED if group_of(e) != group_of(held)] + BULK)
     json.dump([round(float(v), 4) for v in f(E[held])], open(f"{OUT}/{held}.json", "w"))
-f = train(list(eps))
+f = train(LABELLED + BULK)
 for e in eval_all.UNSEEN:
     json.dump([round(float(v), 4) for v in f(E[e])], open(f"{OUT}/{e}.json", "w"))
 print(OUT)

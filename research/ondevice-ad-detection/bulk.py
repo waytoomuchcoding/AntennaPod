@@ -105,8 +105,14 @@ while finished < len(todo):
         t0 = time.time()
         tx = f"{ROOT}/tx/moonshine/{e}.jsonl"
         if not os.path.exists(tx):
-            subprocess.run([f"{ROOT}/venv/bin/python", f"{ROOT}/transcribe.py", "moonshine", f"wav/{e}.wav",
+            # Moonshine (onnxruntime) peaks at ~4.6 GB with 20 s speech segments, ~3.8 GB with 10 s; this VM has
+            # 5.9 GB. Run it in its own memory-capped scope and make it the OOM killer's first choice, so an
+            # overrun kills only this episode's transcription, never the session (README 16.4).
+            subprocess.run(["systemd-run", "--user", "--scope", "-q", "-p", "MemoryMax=4500M", "-p", "MemorySwapMax=1G",
+                            "choom", "-n", "1000", "--",
+                            f"{ROOT}/venv/bin/python", f"{ROOT}/transcribe.py", "moonshine", f"wav/{e}.wav",
                             f"tx/moonshine/{e}.jsonl.part", str(THREADS)], cwd=ROOT, check=True,
+                           env=dict(os.environ, MAX_SPEECH_S="10"),
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             os.replace(tx + ".part", tx)
         a = audio_align.envelope(f"{ROOT}/wav/{e}.wav")

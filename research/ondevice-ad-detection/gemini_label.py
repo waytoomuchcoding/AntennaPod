@@ -70,7 +70,7 @@ def generate(prompt):
             return json.loads(text), r.get("usageMetadata", {})
         except urllib.error.HTTPError as ex:
             msg = ex.read().decode(errors="replace")[:400]
-            if ex.code == 429 and ("PerDay" in msg or "per day" in msg.lower()):
+            if ex.code == 429 and ("PerDay" in msg or "per day" in msg.lower() or "exceeded your current quota" in msg):
                 raise QuotaExhausted(msg)
             if ex.code in (429, 500, 503) and attempt < 5:
                 time.sleep(30 * (attempt + 1)); continue

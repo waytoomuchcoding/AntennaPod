@@ -884,3 +884,30 @@ human-labelled episodes (`logs/gemini_calibration.txt`), 48 calls, ~3.5 min:
 
 ~15 s and ~20K input tokens per episode. Runs as a daemon (`gemini_label.py --bulk`) next to `bulk.py`, labelling
 each bulk episode as soon as its transcript exists (`gt_gemini/`); sleeps an hour when the daily quota runs out.
+
+### 16.3 More (Gemini-labelled) data for the linear classifier (`train_bulk.py`, first 80 bulk episodes, 66 h)
+EmbeddingGemma Q8_0 features (GPU), episode-centred, logistic regression + HMM; `eval_all.py` metrics.
+
+| Trained on | Dev F1 | Test F1 | ≥20 s left | Unseen recall |
+|---|---|---|---|---|
+| 13 human-labelled episodes | **0.941** | **0.921** | **5** | **0.897** |
+| human + 80 bulk (Gemini labels) | 0.910 | 0.896 | 11 | 0.887 |
+| 80 bulk only | 0.895 | 0.876 | 12 | 0.867 |
+| human + 80 bulk (Gemini ∪ alignment labels) | 0.924 | 0.919 | 10 | 0.869 |
+| 80 bulk only (union labels) | 0.908 | 0.897 | 8 | 0.867 |
+
+More machine-labelled data from other shows does not help the linear classifier (same as the E4B distillation in
+13.7). Gemini covers only 82% of the alignment-detected inserted-ad time in the bulk episodes (399/536 stretches;
+its recall on the 13 human-labelled episodes is 0.965), and bulk episodes have fewer ad lines (7% vs 13%). Next:
+the sequence model, which looked data-limited (15.2), queued after the bulk transcription.
+
+### 16.4 Why the session kept restarting: out-of-memory kills (owner spotted it)
+`dmesg`: repeated `Out of memory: Killed process ... (python)` on the 5.9 GB VM, with swap 2+ GB full. The Moonshine
+transcriber (sherpa-onnx / onnxruntime) alone peaks at **~4.6 GB** (610 MB after loading; memory grows with each
+decoded segment until it plateaus; independent of thread count and of total audio length, 10 min ≈ 30 min). With
+10 s instead of 20 s maximum speech segments (`MAX_SPEECH_S=10`) the peak is ~3.8 GB at the same speed. Every
+experiment run next to it (GPU embedding server, training, evaluation) pushed the VM into the OOM killer, which also
+took down the agent session and all its jobs.
+Fixes: `bulk.py` runs the transcriber with `MAX_SPEECH_S=10` in its own systemd scope (`MemoryMax=4500M`,
+`MemorySwapMax=1G`) with `oom_score_adj 1000`, so an overrun only kills that transcription; heavy experiments run
+strictly one at a time after the transcription (`queue_after_bulk.sh`, log `logs/queue.txt`).
