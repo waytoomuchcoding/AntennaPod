@@ -43,8 +43,6 @@ public class FeedMedia implements Playable {
     private String mimeType;
     @Nullable private volatile FeedItem item;
     private Date lastPlayedTimeHistory;
-    private int startPosition = -1;
-    private int playedDurationWhenStarted;
 
     // if null: unknown, will be checked
     private Boolean hasEmbeddedPicture;
@@ -78,7 +76,6 @@ public class FeedMedia implements Playable {
         this.duration = duration;
         this.position = position;
         this.playedDuration = playedDuration;
-        this.playedDurationWhenStarted = playedDuration;
         this.size = size;
         this.mimeType = mimeType;
         this.lastPlayedTimeHistory = lastPlayedTimeHistory == null
@@ -187,12 +184,8 @@ public class FeedMedia implements Playable {
         return playedDuration;
     }
 
-    public int getPlayedDurationWhenStarted() {
-        return playedDurationWhenStarted;
-    }
-
-    public void setPlayedDuration(int playedDuration) {
-        this.playedDuration = playedDuration;
+    public void incrementPlayedDuration(int milliseconds) {
+        this.playedDuration += milliseconds;
     }
 
     public int getPosition() {
@@ -206,9 +199,6 @@ public class FeedMedia implements Playable {
 
     public void setPosition(int position) {
         this.position = position;
-        if (position > 0 && item != null && item.isNew()) {
-            this.item.setPlayed(false);
-        }
     }
 
     public long getSize() {
@@ -359,10 +349,6 @@ public class FeedMedia implements Playable {
         return downloadUrl;
     }
 
-    public int getStartPosition() {
-        return startPosition;
-    }
-
     @Override
     public Date getPubDate() {
         if (item == null) {
@@ -407,12 +393,6 @@ public class FeedMedia implements Playable {
 
     public void setItemId(long id) {
         itemID = id;
-    }
-
-    @Override
-    public void onPlaybackStart() {
-        startPosition = Math.max(position, 0);
-        playedDurationWhenStarted = playedDuration;
     }
 
     @Override
