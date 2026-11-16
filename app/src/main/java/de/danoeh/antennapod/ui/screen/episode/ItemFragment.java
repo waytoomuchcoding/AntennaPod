@@ -309,6 +309,7 @@ public class ItemFragment extends Fragment {
                     AdSegmentIndexWorker.getProgress(media.getId())));
         } else if (segments != null && segments.isEmpty()) {
             viewBinding.txtvAdStatus.setText(R.string.ad_status_none);
+            viewBinding.txtvAdStatus.setOnClickListener(v -> AdBreaksDialog.show(requireContext(), media));
         } else if (segments != null) {
             long adDuration = 0;
             for (AdSegment segment : segments) {

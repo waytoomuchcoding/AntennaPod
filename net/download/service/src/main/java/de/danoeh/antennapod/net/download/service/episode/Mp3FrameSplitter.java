@@ -41,6 +41,18 @@ public class Mp3FrameSplitter {
      */
     @NonNull
     public static List<Chunk> split(@NonNull File file, long chunkMs) throws IOException {
+        return splitRange(file, 0, Long.MAX_VALUE, chunkMs, MIN_FRAMES);
+    }
+
+    @NonNull
+    public static List<Chunk> splitRange(@NonNull File file, long rangeStartMs, long rangeEndMs, long chunkMs)
+            throws IOException {
+        return splitRange(file, rangeStartMs, rangeEndMs, chunkMs, 10);
+    }
+
+    @NonNull
+    private static List<Chunk> splitRange(@NonNull File file, long rangeStartMs, long rangeEndMs,
+                                          long chunkMs, int minFrames) throws IOException {
         List<Chunk> chunks = new ArrayList<>();
         try (InputStream in = new BufferedInputStream(new FileInputStream(file), 65536)) {
             long pos = skipId3(in);
@@ -49,7 +61,7 @@ public class Mp3FrameSplitter {
             double chunkStartMs = 0;
             double timeMs = 0;
             int frames = 0;
-            while (true) {
+            while (timeMs < rangeEndMs) {
                 in.mark(4);
                 if (readFully(in, header) < 4) {
                     break;
@@ -63,35 +75,47 @@ public class Mp3FrameSplitter {
                     pos++;
                     continue;
                 }
-                if (chunkByteStart < 0) {
-                    chunkByteStart = pos;
-                }
-                frames++;
-                timeMs += getFrameDurationMs(header);
-                long toSkip = frameLength - 4;
-                while (toSkip > 0) {
-                    long skipped = in.skip(toSkip);
-                    if (skipped <= 0) {
-                        break;
-                    }
-                    toSkip -= skipped;
-                }
-                pos += frameLength;
-                if (timeMs - chunkStartMs >= chunkMs) {
-                    chunks.add(new Chunk(chunkByteStart, pos, Math.round(chunkStartMs), Math.round(timeMs)));
+                double frameDuration = getFrameDurationMs(header);
+                boolean inRange = timeMs + frameDuration > rangeStartMs;
+                if (inRange && chunkByteStart < 0) {
                     chunkByteStart = pos;
                     chunkStartMs = timeMs;
                 }
+                frames++;
+                timeMs += frameDuration;
+                skipBytes(in, frameLength - 4L);
+                pos += frameLength;
+                if (inRange && timeMs - chunkStartMs >= chunkMs) {
+                    chunks.add(new Chunk(chunkByteStart, pos, Math.round(chunkStartMs), Math.round(timeMs)));
+                    chunkByteStart = -1;
+                }
             }
             if (chunkByteStart >= 0 && pos > chunkByteStart && timeMs > chunkStartMs) {
-                chunks.add(new Chunk(chunkByteStart, Math.min(pos, file.length()),
-                        Math.round(chunkStartMs), Math.round(timeMs)));
+                long endByte = Math.min(pos, file.length());
+                long endTime = Math.round(timeMs);
+                if (rangeEndMs < Long.MAX_VALUE && !chunks.isEmpty() && timeMs - chunkStartMs < chunkMs / 2.0) {
+                    Chunk last = chunks.get(chunks.size() - 1);
+                    chunks.set(chunks.size() - 1, new Chunk(last.byteStart, endByte, last.startMs, endTime));
+                } else {
+                    chunks.add(new Chunk(chunkByteStart, endByte, Math.round(chunkStartMs), endTime));
+                }
             }
-            if (frames < MIN_FRAMES) {
+            if (frames < minFrames) {
                 chunks.clear();
             }
         }
         return chunks;
+    }
+
+    private static void skipBytes(InputStream in, long count) throws IOException {
+        long toSkip = count;
+        while (toSkip > 0) {
+            long skipped = in.skip(toSkip);
+            if (skipped <= 0) {
+                break;
+            }
+            toSkip -= skipped;
+        }
     }
 
     private static long skipId3(InputStream in) throws IOException {

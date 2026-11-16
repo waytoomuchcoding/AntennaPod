@@ -7,6 +7,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import de.danoeh.antennapod.R;
 import de.danoeh.antennapod.model.feed.AdSegment;
 import de.danoeh.antennapod.model.feed.FeedMedia;
+import de.danoeh.antennapod.net.download.service.episode.AdSegmentIndexWorker;
 import de.danoeh.antennapod.storage.database.DBWriter;
 
 import java.util.ArrayList;
@@ -20,6 +21,10 @@ public class AdBreaksDialog {
         List<AdSegment> segments = media.getAdSegments();
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context)
                 .setTitle(R.string.ad_breaks);
+        if (media.localFileAvailable() && !AdSegmentIndexWorker.isIndexing(media.getId())) {
+            builder.setNeutralButton(R.string.ad_breaks_redetect,
+                    (dialog, which) -> AdSegmentIndexWorker.detectAds(context, media));
+        }
         if (segments == null || segments.isEmpty()) {
             builder.setMessage(segments == null ? R.string.ad_breaks_not_indexed : R.string.ad_breaks_none)
                     .setPositiveButton(android.R.string.ok, null)

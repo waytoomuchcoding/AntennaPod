@@ -277,7 +277,7 @@ public class AdSegmentIndexer {
         return Long.parseLong(matcher.group(1)) * 60 + Long.parseLong(matcher.group(2));
     }
 
-    private static String getUploadMimeType(File file, @Nullable String mimeType) {
+    static String getUploadMimeType(File file, @Nullable String mimeType) {
         if (mimeType != null && mimeType.startsWith("audio/")) {
             return mimeType;
         }
@@ -296,7 +296,7 @@ public class AdSegmentIndexer {
         return "audio/mpeg";
     }
 
-    private JSONObject upload(File file, long byteStart, long byteEnd, String mimeType)
+    JSONObject upload(File file, long byteStart, long byteEnd, String mimeType)
             throws IOException, JSONException {
         long length = byteEnd - byteStart;
         JSONObject metadata = new JSONObject().put("file", new JSONObject().put("display_name", file.getName()));
@@ -369,7 +369,7 @@ public class AdSegmentIndexer {
         }
     }
 
-    private JSONObject waitUntilActive(JSONObject uploadedFile)
+    JSONObject waitUntilActive(JSONObject uploadedFile)
             throws IOException, JSONException, InterruptedException {
         for (int i = 0; i < 300 && "PROCESSING".equals(uploadedFile.optString("state")); i++) {
             Thread.sleep(2000);
@@ -391,7 +391,7 @@ public class AdSegmentIndexer {
         return uploadedFile;
     }
 
-    private void deleteUploadedFile(String name) {
+    void deleteUploadedFile(String name) {
         Request request = new Request.Builder()
                 .url(BASE_URL + "/v1beta/" + name)
                 .header("x-goog-api-key", apiKey)
