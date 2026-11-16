@@ -61,4 +61,17 @@ public class Mp3FrameSplitterTest {
         }
         assertTrue(Mp3FrameSplitter.split(file, 10_000).isEmpty());
     }
+
+    @Test
+    public void testSplitRange() throws IOException {
+        File file = createMp3(2000);
+        List<Mp3FrameSplitter.Chunk> sub = Mp3FrameSplitter.splitRange(file, 10_000, 22_000, 3_000);
+        assertEquals(4, sub.size());
+        assertTrue(Math.abs(sub.get(0).startMs - 10_000) < 40);
+        assertTrue(Math.abs(sub.get(sub.size() - 1).endMs - 22_000) < 40);
+        for (int i = 1; i < sub.size(); i++) {
+            assertEquals(sub.get(i - 1).byteEnd, sub.get(i).byteStart);
+            assertEquals(sub.get(i - 1).endMs, sub.get(i).startMs);
+        }
+    }
 }

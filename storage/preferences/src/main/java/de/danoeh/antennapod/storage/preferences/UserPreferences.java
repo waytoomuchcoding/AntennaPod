@@ -95,6 +95,9 @@ public abstract class UserPreferences {
     public static final String PREF_STREAM_OVER_DOWNLOAD = "prefStreamOverDownload";
     public static final String PREF_AD_SKIPPING = "prefAdSkipping";
     public static final String PREF_GEMINI_API_KEY = "prefGeminiApiKey";
+    public static final String PREF_AD_DETECTION_MODEL = "prefAdDetectionModel";
+    public static final String AD_MODEL_FLASH_LITE = "gemini-3.5-flash-lite";
+    public static final String AD_MODEL_DECISION_1 = "gemini-decision-1";
     public static final String PREF_AD_SKIP_SELF_PROMOS = "prefAdSkipSelfPromos";
     public static final String PREF_AD_SKIP_DELAY = "prefAdSkipDelay";
     private static final String PREF_SKIPPED_AD_TIME = "prefSkippedAdTime";
@@ -590,6 +593,10 @@ public abstract class UserPreferences {
 
     public static String getGeminiApiKey() {
         return prefs.getString(PREF_GEMINI_API_KEY, "").trim();
+    }
+
+    public static String getAdDetectionModel() {
+        return prefs.getString(PREF_AD_DETECTION_MODEL, AD_MODEL_FLASH_LITE);
     }
 
     public static boolean shouldSkipSelfPromos() {

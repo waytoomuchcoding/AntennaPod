@@ -55,6 +55,13 @@
                 android:summary="@string/pref_gemini_api_key_sum"
                 android:title="@string/pref_gemini_api_key_title"
                 search:ignore="true" />
+        <de.danoeh.antennapod.ui.preferences.preference.MaterialListPreference
+                android:defaultValue="gemini-3.5-flash-lite"
+                android:dependency="prefAdSkipping"
+                android:entries="@array/ad_detection_model_options"
+                android:entryValues="@array/ad_detection_model_values"
+                android:key="prefAdDetectionModel"
+                android:title="@string/pref_ad_detection_model_title"/>
         <SwitchPreferenceCompat
                 android:defaultValue="true"
                 android:dependency="prefAdSkipping"

@@ -55,7 +55,33 @@ public class PlaybackPreferencesFragment extends AnimatedPreferenceFragment {
             findPreference(UserPreferences.PREF_UNPAUSE_ON_BLUETOOTH_RECONNECT).setVisible(false);
         }
 
+        buildAdDetectionModelPreference();
         buildEnqueueLocationPreference();
+    }
+
+    private void buildAdDetectionModelPreference() {
+        final Resources res = requireActivity().getResources();
+        final Map<String, String> options = new ArrayMap<>();
+        String[] keys = res.getStringArray(R.array.ad_detection_model_values);
+        String[] values = res.getStringArray(R.array.ad_detection_model_options);
+        for (int i = 0; i < keys.length; i++) {
+            options.put(keys[i], values[i]);
+        }
+
+        ListPreference pref = requirePreference(UserPreferences.PREF_AD_DETECTION_MODEL);
+        String currentLabel = options.get(pref.getValue());
+        pref.setSummary(res.getString(R.string.pref_ad_detection_model_sum,
+                currentLabel != null ? currentLabel : values[0]));
+
+        pref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if (!(newValue instanceof String)) {
+                return false;
+            }
+            String label = options.get((String) newValue);
+            pref.setSummary(res.getString(R.string.pref_ad_detection_model_sum,
+                    label != null ? label : values[0]));
+            return true;
+        });
     }
 
     private void buildEnqueueLocationPreference() {

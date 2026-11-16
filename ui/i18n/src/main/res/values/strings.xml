@@ -494,6 +494,10 @@
     <string name="pref_ad_skipping_sum">Detect ads in downloaded episodes using Gemini and skip over them during playback</string>
     <string name="pref_gemini_api_key_title">Gemini API key</string>
     <string name="pref_gemini_api_key_sum">API key used to detect ads in downloaded episodes</string>
+    <string name="pref_ad_detection_model_title">Ad detection model</string>
+    <string name="pref_ad_detection_model_sum">Detect ad breaks using: %1$s</string>
+    <string name="ad_detection_model_flash_lite">Gemini 3.5 Flash-Lite (transcript, precise)</string>
+    <string name="ad_detection_model_decision_1">Gemini Decision 1 (fast segment Q&amp;A)</string>
     <string name="pref_ad_skip_self_promos_title">Skip show promos</string>
     <string name="pref_ad_skip_self_promos_sum">Also skip the podcast\'s promotions for its own shows, merchandise and memberships</string>
     <string name="pref_ad_skip_delay_title">Ad skip delay</string>
@@ -502,6 +506,7 @@
     <string name="ad_skipped">Skipped ad (%1$s)</string>
     <string name="ad_skipped_self_promo">Skipped show promo (%1$s)</string>
     <string name="ad_breaks">Ad breaks</string>
+    <string name="ad_breaks_redetect">Re-detect</string>
     <string name="ad_breaks_none">No ads were detected in this episode</string>
     <string name="ad_breaks_not_indexed">This episode has not been checked for ads yet</string>
     <string name="ad_break_type_ad">Ad</string>
