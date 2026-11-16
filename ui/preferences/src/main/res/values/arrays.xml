@@ -94,6 +94,16 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="ad_detection_model_options">
+        <item>@string/ad_detection_model_flash_lite</item>
+        <item>@string/ad_detection_model_decision_1</item>
+    </string-array>
+
+    <string-array name="ad_detection_model_values">
+        <item>gemini-3.5-flash-lite</item>
+        <item>gemini-decision-1</item>
+    </string-array>
+
     <string-array name="ad_skip_delay_values">
         <item>0</item>
         <item>1</item>

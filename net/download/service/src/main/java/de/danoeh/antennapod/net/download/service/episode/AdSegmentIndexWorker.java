@@ -230,17 +230,27 @@ public class AdSegmentIndexWorker extends Worker {
         List<AdSegment> segments;
         try {
             showProgressNotification(media, 0);
-            AdSegmentIndexer indexer = new AdSegmentIndexer(AntennapodHttpClient.getHttpClient(), apiKey,
-                    getApplicationContext().getCacheDir());
-            indexer.setProgressListener(percent -> {
+            AdSegmentIndexer.ProgressListener progressListener = percent -> {
                 PROGRESS.put(media.getId(), percent);
                 showProgressNotification(media, percent);
                 if (media.getItem() != null) {
                     EventBus.getDefault().post(new FeedItemEvent(Collections.singletonList(media.getItem()), false));
                 }
-            });
-            segments = indexer.index(new File(media.getLocalFileUrl()), media.getMimeType(), media.getDuration(),
-                            media.getEpisodeTitle(), media.getFeedTitle());
+            };
+            File mediaFile = new File(media.getLocalFileUrl());
+            if (UserPreferences.AD_MODEL_DECISION_1.equals(UserPreferences.getAdDetectionModel())) {
+                DecisionAdSegmentIndexer indexer = new DecisionAdSegmentIndexer(
+                        AntennapodHttpClient.getHttpClient(), apiKey, getApplicationContext().getCacheDir());
+                indexer.setProgressListener(progressListener);
+                segments = indexer.index(mediaFile, media.getMimeType(), media.getDuration(),
+                        media.getEpisodeTitle(), media.getFeedTitle());
+            } else {
+                AdSegmentIndexer indexer = new AdSegmentIndexer(AntennapodHttpClient.getHttpClient(), apiKey,
+                        getApplicationContext().getCacheDir());
+                indexer.setProgressListener(progressListener);
+                segments = indexer.index(mediaFile, media.getMimeType(), media.getDuration(),
+                        media.getEpisodeTitle(), media.getFeedTitle());
+            }
             FeedMedia currentMedia = DBReader.getFeedMedia(media.getId());
             if (currentMedia == null || !currentMedia.localFileAvailable()) {
                 return Result.failure();
